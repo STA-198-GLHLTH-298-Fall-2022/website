@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Paradoxes and Fallacies</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Back to Website" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Paradoxes and Fallacies
+## <br><br> Introduction to Global Health Data Science
+### <a href="https://sta198f2021.github.io/website/">Back to Website</a>
+### <br> Prof. Amy Herring
+
+---
+
+
+
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="https://sta198f2021.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+
+
+
+
+
+
+
+class: middle
+
+# Berkson's Fallacy
+
+---
+
+## Berkson's Fallacy
+
+.pull-left[
+Due to ease of data collection, a restricted sample is often used to test a hypothesis of interest.  We illustrate a common problem with this approach.
+
+Researchers are interested in the special population of HIV+ women on antiretroviral therapy in sub-Saharan Africa.  They would like to know whether in this population, a new pregnancy is related to the probability of having an AIDS-defining event.
+
+]
+
+.pull-right[
+In order to test their hypothesis, they recruit women from a large network of health care clinics and find the following.
+
+| | AIDS | No AIDS | Total |
+|:-----|------:|------:|-----:|
+| Pregnant | 31 | 44 | 75 |
+| Not pregnant | 124 | 99 | 223 |
+| Total | 155 | 143 | 298 |
+
+The estimated `\(\widehat{OR}\)` and 95% CI are `\(\frac{31 \times 99}{44 \times 124}\)` = 0.56 (0.32, 0.99). Should HIV+ women on antiretroviral therapy try to get pregnant to prevent an AIDS-defining event?
+]
+
+---
+
+## Berkson's Fallacy
+
+Now we consider all HIV+ women in the area, not just those who visited a health clinic during the study period.
+
+| | AIDS | No AIDS | Total |
+|:-----|------:|------:|-----:|
+| Pregnant | 44 | 175 | 219 |
+| Not pregnant | 248 | 990 | 1238 |
+| Total | 292 | 1165 | 1457 |
+
+Their estimated `\(\widehat{OR}\)` and 95% CI are `\(\frac{44 \times 990}{175 \times 248}\)` = 1.00 (0.68, 1.44).  What happened?
+
+---
+
+## Berkson's Fallacy
+
+The bias in the clinic-based sample comes from the fact that not all HIV+ women are equally likely to visit a health clinic.  
+
+| Diagnosis | \# with Clinic Visit | Total Women | Pr(Visit) |
+|:-------|----:|----:|----:|
+| Pregnant+AIDS | 31 | 44 | `\(\frac{31}{44}=0.70\)` |
+| Pregnant Only | 44 | 175 | 0.25 |
+| AIDS Only | 124 | 248 | 0.50 |
+| Neither | 99 | 990 | 0.10 |
+
+The observed spurious relationship, observed only because of how we chose the sample, is called *Berkson's fallacy* and is often a danger with clinic- or hospital-based samples.
+
+---
+
+class: middle
+
+# Simpson's Paradox
+
+---
+
+## Multiple Contingency Tables
+
+Previously we talked about how to analyze data from r `\(\times\)` c tables to quantify a potential association between two factors.  We will continue with this concept but now concentrate on the relationship between two factors in the presence of a third factor. 
+
+When might this be of interest?
+
+  - We have a 2 `\(\times\)` 2 table at each site in a multi-site study
+  
+  - We wish to combine results of several published studies in a meta-analysis
+  
+  - The value of a third factor affects our estimates of the association between two factors 
+  
+---
+
+## Combining Multiple Tables
+
+Sometimes, the presence of a third factor can affect the relationship between the two factors of interest.  We will discuss how to proceed in the presence of a third factor, and in particular will examine the consequences of aggregrating (or not aggregating) data over levels of a third factor.  (Note:  whether or not to aggregate often depends on your subject matter knowledge as much as on statistical considerations)
+
+To start, we will consider cases of Simpson's paradox, in which aggregating or not aggregating data can lead to drastically different conclusions.
+
+---
+
+## Simpson's Paradox
+
+.pull-left[
+*Simpson's paradox* occurs when the an association between two variables is reversed or disappears after stratification upon a third variable.  
+]
+.pull-right[
+&lt;img src="img/simpsons1.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
+]
+
+---
+
+## Kidney Stone Study
+
+In 1986 *British Medical Journal* reported the results of a study comparing open surgical treatment to percutaneous nephrolithotomy (PN) for removal of kidney stones.  They first examined success rates of the procedure stratified by the size of the kidney stone.
+
+---
+
+## Small Kidney Stones
+
+| | Successful Surgery | Non-successful Surgery |
+|:-----|-----:|-----:|
+| Open Procedure | 81 | 6 |
+| PN | 234 | 36 |
+
+The estimated probability of success for small stones using open procedures was `\(\frac{81}{87}=0.93\)`, and the corresponding probability using PN was `\(\frac{234}{234+36}=0.87\)`.  The corresponding `$$\widehat{OR}=\frac{\frac{81/87}{6/87}}{\frac{234/270}{36/270}}$$` and 95% CI = 2.08 (0.84, 5.11).
+
+Here, we are not able to reject the null hypothesis that the treatments have different success rates, but note the (non-significant) point estimate of the probability of success is higher in the open surgery group.
+---
+
+
+```r
+library(epiR) #input summary data!
+epi.2by2(matrix(c(81,6,234,36),byrow=TRUE,nrow=2))
+```
+
+```
+#&gt;              Outcome +    Outcome -      Total        Inc risk *
+#&gt; Exposed +           81            6         87              93.1
+#&gt; Exposed -          234           36        270              86.7
+#&gt; Total              315           42        357              88.2
+#&gt;                  Odds
+#&gt; Exposed +        13.5
+#&gt; Exposed -         6.5
+#&gt; Total             7.5
+#&gt; 
+#&gt; Point estimates and 95% CIs:
+#&gt; -------------------------------------------------------------------
+#&gt; Inc risk ratio                                 1.07 (1.00, 1.16)
+#&gt; Odds ratio                                     2.08 (0.84, 5.11)
+#&gt; Attrib risk in the exposed *                   6.44 (-0.26, 13.13)
+#&gt; Attrib fraction in the exposed (%)            6.91 (-0.22, 13.54)
+#&gt; Attrib risk in the population *                1.57 (-3.69, 6.82)
+#&gt; Attrib fraction in the population (%)         1.78 (-0.13, 3.65)
+#&gt; -------------------------------------------------------------------
+#&gt; Uncorrected chi2 test that OR = 1: chi2(1) = 2.626 Pr&gt;chi2 = 0.105
+#&gt; Fisher exact test that OR = 1: Pr&gt;chi2 = 0.127
+#&gt;  Wald confidence limits
+#&gt;  CI: confidence interval
+#&gt;  * Outcomes per 100 population units
+```
+
+---
+
+
+## Large Kidney Stones
+
+| | Successful Surgery | Non-successful Surgery |
+|:-----|-----:|-----:|
+| Open Procedure | 192 | 71 |
+| PN | 55 | 25 |
+
+The estimated probability of success for large stones using open procedures was `\(\frac{192}{192+71}=0.73\)`, and the corresponding probability using PN was `\(\frac{55}{55+25}=0.69\)`.  The corresponding `\(\widehat{OR}\)` and 95% CI were 1.23 (0.71, 2.12).
+
+Again, we are not able to reject the null hypothesis that the treatments have different success rates, but note the (non-significant) point estimate of the probability of success is higher in the open surgery group.
+
+---
+
+
+```r
+library(epiR) #input summary data!
+epi.2by2(matrix(c(192,71,55,25),byrow=TRUE,nrow=2))
+```
+
+```
+#&gt;              Outcome +    Outcome -      Total        Inc risk *
+#&gt; Exposed +          192           71        263              73.0
+#&gt; Exposed -           55           25         80              68.8
+#&gt; Total              247           96        343              72.0
+#&gt;                  Odds
+#&gt; Exposed +        2.70
+#&gt; Exposed -        2.20
+#&gt; Total            2.57
+#&gt; 
+#&gt; Point estimates and 95% CIs:
+#&gt; -------------------------------------------------------------------
+#&gt; Inc risk ratio                                 1.06 (0.90, 1.25)
+#&gt; Odds ratio                                     1.23 (0.71, 2.12)
+#&gt; Attrib risk in the exposed *                   4.25 (-7.23, 15.74)
+#&gt; Attrib fraction in the exposed (%)            5.83 (-11.07, 20.15)
+#&gt; Attrib risk in the population *                3.26 (-7.95, 14.47)
+#&gt; Attrib fraction in the population (%)         4.53 (-8.54, 16.02)
+#&gt; -------------------------------------------------------------------
+#&gt; Uncorrected chi2 test that OR = 1: chi2(1) = 0.551 Pr&gt;chi2 = 0.458
+#&gt; Fisher exact test that OR = 1: Pr&gt;chi2 = 0.479
+#&gt;  Wald confidence limits
+#&gt;  CI: confidence interval
+#&gt;  * Outcomes per 100 population units
+```
+
+---
+
+## Small and Large Stones Combined
+
+
+
+| | Successful Surgery | Non-successful Surgery |
+|:-----|-----:|-----:|
+| Open Procedure | 273 | 77 |
+| PN | 289 | 61 |
+
+The estimated probability of success for all stones using open procedures was `\(\frac{273}{273+77}=0.78\)`, and the corresponding probability using PN was `\(\frac{289}{289+61}=0.83\)`.  The corresponding OR and 95% CI were 0.75 (0.51, 1.09). 
+
+After combining the stones, the probability of success is higher in the PN group, though again, the difference is not statistically significant. Still, what happened?
+
+---
+
+
+```r
+library(epiR) #input summary data!
+epi.2by2(matrix(c(273,77,289,61),byrow=TRUE,nrow=2))
+```
+
+```
+#&gt;              Outcome +    Outcome -      Total        Inc risk *
+#&gt; Exposed +          273           77        350              78.0
+#&gt; Exposed -          289           61        350              82.6
+#&gt; Total              562          138        700              80.3
+#&gt;                  Odds
+#&gt; Exposed +        3.55
+#&gt; Exposed -        4.74
+#&gt; Total            4.07
+#&gt; 
+#&gt; Point estimates and 95% CIs:
+#&gt; -------------------------------------------------------------------
+#&gt; Inc risk ratio                                 0.94 (0.88, 1.02)
+#&gt; Odds ratio                                     0.75 (0.51, 1.09)
+#&gt; Attrib risk in the exposed *                   -4.57 (-10.46, 1.31)
+#&gt; Attrib fraction in the exposed (%)            -5.86 (-13.94, 1.65)
+#&gt; Attrib risk in the population *                -2.29 (-7.23, 2.66)
+#&gt; Attrib fraction in the population (%)         -2.85 (-6.60, 0.77)
+#&gt; -------------------------------------------------------------------
+#&gt; Uncorrected chi2 test that OR = 1: chi2(1) = 2.311 Pr&gt;chi2 = 0.128
+#&gt; Fisher exact test that OR = 1: Pr&gt;chi2 = 0.154
+#&gt;  Wald confidence limits
+#&gt;  CI: confidence interval
+#&gt;  * Outcomes per 100 population units
+```
+
+
+---
+
+## What Happened?
+
+- Group sizes are quite different
+
+- Doctors tended to prefer open surgery for the harder-to-cure cases (large stones)
+
+- The success rate is more strongly influenced by the size of the kidney stone than the treatment type
+
+---
+
+## Famous Example of Simpson's Paradox: Berkeley Grad School Admissions
+
+A math and English double major, you are looking at graduate programs and discover during your interview that your dream university last year admitted 30.0% of men but only 21.3% of women.  You are shocked by the apparent gender bias and decide to apply elsewhere, but during your meetings with the directors of graduate studies of the two departments (math and English are the only departments in this dream university), you see some startling figures.
+
+---
+
+## The English Department
+
+.pull-left[
+The English department's admissions statistics are below.
+
+| | Rejected | Admitted |
+|:-----|:-----:|:-----:|
+| Female  | 29 | 21 |
+| Male  | 60 | 40 |
+]
+.pull-right[
+So English admitted `\(21/50\)`=42% of women, and `\(40/100\)`=40% of men.  Maybe it's just math professors who are driving the abysmal admissions statistics.
+
+&lt;img src="img/lisa2.png" width="60%" style="display: block; margin: auto auto auto 0;" /&gt;
+]
+
+---
+
+## The Department of Mathematics
+
+.pull-left[
+Because math is such an amazing major, you decide to meet with them despite your reservations.  Their admissions director provides you with the following admissions statistics. 
+
+| | Rejected | Admitted |
+|:-----|:-----:|:-----:|
+| Female  | 89 | 11 |
+| Male  | 45 | 5 |
+]
+.pull-right[
+Math admitted `\(11/100\)`=11% of women, and `\(5/50\)`=10% of men!  
+
+&lt;img src="img/bart2.png" width="60%" style="display: block; margin: auto auto auto 0;" /&gt;
+]
+
+---
+
+## UC-Berkeley
+
+Overall, your dream university admitted `\((21+11)/(50+100)\)`=21.3% of women, and `\((40+5)/(100+50)\)`=30% of men.  However, `\(2/3\)` of the women applied to the department that was harder to get into (math), and only `\(1/3\)` of the men applied to this department.
+
+
+
+A similar thing happened at UC-Berkeley in Fall 1973, and the university was sued for gender discrimination based on the university-wide aggregate data.  Essentially, Simpson's paradox was the culprit -- on the whole, women had applied to more competitive departments.  (In this case, they were the less well-funded departments that had fewer graduate fellowships to offer.)
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLines": true,
+"highlightStyle": "solarized-light",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

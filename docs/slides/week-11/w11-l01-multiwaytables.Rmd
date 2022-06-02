@@ -1,0 +1,281 @@
+---
+title: "Paradoxes and Fallacies"
+subtitle: "<br><br> Introduction to Global Health Data Science"
+author: "[Back to Website](https://sta198f2021.github.io/website/)"
+date: "<br> Prof. Amy Herring"
+output:
+  xaringan::moon_reader:
+    css: 
+      - css/xaringan-themer.css
+      - css/slides.css
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightLines: true
+      highlightStyle: solarized-light
+      countIncrementalSlides: false
+---
+
+```{r child = "../setup.Rmd"}
+```
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  comment = "#>",
+  highlight = TRUE,
+  fig.align = "center"
+)
+```
+
+
+
+```{r packages, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(kableExtra)
+```
+
+
+
+class: middle
+
+# Berkson's Fallacy
+
+---
+
+## Berkson's Fallacy
+
+.pull-left[
+Due to ease of data collection, a restricted sample is often used to test a hypothesis of interest.  We illustrate a common problem with this approach.
+
+Researchers are interested in the special population of HIV+ women on antiretroviral therapy in sub-Saharan Africa.  They would like to know whether in this population, a new pregnancy is related to the probability of having an AIDS-defining event.
+
+]
+
+.pull-right[
+In order to test their hypothesis, they recruit women from a large network of health care clinics and find the following.
+
+| | AIDS | No AIDS | Total |
+|:-----|------:|------:|-----:|
+| Pregnant | 31 | 44 | 75 |
+| Not pregnant | 124 | 99 | 223 |
+| Total | 155 | 143 | 298 |
+
+The estimated $\widehat{OR}$ and 95% CI are $\frac{31 \times 99}{44 \times 124}$ = 0.56 (0.32, 0.99). Should HIV+ women on antiretroviral therapy try to get pregnant to prevent an AIDS-defining event?
+]
+
+---
+
+## Berkson's Fallacy
+
+Now we consider all HIV+ women in the area, not just those who visited a health clinic during the study period.
+
+| | AIDS | No AIDS | Total |
+|:-----|------:|------:|-----:|
+| Pregnant | 44 | 175 | 219 |
+| Not pregnant | 248 | 990 | 1238 |
+| Total | 292 | 1165 | 1457 |
+
+Their estimated $\widehat{OR}$ and 95% CI are $\frac{44 \times 990}{175 \times 248}$ = 1.00 (0.68, 1.44).  What happened?
+
+---
+
+## Berkson's Fallacy
+
+The bias in the clinic-based sample comes from the fact that not all HIV+ women are equally likely to visit a health clinic.  
+
+| Diagnosis | \# with Clinic Visit | Total Women | Pr(Visit) |
+|:-------|----:|----:|----:|
+| Pregnant+AIDS | 31 | 44 | $\frac{31}{44}=0.70$ |
+| Pregnant Only | 44 | 175 | 0.25 |
+| AIDS Only | 124 | 248 | 0.50 |
+| Neither | 99 | 990 | 0.10 |
+
+The observed spurious relationship, observed only because of how we chose the sample, is called *Berkson's fallacy* and is often a danger with clinic- or hospital-based samples.
+
+---
+
+class: middle
+
+# Simpson's Paradox
+
+---
+
+## Multiple Contingency Tables
+
+Previously we talked about how to analyze data from r $\times$ c tables to quantify a potential association between two factors.  We will continue with this concept but now concentrate on the relationship between two factors in the presence of a third factor. 
+
+When might this be of interest?
+
+  - We have a 2 $\times$ 2 table at each site in a multi-site study
+  
+  - We wish to combine results of several published studies in a meta-analysis
+  
+  - The value of a third factor affects our estimates of the association between two factors 
+  
+---
+
+## Combining Multiple Tables
+
+Sometimes, the presence of a third factor can affect the relationship between the two factors of interest.  We will discuss how to proceed in the presence of a third factor, and in particular will examine the consequences of aggregrating (or not aggregating) data over levels of a third factor.  (Note:  whether or not to aggregate often depends on your subject matter knowledge as much as on statistical considerations)
+
+To start, we will consider cases of Simpson's paradox, in which aggregating or not aggregating data can lead to drastically different conclusions.
+
+---
+
+## Simpson's Paradox
+
+.pull-left[
+*Simpson's paradox* occurs when the an association between two variables is reversed or disappears after stratification upon a third variable.  
+]
+.pull-right[
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/simpsons1.png")
+
+```
+]
+
+---
+
+## Kidney Stone Study
+
+In 1986 *British Medical Journal* reported the results of a study comparing open surgical treatment to percutaneous nephrolithotomy (PN) for removal of kidney stones.  They first examined success rates of the procedure stratified by the size of the kidney stone.
+
+---
+
+## Small Kidney Stones
+
+| | Successful Surgery | Non-successful Surgery |
+|:-----|-----:|-----:|
+| Open Procedure | 81 | 6 |
+| PN | 234 | 36 |
+
+The estimated probability of success for small stones using open procedures was $\frac{81}{87}=0.93$, and the corresponding probability using PN was $\frac{234}{234+36}=0.87$.  The corresponding $$\widehat{OR}=\frac{\frac{81/87}{6/87}}{\frac{234/270}{36/270}}$$ and 95% CI = 2.08 (0.84, 5.11).
+
+Here, we are not able to reject the null hypothesis that the treatments have different success rates, but note the (non-significant) point estimate of the probability of success is higher in the open surgery group.
+---
+
+```{r small}
+library(epiR) #input summary data!
+epi.2by2(matrix(c(81,6,234,36),byrow=TRUE,nrow=2))
+```
+
+---
+
+
+## Large Kidney Stones
+
+| | Successful Surgery | Non-successful Surgery |
+|:-----|-----:|-----:|
+| Open Procedure | 192 | 71 |
+| PN | 55 | 25 |
+
+The estimated probability of success for large stones using open procedures was $\frac{192}{192+71}=0.73$, and the corresponding probability using PN was $\frac{55}{55+25}=0.69$.  The corresponding $\widehat{OR}$ and 95% CI were 1.23 (0.71, 2.12).
+
+Again, we are not able to reject the null hypothesis that the treatments have different success rates, but note the (non-significant) point estimate of the probability of success is higher in the open surgery group.
+
+---
+
+```{r large}
+library(epiR) #input summary data!
+epi.2by2(matrix(c(192,71,55,25),byrow=TRUE,nrow=2))
+```
+
+---
+
+## Small and Large Stones Combined
+
+
+
+| | Successful Surgery | Non-successful Surgery |
+|:-----|-----:|-----:|
+| Open Procedure | 273 | 77 |
+| PN | 289 | 61 |
+
+The estimated probability of success for all stones using open procedures was $\frac{273}{273+77}=0.78$, and the corresponding probability using PN was $\frac{289}{289+61}=0.83$.  The corresponding OR and 95% CI were 0.75 (0.51, 1.09). 
+
+After combining the stones, the probability of success is higher in the PN group, though again, the difference is not statistically significant. Still, what happened?
+
+---
+
+```{r all}
+library(epiR) #input summary data!
+epi.2by2(matrix(c(273,77,289,61),byrow=TRUE,nrow=2))
+```
+
+
+---
+
+## What Happened?
+
+- Group sizes are quite different
+
+- Doctors tended to prefer open surgery for the harder-to-cure cases (large stones)
+
+- The success rate is more strongly influenced by the size of the kidney stone than the treatment type
+
+---
+
+## Famous Example of Simpson's Paradox: Berkeley Grad School Admissions
+
+A math and English double major, you are looking at graduate programs and discover during your interview that your dream university last year admitted 30.0% of men but only 21.3% of women.  You are shocked by the apparent gender bias and decide to apply elsewhere, but during your meetings with the directors of graduate studies of the two departments (math and English are the only departments in this dream university), you see some startling figures.
+
+---
+
+## The English Department
+
+.pull-left[
+The English department's admissions statistics are below.
+
+| | Rejected | Admitted |
+|:-----|:-----:|:-----:|
+| Female  | 29 | 21 |
+| Male  | 60 | 40 |
+]
+.pull-right[
+So English admitted $21/50$=42% of women, and $40/100$=40% of men.  Maybe it's just math professors who are driving the abysmal admissions statistics.
+
+```{r echo=FALSE, fig.align="left"}
+knitr::include_graphics("img/lisa2.png")
+
+```
+]
+
+---
+
+## The Department of Mathematics
+
+.pull-left[
+Because math is such an amazing major, you decide to meet with them despite your reservations.  Their admissions director provides you with the following admissions statistics. 
+
+| | Rejected | Admitted |
+|:-----|:-----:|:-----:|
+| Female  | 89 | 11 |
+| Male  | 45 | 5 |
+]
+.pull-right[
+Math admitted $11/100$=11% of women, and $5/50$=10% of men!  
+
+```{r echo=FALSE, fig.align="left"}
+knitr::include_graphics("img/bart2.png")
+
+```
+]
+
+---
+
+## UC-Berkeley
+
+Overall, your dream university admitted $(21+11)/(50+100)$=21.3% of women, and $(40+5)/(100+50)$=30% of men.  However, $2/3$ of the women applied to the department that was harder to get into (math), and only $1/3$ of the men applied to this department.
+
+
+
+A similar thing happened at UC-Berkeley in Fall 1973, and the university was sued for gender discrimination based on the university-wide aggregate data.  Essentially, Simpson's paradox was the culprit -- on the whole, women had applied to more competitive departments.  (In this case, they were the less well-funded departments that had fewer graduate fellowships to offer.)
+
+
+
+
