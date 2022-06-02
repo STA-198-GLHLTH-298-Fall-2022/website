@@ -12,11 +12,11 @@ title = "Resources"
 - [R 4 Data Science (R4DS)](http://r4ds.had.co.nz)
 - [Open Intro: Introduction to Modern Statistics (IMS)](https://openintro-ims.netlify.app/)
 - [Open Intro Statistics (OIS)](https://www.openintro.org/book/os/)
-- [Principles of Biostatistics (PG) (not required; library reserve; wait for 3rd edition if you want to buy)](https://www.routledge.com/Principles-of-Biostatistics/Pagano-Gauvreau/p/book/9781138593145?gclid=Cj0KCQjw0emHBhC1ARIsAL1QGNepIqhs571JGGOWM5ry7fbOgXI5eqkGRlbEiQ172MRsW2vPenAPRzUaAk4fEALw_wcB)
+- [Principles of Biostatistics (PG) (not required)](https://www.routledge.com/Principles-of-Biostatistics/Pagano-Gauvreau-Mattie/p/book/9780367355807?gclid=CjwKCAjwv-GUBhAzEiwASUMm4hjlfb0XDialPc-tespsU3qw2uiBaZi7lE7DObAWjz7H4E31cOqH5RoCG4EQAvD_BwE)
 ## Tools
 
 - [RStudio](https://rstudio.com/)
-- [GitHub](https://github.com/STA198F2021)
+- [GitHub](https://github.com/STA-198-GLHLTH-298-Fall-2022)
 
 
 ## Cheatsheets

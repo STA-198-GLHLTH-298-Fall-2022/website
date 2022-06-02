@@ -16,11 +16,13 @@ Pick a global health data set ...
 
 ## May be too long, but please do read
 
-The final project for this class will consist of analysis on a data set of your own choosing. The data set may already exist, or you may collect your own data using a survey or by conducting an experiment. You can choose the data based on your interests or based on work in other courses or research projects. The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond, if you like) and apply them to a novel data set in a meaningful way.
+The final project for this class will consist of analysis of a data set of your own choosing. The data set may already exist, or you may collect your own data using a survey or by conducting an experiment. You can choose the data based on your interests or based on work in other courses or research projects. The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond, if you like) and apply them to a novel data set in a meaningful way.
 
-The goal is not to do an exhaustive data analysis i.e., do not calculate every statistic and procedure you have learned for every variable, but rather let me know that you are proficient at asking meaningful questions and answering them with results of data analysis, that you are proficient in using R, and that you are proficient at interpreting and presenting the results. Focus on methods that help you begin to answer your research questions. You do not have to apply every statistical procedure we learned. Also, critique your own methods and provide suggestions for improving your analysis. Issues pertaining to the reliability and validity of your data, and appropriateness of the statistical analysis should be discussed here.
+The data should have direct relevance to global health.
 
-The project is very open ended. You should create some kind of compelling visualization(s) of these data in R. There is no limit on what tools or packages you may use, but sticking to packages we learned in class (`tidyverse`) is recommended. You do not need to visualize all of the data at once. A single high quality visualization will receive a much higher grade than a large number of poor quality visualizations. Also pay attention to your presentation. Neatness, coherency, and clarity will count. All analyses must be done in RStudio, using R. References must be cited, including (known) prior analyses of the data.
+The goal is not to do an exhaustive data analysis i.e., do not calculate every statistic and procedure you have learned for every variable, but rather let me know that you are proficient at asking meaningful questions and answering them with results of data analysis, that you are proficient in using R, and that you are proficient at interpreting and presenting the results. Focus on methods that help you begin to answer your research questions. Also, critique your own methods and provide suggestions for improving your analysis. Issues pertaining to the reliability and validity of your data, and appropriateness of the statistical analysis, should be discussed here.
+
+The project is very open ended. You should start by creating some kind of compelling visualization(s) of the data in R. There is no limit on what tools or packages you may use, but sticking to packages we learned in class (`tidyverse`) is recommended. You do not need to visualize all of the data at once. A single high quality visualization will receive a much higher grade than a large number of poor quality visualizations. Numeric data analysis or modeling should also be included. Also pay attention to your presentation. Neatness, coherency, and clarity will count. All analyses must be done in RStudio, using R Markdown. References must be cited, including (known) prior analyses of the data. We will use plagiarism checkers, so be sure you are aware of other work with the data you use!
 
 ### Data
 
@@ -30,7 +32,7 @@ If you are using a data set that comes in a format that we haven't encountered i
 
 **Note on reusing data sets from class:** Do not reuse data sets used in examples, homework assignments, or labs in the class.
 
-**The data you use must be able to be shared publicly.** Students will be allowed to post their projects after the end of the course on their own GitHub repos in order to be competitive for summer internships and other opportunities. You will not be able to use data for the project that cannot be posted online for public viewing.
+**The data you use must be able to be shared publicly.** Students will be allowed to post their projects after the end of the course on their own GitHub repos in order to be competitive for summer internships and other opportunities. *You will not be able to use data for the project that cannot be posted online for public viewing*.
 
 **You cannot make substantial changes to the proposed data set or questions of interest after the proposal revision deadline.**  
 
@@ -88,6 +90,8 @@ your hypothesized answer?
 The project proposal can be no more than 3 pages. You can check a 
 print preview to confirm length. 
 
+Project proposals that do not include all components above will not receive full credit.
+
 
 #### Presentation
 
@@ -139,7 +143,7 @@ Reproducibility and organization | 10 pts
 ### Criteria
 
 - Content - What is the quality of research and/or policy question and relevancy of data to those questions?
-- Correctness - Are statistical procedures carried out and explained correctly?
+- Correctness - Are statistical procedures carried out and explained correctly? Are the procedures used appropriate for the data?
 - Writing and Presentation - What is the quality of the statistical presentation, writing, and explanations?
 - Creativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?
 

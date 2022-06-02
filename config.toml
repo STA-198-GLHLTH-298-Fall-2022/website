@@ -9,7 +9,7 @@ title = "STA 198 / GLHLTH 298"
 
 # The URL of your site.
 # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
-baseurl = "https://sta198f2021.github.io/website/"
+baseurl = "https://github.com/STA-198-GLHLTH-298-F2022.github.io/website/"
 publishDir = "docs"
 
 # Enter a copyright notice to display in the site footer.
