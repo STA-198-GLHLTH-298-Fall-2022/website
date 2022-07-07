@@ -1,0 +1,101 @@
+---
+#title: "Calendar"
+#author: "Amy Herring"
+#date: "7/7/2022"
+output: html_document
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse) # for all things workflow
+library(lubridate) # for working with dates
+library(stevemisc) # OPTIONAL: this is for the theme_steve_web() ggplot theme
+
+# holidays
+not_here_dates <- c(ymd(20221010),ymd(20221011),
+              seq(ymd(20221123),ymd(20221125), by = "1 day"))
+              
+exam_dates <- c(ymd(20221019), ymd(20221207))
+
+labonly_dates <- c(ymd(20220902),ymd(20220909),ymd(20220923),ymd(20220930),ymd(20221028),ymd(20221104))
+
+labhw_dates <- c(ymd(20220916),ymd(20221007),ymd(20221111),ymd(20221202))
+
+project_dates <- c(ymd(20221021,20221209))
+
+labproject_dates <- c(ymd(20221118))
+
+lab_dates <- c(ymd(20220830),ymd(20220906),ymd(20220913),ymd(20220920),ymd(20220927),ymd(20221004),ymd(20221018),ymd(20221025),ymd(20221101),ymd(20221108),ymd(20221115),ymd(20221122),ymd(20221129),ymd(20221206))
+
+semester_dates <- seq(ymd(20220829),ymd(20221216), by=1) #includes finals
+
+lecture_dates <- seq(ymd(20220829),ymd(20221209), by=1) #no finals
+
+quiz_dates <- c(ymd(20220904),ymd(20220911),ymd(20220918),ymd(20220925),ymd(20221002),ymd(20221023),ymd(20221030),ymd(20221106),ymd(20221113))
+
+Cal <- tibble(date = seq(ymd(20220801), ymd(20221231), by=1)) 
+
+Cal %>%
+  mutate(mon = lubridate::month(date, label=T, abbr=F), # get month label
+         wkdy = weekdays(date, abbreviate=T), # get weekday label
+         wkdy = fct_relevel(wkdy, "Sun", "Mon", "Tue", "Wed", "Thu","Fri","Sat"), # make sure Sunday comes first
+         semester = ifelse(date %in% semester_dates, 1, 0), # is date part of the semester?
+         classdate = ifelse(date %in% lecture_dates, 1, 0), # is date part of the class days?
+          exams = ifelse(date %in% exam_dates, 1, 0), # is it an exam?
+         labonly = ifelse(date %in% labonly_dates, 1, 0), #is only lab due?
+         labhw = ifelse(date %in% labhw_dates,1,0), #are lab+hw due?
+         lab = ifelse(date %in% lab_dates,1,0), #is lab today?
+         project = ifelse(date %in% project_dates,1,0), #is project due?
+         labproject = ifelse(date %in% labproject_dates,1,0), #are lab+proj due?
+         quiz = ifelse(date %in% quiz_dates,1,0), # is quiz due?
+         not_here = ifelse(date %in% not_here_dates, 1, 0), # is it a day off?
+         day = lubridate::mday(date), # get day of month to add later as a label
+         # Below: wom() is in {stevemisc}
+         week = wom(date)) -> Cal
+
+Cal <- Cal %>%
+  mutate(category = NA,
+         category = ifelse(semester == 1, "Semester", category),
+         category = ifelse(classdate == 1 & wkdy %in% c("Mon", "Wed"), "Class Day", category),
+         category = ifelse(lab == 1, "Lab Day", category),
+         category = ifelse(exams == 1, "Exam", category),
+         category = ifelse(labonly == 1, "Lab Due", category),
+         category = ifelse(labhw == 1, "Lab+HW Due", category),
+         category = ifelse(project == 1, "Project Deliverable", category),
+         category = ifelse(labproject == 1, "Lab+Project Deliverable", category),
+         category = ifelse(quiz == 1, "Quiz Due", category),
+         category = ifelse(is.na(category) | (semester == 1 & not_here == 1), "NA", category)) 
+
+```
+
+```{r chunk2, echo=FALSE}
+Cal %>% 
+  ggplot(.,aes(wkdy, week)) +
+  # custom theme stuff below
+  theme_steve() + 
+  # geom_tile and facet_wrap will do all the heavy lifting
+  geom_tile(alpha=0.8, aes(fill=category), color="black") +
+  facet_wrap(~mon, scales="free_x", ncol=3) +
+  # fill in tiles to make it look more "calendary" (sic)
+  geom_text(aes(label=day),family="") +
+  # put your y-axis down, flip it, and reverse it
+  scale_y_reverse(breaks=NULL) +
+  # manually fill scale colors to something you like...
+  scale_fill_manual(values=c("Class Day"="steelblue", 
+                             "Semester"="azure",
+                             "NA" = "white", # I like these whited out...
+                             "Exam"="indianred4",
+                             "Lab Day"="lightsteelblue",
+                             "Lab Due"="goldenrod",
+                             "Lab+HW Due"="lightgoldenrod",
+                             "Project Deliverable"="plum3",
+                             "Lab+Project Deliverable"="plum4",
+                             "Quiz Due"="rosybrown3"),
+                    #... but also suppress a label for a non-class semester day
+                    breaks=c("Class Day","Lab Day","Quiz Due","Lab Due","Lab+HW Due","Project Deliverable","Lab+Project Deliverable", "Exam")) +
+  labs(fill = "", x="", y="",
+       title = "STA 198/GLHLTH 298",
+       caption = "Notable dates: Fall Break (Oct. 10-11), Thanksgiving Break (Nov. 23-25)")
+```
+
+
+

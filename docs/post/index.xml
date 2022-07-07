@@ -5,22 +5,12 @@
     <link>https://github.com/STA-198-GLHLTH-298-F2022.github.io/website/post/</link>
       <atom:link href="https://github.com/STA-198-GLHLTH-298-F2022.github.io/website/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2022</copyright><lastBuildDate>Thu, 30 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2022</copyright><lastBuildDate>Thu, 15 Jul 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://github.com/STA-198-GLHLTH-298-F2022.github.io/website/img/icon-192.png</url>
       <title>Posts</title>
       <link>https://github.com/STA-198-GLHLTH-298-F2022.github.io/website/post/</link>
     </image>
-    
-    <item>
-      <title>Overview</title>
-      <link>https://github.com/STA-198-GLHLTH-298-F2022.github.io/website/post/00-overview/</link>
-      <pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate>
-      <guid>https://github.com/STA-198-GLHLTH-298-F2022.github.io/website/post/00-overview/</guid>
-      <description>&lt;p&gt;The figure below is a visual summary of the tentative course schedule. The flow of topics for each week might change slightly depending on how quickly / slowly it feels right to progress through them. However, the deadlines for assignments will not change barring unexpected circumstances, which, unfortunately, may occur this semester! If deadlines need to be adjusted after the first day of class, they will be pushed to a later date and never pulled up to an earlier date. If it becomes necessary to make such adjustments, I will try my best to avoid collision with other previously scheduled deadlines, but this might be difficult to ensure.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;scheduleplot.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-</description>
-    </item>
     
     <item>
       <title>Week 15 - Ethics and survival</title>
@@ -1273,6 +1263,15 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Overview</title>
+      <link>https://github.com/STA-198-GLHLTH-298-F2022.github.io/website/post/00-overview/</link>
+      <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://github.com/STA-198-GLHLTH-298-F2022.github.io/website/post/00-overview/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-01/calendar.html&#34;&gt;calendar&lt;/a&gt; below provides a visual summary of the planned course schedule. The flow of topics for each week might change slightly depending on how quickly / slowly it feels right to progress through them. However, the deadlines for assignments will not change barring unexpected circumstances.&lt;/p&gt;
 </description>
     </item>
     
