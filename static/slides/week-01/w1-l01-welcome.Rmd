@@ -103,7 +103,7 @@ A: We can discuss that over `r emo::ji("coffee")`.
 
 .larger[
 .center[
-[**Course Website**](https://sta198f2021.github.io/website/)
+[**Course Website**](https://github.com/STA-198-GLHLTH-298-Fall-2022)
 ]
 
 ]

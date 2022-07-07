@@ -22,7 +22,7 @@ Most of you will need help at some point and we want to make sure you can identi
 
 - **Sakai Forums:** The best way to get any questions on course content, technology, logistics, policies is to post your question on [Sakai's Forums](https://sakai.duke.edu). You are encouraged to answer each others' questions here as well. When you post a question on Sakai, you can choose to do so anonymously in some forums (not ones for identifying study partners!) to your classmates. Note that the course staff can always see your name, and this is for a good reason! We want to be able to identify students who might be struggling so that we can extend help. Similarly, we want to know who you are if you're providing great answers to others' questions. 
 
-- **Student hours:** Course organisers will hold student office hours on Thursdays (Prof Herring, 1-2pm) and other days/times TBD. Please feel free to drop in with any questions, or just to say hi! I am also available to meet by appointment.
+- **Student hours:** Course organizers will hold student office hours on Mondays and Thursdays (Prof Herring, 1-2pm) and other days/times TBD. Please feel free to drop in with any questions, or just to say hi! I am also available to meet by appointment.
 - **Email:** Please refrain from emailing any course content questions (those should go on Sakai Forums), and only use email for questions about personal matters that may not be appropriate for the public course forum (e.g. illness, major concerns).
 - For more general support and advice, please make use of the following resources:
   - [HealthyDuke](https://healthy.duke.edu/mental/): Duke Reach, DuWell, CAPS, the Women's Center, peer counseling, and other great support

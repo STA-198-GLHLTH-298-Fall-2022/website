@@ -11,19 +11,19 @@ title = "Syllabus"
 
 ### Weekly structure
 
-- **Monday:** Code-along lab sessions
-- **Tuesday and Wednesday:** Professor office hours
-- **Wednesday and Friday:** Class
-- **Tuesday and Thursday:** TA office hours
+- **Monday and Wednesday:** Class
+- **Tuesday:** Code-along lab sessions
+- **Monday and Thursday:** Professor office hours
+- **Wednesday, Thursday, and Friday:** TA office hours
 
 
 ### Student hours
 
-Prof. Herring will each hold office hours on Tuesdays and Wednesdays, and TA office hours will be on Tuesdays and Thursdays. These will not be recorded, and zoom options will be available. It's a great time to get real time answers to your questions or just say hi!
+Prof. Herring will each hold office hours on Mondays and Thursdays, and TA office hours will be on Wednesdays, Thursdays, and Fridays. These will not be recorded, and zoom options will be available. It's a great time to get real time answers to your questions or just say hi!
 
 ### Code along sessions/labs
 
-These will be held on Mondays, and they will not be recorded unless requested in advance. We expect that you show up to the workshop session you've been assigned to weekly. During these sessions you will work in teams on computing lab exercises, and you will finish the exercises after the workshop and turn in your lab reports by Wednesday at 4pm. Labs will be submitted as GitHub repositories, and labs with the lowest score for each student will be dropped. 
+These will be held on Tuesdays, and they will not be recorded unless requested in advance. We expect that you show up to the workshop session you've been assigned to weekly. During these sessions you will work in teams on computing lab exercises, and you will finish the exercises after the workshop and turn in your lab reports by Friday at 4pm. Labs will be submitted as GitHub repositories, and labs with the lowest score for each student will be dropped. 
 
 A frequently asked question: "What happens if I can't make it to class or a lab one week because I'm sick or have another obligation at that time?" Answer below:
 
@@ -40,7 +40,7 @@ Beyond the in class activities, you will be assigned regular homework assignment
 
 ### Quizzes
 
-Regular quizzes on Sakai will be used to ensure students are keeping up with the reading assignments. These quizzes will generally be due Tuesday evenings by 11:59 pm and should be completed individually. They will be added together and count towards the semester grade as a single homework (the lowest 2 quiz grades will be dropped).
+Regular quizzes on Sakai will be used to ensure students are keeping up with the reading assignments. These quizzes will generally be due Sunday evenings by 11:59 pm and should be completed individually. They will be added together and count towards the semester grade as a single homework (the lowest 2 quiz grades will be dropped).
 
 ### Final project
 
@@ -61,7 +61,7 @@ Your overall course grade will be comprised of the following components, and the
 - Homework and Quizzes: 15%
 - Labs: 15%
 - Project: 20%
-- Exams (10% exam 1; 15% exam 2; 25% final exam)
+- Exams (20% exam 1; 30% exam 2)
 
 A letter grade will be assigned as follows.
 

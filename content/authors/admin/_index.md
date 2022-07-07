@@ -4,11 +4,11 @@ name: Introduction to Global Health Data Science
 organizations:
 - name: Duke University 
   url: "https://stat.duke.edu/courses/introduction-global-health-data-science"
-role: Fall 2021
+role: Fall 2022
 social:
 - icon: github
   icon_pack: fab
-  link: https://github.com/STA198F2021
+  link: https://github.com/STA-198-GLHLTH-298-F2022
 - icon: r-project
   icon_pack: fab
   link: https://rstudio.com/

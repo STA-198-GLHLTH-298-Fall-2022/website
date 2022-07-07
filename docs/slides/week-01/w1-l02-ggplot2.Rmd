@@ -184,6 +184,9 @@ ggplot(data = lifeexpwide2019,
                      y = Male)) + 
   geom_point() #<<
 ```
+
+How would the plot look if males and females had the same life expectancy on average?
+
 ]
 .pull-right[
 ```{r ref.label = "lifeexpwide2019-3", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
@@ -486,6 +489,39 @@ ggplot(lifeexpwide2019,
 
 Oops!  Note only 6 shapes are available, so this isn't a good option for our $>$6 regions!
 
+
+
+---
+
+## Accommodating more than 6 shapes
+
+.pull-left[
+```{r shape-region-fixed, fig.show = "hide", warning = FALSE}
+ggplot(lifeexpwide2019,
+       aes(x = Female, 
+           y = Male,
+           shape = worldbankregion)) +
+  scale_shape_manual(values=c(0,1,2,3,4,5,6)) + #<<
+  geom_point() 
+```
+]
+.pull-right[
+```{r ref.label = "shape-region-fixed", echo = FALSE, warning = FALSE, out.width = "100%"}
+```
+]
+
+
+---
+
+## WTF?!?
+
+
+<span style="color: red;">W</span>here <span style="color: red;">T</span>o <span style="color: red;">F</span>ind all this code?
+
+If you're starting to freak out about all the code, don't worry. We'll start off by giving you code chunks you just need to modify in order to create similar plots to those used in class or lab. As the course progresses, you'll learn more of the *why* of the coding.
+
+In addition, **Professor Doctor Google** is your friend (and mine!). I often consult them when R is being persnickety.
+
 ---
 
 ## Shape
@@ -499,6 +535,7 @@ ggplot(lifeexpwide2019,
            y = Male,
            shape = worldbankregion, #<<
            color = worldbankregion)) + #<<
+  scale_shape_manual(values=c(0,1,2,3,4,5,6)) + #<<
   geom_point() 
 ```
 ]
@@ -526,6 +563,55 @@ ggplot(lifeexpwide2019,
 ```
 ]
 
+Maybe ask Dr. Google how to get rid of the scientific notation...
+
+---
+
+## Size
+
+.pull-left[
+```{r size2, fig.show = "hide", warning = FALSE}
+library(scales)
+ggplot(lifeexpwide2019,
+       aes(x = Female, 
+           y = Male,
+           color = worldbankregion,
+           size = pop)) +
+  scale_size(labels=comma) + #<<
+  geom_point() 
+```
+]
+.pull-right[
+```{r ref.label = "size2", echo = FALSE, warning = FALSE, out.width = "100%"}
+```
+]
+
+And fix the labels...
+
+---
+
+## Modifying labels
+
+.pull-left[
+```{r size3, fig.show = "hide", warning = FALSE}
+library(scales)
+ggplot(lifeexpwide2019,
+       aes(x = Female, 
+           y = Male,
+           color = worldbankregion,
+           size = pop)) +
+  scale_size(labels=comma) + 
+  labs(col='Region',size='Population') + #<<
+  geom_point() 
+```
+]
+.pull-right[
+```{r ref.label = "size3", echo = FALSE, warning = FALSE, out.width = "100%"}
+```
+]
+
+And fix the labels...
+
 ---
 
 ## Alpha
@@ -537,6 +623,7 @@ ggplot(lifeexpwide2019,
            y = Male,
            color = worldbankregion,
            alpha = pop)) + #<<
+  scale_alpha(labels=comma) + 
   geom_point() 
 ```
 ]
@@ -555,6 +642,7 @@ ggplot(lifeexpwide2019,
        aes(x = Female, 
            y = Male,
            size = pop)) + #<<
+   scale_size(labels=comma) + 
   geom_point()
 ```
 ]
@@ -603,17 +691,41 @@ class: middle
 
 ```{r facet, fig.show = "hide"}
 lifeexpwide %>%
-  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("North America","South Asia","Sub-Saharan Africa")) %>%
+  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa")) %>%
     ggplot(aes(x = Female,
                y = Male)) + 
   geom_point() +
   facet_grid(year~worldbankregion) #<<
-
 ```
 ]
 ]
 
 ---
+
+
+.panelset[
+.panel[.panel-name[Plot]
+```{r ref.label = "facet2", echo = FALSE, warning = FALSE, out.width = "70%"}
+```
+]
+.panel[.panel-name[Code]
+
+```{r facet2, fig.show = "hide"}
+region.labs <- c("E. Asia & Pacific","Europe & Central Asia","Latin Amer. & Caribbean","Middle East & N. Africa","N. Amer.","S. Asia","Sub-Saharan Africa")
+names(region.labs) <- c("East Asia and Pacific","Europe and Central Asia","Latin America and Caribbean","Middle East and North Africa","North America","South Asia","Sub-Saharan Africa")
+
+lifeexpwide %>%
+  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa")) %>%
+    ggplot(aes(x = Female,
+               y = Male)) + 
+  geom_point() +
+  facet_grid(year~worldbankregion, labeller = labeller(worldbankregion = region.labs)) #<<
+```
+]
+]
+
+---
+
 
 ## Various ways to facet
 
@@ -621,22 +733,22 @@ lifeexpwide %>%
 
 ```{r warning = FALSE, fig.asp = 0.5}
 lifeexpwide %>%
-  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("North America","South Asia","Sub-Saharan Africa")) %>%
+  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa")) %>%
     ggplot(aes(x = Female,
                y = Male)) + 
   geom_point() +
-  facet_wrap(~worldbankregion)
+  facet_wrap(~worldbankregion,labeller = labeller(worldbankregion = region.labs))
 ```
 
 ---
 
 ```{r warning = FALSE, fig.asp = 0.5}
 lifeexpwide %>%
-  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("North America","South Asia","Sub-Saharan Africa")) %>%
+  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa")) %>%
     ggplot(aes(x = Female,
                y = Male)) + 
   geom_point() +
-  facet_grid(.~worldbankregion)
+  facet_grid(.~worldbankregion,labeller = labeller(worldbankregion = region.labs))
 ```
 
 ---
@@ -657,12 +769,12 @@ lifeexpwide %>%
 .pull-left-narrow[
 ```{r facet-color-legend, fig.show = "hide", warning = FALSE}
 lifeexpwide %>%
-  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("North America","South Asia","Sub-Saharan Africa")) %>%
+  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa"))  %>%
     ggplot(aes(x = Female,
                y = Male,
                color=year)) + 
   geom_point() +
-  facet_wrap(~worldbankregion)
+  facet_wrap(~worldbankregion,labeller = labeller(worldbankregion = region.labs))
 
 ```
 ]
@@ -679,12 +791,12 @@ lifeexpwide %>%
 ```{r facet-color-no-legend, fig.show = "hide", warning = FALSE}
 
 lifeexpwide %>%
-   filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("North America","South Asia","Sub-Saharan Africa")) %>%
+   filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa"))  %>%
    ggplot(aes(x = Female,
                y = Male,
                color=year)) + 
   geom_point() +
-  facet_wrap(~worldbankregion) +
+  facet_wrap(~worldbankregion,labeller = labeller(worldbankregion = region.labs)) +
   guides(color = FALSE) #<<
 
 ```

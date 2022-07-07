@@ -194,6 +194,9 @@ ggplot(data = lifeexpwide2019,
                      y = Male)) + 
 * geom_point()
 ```
+
+How would the plot look if males and females had the same life expectancy on average?
+
 ]
 .pull-right[
 &lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-10-1.png" width="100%" style="display: block; margin: auto;" /&gt;
@@ -497,6 +500,39 @@ ggplot(lifeexpwide2019,
 
 Oops!  Note only 6 shapes are available, so this isn't a good option for our $&gt;$6 regions!
 
+
+
+---
+
+## Accommodating more than 6 shapes
+
+.pull-left[
+
+```r
+ggplot(lifeexpwide2019,
+       aes(x = Female, 
+           y = Male,
+           shape = worldbankregion)) +
+* scale_shape_manual(values=c(0,1,2,3,4,5,6)) +
+  geom_point() 
+```
+]
+.pull-right[
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-20-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+## WTF?!?
+
+
+&lt;span style="color: red;"&gt;W&lt;/span&gt;here &lt;span style="color: red;"&gt;T&lt;/span&gt;o &lt;span style="color: red;"&gt;F&lt;/span&gt;ind all this code?
+
+If you're starting to freak out about all the code, don't worry. We'll start off by giving you code chunks you just need to modify in order to create similar plots to those used in class or lab. As the course progresses, you'll learn more of the *why* of the coding.
+
+In addition, **Professor Doctor Google** is your friend (and mine!). I often consult them when R is being persnickety.
+
 ---
 
 ## Shape
@@ -511,11 +547,12 @@ ggplot(lifeexpwide2019,
            y = Male,
 *          shape = worldbankregion,
 *          color = worldbankregion)) +
+* scale_shape_manual(values=c(0,1,2,3,4,5,6)) +
   geom_point() 
 ```
 ]
 .pull-right[
-&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-20-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-21-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -534,8 +571,57 @@ ggplot(lifeexpwide2019,
 ```
 ]
 .pull-right[
-&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-21-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-22-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
+
+Maybe ask Dr. Google how to get rid of the scientific notation...
+
+---
+
+## Size
+
+.pull-left[
+
+```r
+library(scales)
+ggplot(lifeexpwide2019,
+       aes(x = Female, 
+           y = Male,
+           color = worldbankregion,
+           size = pop)) +
+* scale_size(labels=comma) +
+  geom_point() 
+```
+]
+.pull-right[
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-23-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+And fix the labels...
+
+---
+
+## Modifying labels
+
+.pull-left[
+
+```r
+library(scales)
+ggplot(lifeexpwide2019,
+       aes(x = Female, 
+           y = Male,
+           color = worldbankregion,
+           size = pop)) +
+  scale_size(labels=comma) + 
+* labs(col='Region',size='Population') +
+  geom_point() 
+```
+]
+.pull-right[
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-24-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+And fix the labels...
 
 ---
 
@@ -549,11 +635,12 @@ ggplot(lifeexpwide2019,
            y = Male,
            color = worldbankregion,
 *          alpha = pop)) +
+  scale_alpha(labels=comma) + 
   geom_point() 
 ```
 ]
 .pull-right[
-&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-22-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-25-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -567,10 +654,11 @@ ggplot(lifeexpwide2019,
        aes(x = Female, 
            y = Male,
 *          size = pop)) +
+   scale_size(labels=comma) + 
   geom_point()
 ```
 
-&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-23-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-26-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 .pull-right[
 **Setting**
@@ -583,7 +671,7 @@ ggplot(lifeexpwide2019,
 * geom_point(size = 2)
 ```
 
-&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-24-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-27-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -613,14 +701,14 @@ class: middle
 
 .panelset[
 .panel[.panel-name[Plot]
-&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-25-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-28-1.png" width="70%" style="display: block; margin: auto;" /&gt;
 ]
 .panel[.panel-name[Code]
 
 
 ```r
 lifeexpwide %&gt;%
-  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("North America","South Asia","Sub-Saharan Africa")) %&gt;%
+  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa")) %&gt;%
     ggplot(aes(x = Female,
                y = Male)) + 
   geom_point() +
@@ -631,6 +719,31 @@ lifeexpwide %&gt;%
 
 ---
 
+
+.panelset[
+.panel[.panel-name[Plot]
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-29-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+]
+.panel[.panel-name[Code]
+
+
+```r
+region.labs &lt;- c("E. Asia &amp; Pacific","Europe &amp; Central Asia","Latin Amer. &amp; Caribbean","Middle East &amp; N. Africa","N. Amer.","S. Asia","Sub-Saharan Africa")
+names(region.labs) &lt;- c("East Asia and Pacific","Europe and Central Asia","Latin America and Caribbean","Middle East and North Africa","North America","South Asia","Sub-Saharan Africa")
+
+lifeexpwide %&gt;%
+  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa")) %&gt;%
+    ggplot(aes(x = Female,
+               y = Male)) + 
+  geom_point() +
+* facet_grid(year~worldbankregion, labeller = labeller(worldbankregion = region.labs))
+```
+]
+]
+
+---
+
+
 ## Various ways to facet
 
 ---
@@ -638,28 +751,28 @@ lifeexpwide %&gt;%
 
 ```r
 lifeexpwide %&gt;%
-  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("North America","South Asia","Sub-Saharan Africa")) %&gt;%
+  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa")) %&gt;%
     ggplot(aes(x = Female,
                y = Male)) + 
   geom_point() +
-  facet_wrap(~worldbankregion)
+  facet_wrap(~worldbankregion,labeller = labeller(worldbankregion = region.labs))
 ```
 
-&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-26-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-30-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 
 ```r
 lifeexpwide %&gt;%
-  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("North America","South Asia","Sub-Saharan Africa")) %&gt;%
+  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa")) %&gt;%
     ggplot(aes(x = Female,
                y = Male)) + 
   geom_point() +
-  facet_grid(.~worldbankregion)
+  facet_grid(.~worldbankregion,labeller = labeller(worldbankregion = region.labs))
 ```
 
-&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-27-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-31-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -680,16 +793,16 @@ lifeexpwide %&gt;%
 
 ```r
 lifeexpwide %&gt;%
-  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("North America","South Asia","Sub-Saharan Africa")) %&gt;%
+  filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa"))  %&gt;%
     ggplot(aes(x = Female,
                y = Male,
                color=year)) + 
   geom_point() +
-  facet_wrap(~worldbankregion)
+  facet_wrap(~worldbankregion,labeller = labeller(worldbankregion = region.labs))
 ```
 ]
 .pull-right-wide[
-&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-28-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-32-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -700,17 +813,17 @@ lifeexpwide %&gt;%
 
 ```r
 lifeexpwide %&gt;%
-   filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("North America","South Asia","Sub-Saharan Africa")) %&gt;%
+   filter(year %in% c(1999, 2009,2019),worldbankregion %in% c("East Asia and Pacific","Latin America and Caribbean","Sub-Saharan Africa"))  %&gt;%
    ggplot(aes(x = Female,
                y = Male,
                color=year)) + 
   geom_point() +
-  facet_wrap(~worldbankregion) +
+  facet_wrap(~worldbankregion,labeller = labeller(worldbankregion = region.labs)) +
 * guides(color = FALSE)
 ```
 ]
 .pull-right-wide[
-&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-29-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w1-l02-ggplot2_files/figure-html/unnamed-chunk-33-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

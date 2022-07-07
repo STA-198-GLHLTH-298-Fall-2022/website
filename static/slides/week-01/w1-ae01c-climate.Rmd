@@ -1,0 +1,91 @@
+---
+title: "Climate Change and Hurricanes"
+author: "Amy Herring"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
+---
+
+## Introduction
+
+Climate modelers predict that global warming will cause hurricanes with more intense rainfall and increased risk of coastal flooding due to higher levels of storm surge driven by rising sea levels as a consequence of climate change. Thus whether or not the frequency of hurricanes incrases, they predict the consequences of each hurricane may be more dire.
+
+The National Hurricane Center provides data on hurricanes from 1851 to present. We consider annual summary data from 1851-2021 in the dataset atlantic_hurricanes_1851_2021.csv. Variables provided include the year, count of named storms, number of days with named storms (tropical storms get a name when they have maximum sustained surface wind speeds of 39 mph), number of hurricanes (a hurricane is a tropical storm that has maximum sustaned surface wind speeds of 74 mph or more), number of days with hurricanes, number of major hurricanes (Category III or higher, corresponding to 111 mph sustained winds and above), number of major hurricane days, and [accumulated cyclone energy](https://en.wikipedia.org/wiki/Accumulated_cyclone_energy).
+
+
+
+
+
+
+```{r load-packages, warning=FALSE, message=FALSE}
+library(tidyverse)
+
+```
+
+
+## Read and process data
+
+We can use the function `read_csv` to read the hurricane data from the .csv file. It automatically accounts for the header row.
+
+```{r readdata}
+library(readxl)
+hurricane <- read_excel("data/atlantic_hurricanes_1851_2021.xlsx",sheet=1)
+
+glimpse(hurricane)
+
+```
+
+Later in the course, we'll learn how to wrangle data in a variety of different formats. The current data is organized with one row per year, and different columns for different types of storms. Our plot will be a bit easier if we rearrange the data into "long" format.
+
+```{r pivot}
+stormplot <- hurricane %>%
+  select(!c('Named Storm Days','Hurricane Days','Major Hurricane Days','Accumulated Cyclone Energy')) %>%
+  pivot_longer(
+    cols = c('Named Storms','Hurricanes','Major Hurricanes'),  # variables containing counts of named storms, named hurricanes, and named major hurricanes
+    names_to = "Type",  # column names -> new column called Storm Type
+    values_to = "Count"     # values in columns -> new column called Count
+    )
+
+glimpse(stormplot)
+
+```
+
+
+## Visualization
+
+The following visualization shows count of storms of each type by year. Note that the counts should not be added together within a year: major hurricanes started off as named storms and progressed to hurricanes and then major hurricanes with increasing wind speed.
+
+```{r visualise, warning=FALSE}
+ggplot(data = stormplot,
+       mapping = aes(x = Year, 
+                     y = Count, 
+                     color = Type)) +
+  # represent cumulative cases with lines
+  geom_line(size = 0.7, alpha = 0.8) +
+  # customize labels
+  labs(
+    y = "Annual Storm Count",
+    title = "Atlantic Tropical Cyclone Counts, 1851-2021"
+  )
+```
+
+Feel free to modify the code as you wish -- it might be useful to limit to more recent years to examine recent trends.
+
+```{r recent}
+stormrecent <- stormplot %>%
+  filter(Year>1970)
+
+ggplot(data = stormrecent,
+       mapping = aes(x = Year, 
+                     y = Count, 
+                     color = Type)) +
+  # represent cumulative cases with lines
+  geom_line(size = 0.7, alpha = 0.8) +
+  # customize labels
+  labs(
+    y = "Annual Storm Count",
+    title = "Atlantic Tropical Cyclone Counts, 1971-2021"
+  )
+```

@@ -53,7 +53,9 @@ life %>%
   )
 ```
 
+Feel free to play around with the code.  Maybe you want to look at male life expectancy, or track males and females over time within a country.
 
+[Click here](https://www.healthdata.org/acting-data/what-we-measure-and-why) to learn more about how life expectancy at birth is estimated and how it is used.
 
 ## Appendix {#appendix}
 

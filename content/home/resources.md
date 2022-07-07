@@ -12,7 +12,8 @@ title = "Resources"
 - [R 4 Data Science (R4DS)](http://r4ds.had.co.nz)
 - [Open Intro: Introduction to Modern Statistics (IMS)](https://openintro-ims.netlify.app/)
 - [Open Intro Statistics (OIS)](https://www.openintro.org/book/os/)
-- [Principles of Biostatistics (PG) (not required)](https://www.routledge.com/Principles-of-Biostatistics/Pagano-Gauvreau-Mattie/p/book/9780367355807?gclid=CjwKCAjwv-GUBhAzEiwASUMm4hjlfb0XDialPc-tespsU3qw2uiBaZi7lE7DObAWjz7H4E31cOqH5RoCG4EQAvD_BwE)
+- [Principles of Biostatistics (PG) (not required)](https://www.routledge.com/Principles-of-Biostatistics/Pagano-Gauvreau-Mattie/p/book/9780367355807)
+
 ## Tools
 
 - [RStudio](https://rstudio.com/)
