@@ -18,16 +18,16 @@ title: 'Week 1 - Welcome to Global Health Data Science'
 
 ### Tasks
 
-- Complete the [readings](https://sta198f2021.github.io/website/post/01-week/#readings)
+- Complete the [readings](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/post/01-week/#readings)
 - Complete the [Getting to Know You Survey](https://sakai.duke.edu) (you'll need a GitHub user name first; see the video on version control and collaboration to walk through this)
 
 ### Class Slides and Activities
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-| Welcome to IDS!       | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-01/w1-l01-welcome.html#1)  | 
-| Data Visualization Start-Up      | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-01/w1-l02-ggplot2.html#1)  | 
-| First dataviz    |  [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-01/w1-ae01-your-turn-lifeexp-covid.html#1) | 
+| Welcome to IDS!       | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-01/w1-l01-welcome.html#1)  | 
+| Data Visualization Start-Up      | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-01/w1-l02-ggplot2.html#1)  | 
+| First dataviz    |  [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-01/w1-ae01-your-turn-lifeexp-covid.html#1) | 
 
 
 
@@ -35,7 +35,7 @@ title: 'Week 1 - Welcome to Global Health Data Science'
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Lab 1 |[Hello R!](https://sta198f2021.github.io/website/slides/week-01/lab-01-hello-r.html)| Fri., 9/2 |
+| Lab 1 |[Hello R!](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-01/lab-01-hello-r.html)| Fri., 9/2 |
 | Quiz | [Quiz 1](https://sakai.duke.edu) | Sunday, 9/4 |
 
 
@@ -46,7 +46,7 @@ title: 'Week 1 - Welcome to Global Health Data Science'
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
-| :page_facing_up: | [Course syllabus](https://sta198f2021.github.io/website/) | **Required** | 
+| :page_facing_up: | [Course syllabus](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/) | **Required** | 
 | :open_book: | R4DS: [Chp 2, Introduction](https://r4ds.had.co.nz/explore-intro.html) | **Required** |
 | :open_book: | [R4DS::Chp 3 - Data visualisation](https://r4ds.had.co.nz/data-visualisation.html) | **Required** |
 | :open_book: | IMS: [Chp 1, Sec 1.1 and 1.2](https://openintro-ims.netlify.app/data-hello.html) | **Required** |
