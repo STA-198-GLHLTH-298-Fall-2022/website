@@ -1,6 +1,6 @@
 ---
 title: "Lab #01: Hello R!"
-subtitle: "due Wednesday, September 1 at 4:00pm"
+subtitle: "due Friday, September 2 at 4:00pm"
 output: 
   tufte::tufte_html:
     css: "sta199-labs.css"
@@ -55,7 +55,7 @@ You are now ready interact between GitHub and RStudio!
 
 ## Clone the repo & start new RStudio project
 
--   Go to the [**STA198F2021**](https://github.com/STA198F2021) organization on GitHub. Click on the repo with the prefix **lab-01**. It contains the starter documents you need to complete the lab.
+-   Go to the [**STA-198-GLHLTH-298-Fall-2022**](https://github.com/STA-198-GLHLTH-298-Fall-2022) organization on GitHub. Click on the repo with the prefix **lab-01**. It contains the starter documents you need to complete the lab.
 
 ```{r clone-repo-link, echo = FALSE, fig.width = 5}
 ```

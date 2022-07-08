@@ -1,6 +1,6 @@
 ---
 title: "Welcome to STA 198 Labs!"
-date: "08.30.2021"
+date: "08.30.2022"
 output:
   xaringan::moon_reader:
     css: 
@@ -35,24 +35,24 @@ library(rvest)
 
 - Work on the lab assignment (individual today, but generally done in teams)
 
-- Lab instructions posted in the [schedule](https://sta198f2021.github.io/website/#schedul ) for each week on the course website.
+- Lab instructions posted in the [schedule](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/#schedule) for each week on the course website.
 
-- Start each lab by finding your assignment repo in the [GitHub course organization](https://github.com/STA198F2021)
+- Start each lab by finding your assignment repo in the [GitHub course organization](https://github.com/STA-198-GLHLTH-298-Fall-2022)
   - This is where you will find the R Markdown document and data to get started
   
 ---
 
 ## Tips
 
-- You do not have to finish the lab in class, they will always be due **Wednesday at 4:00pm**. One work strategy is to get through portions that you think will be most challenging (which initially might be the coding component) during lab when a TA can help you on the spot and leave the narrative writing until later.
+- You do not have to finish the lab in class, they will always be due **Friday at 4:00pm**. One work strategy is to get through portions that you think will be most challenging (which initially might be the coding component) during lab when a TA can help you on the spot and leave the narrative writing until later.
 
-- Do not pressure each other to finish early; use the time wisely to really learn the material and produce a quality report.
+- Do not pressure each other to finish early; use the time wisely to learn the material and produce a quality report.
 
 ---
 
 ## Check: Do you have the lab-01 repo?
 
-- Go to the GitHub course organization: https://github.com/STA198F2021
+- Go to the GitHub course organization: https://github.com/STA-198-GLHLTH-298-Fall-2022
 
 - You should see a repo with the prefix **lab-01-**
 

@@ -18,4 +18,4 @@ title: 'Overview'
 
 
 
-The [calendar](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/static/slides/week-01/calendar.html) linked here provides a visual summary of the planned course schedule. The flow of topics for each week might change slightly depending on how quickly / slowly it feels right to progress through them. However, the deadlines for assignments will not change barring unexpected circumstances. 
+The [calendar](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-01/calendar.html) linked here provides a visual summary of the planned course schedule. The flow of topics for each week might change slightly depending on how quickly / slowly it feels right to progress through them. However, the deadlines for assignments will not change barring unexpected circumstances. 
