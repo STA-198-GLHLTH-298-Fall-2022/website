@@ -19,7 +19,7 @@ title = "Resources"
 - [RStudio](https://rstudio.com/)
 - [GitHub](https://github.com/STA-198-GLHLTH-298-Fall-2022)
 
-
+ 
 ## Cheatsheets
 
 - [RStudio](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
