@@ -27,6 +27,8 @@ title: 'Week 1 - Welcome to Global Health Data Science'
 |:---:|:---------------------|
 | Welcome to IDS!       | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-01/w1-l01-welcome.html#1)  | 
 | Data Visualization Start-Up      | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-01/w1-l02-ggplot2.html#1)  | 
+| Visualizing Numerical Data     | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-01/w1-l03-viz-num.html#1)  | 
+| Visualizing Categorical Data    |  [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-01/w1-l04-viz-cat.html#1) | 
 | First dataviz    |  [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-01/w1-ae01-your-turn-lifeexp-covid.html#1) | 
 
 
