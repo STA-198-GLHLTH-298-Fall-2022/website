@@ -54,7 +54,8 @@ Tidy data have three related characteristics
 
 Obesity is a major risk factor for numerous non-communicable diseases, including diabetes, cardiovascular disease, hypertension, stroke, and some cancers. We consider data from an exercise developed by the [Johns Hopkins Open Case Studies Project](https://www.opencasestudies.org/ocs-bp-rural-and-urban-obesity/#Motivation) on average body mass index around the world.
 
-Body mass index (BMI) is calculated as weight in kg divided by the square of height in m:  $BMI=\frac{kg}{m^2}$. While it is not a perfect surrogate for adiposity (e.g., people may have a high BMI due to muscle mass rather than body fat), it is an easily-obtained surrogate that is related to health outcomes of interest.
+Body mass index (BMI) is calculated as weight in kg divided by the square of height in m:  $BMI=\frac{kg}{m^2}$. While it is not a perfect surrogate for say visceral fat (e.g., people may have a high BMI due to muscle mass rather than visceral fat), it is an easily-obtained surrogate that is often used in large studies of health. The World Health Organization acknowledges that while BMI is a useful indicator at the population level, it is only a rough guide at the individual level because it does not always correspond to the same body fat % in different individuals.
+
 
 ---
 
@@ -69,6 +70,8 @@ knitr::include_graphics("whobmi.jpg")
 ## Data
 
 Our data include summaries of BMI from 200 countries worldwide, both at the national level and in urban and rural areas separately, for the years 1985 and 2017, separately for men and women.
+
+
 
 ---
 
@@ -202,6 +205,8 @@ BMI_long %>%
 ```
 
 When reading code "in English", say "and then" whenever you see a pipe.
+
+Keyboard shortcut: command-shift-M (mac) or control-shift-M (windows)
 
 ---
 
