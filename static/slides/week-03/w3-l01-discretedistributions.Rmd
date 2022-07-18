@@ -32,7 +32,7 @@ class: middle
 
 ### Probability Distributions
 
-When we learned how to find probabilities using basic principles, we focused on one particular outcome or event, like the probability of being a smoker. We now explore the bigger picture by exploring all possible values of a discrete random variable, along with their associated probabilities. This list of possible values and probabilities is called the *probability distribution* of the random variable.
+When we learned how to find probabilities using basic principles, we focused on one particular outcome or event, like the probability of a randomly selected person being a smoker. We now explore the bigger picture by exploring all possible values of a discrete random variable, along with their associated probabilities. This list of possible values and probabilities is called the *probability distribution* of the random variable.
 
 ---
 
@@ -270,6 +270,22 @@ The distribution is $P(X=x)=\begin{pmatrix} n \\ x \end{pmatrix}\pi^x(1-\pi)^{n-
 
 ---
 
+
+### Binomial distribution
+
+$$P(X=x)=\begin{pmatrix} n \\ x \end{pmatrix}\pi^x(1-\pi)^{n-x}$$
+
+Let's suppose $n=1$ -- that's like sampling just one student. Then our distribution is 
+
+$$P(X=x)=\begin{pmatrix} 1 \\ x \end{pmatrix}\pi^x(1-\pi)^{1-x}$$
+
+Now $\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}=1$ (there's just one way to choose 1 or 0 from a group of 1), so this just reduces to the Bernoulli distribution 
+
+$$P(X=x)=\pi^x(1-\pi)^{1-x}$$
+
+
+---
+
 ### Binomial distribution
 
 $$P(X=x)=\begin{pmatrix} n \\ x \end{pmatrix}\pi^x(1-\pi)^{n-x}$$
@@ -328,7 +344,7 @@ $$\begin{aligned}
 
 ### Distribution of e-cigarette smokers
 
-Let's use R to take a look at the distribution of the number of recent e-cig smokers in groups of varying size.  We can actually run a big experiment in R using the CDC estimate of the percentage of high schoolers who have smoked e-cigarettes in the past 30 days, 19.6%. Let's draw a single random sample of 1000 high schoolers with smoking probability 0.196. Our random variable $X$ is now the number of smokers in this big sample.
+Let's use R to take a look at the distribution of the number of recent e-cig smokers in groups of varying size.  We can actually run an experiment in R using the CDC estimate of the percentage of high schoolers who have smoked e-cigarettes in the past 30 days, 19.6%. Let's draw a single random sample of 1000 high schoolers with smoking probability 0.196. Our random variable $X$ is now the number of smokers in this big sample.
 
 In this experiment, how many smokers do we expect to see? 
 
@@ -374,8 +390,60 @@ dim(binomdata)
 ggplot(binomdata, aes(x = X)) + 
   geom_histogram() +
   labs(x = "Number of Smokers",
-       title = "Binomial(1000000,0.196) Distribution")
+       title = "Binomial(1000,0.196) Distribution")
 ```
+
+
+
+
+---
+
+```{r plotbinomdatanoecho,echo=FALSE,out.width="40%"}
+ggplot(binomdata, aes(x = X)) + 
+  geom_histogram() +
+  labs(x = "Number of Smokers",
+       title = "Binomial(1000,0.196) Distribution")
+```
+
+Suppose you conduct a survey of 1000 Durham, NC high school students and find that 300 of them have smoked e-cigarettes in the past 30 days. If we estimate the probability of e-cig use based on the proportion who reported smoking in this survey, what is our estimate? Based on these data, do you think e-cigarette smoking rates in Durham high schools are equivalent to those reported by the CDC?
+
+---
+
+Now suppose that because of the time and money involved, you could only survey 10 Durham high school students. 
+
+```{r smallbinom, eval=FALSE}
+binomdatasmall = data.frame(X = rbinom(1000000, 10, 0.196))
+
+ggplot(binomdatasmall, aes(x = X)) + 
+  geom_histogram() +
+  labs(x = "Number of Smokers",
+       title = "Binomial(10,0.196) Distribution")
+
+```
+
+
+
+---
+
+The plot shows the binomial distribution with the same probability of smoking (19.6%) but with samples of $n=10$ students. (Question: why don't the bars touch here, when they touched before?)
+
+```{r smallnoecho, echo=FALSE}
+binomdatasmall2 = data.frame(X = rbinom(1000000, 10, 0.196))
+ggplot(binomdatasmall2, aes(x = X)) + 
+  geom_histogram() +
+  labs(x = "Number of Smokers",
+       title = "Binomial(10,0.196) Distribution")
+```
+---
+
+```{r smallnoecho2, echo=FALSE}
+ggplot(binomdatasmall2, aes(x = X)) + 
+  geom_histogram() +
+  labs(x = "Number of Smokers",
+       title = "Binomial(10,0.196) Distribution")
+```
+
+Suppose in your smaller survey, you found 3 students had smoked e-cigs in the past 30 days. What is our estimated probability of smoking based on Durham data now?  What can you say in this small study about how Durham's e-cig smoking rates compare to national levels reported by CDC?
 
 ---
 
@@ -390,7 +458,7 @@ Suppose the average success (live birth) rate of this procedure per embryo is 35
 ### Embryos
 
 .pull-left[
-Here's what embryos look like in the first days of life. Note that days are counted differently at the beginning in regular pregnancies and in IVF.  In a regular pregnancy, dating is done back to the first day of the last menstrual period (there is no good marker of conception). So on day 1 of pregnancy, a woman is not pregnant!  Typically ovulation is around day 14 of the cycle (and thus of pregnancy).
+Here's what embryos look like in the first days after conception. Note that days are counted differently at the beginning in regular pregnancies and in IVF.  In a regular pregnancy, dating is done back to the first day of the last menstrual period (there is no good marker of conception). So on day 1 of pregnancy, a woman is not pregnant!  Typically ovulation is around day 14 of the cycle (and thus of pregnancy).
 
 In IVF, counting starts on the day the egg is fertilized (corresponding to around day 14 of a regular pregnancy if the sperm meets the egg right away!).
 ]
@@ -408,55 +476,55 @@ To maximize the success rate, specialists usually implant more than one embryo.
 
 We want to determine the optimum number of embryos to implant so that the likelihood of having at least one baby is high, but the likelihood of having triplets, quadruplets, or higher-order births is low.
 
-Suppose we prefer a singleton birth, twins are acceptable (though not without increased risk), and the risk of higher-order births should be kept to a minimum.  Assume the probability of each embryo surviving is independent of the others.
+Suppose we prefer a singleton birth, twins are ok (though not without increased risk), and the risk of higher-order births should be kept to a minimum.  Assume the probability of each embryo surviving is independent of the others.
 
 
 ---
 How do we address this mathematically? 
 
-- Let $Y$ be the number of live births from a single IVF procedure that implants $n$ embryos. Here's what we need to know.
+- Let $X$ be the number of live births from a single IVF procedure that implants $n$ embryos. Here's what we need to know.
 
-  - Probability of having at least one baby: $P(Y \geq 1)$, which we want to be large
+  - Probability of having at least one baby: $P(X \geq 1)$, which we want to be large
 
-  - Probability of having triplets, quadruplets, or a higher-order birth: $P(Y>2)$, which we want to be small
+  - Probability of having triplets, quadruplets, or a higher-order birth: $P(X>2)$, which we want to be small
 
 ---
 
-Binomial distribution: $P(Y=y)=\begin{pmatrix} n \\ y \end{pmatrix}\pi^y(1-\pi)^{n-y}$
+Binomial distribution: $P(X=x)=\begin{pmatrix} n \\ x \end{pmatrix}\pi^x(1-\pi)^{n-x}$
 
-- $y$ is the # of live births from $n$ implanted embryos
+- $x$ is the # of live births from $n$ implanted embryos
 
 - $\pi=0.35$ is the probability of a live birth
 
 - If we implant just 1 embryo, $n=1$. If we implant two embryos, $n=2$. Medical societies (e.g., American Society for Reproductive Medicine) have guidelines on the number of embryos to implant, ranging from 1-5, depending on embryo quality and the mother's age*.
 
-- We can use the binomial distribution to find $P(Y \geq 1)$ and $P(Y>2)$ for $n=1,2,3,4,5$
+- We can use the binomial distribution to find $P(X \geq 1)$ and $P(X>2)$ for $n=1,2,3,4,5$
 
 $^*$ So technically, $\pi$ depends on embryo quality and the mother's age. We'll learn how to accommodate this formally when we study logistic regression models; we ignore it for now.
 
 ---
 
 
-Binomial distribution: $P(Y=y)=\begin{pmatrix} n \\ y \end{pmatrix}\pi^y(1-\pi)^{n-y}$
+Binomial distribution: $P(X=x)=\begin{pmatrix} n \\ x \end{pmatrix}\pi^x(1-\pi)^{n-x}$
 
-- Quick trick: $P(Y \geq 1) = 1-P(Y=0)$ (you either have no live births, or one or more live births)
+- Quick trick: $P(X \geq 1) = 1-P(X=0)$ (you either have no live births, or one or more live births)
 
-- Similarly, $P(Y>2)=1-P(Y=0)-P(Y=1)-P(Y=2)$ if needed
+- Similarly, $P(X>2)=1-P(X=0)-P(X=1)-P(X=2)$ if needed
 
-- In the easy case in which $n=1$, $P(Y \geq 1)=0.35$ and $P(Y>2)=0$*
+- In the easy case in which $n=1$, $P(X \geq 1)=0.35$ and $P(X>2)=0$*
 
 *OK, not quite, as it is still possible for a single implanted embryo to divide, yielding twins, but we'll assume that isn't happening for now, as it's not terribly common.
 
 ---
 
-Binomial distribution: $P(Y=y)=\begin{pmatrix} n \\ y \end{pmatrix}0.35^y(1-0.35)^{n-y}$
+Binomial distribution: $P(X=x)=\begin{pmatrix} n \\ x \end{pmatrix}0.35^x(1-0.35)^{n-x}$
 
 
 More generally,
 
 $$\begin{aligned}
-P(Y \geq 1) & =1-P(Y=0)=1-\begin{pmatrix}n \\ 0 \end{pmatrix} 0.35^0 (0.65)^{n-0}=1-0.65^n \\
- P(Y>2) & = 1-P(Y=0)-P(Y=1)-P(Y=2) \\ 
+P(X \geq 1) & =1-P(X=0)=1-\begin{pmatrix}n \\ 0 \end{pmatrix} 0.35^0 (0.65)^{n-0}=1-0.65^n \\
+ P(X>2) & = 1-P(X=0)-P(X=1)-P(X=2) \\ 
  & = 1 - 0.65^n - \begin{pmatrix} n \\ 1 \end{pmatrix}0.35^1(0.65)^{n-1} - \begin{pmatrix} n \\ 2 \end{pmatrix}0.35^2(0.65)^{n-2} \\
  & = 1 - 0.65^n - n(0.35)(0.65)^{n-1} - \frac{n!}{2!(n-2)!}0.35^2(0.65)^{n-2} \\
  & = 1 - 0.65^n - n(0.35)(0.65)^{n-1} - \frac{n(n-1)}{2}0.35^2(0.65)^{n-2} \end{aligned}$$
@@ -465,18 +533,18 @@ P(Y \geq 1) & =1-P(Y=0)=1-\begin{pmatrix}n \\ 0 \end{pmatrix} 0.35^0 (0.65)^{n-0
 
 Thus we have
 
-- $P(Y\geq 1)=1-0.65^n$
-- $P(Y > 2)=1 - 0.65^n - n(0.35)(0.65)^{n-1} - \frac{n(n-1)}{2}0.35^2(0.65)^{n-2}$
+- $P(X\geq 1)=1-0.65^n$
+- $P(X > 2)=1 - 0.65^n - n(0.35)(0.65)^{n-1} - \frac{n(n-1)}{2}0.35^2(0.65)^{n-2}$
 
 If $n=5$, then we have
 
-- $P(Y\geq 1)=1-0.65^5=0.88$ (good chance of a baby!)
-- $P(Y > 2)=1 - 0.65^5 - 5(0.35)(0.65)^{5-1} - \frac{5(4)}{2}0.35^2(0.65)^{5-2}=0.24$ (good chance of lots o' babies!)
+- $P(X\geq 1)=1-0.65^5=0.88$ (good chance of a baby!)
+- $P(X > 2)=1 - 0.65^5 - 5(0.35)(0.65)^{5-1} - \frac{5(4)}{2}0.35^2(0.65)^{5-2}=0.24$ (good chance of lots o' babies!)
 
 ---
 
 
-Binomial distribution: $P(Y=y)=\begin{pmatrix} n \\ y \end{pmatrix}0.35^y(1-0.35)^{n-y}$
+Binomial distribution: $P(X=x)=\begin{pmatrix} n \\ x \end{pmatrix}0.35^x(1-0.35)^{n-x}$
 
 | Embryos implanted (n) | P(at least 1 baby) | P(>2 babies) |
 |:-------:|:-------:|:-------:|
@@ -494,9 +562,9 @@ R has built-in functions for computing binomial probabilities that can save you 
 
 | Probability | R function | 
 |:-----:|:-----:|
-| $P(Y=y \mid \pi, n)$ | dbinom(y,n,pi) |
-| $P(Y \leq y \mid \pi, n)$ | pbinom(y,n,pi) |
+| $P(X=x \mid \pi, n)$ | dbinom(x,n,pi) |
+| $P(X \leq x \mid \pi, n)$ | pbinom(x,n,pi) |
 
-For the last row of the table on the prior slide, $n=5$ and $\pi=0.35$. The probability of at least one baby, $P(Y \geq 1)=1-P(Y=0)$ can be calculated using in R the code *1-dbinom(0,5,0.35)*, which yields the value `r 1-dbinom(0,5,0.35)`.
+For the last row of the table on the prior slide, $n=5$ and $\pi=0.35$. The probability of at least one baby, $P(X \geq 1)=1-P(X=0)$ can be calculated using in R the code *1-dbinom(0,5,0.35)*, which yields the value `r 1-dbinom(0,5,0.35)`.
 
 
