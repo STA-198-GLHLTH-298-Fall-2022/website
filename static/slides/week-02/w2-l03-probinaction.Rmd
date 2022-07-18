@@ -1,0 +1,138 @@
+---
+title: "Probability in Action"
+subtitle: "<br><br> Introduction to Global Health Data Science"
+author: "[Back to Website](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/)"
+date: "<br> Prof. Amy Herring"
+output:
+  xaringan::moon_reader:
+    css: 
+      - css/xaringan-themer.css
+      - css/slides.css
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightLines: true
+      highlightStyle: solarized-light
+      countIncrementalSlides: false
+---
+
+```{r child = "../setup.Rmd"}
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+
+```
+
+class: middle
+
+# Evaluating Monkeypox Detection Assays
+
+---
+
+### GeneXpert Portable Rapid Diagnostic Test
+
+In 2010, the US Centers for Disease Control and Prevention and the Kinshasa School of Public Health began a collaboration with the Ministry of Health in the Democratic Republic of Congo (DRC) to enhance monkeypox surveillance. Monkeypox virus is endemic in central and west Africa, and in 2022 a significant global outbreak occurred in non-endemic areas.
+
+We consider data from Li et al (2017) that compares real time PCR test results (gold standard) to results from the GeneXpert rapid test, conducted at the Institut National de Recherche Biomedicale in Kinshasa. Samples were taken either of the crust of a lesion or from its vesicular fluid. The data are contained in the file monkeypox.rda and include the following variables.
+
+- `monkeypox`: yes if PCR test diagnosed monkeypox, and no otherwise (this should be considered the true disease status)
+- `genexpert`: positive if the GeneXpert test is positive, and negative otherwise
+- `type`: crust or fluid
+
+---
+
+### Data Exploration
+
+
+```{r mpx}
+load("data/monkeypox.rda")
+
+mpx %>%
+  group_by(monkeypox,genexpert) %>%
+  summarize(n=n()) 
+```
+
+---
+
+### Comparisons by sample source
+
+.pull-left[
+```{r mpx2}
+mpx %>%
+  filter(type=="crust") %>%
+  group_by(monkeypox,genexpert) %>%
+  summarize(n=n()) 
+```
+]
+.pull-right[
+```{r mpx3}
+mpx %>%
+  filter(type=="fluid") %>%
+  group_by(monkeypox,genexpert) %>%
+  summarize(n=n()) 
+```
+]
+---
+
+### Monkeypox Test Data
+
+One thing to note is that the proportion of positive test results is quite high. This is not surprising for a study of this type. To evaluate test properties, a significant number of monkeypox cases are needed, and getting enough cases to do so using a random sample of the population would involve a fairly large number of samples. Thus in studies of rare diseases, researchers will **oversample** presumed cases for the study (a type of **stratified** sampling). In addition, one would not test an individual for monkeypox without a suspicious rash or skin lesions, and indeed the test protocol requires samples taken from such an area.
+
+---
+
+### Positive and Negative Predictive Value
+
+- **Positive predictive value** is the conditional probability (times 100%) that the GeneXpert rapid test diagnoses monkeypox (is positive), given that the real time PCR test (gold standard) is positive.
+
+- **Negative predictive value** is the conditional probability (times 100%) that the GeneXpert rapid test is negative, given that the real time PCR test is negative.
+
+---
+
+### Describing Monkeypox Test Properties
+
+Using the data provided, calculate sensitivity, specificity, positive predictive value, and negative predictive value for (a) the overall set of samples, (b) crust samples only, and (c) vesicular fluid samples only. Does the GeneXpert test appear to be a reasonable proxy for real time PCR, and does the type of sample used make a big difference in its accuracy?
+
+
+
+---
+
+### Missing and Murdered Indigenous Women and Girls (MMIWG)
+
+Recently the Urban Indian Health Institute (UIHI) published a report on the ongoing crisis of missing and murdered indigenous women and girls in the US. Challenges to addressing the crisis include lack of publicly-available data, inaccurate attribution of race (a hospital system recently reported 44% racial misclassification among American Indians and Alaska Natives), and law enforcement challenges related to overlap of multiple jurisdictions (federal, tribal, state, and local).
+
+---
+
+### Missing and Murdered Indigenous Women and Girls (MMIWG)
+
+UIHI reported the following data for Washington State in 2018:
+
+| <div style="width:200px"></div>  | <div style="width:200px"></div>  |  <div style="width:400px"></div> |
+|:---|--------:|--------:|
+| **Race** | **\# Missing** | **Total Population of Women & Girls** |
+| White | 450 | 2,963,532 |
+| African American | 117 | 149,291 |
+| AI/AN | 56 | 71,208 |
+| Asian/Pacific Islander | 43 | 400,757 |
+
+---
+
+### You Try It!
+
+Using these data, calculate the following probabilities. Let the event $A$ denote the event that a woman is identified as American Indian or Alaska Native, and let the event $B$ denote that she is missing.
+
+- $P(A)$, the probability a woman in Washington state is American Indian or Alaska Native
+- $P(B)$, the probability a women in Washington state is missing
+- $P(B \mid A)$, the probability a woman in Washington state is missing given that she is American Indian or Alaska Native
+- $P(B \mid \overline{A})$, the probability a woman in Washington state is missing given that she is not American Indian or Alaska Native
+- Relative risk of being missing given that you're AI/AN compared with all the other races, $RR=\frac{P(B \mid A)}{P(B \mid \overline{A})}$
+- $P(A \mid B)$, the probability a woman in Washington state is American Indian or Alaska Native given that a woman is missing
+
+---
+### You Try It
+
+Suppose the probability of missingness conditional on race is the same in Alaska and Washington. However, proportionately more Alaska Native and Native American women live in Alaska, with racial distribution 71.7% white, 4% African American, 17.1% American Indian and Alaska Native, and 7.2% Asian.
+
+Consider a missing woman in Alaska. Use Bayes' Theorem to derive the probability that she is Alaska Native or American Indian, given that she is missing. How does this probability compare to the probability you calculated for Washington?
+
+

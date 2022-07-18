@@ -51,7 +51,7 @@ title: 'Week 1 - Welcome to Global Health Data Science'
 | :page_facing_up: | [Course syllabus](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/) | **Required** | 
 | :open_book: | R4DS: [Chp 2, Introduction](https://r4ds.had.co.nz/explore-intro.html) | **Required** |
 | :open_book: | [R4DS::Chp 3 - Data visualisation](https://r4ds.had.co.nz/data-visualisation.html) | **Required** |
-| :open_book: | IMS: [Chp 1, Sec 1.1 and 1.2](https://openintro-ims.netlify.app/data-hello.html) | **Required** |
+| :open_book: | IMS: [Chp 1, Sec 1.1 and 1.2; Chp 2, Study Design; Chp 4, Sec 4.1-4.3 and 4.6; Chp 5, Sec 5.1-5.5](https://openintro-ims.netlify.app/data-hello.html) | **Required** |
 | :movie_camera: | [Meet the Toolkit: Programming](https://www.youtube.com/watch?v=Q2QN1RpvLq8) | **Required** |
 | :movie_camera: | [Meet the Toolkit: Version Control and Collaboration](https://www.youtube.com/watch?v=124DQasLyNQ) | **Required** |
 | :page_facing_up: | [How to read an R help page (Section A.1.1)](https://socviz.co/appendix.html#a-little-more-about-r) | Optional | 

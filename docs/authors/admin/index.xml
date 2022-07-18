@@ -933,17 +933,8 @@
 &lt;th style=&#34;text-align:left&#34;&gt;&lt;div  style=&#34;width:80px;text-align:center&#34;&gt;Slides&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Probability in Action&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-03/w3-l01-probinaction.html#1&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Discrete Distributions&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-03/w3-l02-discretedistributions.html#1&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;| Discrete Distributions  | &lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-03/w3-l02-discretedistributions.html#1&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;  |&lt;/p&gt;
 &lt;h3 id=&#34;assignments-and-labs&#34;&gt;Assignments and Labs&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -993,14 +984,6 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;!---
-| Lab 2 |[Data Viz](https://sta198f2021.github.io/website/slides/week-03/lab-02-data-viz.html)| Wed., 9/8 |
-| HW 1 | [Science Communication](https://sta198f2021.github.io/website/slides/week-03/hw-01-israel-covid.html) | Fri., 9/10 |
-
-
----!&gt;
-
-
 </description>
     </item>
     
@@ -1011,8 +994,8 @@
       <guid>https://github.com/STA-198-GLHLTH-298-F2022.github.io/website/post/02-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta198f2021.github.io/website/post/02-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta198f2021.github.io/website/post/02-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://STA-198-GLHLTH-298-Fall-2022/website/post/02-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://STA-198-GLHLTH-298-Fall-2022/website/post/02-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Complete the &lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Getting to Know You Survey&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
@@ -1023,8 +1006,21 @@
 &lt;th style=&#34;text-align:left&#34;&gt;&lt;div  style=&#34;width:80px;text-align:center&#34;&gt;Slides&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Probability&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://STA-198-GLHLTH-298-Fall-2022/website/slides/week-02/w2-l01-prob.html#1&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Conditional Probability&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://STA-198-GLHLTH-298-Fall-2022/website/slides/week-02/w2-l02-condprob.html#1&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Probability in Action&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://STA-198-GLHLTH-298-Fall-2022/website/slides/week-03/w2-l03-probinaction.html#1&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;| Conditional Probability     | &lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-02/w2-l04-condprob.html#1&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;  |&lt;/p&gt;
 &lt;h3 id=&#34;assignments-and-labs&#34;&gt;Assignments and Labs&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1036,14 +1032,14 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Lab 1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-02/lab-01-hello-r.html&#34;&gt;Hello R!&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Wed., 9/1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Lab 2&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://STA-198-GLHLTH-298-Fall-2022/week-02/lab-02-data-viz.html&#34;&gt;Data Vizualization&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Fri., 9/2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Quiz&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 1&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tuesday, 8/31&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 2&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Sunday, 9/4&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1057,11 +1053,6 @@
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;IMS: &lt;a href=&#34;https://openintro-ims.netlify.app/data-hello.html&#34;&gt;Chp 2, Study Design; Chp 4, Sec 4.1-4.3 and 4.6; Chp 5, Sec 5.1-5.5&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;OIS: &lt;a href=&#34;https://www.openintro.org/book/os/&#34;&gt;Chp 3&lt;/a&gt; or PG: Chp 6: Probability&lt;/td&gt;
@@ -1183,7 +1174,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;IMS: &lt;a href=&#34;https://openintro-ims.netlify.app/data-hello.html&#34;&gt;Chp 1, Sec 1.1 and 1.2&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;IMS: &lt;a href=&#34;https://openintro-ims.netlify.app/data-hello.html&#34;&gt;Chp 1, Sec 1.1 and 1.2; Chp 2, Study Design; Chp 4, Sec 4.1-4.3 and 4.6; Chp 5, Sec 5.1-5.5&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;

@@ -26,7 +26,7 @@ title: 'Week 3 - Probability in Action'
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-| Probability in Action    | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-03/w3-l01-probinaction.html#1)  | 
+
 | Discrete Distributions  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-03/w3-l02-discretedistributions.html#1)  | 
 
 
@@ -47,11 +47,5 @@ title: 'Week 3 - Probability in Action'
 | :open_book: | Seeing Theory: [Chapter 3](https://seeing-theory.brown.edu/probability-distributions/index.html)  | **Required** |
 
 
-<!---
-| Lab 2 |[Data Viz](https://sta198f2021.github.io/website/slides/week-03/lab-02-data-viz.html)| Wed., 9/8 |
-| HW 1 | [Science Communication](https://sta198f2021.github.io/website/slides/week-03/hw-01-israel-covid.html) | Fri., 9/10 |
-
-
----!>
 
 

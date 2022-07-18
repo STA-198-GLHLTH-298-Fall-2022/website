@@ -18,33 +18,31 @@ title: 'Week 2 - Probability'
 
 ### Tasks
 
-- Complete the [readings](https://sta198f2021.github.io/website/post/02-week/#readings)
-- Complete the [assignments](https://sta198f2021.github.io/website/post/02-week/#assignments)
+- Complete the [readings](https://STA-198-GLHLTH-298-Fall-2022/website/post/02-week/#readings)
+- Complete the [assignments](https://STA-198-GLHLTH-298-Fall-2022/website/post/02-week/#assignments)
 - Complete the [Getting to Know You Survey](https://sakai.duke.edu)
 
 ### Class Slides and Activities
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-
-| Conditional Probability     | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-02/w2-l04-condprob.html#1)  | 
-
-
+| Probability     | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022/website/slides/week-02/w2-l01-prob.html#1)  | 
+| Conditional Probability     | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022/website/slides/week-02/w2-l02-condprob.html#1)  | 
+| Probability in Action    | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022/website/slides/week-03/w2-l03-probinaction.html#1)  | 
 
 
 ### Assignments and Labs
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Lab 1 |[Hello R!](https://sta198f2021.github.io/website/slides/week-02/lab-01-hello-r.html)| Wed., 9/1 |
-| Quiz | [Quiz 1](https://sakai.duke.edu) | Tuesday, 8/31 |
+| Lab 2 |[Data Vizualization](https://STA-198-GLHLTH-298-Fall-2022/week-02/lab-02-data-viz.html)| Fri., 9/2 |
+| Quiz | [Quiz 2](https://sakai.duke.edu) | Sunday, 9/4 |
 
 
 ### Readings
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
-| :open_book: | IMS: [Chp 2, Study Design; Chp 4, Sec 4.1-4.3 and 4.6; Chp 5, Sec 5.1-5.5](https://openintro-ims.netlify.app/data-hello.html) | **Required** |
 | :open_book: | OIS: [Chp 3](https://www.openintro.org/book/os/) or PG: Chp 6: Probability | **Required** |
 | :open_book: | Seeing Theory: [Chapters 1 and 2](https://seeing-theory.brown.edu/#secondPage) | **Required** |
 
