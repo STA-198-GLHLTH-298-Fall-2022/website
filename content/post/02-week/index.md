@@ -18,24 +18,24 @@ title: 'Week 2 - Probability'
 
 ### Tasks
 
-- Complete the [readings](https://sta-198-glhlth-298-fall-2022/website/post/02-week/#readings)
-- Complete the [assignments](https://STA-198-GLHLTH-298-Fall-2022/website/post/02-week/#assignments-and-labs)
+- Complete the [readings](#readings)
+- Complete the [assignments](#assignments-and-labs)
 - Complete the [Getting to Know You Survey](https://sakai.duke.edu)
 
 ### Class Slides and Activities
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-| Probability     | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022/website/slides/week-02/w2-l01-prob.html#1)  | 
-| Conditional Probability     | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022/website/slides/week-02/w2-l02-condprob.html#1)  | 
-| Probability in Action    | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022/website/slides/week-02/w2-l03-probinaction.html#1)  | 
+| Probability     | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/w2-l01-prob.html#1)  | 
+| Conditional Probability     | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/w2-l02-condprob.html#1)  | 
+| Probability in Action    | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/w2-l03-probinaction.html#1)  | 
 
 
 ### Assignments and Labs
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Lab 2 |[Data Vizualization](https://sta-198-glhlth-298-fall-2022/week-02/lab-02-data-viz.html)| Fri., 9/2 |
+| Lab 2 |[Data Vizualization](https://sta-198-glhlth-298-fall-2022.github.io/week-02/lab-02-data-viz.html)| Fri., 9/2 |
 | Quiz | [Quiz 2](https://sakai.duke.edu) | Sunday, 9/4 |
 
 

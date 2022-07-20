@@ -11,33 +11,31 @@ image:
   preview_only: true
 lastmod: "2021-07-03T00:00:00Z"
 projects: []
-subtitle: 'Probability; discrete distributions :stars:'
-summary: More probability, discrete distributions
-title: 'Week 3 - Probability in Action'
+subtitle: 'Discrete distributions; data wrangling :stars:'
+summary: Discrete distributions and start data wrangling
+title: 'Week 3 - From Distributions to Data Wrangling'
 ---
 
 ### Tasks
 
-- Complete the [readings](/post/03-week/#readings)
-- Complete the [assignments](/post/03-week/#assignments)
+- Complete the [readings](#readings-and-videos)
+- Complete the [assignments](#assignments-and-labs)
 
 
 ### Class Slides and Activities
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-
-| Discrete Distributions  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-03/w3-l01-discretedistributions.html#1)  | 
-
-| Data Wrangling I  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/slides/week-03/w3-l02-wrangling1.html#1)  | 
+| Discrete Distributions  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/w3-l01-discretedistributions.html#1)  | 
+| Data Wrangling I  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/w3-l02-wrangling1.html#1)  | 
 
 ### Assignments and Labs
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
 | Quiz | [Quiz 2](https://sakai.duke.edu) | Tuesday, 9/7 |
-| Lab 2 |[Data Viz](https://sta198f2021.github.io/website/slides/week-03/lab-02-data-viz.html)| Wed., 9/8 |
-| HW 1 | [Science Communication](https://sta198f2021.github.io/website/slides/week-03/hw-01-israel-covid.html) | Fri., 9/10 |
+| Lab 2 |[Data Viz](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/lab-02-data-viz.html)| Wed., 9/8 |
+| HW 1 | [Science Communication](https://sta-198-glhlth-298-fall-2022/website/slides/week-03/hw-01-israel-covid.html) | Fri., 9/10 |
 
 
 ### Readings and Videos
