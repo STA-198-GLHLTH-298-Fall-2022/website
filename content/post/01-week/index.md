@@ -18,7 +18,7 @@ title: 'Week 1 - Welcome to Global Health Data Science'
 
 ### Tasks
 
-- Complete the [readings](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/post/01-week/#readings)
+- Complete the [readings](#readings-and-videos)
 - Complete the [Getting to Know You Survey](https://sakai.duke.edu) (you'll need a GitHub user name first; see the video on version control and collaboration to walk through this)
 
 ### Class Slides and Activities
