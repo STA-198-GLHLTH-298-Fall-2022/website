@@ -18,7 +18,7 @@ subtitle = "Code along labs on Tuesdays; classes on Mondays and Wednesdays; offi
   icon = "university"
   icon_pack = "fas"
   name = "Monday"
-  description = "Class - 10:15-11:30am <br> Old Chem 116 <br> Prof. Herring hours - 1:00-2:00pm <br> 208 Old Chem" 
+  description = "Class - 10:15-11:30am <br> Old Chem 116 <br> Prof. Herring hour - 1:00-2:00pm <br> 208 Old Chem <br> Riya hour - 5:00-6:00pm <br> TBA" 
 
 
 
@@ -26,14 +26,14 @@ subtitle = "Code along labs on Tuesdays; classes on Mondays and Wednesdays; offi
   icon = "keyboard"
   icon_pack = "fas"
   name = "Tuesday"
-  description = "Code along lab sessions <br>1:45-3:00pm, Perkins Link 071 <br> with TAs <br>3:30-4:45pm, Perkins Link 071 <br> with TAs <br>or 5:15-6:30pm, Perkins Link 071 <br> with TAs"  
+  description = "Code along lab sessions <br>1:45-3:00pm, Perkins Link 071 <br> with TAs <br>3:30-4:45pm, Perkins Link 071 <br> with Jackie <br>or 5:15-6:30pm, Perkins Link 071 <br> with Jackie & Riya"  
   
   
 [[feature]]
   icon = "university"
   icon_pack = "fas"
   name = "Wednesday"
-  description = "Class - 10:15-11:30am <br> Old Chem 116 <br> TA hours - TBD <br> TBD" 
+  description = "Class - 10:15-11:30am <br> Old Chem 116 <br> Riya hour - 1:00-2:00pm <br> TBD" 
 
 
    
@@ -41,14 +41,14 @@ subtitle = "Code along labs on Tuesdays; classes on Mondays and Wednesdays; offi
   icon = "comments"
   icon_pack = "far"
   name = "Thursday"
-  description = "Prof. Herring hours - 1-2pm <br> Zoom (link on Sakai) <br>  TA hours - 4-5pm <br> Zoom (link on Sakai) <br> TA hours - 5-7pm <br> TBD <br> TA hours - 8-9pm <br> Zoom (link on Sakai)"  
+  description = "Prof. Herring hour - 1-2pm <br> Zoom (link on Sakai) <br>  Jackie hour - TBA <br> TBA <br> TA hours - TBA <br> TBD <br> TA hours - TBA <br> Zoom (link on Sakai)"  
   
  
 [[feature]]
   icon = "comments"
   icon_pack = "far"
   name = "Friday"
-  description = "TA hours - 4-5pm <br> Zoom (link on Sakai) <br> TA hours - 5-7pm <br> Edge Project Room 2"
+  description = "TA hours - TBA <br> Zoom (link on Sakai)"
   
  
 +++

@@ -19,7 +19,7 @@ title = "Syllabus"
 
 ### Student hours
 
-Prof. Herring will each hold office hours on Mondays and Thursdays, and TA office hours will be on Wednesdays, Thursdays, and Fridays. These will not be recorded, and zoom options will be available. It's a great time to get real time answers to your questions or just say hi!
+Prof. Herring will hold office hours on Mondays and Thursdays, and TA office hours will be on Wednesdays, Thursdays, and Fridays. These will not be recorded, and zoom options will be available. It's a great time to get real time answers to your questions or just say hi!
 
 ### Code along sessions/labs
 
@@ -48,7 +48,7 @@ You will be responsible for the completion of an open ended final project for th
 
 ### Teams 
 
-For all of the team based assignments in this class you will be randomly assigned to teams of 3-4 students - these teams will change after each assignment. You will work in these teams during class and on the homework assignment. For team based assignments, all team members are expected to contribute equally to the completion of each assignment and you will be asked to evaluate your team members after each assignment is due. Failure adequately to contribute to an assignment will result in a penalty to your mark relative to the team's overall mark.
+For all of the team based assignments in this class you will be randomly assigned to teams of 3-4 students - these teams will change about every 3 assignments. You will work in these teams during lab. For team based labs, all team members are expected to contribute equally to the completion of each assignment and you will be asked to evaluate your team members after each assignment is due. Failure adequately to contribute to an assignment will result in a penalty to your mark relative to the team's overall mark.
 
 Students are expected to make use of the provided GitHub repository as their central collaborative platform. Commits to this repository will be used as a metric (one of several) of each team member's relative contribution for each homework.
 
@@ -143,12 +143,12 @@ All work is due on the stated due date. Due dates are there to help guide your p
   - Project proposal: Late work accepted up to 4 days past the deadline, with 5% penalty for each day
   - Project re-proposal: No late work accepted (this is an optional assignment)
   - Project: No late work accepted 
-  - Exams: students with known conflicts on exam days should contact the instructor as soon as possible. Make-up exams will not be given. If the final exam grade is higher than the grade on either exam 1 or exam 2, then it will automatically be substituted to the student's benefit, for a maximum of one exam substitution. 
+  - Exams: students with known conflicts on exam days should contact the instructor as soon as possible. Make-up exams will not be given, but the final exam can be used to substitute for exam 1 or exam 2. If the final exam grade is higher than the grade on either exam 1 or exam 2, then it will automatically be substituted to the student's benefit, for a maximum of one exam substitution. If the final exam grade is lower than the grade on exam 1 or exam 2, it will not be used in calculation of the student's final grade (that is, if you're happy with your exam 1 and exam 2 grades, you can skip the final with no penalty).
     - Example: If a student misses the second exam, the final exam grade will substitute for the exam 2 grade.
     - Example: If a student misses the first exam, the final exam grade will substitute for the exam 1 grade.
     - Example: If a student misses both exam 1 and exam 2, the final exam grade will substitute for exam 2 (worth more points), and the exam 1 grade will be zero.
     - Example: If a student completes all three exams, and the final exam grade is higher than the grade for either exam 1 or exam 2, then the final exam grade will substitute for the prior exam grade in a manner that maximizes the student's score (because the exams have unequal weight in the final grade calculation, it may be preferable to use the final exam to substitute for the exam 2 grade due to its heavier weight, even if its score is slightly higher than the score on exam 1). If the final exam grade is lower than the grades on exam 1 or exam 2, no substitutions will be made.
-    - Example: If a student misses the final exam, the course grade will be X unless the student is failing (in which case the course grade is F). If no acceptable explanation is presented to the academic dean's office within 48 hours of missing the exam, the course grade is F. If the exam absence is excused, the dean, Professor, and student make arrangements for a make-up examination as soon as possible.
+
     
 ### Accommodations
 
