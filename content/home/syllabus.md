@@ -19,7 +19,7 @@ title = "Syllabus"
 
 ### Student hours
 
-Prof. Herring will hold office hours on Mondays and Thursdays, and TA office hours will be on Wednesdays, Thursdays, and Fridays. These will not be recorded, and zoom options will be available. It's a great time to get real time answers to your questions or just say hi!
+Prof. Herring will hold office hours on Mondays and Thursdays, and TA office hours will be on Mondays, Wednesdays, Thursdays, and Fridays. These will not be recorded, and zoom options will be available. It's a great time to get real time answers to your questions or just say hi!
 
 ### Code along sessions/labs
 
