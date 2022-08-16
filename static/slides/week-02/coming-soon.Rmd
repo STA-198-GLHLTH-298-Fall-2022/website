@@ -1,6 +1,6 @@
 ---
 title: "Coming Soon!"
-date: "08.30.2022"
+date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
     css: 
