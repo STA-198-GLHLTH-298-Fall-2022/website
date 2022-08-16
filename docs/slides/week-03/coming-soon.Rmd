@@ -1,0 +1,17 @@
+---
+title: "Coming Soon!"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: 
+      - css/xaringan-themer.css
+      - css/slides.css
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightLines: true
+      highlightStyle: solarized-light
+      countIncrementalSlides: false
+---
+
+Coming soon!

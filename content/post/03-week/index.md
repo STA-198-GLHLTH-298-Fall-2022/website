@@ -12,7 +12,7 @@ image:
 lastmod: "2021-07-03T00:00:00Z"
 projects: []
 subtitle: 'Discrete distributions; data wrangling :stars:'
-summary: Discrete distributions and start data wrangling
+summary: Discrete distributions and data wrangling
 title: 'Week 3 - From Distributions to Data Wrangling'
 ---
 
@@ -34,8 +34,8 @@ title: 'Week 3 - From Distributions to Data Wrangling'
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
 | Quiz | [Quiz 2](https://sakai.duke.edu) | Tuesday, 9/7 |
-| Lab 2 |[Data Viz](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/lab-02-data-viz.html)| Wed., 9/8 |
-| HW 1 | [Science Communication](https://sta-198-glhlth-298-fall-2022/website/slides/week-03/hw-01-israel-covid.html) | Fri., 9/10 |
+| Lab 3 |[Probability and Teamwork](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Wed., 9/8 |
+| HW 1 | [Coming Soon](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Fri., 9/10 |
 
 
 ### Readings and Videos
