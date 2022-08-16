@@ -26,15 +26,20 @@ title: 'Week 4 - Data wrangling'
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
+<!--
 | Data Wrangling II  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-04/w4-l02-wrangling2.html#1)  | 
 | Tidying Data | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-04/w4-l03-tidying.html#1)  | 
+-->
+| Data Wrangling II  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
+| Tidying Data | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
+
 
 ### Assignments and Labs
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Quiz | [Quiz 3](https://sakai.duke.edu) | Tuesday, 9/14 |
-| Lab 3 |[Probability and Teams](https://sta198f2021.github.io/website/slides/week-04/lab-03-prob-teams.html)| Wed., 9/15 |
+| Quiz | [Quiz 3](https://sakai.duke.edu) | Sunday, 9/18 |
+| Lab 4 |[Data Wrangling](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Fri., 9/23 |
 
 
 

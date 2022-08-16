@@ -33,9 +33,9 @@ title: 'Week 3 - From Distributions to Data Wrangling'
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Quiz | [Quiz 2](https://sakai.duke.edu) | Tuesday, 9/7 |
-| Lab 3 |[Probability and Teamwork](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Wed., 9/8 |
-| HW 1 | [Coming Soon](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Fri., 9/10 |
+| Quiz | [Quiz 2](https://sakai.duke.edu) | Sunday, 9/11 |
+| Lab 3 |[Probability and Teamwork](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Fri., 9/16 |
+| HW 1 | [Coming Soon](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Fri., 9/16 |
 
 
 ### Readings and Videos
