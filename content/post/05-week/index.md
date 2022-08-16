@@ -23,12 +23,9 @@ title: 'Week 5 - Visualizaing Spatial Data Effectively'
 - Complete the [assignments](/post/05-week/#assignments)
 
 ### Class Slides and Activities
-
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-
 | Gaussian Distribution | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
-
 | Point and Interval Estimates | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
 
 
@@ -48,6 +45,6 @@ title: 'Week 5 - Visualizaing Spatial Data Effectively'
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
 | Quiz | [Quiz 4](https://sakai.duke.edu) | Sunday, 9/26 |
-| Lab 5 |[Spatial Data and Merge Conflicts] | (https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Tuesday, 9/28 |
+| Lab 5 |[Spatial Data and Merge Conflicts] (https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Tuesday, 9/28 |
 | Lab 5 |[Tidyverse Tips: Review!](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)|  |
 
