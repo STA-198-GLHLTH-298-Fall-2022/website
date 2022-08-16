@@ -11,9 +11,9 @@ image:
   preview_only: true
 lastmod: "2021-07-06T00:00:00Z"
 projects: []
-subtitle: 'Normal distribution, central limit theorem, and confidence intervals :spider_web:'
-summary: Learn about the normal distribution and its central role in formal evaluation of hypotheses and construction of confidence intervals
-title: 'Week 6 - Normal Distribution and Confidence Intervals'
+subtitle: 'Testing Hypotheses :spider_web:'
+summary: Learn about how we evaluate hypotheses
+title: 'Week 6 - Testing Hypotheses'
 ---
 
 ### Tasks
@@ -26,8 +26,8 @@ title: 'Week 6 - Normal Distribution and Confidence Intervals'
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-| Normal (Gaussian) Distribution    | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-06/w6-l01-gaussian.html#1)  | 
-| Distribution of the Sample Mean; Confidence Intervals  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-06/w6-l02-clt.html#1)  | 
+| Testing I   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
+| Testing II  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
 
 ### Readings and Videos
 
@@ -44,9 +44,9 @@ title: 'Week 6 - Normal Distribution and Confidence Intervals'
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Homework 2 | [Baby Boom or Baby Bust?](https://sta198f2021.github.io/website/slides/week-06/hw-02-baby-bust.html) | Friday, 10/1 |
-| Quiz | [Quiz 5](https://sakai.duke.edu) | Tuesday, 9/28 |
-| Lab 5 |[Data Wrangling and Mercury in the Amazon](https://sta198f2021.github.io/website/slides/week-06/lab-05-mercury-wrangling.html)| Wed., 9/29 |
-| Project | Teams and [proposals](https://sta198f2021.github.io/website/) due soon -- start thinking! | | 
+| Homework 2 | [Coming Soon]((https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)) | Friday, 10/7 |
+| Quiz | [Quiz 5](https://sakai.duke.edu) | Sunday, 10/2 |
+| Lab 6 |[Testing](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Friday, 10/7 |
+ 
 
 
