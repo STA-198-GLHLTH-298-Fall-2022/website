@@ -61,7 +61,7 @@ Your overall course grade will be comprised of the following components, and the
 - Homework and Quizzes: 15%
 - Labs: 15%
 - Project: 20%
-- Exams (20% exam 1; 30% exam 2)
+- Exams (25% exam 1; 25% exam 2; *optional* final exam can substitute for lowest exam grade and otherwise will not affect grade)
 
 A letter grade will be assigned as follows.
 
@@ -143,11 +143,11 @@ All work is due on the stated due date. Due dates are there to help guide your p
   - Project proposal: Late work accepted up to 4 days past the deadline, with 5% penalty for each day
   - Project re-proposal: No late work accepted (this is an optional assignment)
   - Project: No late work accepted 
-  - Exams: students with known conflicts on exam days should contact the instructor as soon as possible. Make-up exams will not be given, but the final exam can be used to substitute for exam 1 or exam 2. If the final exam grade is higher than the grade on either exam 1 or exam 2, then it will automatically be substituted to the student's benefit, for a maximum of one exam substitution. If the final exam grade is lower than the grade on exam 1 or exam 2, it will not be used in calculation of the student's final grade (that is, if you're happy with your exam 1 and exam 2 grades, you can skip the final with no penalty).
+  - Exams: students with known conflicts on exam days should contact the instructor as soon as possible. Make-up exams will not be given, but the final exam can be used to substitute for exam 1 or exam 2. If the final exam grade is higher than the grade on either exam 1 or exam 2, then it will automatically be substituted to the student's benefit, for a maximum of one exam substitution. If the final exam grade is lower than the grade on exam 1 or exam 2, it will not be used in calculation of the student's final grade (that is, if you're happy with your exam 1 and exam 2 grades, you can skip the final with no penalty, as the grade of 0 on the final will be the dropped grade).
     - Example: If a student misses the second exam, the final exam grade will substitute for the exam 2 grade.
     - Example: If a student misses the first exam, the final exam grade will substitute for the exam 1 grade.
-    - Example: If a student misses both exam 1 and exam 2, the final exam grade will substitute for exam 2 (worth more points), and the exam 1 grade will be zero.
-    - Example: If a student completes all three exams, and the final exam grade is higher than the grade for either exam 1 or exam 2, then the final exam grade will substitute for the prior exam grade in a manner that maximizes the student's score (because the exams have unequal weight in the final grade calculation, it may be preferable to use the final exam to substitute for the exam 2 grade due to its heavier weight, even if its score is slightly higher than the score on exam 1). If the final exam grade is lower than the grades on exam 1 or exam 2, no substitutions will be made.
+    - Example: If a student misses both exam 1 and exam 2, the final exam grade will substitute for one exam, and the other grade will be zero (don't end up here!).
+    - Example: If a student completes all three exams, and the final exam grade is higher than the grade for either exam 1 or exam 2, then the final exam grade will substitute for the lowest prior exam grade.  If the final exam grade is lower than the grades on exam 1 or exam 2, no substitutions will be made, and the final exam grade will not appear in grade calculations.
 
     
 ### Accommodations
