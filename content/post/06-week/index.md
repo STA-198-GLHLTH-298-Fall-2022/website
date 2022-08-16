@@ -44,8 +44,8 @@ title: 'Week 6 - Testing Hypotheses'
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Homework 2 | [Coming Soon]((https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)) | Friday, 10/7 |
 | Quiz | [Quiz 5](https://sakai.duke.edu) | Sunday, 10/2 |
+| Homework 2 | [Coming Soon](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Friday, 10/7 |
 | Lab 6 |[Testing](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Friday, 10/7 |
  
 
