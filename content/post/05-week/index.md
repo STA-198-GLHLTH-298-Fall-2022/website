@@ -22,6 +22,16 @@ title: 'Week 5 - Visualizaing Spatial Data Effectively'
 - Complete the [readings](/post/05-week/#readings)
 - Complete the [assignments](/post/05-week/#assignments)
 
+### Class Slides and Activities
+
+| <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
+|:---:|:---------------------|
+| Gaussian Distribution | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
+
+| Point and Interval Estimates | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
+
+
+
 ### Readings and Videos
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
@@ -36,8 +46,7 @@ title: 'Week 5 - Visualizaing Spatial Data Effectively'
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Quiz | [Quiz 4](https://sakai.duke.edu) | Tuesday, 9/21 |
-| Lab 4 |[Spatial Data and Merge Conflicts](https://sta198f2021.github.io/website/slides/week-05/lab-04-spatial-conflict.html)| Wed., 9/22 |
-| Lab 4 |[Tidyverse Tips: Review!](https://sta198f2021.github.io/website/slides/week-05/tidyr_demo_lab4.html)|  |
-| Lab 4 |[Slide Deck](https://sta198f2021.github.io/website/slides/week-05/lab04slides_jd_edits.html)|  |
+| Quiz | [Quiz 4](https://sakai.duke.edu) | Sunday, 9/26 |
+| Lab 5 |[Spatial Data and Merge Conflicts] | (https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Tuesday, 9/28 |
+| Lab 5 |[Tidyverse Tips: Review!](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)|  |
 
