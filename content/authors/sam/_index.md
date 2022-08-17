@@ -10,7 +10,7 @@ social:
   link: "mailto:sam.rosen@duke.edu"
 - icon: home
   icon_pack: fas
-  link: https://samgrosen.github.io
+  link: https://samgrosen.github.io/
 - icon: github
   icon_pack: fab
   link: https://github.com/SamGRosen
@@ -23,4 +23,4 @@ user_groups:
 
 ---
 
-All about Sam!
+Hello, I'm Sam, a second-year PhD student in the StatSci department. I completed my undergrad at UMass Amherst with a degree in Mathematics and Computer Science. Most of my research interests are grounded in statistical or high-performance computing. Recently I've completed internships at Genetech focusing on data visualization and Cruise focusing on data-driven development. Outside of school, I like to explore the Durham area, go to baseball games, and cook.
