@@ -44,6 +44,7 @@ title: 'Week 3 - From Distributions to Data Wrangling'
 |:---:|:---|:---:|
 | :open_book: | OIS: [Chapter 4, Sections 4.2.1 and  4.3.1](https://www.openintro.org/book/os/) or PG: Chp 7, Sections 7.1-7.2  | **Required** |
 | :open_book: | Seeing Theory: [Chapter 3](https://seeing-theory.brown.edu/probability-distributions/index.html)  | **Required** |
+| :open_book: | R4DS: [Chapter 5, Data Transformation](https://r4ds.had.co.nz/transform.html)  | **Required** |
 
 
 

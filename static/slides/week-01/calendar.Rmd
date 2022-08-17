@@ -16,13 +16,13 @@ not_here_dates <- c(ymd(20221010),ymd(20221011),
               
 exam_dates <- c(ymd(20221019), ymd(20221207),ymd(20221216))
 
-labonly_dates <- c(ymd(20220902),ymd(20220909),ymd(20220923),ymd(20220930),ymd(20221028),ymd(20221104))
+labonly_dates <- c(ymd(20220902),ymd(20220909),ymd(20220923),ymd(20221028),ymd(20221104))
 
 labhw_dates <- c(ymd(20220916),ymd(20221007),ymd(20221111),ymd(20221202))
 
-project_dates <- c(ymd(20221021,20221209))
+project_dates <- c(ymd(20221014,20221209))
 
-labproject_dates <- c(ymd(20221118))
+labproject_dates <- c(ymd(20220930, 20221118))
 
 lab_dates <- c(ymd(20220830),ymd(20220906),ymd(20220913),ymd(20220920),ymd(20220927),ymd(20221004),ymd(20221018),ymd(20221025),ymd(20221101),ymd(20221108),ymd(20221115),ymd(20221122),ymd(20221129),ymd(20221206))
 

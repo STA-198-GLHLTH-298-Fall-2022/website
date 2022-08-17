@@ -13,14 +13,14 @@
     </image>
     
     <item>
-      <title>Week 15 - Ethics and survival</title>
+      <title>Week 15 - Final Presentations and Wrapping it Up</title>
       <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/15-week/</link>
       <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/15-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/15-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/15-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/15-week/#assignments-and-labs&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;class-slides&#34;&gt;Class Slides&lt;/h3&gt;
 &lt;table&gt;
@@ -32,12 +32,8 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Survival Analysis&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-15/w15-l01-survival.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Ethics&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-15/w15-l02-ethics.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -53,18 +49,13 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Quiz&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 11&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 12&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Tues., 11/30&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Lab 12&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-15/lab-12-bwt.html&#34;&gt;Model Validation&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Wed., 12/1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Homework 5&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-15/hw5-lbw.html&#34;&gt;Survival Analysis&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fri., 12/3&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Project&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/&#34;&gt;Project Reports - Info on Main Page&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Tues., 11/16&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -78,21 +69,6 @@
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;📄&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-02/w2-l03-prob.html&#34;&gt;Review: Probability&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;📄&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-02/w2-l04-condprob.html&#34;&gt;Review: Conditional Probability &lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;🎥&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.dailymotion.com/video/x6oqa4p&#34;&gt;5 Bears in the Bed&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required (Seriously!)&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📄&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://datapractices.org/manifesto/&#34;&gt;Data Values and Principles &lt;/a&gt;&lt;/td&gt;
@@ -109,11 +85,30 @@
     </item>
     
     <item>
-      <title>Week 14 - Bringing it All Together</title>
-      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/14-week/</link>
+      <title>Week 13 - Bringing it All Together</title>
+      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/13-week/</link>
       <pubDate>Wed, 14 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/14-week/</guid>
-      <description>&lt;p&gt;This week we&amp;rsquo;ll use lab time to practice bringing together all the skills we&amp;rsquo;ve learned by reading about real studies and setting up analysis plans. There is no quiz, and there are no deliverables this week.&lt;/p&gt;
+      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/13-week/</guid>
+      <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
+&lt;p&gt;This week we&amp;rsquo;ll use lab time to practice bringing together all the skills we&amp;rsquo;ve learned by reading about real studies and setting up analysis plans.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/13-week/#assignments-and-labs&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:250px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div  style=&#34;width:80px;text-align:center&#34;&gt;Slides&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Practice Making Analysis Plans&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h3 id=&#34;assignments-and-labs&#34;&gt;Assignments and Labs&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -125,9 +120,14 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Quiz&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 11&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Sunday, 11/21&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Lab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-14/lab-11-big-picture-practice.html&#34;&gt;Practicing Making Analysis Plans&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Practice for you; no deliverable&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Project work day with TA help (no deliverable)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Tuesday, 11/23&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -135,13 +135,13 @@
     </item>
     
     <item>
-      <title>Week 13 - Project Presentations</title>
-      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/13-week/</link>
+      <title>Week 14 - Project Presentations</title>
+      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/14-week/</link>
       <pubDate>Tue, 13 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/13-week/</guid>
+      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/14-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/13-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/14-week/#assignments-and-labs&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;assignments-and-labs&#34;&gt;Assignments and Labs&lt;/h3&gt;
 &lt;table&gt;
@@ -154,19 +154,19 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Lab&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Finalize Projects&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Homework 4&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Coming Soon&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Fri., 12/2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Lab 11&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Coming Soon&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Fri., 12/2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Project&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/&#34;&gt;Project Reports - Info on Main Page&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tues., 11/16&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-13/project-tips.html&#34;&gt;Project Presentations - Click Here for Day and Time&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Wed. and Fri., 11/17 and 11/19&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Project Presentations - Click Here for Day and Time&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;11/28, 11/30, and 12/5&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -174,14 +174,14 @@
     </item>
     
     <item>
-      <title>Week 12 - Model Validation</title>
+      <title>Week 12 - Logistic Regression and Survival Analysis</title>
       <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/12-week/</link>
       <pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/12-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/12-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/12-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/12-week/#readings-and-videos&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/12-week/#assignments-and-labs&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;class-slides&#34;&gt;Class Slides&lt;/h3&gt;
 &lt;table&gt;
@@ -193,12 +193,20 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Split Sample Analysis&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-12/w12-l01-prediction-overfitting.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Logistic Regression&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Cross-Validation&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-12/w12-l02-cross-validation.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Logistic Regression Application&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Logistic Regression: Coding with Aggregate Data&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Survival Analysis&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -215,17 +223,116 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Quiz&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 10&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tues., 11/9&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Sunday, 11/13&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Lab 10&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-12/lab-10-gats-logistic.html&#34;&gt;Logistic Regression&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Wed., 11/10&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Logistic Regression&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Friday, 11/18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;readings-and-videos&#34;&gt;Readings and Videos&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:50px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:420px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:200px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;OIS: &lt;a href=&#34;https://www.openintro.org/book/os/&#34;&gt;Chp 9, Section 9.5&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Homework 4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-12/hw-04-malaria-vaccine.html&#34;&gt;Categorical Data&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fri., 11/12&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Penn State Statistics for Epidemiology: &lt;a href=&#34;https://online.stat.psu.edu/stat507/lesson/12&#34;&gt;Unit 12, Sections 12-12.2; 12.4-12.5&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📄&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/w2-l01-prob.html#1&#34;&gt;Review: Probability&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📄&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/w2-l02-condprob.html#1&#34;&gt;Review: Conditional Probability &lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🎥&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.dailymotion.com/video/x6oqa4p&#34;&gt;5 Bears in the Bed&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required (Seriously!)&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Week 11 - Model Validation; Categorical Data</title>
+      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/11-week/</link>
+      <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/11-week/</guid>
+      <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/11-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/11-week/#assignments-and-labs&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;class-slides&#34;&gt;Class Slides&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:250px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div  style=&#34;width:80px;text-align:center&#34;&gt;Slides&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Split Sample Analysis&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Cross-Validation&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Contingency Tables&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Fallacies and Paradoxes&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;assignments-and-labs&#34;&gt;Assignments and Labs&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:120px;text-align:left&#34;&gt;Assignment&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:340px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:200px;text-align:left&#34;&gt;Due&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Quiz&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 9&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Sun., 11/6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Lab 9&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Modeling and Cross-Validation&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Fri., 11/11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;HW 3&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Coming Soon&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Fri., 11/11&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -249,88 +356,9 @@
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://towardsdatascience.com/train-test-split-and-cross-validation-in-python-80b61beca4b6&#34;&gt;Train-Test-Split Intro&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Recommended&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 11 - Logistic regression</title>
-      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/11-week/</link>
-      <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/11-week/</guid>
-      <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/11-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/11-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;class-slides&#34;&gt;Class Slides&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:250px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div  style=&#34;width:80px;text-align:center&#34;&gt;Slides&lt;/div&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Fallacies and Paradoxes&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-11/w11-l01-multiwaytables.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Logistic Regression&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-11/w11-l02-logistic.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Logistic Regression Application&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-11/w11-ae-problem.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Logistic Regression: Coding with Aggregate Data&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-11/w11-ae.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;assignments-and-labs&#34;&gt;Assignments and Labs&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:120px;text-align:left&#34;&gt;Assignment&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:340px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:200px;text-align:left&#34;&gt;Due&lt;/div&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Quiz&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 9&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tues., 11/2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Lab 9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Teamwork on Projects&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Swap labs or come to your own with questions, as desired&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;readings&#34;&gt;Readings&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:50px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:420px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:200px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;OIS: &lt;a href=&#34;https://www.openintro.org/book/os/&#34;&gt;Chp 9, Section 9.5&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Penn State Statistics for Epidemiology: &lt;a href=&#34;https://online.stat.psu.edu/stat507/lesson/12&#34;&gt;Unit 12, Sections 12-12.2; 12.4-12.5&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;OIS: &lt;a href=&#34;https://www.openintro.org/book/os/&#34;&gt;Chp 6, Section 6.4&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -339,14 +367,14 @@
     </item>
     
     <item>
-      <title>Week 10 - Categorical Data</title>
+      <title>Week 10 - Regression with Multiple Predictors</title>
       <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/10-week/</link>
       <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/10-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/10-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/10-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/10-week/#readings-and-videos&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/10-week/#assignments-and-labs&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;class-slides&#34;&gt;Class Slides&lt;/h3&gt;
 &lt;table&gt;
@@ -358,8 +386,12 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Contingency Tables&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-10/w10-l01-fish-chi2.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Multiple Regression&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Confounding, Interaction, and Complex Interplay of Variables&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -376,103 +408,16 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Quiz&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 8&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tues., 10/26&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Sun., 10/30&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Lab 8&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-10/lab-08-mercury-reg2.html&#34;&gt;Mercury Levels by Assets and Urban Community Status&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Wed., 10/27&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Exam 2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;See Practice on Sakai&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fri., 10/29&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;readings&#34;&gt;Readings&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:50px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:420px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:200px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;OIS: &lt;a href=&#34;https://www.openintro.org/book/os/&#34;&gt;Chp 6, Section 6.4&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 9 - More Modelling</title>
-      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/09-week/</link>
-      <pubDate>Fri, 09 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/09-week/</guid>
-      <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/09-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/09-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:250px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div  style=&#34;width:80px;text-align:center&#34;&gt;Slides&lt;/div&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Residuals and Transformations&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-09/w9-l01-resid-xform.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Multiple Regression&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-09/w9-l02-multiple-reg.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;assignments-and-labs&#34;&gt;Assignments and Labs&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:120px;text-align:left&#34;&gt;Assignment&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:340px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:200px;text-align:left&#34;&gt;Due&lt;/div&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/&#34;&gt;Project Proposal - Optional Resubmission&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Mon., 10/18&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Quiz&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 7&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tues., 10/19&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Lab 7&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-09/lab-07-mercury-reg.html&#34;&gt;Mercury as a Function of Age and Native Status&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Wed., 10/20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Homework 3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-09/hw-03-community-neurodevelopment.html&#34;&gt;Community-Based Intervention Study&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Fri., 10/22&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Modeling&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Fri., 11/4&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;readings-and-videos&#34;&gt;Readings and Videos&lt;/h3&gt;
-&lt;p&gt;Note: the videos this week track the lecture topics fairly closely but use different examples. This could be helpful if you want a different perspective on similar material!&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -508,14 +453,14 @@
     </item>
     
     <item>
-      <title>Week 8 - Modelling Data</title>
-      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/08-week/</link>
-      <pubDate>Thu, 08 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/08-week/</guid>
+      <title>Week 9 - Regression and ANOVA</title>
+      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/09-week/</link>
+      <pubDate>Fri, 09 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/09-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/08-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/08-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/09-week/#readings-and-videos&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/09-week/#assignments-and-labs&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
 &lt;table&gt;
@@ -527,16 +472,16 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Introduction to Modelling&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-08/w8-l01-intro-model.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Model Fitting and Interpretation&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Model Fitting and Interpretation&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-08/w8-l02-fitting-interpretation.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Residuals and Transformations&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;ANOVA&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-08/w8-l03-anova.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -551,19 +496,117 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Project&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/&#34;&gt;Project Proposal&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Quiz&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 7&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Sun., 10/23&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Lab 7&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Coming Soon&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Friday, 10/28&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;readings-and-videos&#34;&gt;Readings and Videos&lt;/h3&gt;
+&lt;p&gt;Note: the video this week tracks the lecture topics fairly closely but uses different examples. This could be helpful if you want a different perspective on similar material!&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:50px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:420px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:200px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;IMS: &lt;a href=&#34;https://openintro-ims.netlify.app/inference-many-means.html&#34;&gt;Chp 22: Inference for Comparing Many Means&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🎥&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=69U92Q3pwnA&#34;&gt;Linear Regression&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Optional&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Week 8 - Modelling Data</title>
+      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/08-week/</link>
+      <pubDate>Thu, 08 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/08-week/</guid>
+      <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/08-week/#assignments-and-labs&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete Exam 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:250px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div  style=&#34;width:80px;text-align:center&#34;&gt;Slides&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;In-Class Practice&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;assignments-and-labs&#34;&gt;Assignments and Labs&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:120px;text-align:left&#34;&gt;Assignment&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:340px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:200px;text-align:left&#34;&gt;Due&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Quiz&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Quiz 6&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tuesday, 10/12&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Sunday, 10/16&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Lab 6&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-08/lab-06-mercury-levels.html&#34;&gt;Exploring Mercury Levels&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Wed., 10/13&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Project Work Session&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Tuesday, 10/18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Week 7 - Introduction to Modeling</title>
+      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/07-week/</link>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/07-week/</guid>
+      <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/07-week/#readings-and-videos&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/07-week/#assignments&#34;&gt;project proposal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Study for the exam!&lt;/li&gt;
+&lt;li&gt;Team meeting with Prof. Herring by Friday, October 14, to discuss project proposal&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:250px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div  style=&#34;width:80px;text-align:center&#34;&gt;Slides&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Introduction to Modelling&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -584,24 +627,26 @@
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;IMS: &lt;a href=&#34;https://openintro-ims.netlify.app/inference-many-means.html&#34;&gt;Chp 22: Inference for Comparing Many Means&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;🎥&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=MWkkvDopBKc&#34;&gt;Modeling I&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Optional&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;assignments&#34;&gt;Assignments&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;🎥&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=69U92Q3pwnA&#34;&gt;Linear Regression&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Optional&lt;/strong&gt;&lt;/td&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:120px;text-align:left&#34;&gt;Assignment&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:340px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:200px;text-align:left&#34;&gt;Due&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://theconversation.com/gold-rush-mercury-legacy-small-scale-mining-for-gold-has-produced-long-lasting-toxic-pollution-from-1860s-california-to-modern-peru-133324r&#34;&gt;Mercury Pollution from Artisinal and Small-Scale Gold Mining&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Optional&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Project&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Project Proposal&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;by Friday, 10/14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -609,14 +654,14 @@
     </item>
     
     <item>
-      <title>Week 7 - Evaluating Hypotheses</title>
-      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/07-week/</link>
-      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/07-week/</guid>
+      <title>Week 6 - Evaluating Hypotheses</title>
+      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/06-week/</link>
+      <pubDate>Tue, 06 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/06-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/07-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Form your project team by Friday, October 8 and let me know the members!&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/06-week/#readings-and-videos&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/06-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
 &lt;table&gt;
@@ -628,12 +673,12 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Hypothesis Testing&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-07/w7-l01-testing.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Testing I&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Hypothesis Testing about the Mean and Proportions&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta198f2021.github.io/website/slides/week-07/w7-l02-test-mean-prop.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Testing II&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -669,65 +714,6 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 6 - Testing Hypotheses</title>
-      <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/06-week/</link>
-      <pubDate>Tue, 06 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/06-week/</guid>
-      <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/06-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/06-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:250px;text-align:left&#34;&gt;Title&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div  style=&#34;width:80px;text-align:center&#34;&gt;Slides&lt;/div&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Testing I&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Testing II&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;readings-and-videos&#34;&gt;Readings and Videos&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:50px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:420px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:200px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.openintro.org/book/os/&#34;&gt;OpenIntro Chapter 4.1: The Normal Distribution &lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.openintro.org/book/os/&#34;&gt;OpenIntro Chapter 5, Sections 5.1 and 5.2: Foundations for Inference &lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://openintro-ims.netlify.app/foundations-mathematical.html&#34;&gt;IMS Chapter 13: Inference with Mathematical Models&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Highly Recommended&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 &lt;h3 id=&#34;assignments-and-labs&#34;&gt;Assignments and Labs&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -759,14 +745,15 @@
     </item>
     
     <item>
-      <title>Week 5 - Visualizaing Spatial Data Effectively</title>
+      <title>Week 5 - Point and Interval Estimation</title>
       <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/05-week/</link>
       <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/05-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/05-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/05-week/#readings-and-videos&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/05-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Form your project team by Friday, September 30 and let me know the members!&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
 &lt;table&gt;
@@ -837,7 +824,7 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Lab 5&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Spatial Data and Merge Conflicts&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tuesday, 9/28&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Friday, 9/30&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Lab 5&lt;/td&gt;
@@ -856,7 +843,7 @@
       <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/04-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/04-week/#readings&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/04-week/#readings-and-videos&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/04-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
@@ -896,23 +883,13 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;readings-and-videos&#34;&gt;Readings and Videos&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:50px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:420px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:200px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;R4DS: &lt;a href=&#34;https://r4ds.had.co.nz/transform.html&#34;&gt;Chapter 5, Data Transformation&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;!-- 
+### Readings and Videos
+
+| &lt;div style=&#34;width:50px&#34;&gt;&lt;/div&gt;  | &lt;div style=&#34;width:420px&#34;&gt;&lt;/div&gt;  |  &lt;div style=&#34;width:200px&#34;&gt;&lt;/div&gt; |
+|:---:|:---|:---:|
+
+--&gt;
 </description>
     </item>
     
@@ -990,6 +967,11 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Seeing Theory: &lt;a href=&#34;https://seeing-theory.brown.edu/probability-distributions/index.html&#34;&gt;Chapter 3&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;R4DS: &lt;a href=&#34;https://r4ds.had.co.nz/transform.html&#34;&gt;Chapter 5, Data Transformation&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

@@ -11,16 +11,17 @@ image:
   preview_only: true
 lastmod: "2021-07-05T00:00:00Z"
 projects: []
-subtitle: 'Visualizing Spatial Data :world_map:'
-summary: Tips for effective visualization of spatial data
-title: 'Week 5 - Visualizaing Spatial Data Effectively'
+subtitle: 'Point and Interval Estimation :world_map:'
+summary: Start to gain tools needed to begin rigorous evaluation of hypotheses in science
+title: 'Week 5 - Point and Interval Estimation'
 ---
 
 ### Tasks
 
 
-- Complete the [readings](/post/05-week/#readings)
+- Complete the [readings](/post/05-week/#readings-and-videos)
 - Complete the [assignments](/post/05-week/#assignments)
+- Form your project team by Friday, September 30 and let me know the members!
 
 ### Class Slides and Activities
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
@@ -45,6 +46,6 @@ title: 'Week 5 - Visualizaing Spatial Data Effectively'
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
 | Quiz | [Quiz 4](https://sakai.duke.edu) | Sunday, 9/26 |
-| Lab 5 | [Spatial Data and Merge Conflicts](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Tuesday, 9/28 |
+| Lab 5 | [Spatial Data and Merge Conflicts](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Friday, 9/30 |
 | Lab 5 |[Tidyverse Tips: Review!](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)|  |
 

@@ -18,7 +18,7 @@ title: 'Week 4 - Data wrangling'
 
 ### Tasks
 
-- Complete the [readings](/post/04-week/#readings)
+- Complete the [readings](/post/04-week/#readings-and-videos)
 - Complete the [assignments](/post/04-week/#assignments)
 
 
@@ -43,12 +43,13 @@ title: 'Week 4 - Data wrangling'
 | Lab 4 |[Data Wrangling](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Fri., 9/23 |
 
 
-
+<!-- 
 ### Readings and Videos
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
-| :open_book: | R4DS: [Chapter 5, Data Transformation](https://r4ds.had.co.nz/transform.html)  | **Required** |
+
+-->
 
 
 
