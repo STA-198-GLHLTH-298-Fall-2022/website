@@ -1,7 +1,6 @@
 ---
 title: "Visualizing numerical data"
 subtitle: "<br><br> Introduction to Global Health Data Science"
-author: "[Course Website](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/)"
 date: "<br> Prof. Amy Herring"
 output:
   xaringan::moon_reader:

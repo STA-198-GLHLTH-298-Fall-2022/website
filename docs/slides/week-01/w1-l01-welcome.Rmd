@@ -2,7 +2,6 @@
 title: "Welcome to STA 198/GLHLTH 298!"
 subtitle: "<br><br> Introduction to Global Health Data Science"
 
-#author: "[Website](https://sta-198-glhlth-298-fall-2022.github.io/website/)"
 
 date: "<br> Prof. Amy Herring"
 output:
