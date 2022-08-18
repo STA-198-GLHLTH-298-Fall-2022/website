@@ -55,7 +55,7 @@ title: 'Week 1 - Welcome to Global Health Data Science'
 | :movie_camera: | [Meet the Toolkit: Programming](https://www.youtube.com/watch?v=Q2QN1RpvLq8) | **Required** |
 | :movie_camera: | [Meet the Toolkit: Version Control and Collaboration](https://www.youtube.com/watch?v=124DQasLyNQ) | **Required** |
 | :page_facing_up: | [How to read an R help page (Section A.1.1)](https://socviz.co/appendix.html#a-little-more-about-r) | Optional | 
-| :page_facing_up: | [rOpenSci's Reproducibility Guide](https://ropensci.github.io/reproducibility-guide/sections/introduction/) | Optional |
+| :page_facing_up: | [rOpenSci's Reproducibility Guide](https://ropensci-archive.github.io/reproducibility-guide/) | Optional |
 | :page_facing_up: | [1,500 scientists lift the lid on reproducibility](https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970) | Optional |
 |  :fountain_pen:  | [How R changed me as an analyst](https://nhsrcommunity.com/blog/how-r-changed-me-as-an-analyst/) | Optional
 | :page_facing_up: | [Make a plot](https://socviz.co/makeplot.html) | Optional |

@@ -486,7 +486,7 @@ ggplot(lifeexpwide2019,
 ```
 ]
 
-Oops!  Note only 6 shapes are available, so this isn't a good option for our $>$6 regions!
+Oops!  Note only 6 shapes are available, so this isn't a good option for our >6 regions!
 
 
 
@@ -784,7 +784,7 @@ lifeexpwide %>%
 
 ---
 
-## Face and color, no legend
+## Facet and color, no legend
 
 .pull-left-narrow[
 ```{r facet-color-no-legend, fig.show = "hide", warning = FALSE}
