@@ -319,7 +319,7 @@ To submit your assignment:
 
 -   Click *School Credentials* $\rightarrow$ *Duke NetID* and log in using your NetID credentials.
 
--   Click on your *STA 198* course.
+-   Click on your *STA 198 or GLHLTH 298* course.
 
 -   Click on the assignment, and you'll be prompted to submit it.
 
