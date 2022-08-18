@@ -18,7 +18,9 @@ class: center, middle, inverse, title-slide
 
 # Go to End for Aggregate Coding!
 ## <br><br> Introduction to Global Health Data Science
-### <a href="https://sta198f2021.github.io/website/">Back to Website</a>
+### <a
+href="https://sta-198-glhlth-298-fall-2022.github.io/website/">Back to
+Website</a>
 ### <br> Prof. Amy Herring
 
 ---
@@ -31,7 +33,7 @@ layout: true
   
 &lt;div class="my-footer"&gt;
 &lt;span&gt;
-&lt;a href="https://sta198f2021.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
+&lt;a href="https://sta-198-glhlth-298-fall-2022.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
 &lt;/span&gt;
 &lt;/div&gt; 
 
@@ -180,17 +182,19 @@ print(result,n=9)
 
 ```
 #&gt; # A tibble: 9 × 7
-#&gt;   term   estimate std.error statistic  p.value conf.low conf.high
-#&gt;   &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-#&gt; 1 (Inte…    1.83     0.105      17.5  1.09e-68   1.63       2.04 
-#&gt; 2 GENDE…    0.801    0.0716     11.2  4.48e-29   0.662      0.943
-#&gt; 3 EDUCA…    0.187    0.126       1.48 1.39e- 1  -0.0618     0.434
-#&gt; 4 EDUCA…    0.513    0.127       4.04 5.36e- 5   0.263      0.761
-#&gt; 5 EDUCA…    0.551    0.163       3.37 7.46e- 4   0.235      0.876
-#&gt; 6 EDUCA…    0.760    0.118       6.46 1.05e-10   0.528      0.990
-#&gt; 7 EDUCA…    1.09     0.137       7.93 2.28e-15   0.820      1.36 
-#&gt; 8 EDUCA…    1.00     0.139       7.19 6.45e-13   0.729      1.28 
-#&gt; 9 EDUCA…    0.684    0.432       1.58 1.14e- 1  -0.0822     1.64
+#&gt;   term           estim…¹ std.e…² stati…³  p.value conf.…⁴ conf.…⁵
+#&gt;   &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 (Intercept)      1.83   0.105    17.5  1.09e-68  1.63     2.04 
+#&gt; 2 GENDERFemale     0.801  0.0716   11.2  4.48e-29  0.662    0.943
+#&gt; 3 EDUCATIONLess…   0.187  0.126     1.48 1.39e- 1 -0.0618   0.434
+#&gt; 4 EDUCATIONPrim…   0.513  0.127     4.04 5.36e- 5  0.263    0.761
+#&gt; 5 EDUCATIONLess…   0.551  0.163     3.37 7.46e- 4  0.235    0.876
+#&gt; 6 EDUCATIONSeco…   0.760  0.118     6.46 1.05e-10  0.528    0.990
+#&gt; 7 EDUCATIONHigh…   1.09   0.137     7.93 2.28e-15  0.820    1.36 
+#&gt; 8 EDUCATIONUniv…   1.00   0.139     7.19 6.45e-13  0.729    1.28 
+#&gt; 9 EDUCATIONPost…   0.684  0.432     1.58 1.14e- 1 -0.0822   1.64 
+#&gt; # … with abbreviated variable names ¹​estimate, ²​std.error,
+#&gt; #   ³​statistic, ⁴​conf.low, ⁵​conf.high
 ```
 
 ---
@@ -243,24 +247,26 @@ print(result2,n=16)
 
 ```
 #&gt; # A tibble: 16 × 7
-#&gt;    term  estimate std.error statistic  p.value conf.low conf.high
-#&gt;    &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-#&gt;  1 (Int…    6.51      0.168   11.2    5.70e-29   4.75        9.18
-#&gt;  2 GEND…    2.10      0.201    3.70   2.18e- 4   1.41        3.09
-#&gt;  3 EDUC…    1.13      0.197    0.635  5.26e- 1   0.763       1.66
-#&gt;  4 EDUC…    1.57      0.197    2.30   2.16e- 2   1.06        2.29
-#&gt;  5 EDUC…    1.67      0.230    2.22   2.62e- 2   1.06        2.62
-#&gt;  6 EDUC…    2.05      0.186    3.85   1.19e- 4   1.41        2.93
-#&gt;  7 EDUC…    2.89      0.205    5.17   2.29e- 7   1.92        4.29
-#&gt;  8 EDUC…    2.63      0.210    4.62   3.92e- 6   1.73        3.95
-#&gt;  9 EDUC…    2.71      0.617    1.62   1.06e- 1   0.940      11.5 
-#&gt; 10 GEND…    1.12      0.265    0.434  6.64e- 1   0.671       1.90
-#&gt; 11 GEND…    1.12      0.268    0.440  6.60e- 1   0.670       1.92
-#&gt; 12 GEND…    1.05      0.351    0.150  8.81e- 1   0.537       2.13
-#&gt; 13 GEND…    1.07      0.249    0.264  7.92e- 1   0.660       1.75
-#&gt; 14 GEND…    1.02      0.292    0.0635 9.49e- 1   0.580       1.82
-#&gt; 15 GEND…    1.04      0.292    0.133  8.94e- 1   0.590       1.86
-#&gt; 16 GEND…    0.440     0.864   -0.950  3.42e- 1   0.0751      2.58
+#&gt;    term          estim…¹ std.e…² stati…³  p.value conf.…⁴ conf.…⁵
+#&gt;    &lt;chr&gt;           &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1 (Intercept)     6.51    0.168 11.2    5.70e-29  4.75      9.18
+#&gt;  2 GENDERFemale    2.10    0.201  3.70   2.18e- 4  1.41      3.09
+#&gt;  3 EDUCATIONLes…   1.13    0.197  0.635  5.26e- 1  0.763     1.66
+#&gt;  4 EDUCATIONPri…   1.57    0.197  2.30   2.16e- 2  1.06      2.29
+#&gt;  5 EDUCATIONLes…   1.67    0.230  2.22   2.62e- 2  1.06      2.62
+#&gt;  6 EDUCATIONSec…   2.05    0.186  3.85   1.19e- 4  1.41      2.93
+#&gt;  7 EDUCATIONHig…   2.89    0.205  5.17   2.29e- 7  1.92      4.29
+#&gt;  8 EDUCATIONUni…   2.63    0.210  4.62   3.92e- 6  1.73      3.95
+#&gt;  9 EDUCATIONPos…   2.71    0.617  1.62   1.06e- 1  0.940    11.5 
+#&gt; 10 GENDERFemale…   1.12    0.265  0.434  6.64e- 1  0.671     1.90
+#&gt; 11 GENDERFemale…   1.12    0.268  0.440  6.60e- 1  0.670     1.92
+#&gt; 12 GENDERFemale…   1.05    0.351  0.150  8.81e- 1  0.537     2.13
+#&gt; 13 GENDERFemale…   1.07    0.249  0.264  7.92e- 1  0.660     1.75
+#&gt; 14 GENDERFemale…   1.02    0.292  0.0635 9.49e- 1  0.580     1.82
+#&gt; 15 GENDERFemale…   1.04    0.292  0.133  8.94e- 1  0.590     1.86
+#&gt; 16 GENDERFemale…   0.440   0.864 -0.950  3.42e- 1  0.0751    2.58
+#&gt; # … with abbreviated variable names ¹​estimate, ²​std.error,
+#&gt; #   ³​statistic, ⁴​conf.low, ⁵​conf.high
 ```
 
 Whew, no important interaction terms apparent here.

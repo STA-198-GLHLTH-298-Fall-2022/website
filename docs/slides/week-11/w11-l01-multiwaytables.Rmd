@@ -1,7 +1,7 @@
 ---
 title: "Paradoxes and Fallacies"
 subtitle: "<br><br> Introduction to Global Health Data Science"
-author: "[Back to Website](https://sta198f2021.github.io/website/)"
+author: "[Back to Website](https://sta-198-glhlth-298-fall-2022.github.io/website/)"
 date: "<br> Prof. Amy Herring"
 output:
   xaringan::moon_reader:

@@ -18,7 +18,9 @@ class: center, middle, inverse, title-slide
 
 # Prediction and Overfitting
 ## <br><br> Introduction to Global Health Data Science
-### <a href="https://sta198f2021.github.io/website/">Back to Website</a>
+### <a
+href="https://sta-198-glhlth-298-fall-2022.github.io/website/">Back to
+Website</a>
 ### <br> Prof. Amy Herring
 
 ---
@@ -31,7 +33,7 @@ layout: true
   
 &lt;div class="my-footer"&gt;
 &lt;span&gt;
-&lt;a href="https://sta198f2021.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
+&lt;a href="https://sta-198-glhlth-298-fall-2022.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
 &lt;/span&gt;
 &lt;/div&gt; 
 
@@ -132,6 +134,7 @@ print(bigmod,n=17)
 #&gt; 16 PROVINCEShangdong      0.399      0.397     1.01   0.314 
 #&gt; 17 PROVINCEHenan          0.810      0.398     2.04   0.0417
 #&gt; # … with 47 more rows
+#&gt; # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -172,27 +175,28 @@ print(bigmod[34:52,],n=19)
 
 ```
 #&gt; # A tibble: 19 × 5
-#&gt;    term                      estimate std.error statistic p.value
-#&gt;    &lt;chr&gt;                        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-#&gt;  1 EDUCATIONLess than Prima…   0.285     0.159     1.79   0.0731 
-#&gt;  2 EDUCATIONPrimary School     0.247     0.156     1.58   0.114  
-#&gt;  3 EDUCATIONLess than Secon…   0.371     0.178     2.08   0.0373 
-#&gt;  4 EDUCATIONSecondary School   0.206     0.151     1.36   0.173  
-#&gt;  5 EDUCATIONHigh School        0.446     0.164     2.72   0.00652
-#&gt;  6 EDUCATIONUniversity         0.337     0.185     1.82   0.0689 
-#&gt;  7 EDUCATIONPostgraduate      -0.721     0.837    -0.862  0.389  
-#&gt;  8 EDUCATIONDon't Know       -11.8     325.       -0.0364 0.971  
-#&gt;  9 EDUCATIONRefused          -10.9     325.       -0.0334 0.973  
-#&gt; 10 OCCUPATIONGovernment        0.252     0.200     1.26   0.206  
-#&gt; 11 OCCUPATIONBusiness          0.0873    0.0978    0.893  0.372  
-#&gt; 12 OCCUPATIONTeacher           0.320     0.348     0.920  0.358  
-#&gt; 13 OCCUPATIONHealthcare        0.370     0.351     1.06   0.291  
-#&gt; 14 OCCUPATIONStudent          -1.07      0.637    -1.68   0.0926 
-#&gt; 15 OCCUPATIONSoldier           0.255     1.02      0.249  0.803  
-#&gt; 16 OCCUPATIONUnemployed        0.122     0.129     0.950  0.342  
-#&gt; 17 OCCUPATIONRetired           0.292     0.126     2.33   0.0199 
-#&gt; 18 OCCUPATIONOther             0.0844    0.0998    0.845  0.398  
-#&gt; 19 OCCUPATIONDon't Know      -11.6     230.       -0.0504 0.960
+#&gt;    term                          estimate std.e…¹ stati…² p.value
+#&gt;    &lt;chr&gt;                            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1 EDUCATIONLess than Primary S…   0.285  1.59e-1  1.79   0.0731 
+#&gt;  2 EDUCATIONPrimary School         0.247  1.56e-1  1.58   0.114  
+#&gt;  3 EDUCATIONLess than Secondary…   0.371  1.78e-1  2.08   0.0373 
+#&gt;  4 EDUCATIONSecondary School       0.206  1.51e-1  1.36   0.173  
+#&gt;  5 EDUCATIONHigh School            0.446  1.64e-1  2.72   0.00652
+#&gt;  6 EDUCATIONUniversity             0.337  1.85e-1  1.82   0.0689 
+#&gt;  7 EDUCATIONPostgraduate          -0.721  8.37e-1 -0.862  0.389  
+#&gt;  8 EDUCATIONDon't Know           -11.8    3.25e+2 -0.0364 0.971  
+#&gt;  9 EDUCATIONRefused              -10.9    3.25e+2 -0.0334 0.973  
+#&gt; 10 OCCUPATIONGovernment            0.252  2.00e-1  1.26   0.206  
+#&gt; 11 OCCUPATIONBusiness              0.0873 9.78e-2  0.893  0.372  
+#&gt; 12 OCCUPATIONTeacher               0.320  3.48e-1  0.920  0.358  
+#&gt; 13 OCCUPATIONHealthcare            0.370  3.51e-1  1.06   0.291  
+#&gt; 14 OCCUPATIONStudent              -1.07   6.37e-1 -1.68   0.0926 
+#&gt; 15 OCCUPATIONSoldier               0.255  1.02e+0  0.249  0.803  
+#&gt; 16 OCCUPATIONUnemployed            0.122  1.29e-1  0.950  0.342  
+#&gt; 17 OCCUPATIONRetired               0.292  1.26e-1  2.33   0.0199 
+#&gt; 18 OCCUPATIONOther                 0.0844 9.98e-2  0.845  0.398  
+#&gt; 19 OCCUPATIONDon't Know          -11.6    2.30e+2 -0.0504 0.960  
+#&gt; # … with abbreviated variable names ¹​std.error, ²​statistic
 ```
 
 
@@ -205,20 +209,22 @@ print(bigmod[53:64,],n=13)
 
 ```
 #&gt; # A tibble: 12 × 5
-#&gt;    term                    estimate std.error statistic   p.value
-#&gt;    &lt;chr&gt;                      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-#&gt;  1 OCCUPATIONRefused        -1.10      1.13      -0.971   3.31e-1
-#&gt;  2 HOMESMOKERULESNot Allo…   0.129     0.0903     1.43    1.53e-1
-#&gt;  3 HOMESMOKERULESNever Al…   0.425     0.0931     4.57    4.89e-6
-#&gt;  4 HOMESMOKERULESNo Rules   -0.103     0.0852    -1.21    2.28e-1
-#&gt;  5 HOMESMOKERULESDon't Kn…  -0.0354    0.340     -0.104   9.17e-1
-#&gt;  6 HOMESMOKERULESRefused     0.174     1.05       0.165   8.69e-1
-#&gt;  7 SMOKESICKNo              -0.352     0.127     -2.78    5.46e-3
-#&gt;  8 SMOKESICKDon't Know      -0.245     0.104     -2.36    1.82e-2
-#&gt;  9 SMOKESICKRefused         -1.36      0.916     -1.48    1.39e-1
-#&gt; 10 SMOKECANCERNo            -0.259     0.147     -1.76    7.84e-2
-#&gt; 11 SMOKECANCERDon't Know    -0.453     0.0909    -4.98    6.46e-7
-#&gt; 12 SMOKECANCERRefused        0.393     0.847      0.464   6.43e-1
+#&gt;    term                           estim…¹ std.e…² stati…³ p.value
+#&gt;    &lt;chr&gt;                            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1 OCCUPATIONRefused              -1.10    1.13    -0.971 3.31e-1
+#&gt;  2 HOMESMOKERULESNot Allowed but…  0.129   0.0903   1.43  1.53e-1
+#&gt;  3 HOMESMOKERULESNever Allowed     0.425   0.0931   4.57  4.89e-6
+#&gt;  4 HOMESMOKERULESNo Rules         -0.103   0.0852  -1.21  2.28e-1
+#&gt;  5 HOMESMOKERULESDon't Know       -0.0354  0.340   -0.104 9.17e-1
+#&gt;  6 HOMESMOKERULESRefused           0.174   1.05     0.165 8.69e-1
+#&gt;  7 SMOKESICKNo                    -0.352   0.127   -2.78  5.46e-3
+#&gt;  8 SMOKESICKDon't Know            -0.245   0.104   -2.36  1.82e-2
+#&gt;  9 SMOKESICKRefused               -1.36    0.916   -1.48  1.39e-1
+#&gt; 10 SMOKECANCERNo                  -0.259   0.147   -1.76  7.84e-2
+#&gt; 11 SMOKECANCERDon't Know          -0.453   0.0909  -4.98  6.46e-7
+#&gt; 12 SMOKECANCERRefused              0.393   0.847    0.464 6.43e-1
+#&gt; # … with abbreviated variable names ¹​estimate, ²​std.error,
+#&gt; #   ³​statistic
 ```
 
 ---
@@ -374,7 +380,7 @@ trystop_m1
 ```
 #&gt; parsnip model object
 #&gt; 
-#&gt; Fit time:  162ms 
+#&gt; Fit time:  170ms 
 #&gt; 
 #&gt; Call:  stats::glm(formula = TRYSTOP ~ GENDER + PROVINCE + RESIDENCE + 
 #&gt;     EDUCATION + OCCUPATION + HOMESMOKERULES + SMOKESICK + SMOKECANCER, 
@@ -472,6 +478,7 @@ predict(trystop_m1, test_data)
 #&gt; 5 No         
 #&gt; 6 No         
 #&gt; # … with 932 more rows
+#&gt; # ℹ Use `print(n = ...)` to see more rows
 ```
 
 
@@ -498,6 +505,7 @@ trystop_pred1
 #&gt; 5    0.596     0.404 Yes    
 #&gt; 6    0.680     0.320 No     
 #&gt; # … with 932 more rows
+#&gt; # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -532,6 +540,7 @@ trystop_pred1 %&gt;%
 #&gt; 14    0.243     0.757 Yes    
 #&gt; 15    0.247     0.753 No     
 #&gt; # … with 923 more rows
+#&gt; # ℹ Use `print(n = ...)` to see more rows
 ```
 ]
 

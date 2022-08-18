@@ -20,7 +20,7 @@ options(
 
 # Finalizing your report!
 
-You're in the homestretch! Your report guidelines are posted at the [website](https://sta198f2021.github.io/website/). Note projects are due at 11:59pm Tuesday, November 16, with presentations Wednesday or Friday of the same week (scroll to the bottom for your team's day and time).
+You're in the homestretch! Your report guidelines are posted at the [website](https://sta-198-glhlth-298-fall-2022.github.io/website/). Note projects are due at 11:59pm Tuesday, November 16, with presentations Wednesday or Friday of the same week (scroll to the bottom for your team's day and time).
 
 
 # Reviewing the draft

@@ -22,4 +22,4 @@ This week we'll use lab time to practice bringing together all the skills we've 
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Lab | [Practicing Making Analysis Plans](https://sta198f2021.github.io/website/slides/week-14/lab-11-big-picture-practice.html) | Practice for you; no deliverable |
+| Lab | [Practicing Making Analysis Plans](https://github.com/STA-198-GLHLTH-298-Fall-2022/slides/week-02/coming-soon.html) | Practice for you; no deliverable |

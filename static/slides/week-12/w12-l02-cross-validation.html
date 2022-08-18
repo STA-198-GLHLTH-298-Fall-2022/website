@@ -18,7 +18,9 @@ class: center, middle, inverse, title-slide
 
 # Cross-Validation
 ## <br><br> Introduction to Global Health Data Science
-### <a href="https://sta198f2021.github.io/website/">Back to Website</a>
+### <a
+href="https://sta-198-glhlth-298-fall-2022.github.io/website/">Back to
+Website</a>
 ### <br> Prof. Amy Herring
 
 ---
@@ -31,7 +33,7 @@ layout: true
   
 &lt;div class="my-footer"&gt;
 &lt;span&gt;
-&lt;a href="https://sta198f2021.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
+&lt;a href="https://sta-198-glhlth-298-fall-2022.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
 &lt;/span&gt;
 &lt;/div&gt; 
 
@@ -129,16 +131,17 @@ print(mp,n=10)
 
 ```
 #&gt; # A tibble: 8 × 5
-#&gt;   term                      estimate std.error statistic  p.value
-#&gt;   &lt;chr&gt;                        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-#&gt; 1 (Intercept)                 0.509    0.177       2.87   4.23e-3
-#&gt; 2 assets_sc                  -0.331    0.112      -2.96   3.25e-3
-#&gt; 3 native_catNon-native       -0.789    0.199      -3.95   8.81e-5
-#&gt; 4 form_min_sc                 0.0227   0.0514      0.442  6.59e-1
-#&gt; 5 sex_catMale                -0.0855   0.0950     -0.901  3.68e-1
-#&gt; 6 age                         0.0120   0.00283     4.24   2.65e-5
-#&gt; 7 urban                      -0.0446   0.126      -0.355  7.22e-1
-#&gt; 8 assets_sc:native_catNon-…   0.253    0.129       1.97   4.93e-2
+#&gt;   term                           estimate std.e…¹ stati…² p.value
+#&gt;   &lt;chr&gt;                             &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 (Intercept)                      0.509  0.177     2.87  4.23e-3
+#&gt; 2 assets_sc                       -0.331  0.112    -2.96  3.25e-3
+#&gt; 3 native_catNon-native            -0.789  0.199    -3.95  8.81e-5
+#&gt; 4 form_min_sc                      0.0227 0.0514    0.442 6.59e-1
+#&gt; 5 sex_catMale                     -0.0855 0.0950   -0.901 3.68e-1
+#&gt; 6 age                              0.0120 0.00283   4.24  2.65e-5
+#&gt; 7 urban                           -0.0446 0.126    -0.355 7.22e-1
+#&gt; 8 assets_sc:native_catNon-native   0.253  0.129     1.97  4.93e-2
+#&gt; # … with abbreviated variable names ¹​std.error, ²​statistic
 ```
 
 ---
@@ -170,6 +173,7 @@ mercury_train_pred
 #&gt; 5 -0.0276   0.510
 #&gt; 6 -0.0288  NA    
 #&gt; # … with 838 more rows
+#&gt; # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -289,6 +293,7 @@ mercury_test_pred
 #&gt; 5 NA       NA    
 #&gt; 6 NA       NA    
 #&gt; # … with 276 more rows
+#&gt; # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -586,7 +591,7 @@ tidy(final_fit, conf.int=TRUE)
 ```
 #&gt; parsnip model object
 #&gt; 
-#&gt; Fit time:  1ms 
+#&gt; Fit time:  0ms 
 #&gt; 
 #&gt; Call:
 #&gt; stats::lm(formula = lhairHg ~ assets_sc + native_cat + age, data = data)
@@ -600,12 +605,14 @@ tidy(final_fit, conf.int=TRUE)
 
 ```
 #&gt; # A tibble: 4 × 7
-#&gt;   term   estimate std.error statistic  p.value conf.low conf.high
-#&gt;   &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-#&gt; 1 (Inte…  0.718     0.120        5.98 3.65e- 9  0.482      0.954 
-#&gt; 2 asset… -0.109     0.0468      -2.32 2.06e- 2 -0.201     -0.0167
-#&gt; 3 nativ… -0.942     0.114       -8.30 5.64e-16 -1.16      -0.719 
-#&gt; 4 age     0.00966   0.00240      4.03 6.19e- 5  0.00495    0.0144
+#&gt;   term         estimate std.e…¹ stati…²  p.value conf.low conf.…³
+#&gt;   &lt;chr&gt;           &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 (Intercept)   0.718   0.120      5.98 3.65e- 9  0.482    0.954 
+#&gt; 2 assets_sc    -0.109   0.0468    -2.32 2.06e- 2 -0.201   -0.0167
+#&gt; 3 native_catN… -0.942   0.114     -8.30 5.64e-16 -1.16    -0.719 
+#&gt; 4 age           0.00966 0.00240    4.03 6.19e- 5  0.00495  0.0144
+#&gt; # … with abbreviated variable names ¹​std.error, ²​statistic,
+#&gt; #   ³​conf.high
 ```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

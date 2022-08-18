@@ -18,7 +18,9 @@ class: center, middle, inverse, title-slide
 
 # Tidying data
 ## <br><br> Introduction to Global Health Data Science
-### <a href="https://sta198f2021.github.io/website/">Back to Website</a>
+### <a
+href="https://sta-198-glhlth-298-fall-2022.github.io/website/">Back to
+Website</a>
 ### <br> Prof. Amy Herring
 
 ---
@@ -31,7 +33,7 @@ layout: true
   
 &lt;div class="my-footer"&gt;
 &lt;span&gt;
-&lt;a href="https://sta198f2021.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
+&lt;a href="https://sta-198-glhlth-298-fall-2022.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
 &lt;/span&gt;
 &lt;/div&gt; 
 
@@ -414,6 +416,7 @@ trump
 ##  9 Adults   2020-09-30     42.2        53.7
 ## 10 Voters   2020-09-30     44.2        52.7
 ## # … with 2,692 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -578,6 +581,20 @@ head(coronavirus) #recall variables
 ## 4 2020-01-25  Alberta  Canada 53.9333 -116.5765 confirmed     0
 ## 5 2020-01-26  Alberta  Canada 53.9333 -116.5765 confirmed     0
 ## 6 2020-01-27  Alberta  Canada 53.9333 -116.5765 confirmed     0
+##     uid iso2 iso3 code3    combined_key population
+## 1 12401   CA  CAN   124 Alberta, Canada    4413146
+## 2 12401   CA  CAN   124 Alberta, Canada    4413146
+## 3 12401   CA  CAN   124 Alberta, Canada    4413146
+## 4 12401   CA  CAN   124 Alberta, Canada    4413146
+## 5 12401   CA  CAN   124 Alberta, Canada    4413146
+## 6 12401   CA  CAN   124 Alberta, Canada    4413146
+##   continent_name continent_code
+## 1  North America             NA
+## 2  North America             NA
+## 3  North America             NA
+## 4  North America             NA
+## 5  North America             NA
+## 6  North America             NA
 ```
 
 ```r
@@ -652,7 +669,7 @@ as_of_date &lt;- country_data %&gt;%
 as_of_date_formatted &lt;- glue("{wday(as_of_date, label = TRUE)}, {month(as_of_date, label = TRUE)} {day(as_of_date)}, {year(as_of_date)}")
 ```
 
-These data are as of Thu, Sep 16, 2021.
+These data are as of Wed, Aug 17, 2022.
 
 ---
 
