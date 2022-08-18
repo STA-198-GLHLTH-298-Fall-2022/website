@@ -14,7 +14,7 @@ title = "Syllabus"
 - **Monday and Wednesday:** Class
 - **Tuesday:** Code-along lab sessions
 - **Monday and Thursday:** Professor office hours
-- **Wednesday, Thursday, and Friday:** TA office hours
+- **Monday, Wednesday, Thursday, and Friday:** TA office hours
 
 
 ### Student hours
@@ -40,11 +40,11 @@ Beyond the in class activities, you will be assigned regular homework assignment
 
 ### Quizzes
 
-Regular quizzes on Sakai will be used to ensure students are keeping up with the reading assignments. These quizzes will generally be due Sunday evenings by 11:59 pm and should be completed individually. They will be added together and count towards the semester grade as a single homework (the lowest 2 quiz grades will be dropped).
+Regular quizzes on Sakai will be used to ensure students are keeping up with the reading assignments. These quizzes are all due Sunday evenings by 11:59 pm and should be completed individually. They will be added together and count towards the semester grade as a single homework (the lowest 2 quiz grades will be dropped, so don't worry if you miss one).
 
 ### Final project
 
-You will be responsible for the completion of an open ended final project for this course, the goal of which is to tackle an "interesting" problem using the tools and techniques covered in this class. Additional details on the project will be provided as the course progresses. You must complete the final project and be in class (or on video) to present it to earn a project grade. 
+You will be responsible for the completion of an open ended team project for this course, the goal of which is to tackle an "interesting" problem using the tools and techniques covered in this class. Additional details on the project will be provided as the course progresses. Teams will consist of 3-4 students, and team contributions will be tracked (in the unlikely event a team member does not contribute their share of work, grading may be modified). You must complete the team project and be in class to present it to earn a project grade.  
 
 ### Teams 
 
@@ -141,18 +141,19 @@ All work is due on the stated due date. Due dates are there to help guide your p
   - Quizzes: No late work accepted (lowest 2 quiz grades automatically dropped)
   - Homework assignments: Late work accepted up to 3 days past the deadline (i.e. Monday after the deadline, 4pm), with 5% penalty for each day. Grading of late assignments may be delayed.
   - Project proposal: Late work accepted up to 4 days past the deadline, with 5% penalty for each day
-  - Project re-proposal: No late work accepted (this is an optional assignment)
-  - Project: No late work accepted 
+  - Project oral presentation and final submission: No late work accepted 
   - Exams: students with known conflicts on exam days should contact the instructor as soon as possible. Make-up exams will not be given, but the final exam can be used to substitute for exam 1 or exam 2. If the final exam grade is higher than the grade on either exam 1 or exam 2, then it will automatically be substituted to the student's benefit, for a maximum of one exam substitution. If the final exam grade is lower than the grade on exam 1 or exam 2, it will not be used in calculation of the student's final grade (that is, if you're happy with your exam 1 and exam 2 grades, you can skip the final with no penalty, as the grade of 0 on the final will be the dropped grade).
     - Example: If a student misses the second exam, the final exam grade will substitute for the exam 2 grade.
     - Example: If a student misses the first exam, the final exam grade will substitute for the exam 1 grade.
     - Example: If a student misses both exam 1 and exam 2, the final exam grade will substitute for one exam, and the other grade will be zero (don't end up here!).
-    - Example: If a student completes all three exams, and the final exam grade is higher than the grade for either exam 1 or exam 2, then the final exam grade will substitute for the lowest prior exam grade.  If the final exam grade is lower than the grades on exam 1 or exam 2, no substitutions will be made, and the final exam grade will not appear in grade calculations.
+    - Example: If the final exam grade is lower than the grades on exam 1 or exam 2, no substitutions will be made, and the final exam grade will not appear in grade calculations.
 
     
 ### Accommodations
 
-Duke University is committed to providing equal access to students with documented disabilities. Students with disabilities may contact the [Student Disability Access Office (SDAO)](https://access.duke.edu/students) to ensure your access to this course and to the program. There you can engage in a confidential conversation about the process for requesting reasonable accommodations both in the classroom and in clinical settings. Students are encouraged to register with the SDAO as soon as they matriculate. Please note that accommodations are not provided retroactively. 
+Duke University is committed to providing equal access to students with documented disabilities. Students with disabilities may contact the [Student Disability Access Office (SDAO)](https://access.duke.edu/students) to ensure your access to this course and to the program. There you can engage in a confidential conversation about the process for requesting reasonable accommodations both in the classroom and in clinical settings. Students are encouraged to register with the SDAO as soon as they matriculate. Please note that accommodations are not provided retroactively.
+
+Our course includes three exams. If you have (or anticipate having) an accommodation that affects how you take an exam (extra time, quiet setting, etc) please confer with SDAO now to set up your exams -- dates are on [our course calendar](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-01/calendar.html)).  When scheduling your exams, please make sure your exam time slot overlaps with our course time (if this is not possible, please contact me ASAP).
 
 
 

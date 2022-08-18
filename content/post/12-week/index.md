@@ -37,6 +37,7 @@ title: 'Week 12 - Logistic Regression and Survival Analysis'
 |:---|:---|:---|
 | Quiz | [Quiz 10](https://sakai.duke.edu) | Sunday, 11/13 |
 | Lab 10 | [Logistic Regression](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Friday, 11/18 |
+| Project | [Project Draft](/#project)| Friday, 11/18 |
 
 
 

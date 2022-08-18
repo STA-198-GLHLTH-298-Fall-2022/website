@@ -101,7 +101,7 @@ directions = ""
 
 # Office hours
 # A list of your office hours. To remove, set to an empty list `[]`.
-office_hours = ["Thursdays 1-2 and TBD"]
+office_hours = ["Mondays 1:30-2:30 and Thursdays 1-2"]
 
 # Contact links
 #   Set to `[]` to disable, or comment out unwanted lines with a hash `#`.

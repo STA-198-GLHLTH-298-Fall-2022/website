@@ -20,13 +20,13 @@ The final project for this class will consist of analysis of a data set of your 
 
 The data should have direct relevance to global health.
 
-The goal is not to do an exhaustive data analysis i.e., do not calculate every statistic and procedure you have learned for every variable, but rather let me know that you are proficient at asking meaningful questions and answering them with results of data analysis, that you are proficient in using R, and that you are proficient at interpreting and presenting the results. Focus on methods that help you begin to answer your research questions. Also, critique your own methods and provide suggestions for improving your analysis. Issues pertaining to the reliability and validity of your data, and appropriateness of the statistical analysis, should be discussed here.
+The goal is not to do an exhaustive data analysis; i.e., do not calculate every statistic and procedure you have learned for every variable, but rather let me know that you are proficient at asking meaningful questions and answering them with results of data analysis, that you are proficient in using R, and that you are proficient at interpreting and presenting the results. Focus on methods that help you begin to answer your research questions. Also, critique your own methods and provide suggestions for improving your analysis. Issues pertaining to the reliability and validity of your data, and appropriateness of the statistical analysis, should be discussed here.
 
-The project is very open ended. You should start by creating some kind of compelling visualization(s) of the data in R. There is no limit on what tools or packages you may use, but sticking to packages we learned in class (`tidyverse`) is recommended. You do not need to visualize all of the data at once. A single high quality visualization will receive a much higher grade than a large number of poor quality visualizations. Numeric data analysis or modeling should also be included. Also pay attention to your presentation. Neatness, coherency, and clarity will count. All analyses must be done in RStudio, using R Markdown. References must be cited, including (known) prior analyses of the data. We will use plagiarism checkers, so be sure you are aware of other work with the data you use!
+The project is very open ended. You should start by creating some kind of compelling visualization(s) of the data in R. There is no limit on what tools or packages you may use, but sticking to packages we learned in class (`tidyverse`) is recommended. You do not need to visualize all of the data at once. A single high quality visualization will receive a much higher grade than a large number of poor quality visualizations. Numeric data analysis or modeling should also be included. Also, pay attention to your presentation. Neatness, coherency, and clarity will count. All analyses must be done in RStudio, using R Markdown. References must be cited, including (known) prior analyses of the data. We will use plagiarism checkers, so be sure you are aware of other work with the data you use!
 
 ### Data
 
-In order for you to have the greatest chance of success with this project it is important that you choose a manageable data set. This means that the data should be readily accessible and large enough that multiple relationships can be explored. As such, your data set must have at least 50 observations and say 10-20 variables (exceptions can be made, but you must speak with me first). The variables in the data should include variables of multiple types (e.g., categorical and continuous).
+In order for you to have the greatest chance of success with this project it is important that you choose a manageable data set of *direct relevance* to global health. This means that the data should be readily accessible and large enough that multiple relationships can be explored. As such, your data set must have at least 50 observations and say 10-20 variables (exceptions can be made, but you must speak with me first). The variables in the data should include variables of multiple types (e.g., categorical and continuous).
 
 If you are using a data set that comes in a format that we haven't encountered in class, make sure that you are able to load it into R as this can be tricky depending on the source. If you are having trouble ask for help before it is too late.
 
@@ -34,7 +34,7 @@ If you are using a data set that comes in a format that we haven't encountered i
 
 **The data you use must be able to be shared publicly.** Students will be allowed to post their projects after the end of the course on their own GitHub repos in order to be competitive for summer internships and other opportunities. *You will not be able to use data for the project that cannot be posted online for public viewing*.
 
-**You cannot make substantial changes to the proposed data set or questions of interest after the proposal revision deadline.**  
+**You cannot make substantial changes to the proposed data set or questions of interest after the end of October.**  
 
 Below are a list of data repositories or related events that might be of interest to browse. You're not limited to these resources, and in fact you're encouraged to venture beyond them. But you might find something interesting there:
 
@@ -59,11 +59,11 @@ Below are a list of data repositories or related events that might be of interes
 
 ### Deliverables
 
-0. Team membership - due Friday, October 8 in class
-1. Proposal     - due Monday, October 11, at 11:59 pm
-2. Proposal revision     - due Monday, October 18, at 4:00 pm (optional)
-3. Write-up     - due Tuesday, November 16, at 11:59pm
-4. Presentation - Wednesday, November 17 or Friday, November 19, in class (possibly some Monday, November 22 in class)
+1. Team membership - due Friday, September 30 in class
+2. Proposal     - due by Friday, October 14
+3. Draft write-up     - due Friday, November 18, at 4pm
+4. Presentation - In class 11/28, 11/30, or 12/5
+5. Final paper - due 12/9 by 4pm
 
 #### Proposal
 
@@ -101,13 +101,13 @@ Prepare a slide deck using the template in your repo. This template uses a packa
 
 Before you finalize your presentation, make sure your chunks are turned off with `echo = FALSE`. 
 
-Presentation schedule: Presentations will take place during the third week of November (we may have some the Monday of Thanksgiving week). You can choose to do your presentation live or pre-record it. During class you will watch presentations from other teams and provide feedback in the form of peer evaluations. The presentation line-up will be generated randomly.
+Presentation schedule: Presentations will take place during the last week of November and first week of December. You can choose to do your presentation live or pre-record it (but you must be present to answer questions). During class you will watch presentations from other teams and provide feedback in the form of peer evaluations. The presentation line-up will be generated randomly.
 
 #### Write-up
 
 Along with your presentation slides, we want you to provide a summary of your project in report form.
 
-This write-up, which you can also think of as an summary of your project, should provide information on the dataset you're using, your research question(s), your methodology, and your findings. Think of it as filling out your project proposal with all the interesting details.  Additional information will be provided closer to the project deadline regarding formatting and other tips. The page limit of this write-up is 10 pages, including figures and references.
+This write-up, which you can also think of as an summary of your project, should provide information on the dataset you're using, your research question(s), your methodology, and your findings. Think of it as filling out your project proposal with all the interesting details.  Additional information will be provided closer to the project deadline regarding formatting and other tips. The page limit of this write-up is 10 pages, including figures and references. A complete draft is due 11/18, and the final report is due 12/9.
 
 #### Repo organization
 
@@ -135,6 +135,7 @@ Style and format does count for this assignment, so please take the time to make
 Total                          | 100 pts
 -------------------------------|--------
 Proposal                       | 10 pts
+Draft write-up                 | 0 pts (feedback provided)
 Presentation                   | 10 pts
 Write-up                       | 70 pts
 Reproducibility and organization | 10 pts
@@ -142,17 +143,17 @@ Reproducibility and organization | 10 pts
 
 ### Criteria
 
-- Content - What is the quality of research and/or policy question and relevancy of data to those questions?
+- Content - Is the problem addressed of global health relevance? What is the quality of research and/or policy question and relevancy of data to those questions? Did the team use sufficiently challenging visualizations and analyses to address the questions?
 - Correctness - Are statistical procedures carried out and explained correctly? Are the procedures used appropriate for the data?
 - Writing and Presentation - What is the quality of the statistical presentation, writing, and explanations?
 - Creativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?
 
 ### Team peer evaluation
 
-You will be asked to fill out a survey where you  will report a contribution percentage for each team member. Filling out the survey is a prerequisite for getting credit on the team member evaluation.If you are suggesting that an individual did less than their fair share of the work, please provide some explanation. When peer scores indicate a team member did not do their fair share of work, proportional grading may be used (e.g., half the fair share yields half the points expected).
+You will be asked to fill out a survey where you  will report a contribution percentage for each team member at the time each project deliverable is submitted. Filling out the survey is a prerequisite for getting credit on the team member evaluation. If you are suggesting that an individual did less than their fair share of the work, please provide some explanation. When peer scores indicate a team member did not do their fair share of work, proportional grading may be used (e.g., half the fair share yields half the points expected).
 
 ### Late work policy
 
-- There is no late submission / make up for the presentation. You must be in class on the day of the presentation to get credit for it *or* pre-record and submit your presentation by 9am in the morning of the presentations.
+- There is no late submission / make up for the presentation. You must be in class on the day of the presentation to get credit for it.
 
-- The late work policy for the write-up is 5% of the maximum obtainable mark per calendar day up to seven calendar days after the deadline. If you intend to submit work late for the project, you must notify the course organizer before the original deadline as well as as soon as the completed work is submitted on GitHub.
+- The late work policy for the write-up is 5% of the maximum obtainable mark per calendar day up to seven calendar days after the deadline. If you intend to submit work late for the project, you must notify the course organizer before the original deadline as well as as soon as the completed work is submitted on GitHub. 
