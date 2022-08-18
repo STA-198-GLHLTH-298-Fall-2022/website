@@ -38,7 +38,7 @@ title: 'Week 5 - Point and Interval Estimation'
 | :movie_camera: | [Spatial Data](https://warpwire.duke.edu/w/Yw4GAA/) | **Required** |
 | :movie_camera: | [Working with Dates and Other Data Classes](https://www.youtube.com/watch?v=dozvSVQcqqg) | **Required** |
 | :open_book: | [Spatial Data in R](https://r-spatial.org/r/2018/10/25/ggplot2-sf.html)  | **Recommended** |
-| :open_book: | [Displaying Geo-Spatial Data with R R](https://slcladal.github.io/maps.html) | **Recommended** |
+| :open_book: | [Displaying Geo-Spatial Data with R](https://slcladal.github.io/maps.html) | **Recommended** |
 
 
 ### Assignments and Labs

@@ -239,6 +239,17 @@ In addition, when you interpret a p-value, be sure you are aware of other import
 
 - *Bayesian methods* can be used to incorporate current study results with prior knowledge in order to provide a probability a hypothesis is true conditional on the current data (Bayes' theorem can get us what we want to know!)
 ---
+
+### P-values and Odds the Hypothesis is True
+
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("img/probablecause.jpg")
+```
+
+
+---
+
+
 ### Correspondence between Hypothesis Tests and Confidence Intervals
 
 We can examine a confidence interval to decide whether a proposed value for the population mean is reasonable.

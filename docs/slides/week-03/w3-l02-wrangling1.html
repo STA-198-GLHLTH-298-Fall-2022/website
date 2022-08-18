@@ -3,7 +3,6 @@
   <head>
     <title>Data Wrangling I</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Back to Website" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
@@ -18,9 +17,6 @@ class: center, middle, inverse, title-slide
 
 # Data Wrangling I
 ## <br><br> Introduction to Global Health Data Science
-### <a
-href="https://sta-198-glhlth-298-fall-2022.github.io/website/">Back to
-Website</a>
 ### <br> Prof. Amy Herring
 
 ---
@@ -201,6 +197,7 @@ select(BMI_long, BMI)
 ## 5  22.5
 ## 6  23.6
 ## # … with 2,394 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -224,6 +221,7 @@ select(BMI_long, -BMI)
 ## 5 Afghanistan Men   Rural    2017 
 ## 6 Afghanistan Men   Urban    2017 
 ## # … with 2,394 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -247,6 +245,7 @@ select(BMI_long, Country:Region)
 ## 5 Afghanistan Men   Rural   
 ## 6 Afghanistan Men   Urban   
 ## # … with 2,394 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -273,6 +272,7 @@ arrange(BMI_long, desc(BMI))
 ## 5 American Samoa Men   Rural    2017   34.6
 ## 6 American Samoa Women Urban    1985   34.4
 ## # … with 2,394 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -295,6 +295,7 @@ arrange(BMI_long, BMI)
 ## 5 Nepal       Women Rural    1985   18.3
 ## 6 Ethiopia    Men   Rural    1985   18.4
 ## # … with 2,394 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 
@@ -319,6 +320,7 @@ arrange(BMI_long, desc(Country), BMI)
 ## 5 Zimbabwe Men   National 2017   22.3
 ## 6 Zimbabwe Men   Urban    2017   23.3
 ## # … with 2,394 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -345,6 +347,7 @@ BMI_long %&gt;%
 ## 5 American Samoa  34.6
 ## 6 American Samoa  34.4
 ## # … with 2,394 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 When reading code "in English", say "and then" whenever you see a pipe.
@@ -466,6 +469,7 @@ BMI_long %&gt;%
 ## 5 Iceland Men   Rural    2017   27.3
 ## 6 Iceland Men   Urban    2017   27.1
 ## # … with 6 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -516,6 +520,7 @@ BMI_long %&gt;%
 ## 5 Iceland Women National 1985   24.3
 ## 6 Iceland Women National 2017   25.5
 ## # … with 10 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -597,6 +602,7 @@ Here's the output!
 ## 5  22.5 Normal Range
 ## 6  23.6 Normal Range
 ## # … with 2,394 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 
@@ -631,15 +637,17 @@ BMI_long %&gt;%
 
 ```
 ## # A tibble: 2,400 × 7
-##   Country     Sex   Region   Year    BMI bmiclass     normal_range
-##   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;fct&gt;        &lt;lgl&gt;       
-## 1 Afghanistan Men   National 1985   20.2 Normal Range TRUE        
-## 2 Afghanistan Men   Rural    1985   19.7 Normal Range TRUE        
-## 3 Afghanistan Men   Urban    1985   22.4 Normal Range TRUE        
-## 4 Afghanistan Men   National 2017   22.8 Normal Range TRUE        
-## 5 Afghanistan Men   Rural    2017   22.5 Normal Range TRUE        
-## 6 Afghanistan Men   Urban    2017   23.6 Normal Range TRUE        
-## # … with 2,394 more rows
+##   Country     Sex   Region   Year    BMI bmiclass     normal_ra…¹
+##   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;fct&gt;        &lt;lgl&gt;      
+## 1 Afghanistan Men   National 1985   20.2 Normal Range TRUE       
+## 2 Afghanistan Men   Rural    1985   19.7 Normal Range TRUE       
+## 3 Afghanistan Men   Urban    1985   22.4 Normal Range TRUE       
+## 4 Afghanistan Men   National 2017   22.8 Normal Range TRUE       
+## 5 Afghanistan Men   Rural    2017   22.5 Normal Range TRUE       
+## 6 Afghanistan Men   Urban    2017   23.6 Normal Range TRUE       
+## # … with 2,394 more rows, and abbreviated variable name
+## #   ¹​normal_range
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 ]
 ]

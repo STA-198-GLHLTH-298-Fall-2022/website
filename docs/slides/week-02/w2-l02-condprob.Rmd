@@ -1,7 +1,6 @@
 ---
 title: "Conditional Probability"
 subtitle: "<br><br> Introduction to Data Science"
-author: "[Course Website](https://STA-198-GLHLTH-298-Fall-2022.github.io/website/)"
 #author: "[introds.org](https://introds.org)"
 date: "<br> Prof. Amy Herring"
 output:

@@ -18,7 +18,6 @@ title: 'Week 4 - Data wrangling'
 
 ### Tasks
 
-- Complete the [readings](/post/04-week/#readings-and-videos)
 - Complete the [assignments](/post/04-week/#assignments)
 
 
@@ -26,12 +25,7 @@ title: 'Week 4 - Data wrangling'
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-<!--
-| Data Wrangling II  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-04/w4-l02-wrangling2.html#1)  | 
-| Tidying Data | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta198f2021.github.io/website/slides/week-04/w4-l03-tidying.html#1)  | 
--->
 | Data Wrangling II  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
-
 | Tidying Data | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
 
 

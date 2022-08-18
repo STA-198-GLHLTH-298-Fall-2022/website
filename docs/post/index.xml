@@ -709,7 +709,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.amstat.org/newsroom/pressreleases/P-ValueStatement.pdf&#34;&gt;ASA Statement on P-Values: Press Release &lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf&#34;&gt;ASA Statement on P-Values: Press Release &lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -806,7 +806,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://slcladal.github.io/maps.html&#34;&gt;Displaying Geo-Spatial Data with R R&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://slcladal.github.io/maps.html&#34;&gt;Displaying Geo-Spatial Data with R&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Recommended&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -848,7 +848,6 @@
       <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/04-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/04-week/#readings-and-videos&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/04-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
@@ -859,13 +858,17 @@
 &lt;th style=&#34;text-align:left&#34;&gt;&lt;div  style=&#34;width:80px;text-align:center&#34;&gt;Slides&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Data Wrangling II&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Tidying Data&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;!--
-| Data Wrangling II  | [&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;](https://sta198f2021.github.io/website/slides/week-04/w4-l02-wrangling2.html#1)  | 
-| Tidying Data | [&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;](https://sta198f2021.github.io/website/slides/week-04/w4-l03-tidying.html#1)  | 
---&gt;
-&lt;p&gt;| Data Wrangling II  | &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;  |&lt;/p&gt;
-&lt;p&gt;| Tidying Data | &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;  |&lt;/p&gt;
 &lt;h3 id=&#34;assignments-and-labs&#34;&gt;Assignments and Labs&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
