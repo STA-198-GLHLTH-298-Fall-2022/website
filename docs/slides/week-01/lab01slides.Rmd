@@ -54,7 +54,7 @@ library(rvest)
 
 - Go to the GitHub course organization: https://github.com/STA-198-GLHLTH-298-Fall-2022
 
-- You should see a repo with the prefix **lab-01-**
+- You should see a repo with the prefix **lab-01**
 
 - If you do not have this repo, please let your TAs know! 
 
