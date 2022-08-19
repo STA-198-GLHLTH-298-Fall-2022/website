@@ -19,7 +19,7 @@ title: 'Week 7 - Introduction to Modeling'
 ### Tasks
 
 - Complete the [readings](/post/07-week/#readings-and-videos)
-- Complete the [project proposal](/post/07-week/#assignments)
+- Complete the [project proposal](https://sta-198-glhlth-298-fall-2022.github.io/website/#project)
 - Study for the exam!
 - Team meeting with Prof. Herring by Friday, October 14, to discuss project proposal
 
@@ -44,7 +44,7 @@ Note: the videos this week track the lecture topics fairly closely but use diffe
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Project | [Project Proposal](/#project)| by Friday, 10/14 |
+| Project | [Project Proposal](https://sta-198-glhlth-298-fall-2022.github.io/website/#project)| by Friday, 10/14 |
 
 
 
