@@ -103,14 +103,7 @@ Your assignment should have at least three meaningful commits.
 
 
 ```{r ex1, echo=FALSE, warning=FALSE}
-worldbankcountries %>%
-  filter(Year == 2020) %>%
-  ggplot(aes(x = Population)) +
-  geom_histogram(binwidth = 100000000) +
-  scale_x_continuous(labels = label_comma()) +
-  labs(x = "Population",
-       y = "Number of Countries",
-       title = "2020 Population")
+
 
 ```
 
@@ -121,15 +114,7 @@ worldbankcountries %>%
 
 
 ```{r ex2, message=FALSE, warning=FALSE}
-worldbankcountries$logpop = log(worldbankcountries$Population)
 
-worldbankcountries %>%
-  filter(Year == 2020) %>%
-  ggplot(aes(x = logpop)) +
-  geom_histogram() +
-  labs(x = "Population (log scale)",
-       y = "Number of Countries",
-       title = "2020 Population (log scale)")
 
 ```
 
@@ -144,24 +129,6 @@ Describe what you observe in the plot. Do you observe the same pattern for every
 For the rest of this assignment, *country* will refer just to your 6 selected countries.
 
 ```{r ex3, message=FALSE, warning=FALSE}
-worldbankcountries %>%
-  filter(`Country Name` %in% c("China", "Jordan", "Korea, Rep.", "Somalia", "United States", "Ireland")) %>%
-  ggplot(aes(
-    x = Year,
-    y = `Fertility Rate`,
-    color = `Country Name`,
-    size = `Population`
-  )) +
-  geom_point() +
-  scale_size(labels=comma) +
-  labs(
-    title = "Fertility Rate",
-    subtitle = "Selected Countries",
-    x = "Year",
-    y = "Fertility Rate",
-    color = "Country",
-    size = "Population"
-  ) 
 
 ```
 
@@ -169,20 +136,7 @@ worldbankcountries %>%
 4. Now, examine the relationship between same two variables, with a separate facet for each of your six selected countries. You can drop the size aesthetic if you prefer. Be sure to label your axes. Which plot do you prefer? Briefly explain your choice.
 
 ```{r ex4, message=FALSE, warning=FALSE}
-worldbankcountries %>%
-  filter(`Country Name` %in% c("China", "Jordan", "Korea, Rep.", "Somalia", "United States", "Ireland")) %>%
-  ggplot(aes(
-    x = Year,
-    y = `Fertility Rate`
-  )) +
-  geom_point() +
-  labs(
-    title = "Fertility Rate",
-    subtitle = "Selected Countries"
-  ) +
-  scale_size(labels=comma) +
-  facet_wrap( ~ `Country Name`) + 
-  theme(axis.text.x = element_text(angle = 45, hjust=1))
+
 ```
 
 
@@ -192,15 +146,7 @@ worldbankcountries %>%
 5. How has the distribution of fertility rates of countries changed in the last 60 years? Create faceted or side-by-side boxplots all the countries for the years 1960, 1980, 2000, and 2020. Briefly comment on what you notice. 
 
 ```{r ex5, warning=FALSE, message=FALSE}
-worldbankcountries %>%
-  filter(Year %in% c(1960,1980,2000,2020)) %>%
-  ggplot(aes(x = as.factor(Year), y= `Fertility Rate`)) +
-  geom_boxplot() +
-  labs(
-    title = "Country-Level Fertility Rates",
-    subtitle = "1960, 1980, 2000, and 2020",
-    x = "Year"
-  )
+
 
 ```
 
