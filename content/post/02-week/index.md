@@ -47,8 +47,9 @@ title: 'Week 2 - Probability'
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
-| :open_book: | OIS: [Chp 3](https://www.openintro.org/book/os/) or PG: Chp 6: Probability | **Required** |
+| :open_book: | OIS: [Chp 3](https://www.openintro.org/book/os/)  | **Required** |
 | :open_book: | Seeing Theory: [Chapters 1 and 2](https://seeing-theory.brown.edu/#secondPage) | **Required** |
+| :open_book: | PG Ch 6 | **Optional** |
 
 
 ### Interactive R Tutorials

@@ -11,9 +11,6 @@ social:
 - icon: github
   icon_pack: fab
   link: https://github.com/jacdu
-#- icon: twitter
-#  icon_pack: fab
-#  link: https://twitter.com/amyhherring
 weight: 10
   
 # Organizational groups that you belong to (for People widget)

@@ -26,14 +26,14 @@ subtitle = "Code along labs on Tuesdays; classes on Mondays and Wednesdays; offi
   icon = "keyboard"
   icon_pack = "fas"
   name = "Tuesday"
-  description = "Code along lab sessions <br>1:45-3:00pm, Perkins Link 071 <br> with Sam <br>3:30-4:45pm, Perkins Link 071 <br> with Jackie <br>or 5:15-6:30pm, Perkins Link 071 <br> with Riya & Yihan"  
+  description = "Code along lab sessions <br>1:45-3:00pm, Perkins Link 071 <br> with Sam and Miles <br>3:30-4:45pm, Perkins Link 071 <br> with Jackie and Malika <br>or 5:15-6:30pm, Perkins Link 071 <br> with Riya & Yihan"  
   
   
 [[feature]]
   icon = "university"
   icon_pack = "fas"
   name = "Wednesday"
-  description = "Class - 10:15-11:30am <br> Old Chem 116 <br> Riya hour - 1:00-2:00pm <br> TBD" 
+  description = "Class - 10:15-11:30am <br> Old Chem 116 <br> TBD <br> TBD" 
 
 
    

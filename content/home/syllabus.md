@@ -40,7 +40,7 @@ Beyond the in class activities, you will be assigned regular homework assignment
 
 ### Quizzes
 
-Regular quizzes on Sakai will be used to ensure students are keeping up with the reading assignments. These quizzes are all due Sunday evenings by 11:59 pm and should be completed individually. They will be added together and count towards the semester grade as a single homework (the lowest 2 quiz grades will be dropped, so don't worry if you miss one).
+Regular quizzes on Sakai will be used to ensure students are keeping up with the reading assignments. These quizzes are all due Sunday evenings by 11:59 pm and should be completed individually. They will be added together and count towards the semester grade as a single homework (the lowest 2 quiz grades will be dropped, so don't worry if you miss one). They will be set up on Sakai so that you have unlimited attempts, and your highest score will be the one that counts.
 
 ### Final project
 
