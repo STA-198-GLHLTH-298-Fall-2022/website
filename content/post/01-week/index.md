@@ -38,7 +38,8 @@ title: 'Week 1 - Welcome to Global Health Data Science'
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
 | Lab 1 |[Hello R!](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-01/lab-01-hello-r.html)| Fri., 9/2 |
-| Quiz | [Quiz 1](https://sakai.duke.edu) | Sunday, 9/4 |
+| Quiz | [Quiz 1/Getting to Know You](https://sakai.duke.edu) | Monday, 8/29 |
+| Quiz | [Quiz 2](https://sakai.duke.edu) | Sunday, 9/4 |
 
 
 
