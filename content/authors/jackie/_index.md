@@ -8,9 +8,6 @@ social:
 - icon: envelope
   icon_pack: fas
   link: "mailto:jacquelyn.du@duke.edu"
-- icon: home
-  icon_pack: fas
-  link: https://scholars.duke.edu/person/Amy.Herring
 - icon: github
   icon_pack: fab
   link: https://github.com/jacdu

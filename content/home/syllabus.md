@@ -97,7 +97,7 @@ If you need to miss class due to a [religious holiday](https://trinity.duke.edu/
 
 Some office hours will be on Zoom, and it may become necessary to hold some class or lab meetings on Zoom, depending on collective health and safety considerations.
 
-- When in a full group session you should,
+- When in a full group session you should
   - have your microphone muted by default
   - use the raise your hand feature or type in the chat for questions and comments
 
