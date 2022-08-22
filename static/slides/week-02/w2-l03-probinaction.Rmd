@@ -31,7 +31,7 @@ class: middle
 
 ### GeneXpert Portable Rapid Diagnostic Test
 
-In 2010, the US Centers for Disease Control and Prevention and the Kinshasa School of Public Health began a collaboration with the Ministry of Health in the Democratic Republic of Congo (DRC) to enhance monkeypox surveillance. Monkeypox virus is endemic in central and west Africa, and in 2022 a significant global outbreak occurred in non-endemic areas.
+In 2010, the US Centers for Disease Control and Prevention and the Kinshasa School of Public Health began a collaboration with the Ministry of Health in the Democratic Republic of Congo (DRC) to enhance monkeypox surveillance. Monkeypox virus is endemic in central and west Africa, and in 2022 a significant global outbreak is occurring in non-endemic areas.
 
 We consider data from Li et al (2017) that compares real time PCR test results (gold standard) to results from the GeneXpert rapid test, conducted at the Institut National de Recherche Biomedicale in Kinshasa. Samples were taken either of the crust of a lesion or from its vesicular fluid. The data are contained in the file monkeypox.rda and include the following variables.
 

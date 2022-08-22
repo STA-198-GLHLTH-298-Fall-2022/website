@@ -1,6 +1,6 @@
 ---
 title: "Welcome to STA 198 Labs!"
-date: "09.06.2021"
+date: "08.30.2022"
 output:
   xaringan::moon_reader:
     css: 
