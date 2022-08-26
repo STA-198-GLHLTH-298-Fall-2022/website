@@ -26,14 +26,14 @@ subtitle = "Code along labs on Tuesdays; classes on Mondays and Wednesdays; offi
   icon = "keyboard"
   icon_pack = "fas"
   name = "Tuesday"
-  description = "Code along lab sessions <br>1:45-3:00pm, Perkins Link 071 <br> with Sam and Miles <br>3:30-4:45pm, Perkins Link 071 <br> with Jackie and Malika <br>or 5:15-6:30pm, Perkins Link 071 <br> with Riya & Yihan"  
+  description = "Code along lab sessions <br>1:45-3:00pm, Perkins Link 071 <br> with Sam and Miles <br>3:30-4:45pm, Perkins Link 071 <br> with Jackie and Malika <br>or 5:15-6:30pm, Perkins Link 071 <br> with Riya & Yihan <br> Jackie hours - 5:00-7:00pm <br> TBA"  
   
   
 [[feature]]
   icon = "university"
   icon_pack = "fas"
   name = "Wednesday"
-  description = "Class - 10:15-11:30am <br> Old Chem 116 <br> TBD <br> TBD" 
+  description = "Class - 10:15-11:30am <br> Old Chem 116 <br> Sam hours - 2-4pm <br> TBD" 
 
 
    
@@ -41,7 +41,7 @@ subtitle = "Code along labs on Tuesdays; classes on Mondays and Wednesdays; offi
   icon = "comments"
   icon_pack = "far"
   name = "Thursday"
-  description = "Prof. Herring hour - 1-2pm <br> Zoom (link on Sakai) <br>  Jackie hour - TBA <br> TBA <br> TA hours - TBA <br> TBD <br> TA hours - TBA <br> Zoom (link on Sakai)"  
+  description = "Prof. Herring hour - 1-2pm <br> Zoom (link on Sakai) <br>  Jackie hours - 4-6pm <br> TBA <br> Yihan hours - 6-8pm <br> TBD  "  
   
  
 [[feature]]

@@ -66,6 +66,7 @@ The [World Bank Open Data](https://data.worldbank.org) initiative is a valuable 
 We start by combining data from two Excel files. The first file provides population data from 1960 to 2021 for World Bank regions and countries, and the second file contains the fertility rate for the same entities from 1960-2020.
 
 ```{r readdata, echo=FALSE, message=FALSE, warning=FALSE}
+
 library(readxl)
 
 fert=read_excel("worldbank_fertility_1960.2020.xls",sheet=1)
