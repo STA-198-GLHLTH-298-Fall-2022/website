@@ -14,7 +14,7 @@ title = "Syllabus"
 - **Monday and Wednesday:** Class
 - **Tuesday:** Code-along lab sessions
 - **Monday and Thursday:** Professor office hours
-- **Monday, Wednesday, Thursday, and Friday:** TA office hours
+- **Weekdays:** TA office hours
 
 
 ### Student hours
