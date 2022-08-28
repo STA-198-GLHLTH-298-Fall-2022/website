@@ -48,7 +48,7 @@ subtitle = "Code along labs on Tuesdays; classes on Mondays and Wednesdays; offi
   icon = "comments"
   icon_pack = "far"
   name = "Friday"
-  description = "TA hours - TBA <br> Zoom (link on Sakai)"
+  description = "Miles hour - 2-3pm <br> Zoom (link on Sakai)"
   
  
 +++
