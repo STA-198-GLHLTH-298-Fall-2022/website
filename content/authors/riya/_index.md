@@ -11,9 +11,9 @@ social:
 #- icon: home
 #  icon_pack: fas
 #  link: https://scholars.duke.edu/person/Amy.Herring
-#- icon: github
-#  icon_pack: fab
-#  link: https://github.com/jacdu
+- icon: github
+  icon_pack: fab
+  link: https://github.com/riyamohan353
 #- icon: twitter
 #  icon_pack: fab
 #  link: https://twitter.com/amyhherring

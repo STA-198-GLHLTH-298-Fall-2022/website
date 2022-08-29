@@ -13,7 +13,7 @@ social:
   link: https://cn.linkedin.com/in/yihan-shi
 - icon: github
   icon_pack: fab
-  link: https://github.com/amy-herring
+  link: https://github.com/ys262
 
 
 
