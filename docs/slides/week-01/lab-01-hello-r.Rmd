@@ -18,7 +18,7 @@ editor_options:
 R is the name of the programming language itself and RStudio is a convenient interface.
 ```
 
-This lab will go through much of the same workflow you've seen on the videos.
+This lab will go through much of the same workflow you've seen on the videos (if you haven't watched them, they're worthwhile!).
 The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.
 
 ```{marginfigure}
@@ -105,7 +105,7 @@ Below are the components of the RStudio IDE.
 ![](img/01/r-example-1.png)
 
 
-Then, configure git so that RStudio can communicate with GitHub.
+Now configure git so that RStudio can communicate with GitHub.
 
 Type the following lines of code in the **console** in RStudio filling in your name and the email address associated with your GitHub account.
 
