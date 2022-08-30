@@ -91,7 +91,7 @@ If you get a window that asks if you still want to connect, enter `yes`.
 
 
 -   Click *lab-01.Rmd* to open the template R Markdown file.
-    This is where you will write up your code and narrative for the lab.
+    This is where you will write up your code and narrative for your lab.
 
 ```{marginfigure}
 If you get an error message that begins with *WARNING: UNPROTECTED PRIVATE KEY FILE!* then this can be fixed by clicking on "Terminal" (the tab next to the console) and pasting in `chmod 400 ~/.ssh/id_rsa` and hitting enter.
