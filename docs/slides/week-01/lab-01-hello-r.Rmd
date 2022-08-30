@@ -85,6 +85,11 @@ You are now ready interact between GitHub and RStudio!
 If you get a window that asks if you still want to connect, enter `yes`.
 ```
 
+
+
+
+
+
 -   Click *lab-01.Rmd* to open the template R Markdown file.
     This is where you will write up your code and narrative for the lab.
 
@@ -98,6 +103,18 @@ Then, try to create a project again and it should work.
 Below are the components of the RStudio IDE.
 
 ![](img/01/r-example-1.png)
+
+
+Then, configure git so that RStudio can communicate with GitHub.
+
+Type the following lines of code in the **console** in RStudio filling in your name and the email address associated with your GitHub account.
+
+```{r, eval=FALSE}
+library(usethis)
+
+use_git_config(user.name = "GitHub username", user.email="your email")
+```
+
 
 Below are the components of an R Markdown (.Rmd) file.
 
