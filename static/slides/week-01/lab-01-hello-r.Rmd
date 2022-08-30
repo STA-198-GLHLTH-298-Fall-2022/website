@@ -105,7 +105,7 @@ Below are the components of the RStudio IDE.
 ![](img/01/r-example-1.png)
 
 
-Then, configure git so that RStudio can communicate with GitHub.
+Now configure git so that RStudio can communicate with GitHub.
 
 Type the following lines of code in the **console** in RStudio filling in your name and the email address associated with your GitHub account.
 
