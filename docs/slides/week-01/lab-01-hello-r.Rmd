@@ -19,6 +19,7 @@ R is the name of the programming language itself and RStudio is a convenient int
 ```
 
 This lab will go through much of the same workflow you've seen on the videos (if you haven't watched them, they're worthwhile!).
+
 The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.
 
 ```{marginfigure}
