@@ -35,7 +35,7 @@ title: 'Week 2 - Probability'
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Lab 2 |[Data Vizualization](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Fri., 9/9 |
+| Lab 2 |[Data Vizualization](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/lab-02-data-viz.html)| Fri., 9/9 |
 | Quiz | [Quiz 2](https://sakai.duke.edu) | Sunday, 9/4 |
 <!-- 
 | Lab 2 |[Data Vizualization](https://sta-198-glhlth-298-fall-2022.github.io/week-02/lab-02-data-viz.html)| Fri., 9/2 |
