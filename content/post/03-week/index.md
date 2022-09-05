@@ -33,8 +33,8 @@ title: 'Week 3 - From Distributions to Data Wrangling'
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Quiz | [Quiz 2](https://sakai.duke.edu) | Sunday, 9/11 |
-| Lab 3 |[Probability and Teamwork](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Fri., 9/16 |
+| Quiz | [Quiz 3](https://sakai.duke.edu) | Sunday, 9/11 |
+| Lab 3 |[Probability and Teamwork](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/lab-03-prob-teams.html)| Fri., 9/16 |
 | HW 1 | [Coming Soon](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Fri., 9/16 |
 
 
@@ -53,9 +53,7 @@ title: 'Week 3 - From Distributions to Data Wrangling'
  
 |  <div style="width:480px"></div>  |  <div style="width:200px"></div>  |
 |:---|:---|
-| [Data Visualization Basics](https://rstudio.cloud/learn/primers/1.1)         | Extra practice   |
-| [Extra Practice with Probability](http://inspire.stat.ucla.edu/unit_06/questions.php) | Extra practice |
-| Vu and Harrington (under Resources on Sakai) problems  | 2.5, 2.11, 2.17, 2.21 |
+| Vu and Harrington (under Resources on Sakai) problems  | 3.1, 3.13, 3.17 |
 
 
 
