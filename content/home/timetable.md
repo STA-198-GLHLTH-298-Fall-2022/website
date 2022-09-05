@@ -18,7 +18,7 @@ subtitle = "Code along labs on Tuesdays; classes on Mondays and Wednesdays; offi
   icon = "university"
   icon_pack = "fas"
   name = "Monday"
-  description = "Class - 10:15-11:30am <br> Old Chem 116 <br> Prof. Herring hour - 1:30-2:30pm <br> 208 Old Chem <br> Riya hour - 5:00-6:00pm <br> TBA" 
+  description = "Class - 10:15-11:30am <br> Old Chem 116 <br> Prof. Herring hour - 1:30-2:30pm <br> 208 Old Chem <br> Riya hour - 5:00-6:00pm <br> Zoom (link on Sakai)" 
 
 
 
