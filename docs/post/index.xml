@@ -984,6 +984,30 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h3 id=&#34;extra-practice&#34;&gt;Extra Practice&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;re struggling with the topics covered the past week, we strongly recommend you work through these additional problems.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:480px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:200px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/1.1&#34;&gt;Data Visualization Basics&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Extra practice&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;http://inspire.stat.ucla.edu/unit_06/questions.php&#34;&gt;Extra Practice with Probability&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Extra practice&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Vu and Harrington (under Resources on Sakai) problems&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2.5, 2.11, 2.17, 2.21&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
     </item>
     
@@ -1073,8 +1097,8 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;interactive-r-tutorials&#34;&gt;Interactive R Tutorials&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re struggling with the topics covered the past two weeks week, we strongly recommend you work through this additional tutorial.&lt;/p&gt;
+&lt;h3 id=&#34;interactive-r-tutorials--extra-practice&#34;&gt;Interactive R Tutorials &amp;amp; Extra Practice&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;re struggling with the topics covered the past two weeks, we strongly recommend you work through these additional tutorials/problems.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1086,6 +1110,14 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/1.1&#34;&gt;Data Visualization Basics&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Extra practice&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;http://inspire.stat.ucla.edu/unit_06/questions.php&#34;&gt;Extra Practice with Probability&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Extra practice&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Vu and Harrington (under Resources on Sakai) problems&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2.5, 2.11, 2.17, 2.21&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

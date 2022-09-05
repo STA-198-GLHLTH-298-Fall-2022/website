@@ -52,10 +52,12 @@ title: 'Week 2 - Probability'
 | :open_book: | PG Ch 6 | **Optional** |
 
 
-### Interactive R Tutorials
+### Interactive R Tutorials & Extra Practice
 
- If you're struggling with the topics covered the past two weeks week, we strongly recommend you work through this additional tutorial.
+ If you're struggling with the topics covered the past two weeks, we strongly recommend you work through these additional tutorials/problems.
  
 |  <div style="width:480px"></div>  |  <div style="width:200px"></div>  |
 |:---|:---|
 | [Data Visualization Basics](https://rstudio.cloud/learn/primers/1.1)         | Extra practice   |
+| [Extra Practice with Probability](http://inspire.stat.ucla.edu/unit_06/questions.php) | Extra practice |
+| Vu and Harrington (under Resources on Sakai) problems  | 2.5, 2.11, 2.17, 2.21 |

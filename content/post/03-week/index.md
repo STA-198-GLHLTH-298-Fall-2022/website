@@ -47,5 +47,16 @@ title: 'Week 3 - From Distributions to Data Wrangling'
 | :open_book: | R4DS: [Chapter 5, Data Transformation](https://r4ds.had.co.nz/transform.html)  | **Required** |
 
 
+### Extra Practice
+
+ If you're struggling with the topics covered the past week, we strongly recommend you work through these additional problems.
+ 
+|  <div style="width:480px"></div>  |  <div style="width:200px"></div>  |
+|:---|:---|
+| [Data Visualization Basics](https://rstudio.cloud/learn/primers/1.1)         | Extra practice   |
+| [Extra Practice with Probability](http://inspire.stat.ucla.edu/unit_06/questions.php) | Extra practice |
+| Vu and Harrington (under Resources on Sakai) problems  | 2.5, 2.11, 2.17, 2.21 |
+
+
 
 
