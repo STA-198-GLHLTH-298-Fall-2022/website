@@ -1,7 +1,6 @@
 ---
 title: "Data Wrangling II"
 subtitle: "<br><br> Introduction to Global Health Data Science"
-author: "[Back to Website](https://sta-198-glhlth-298-fall-2022.github.io/website/)"
 date: "<br> Prof. Amy Herring"
 output:
   xaringan::moon_reader:
@@ -365,21 +364,22 @@ survey
     
 .panel[.panel-name[In MyChart]
 ```{r}
-  enrollment %>% 
-    left_join(survey, by = "id") #<<
+enrollment %>% 
+  left_join(survey, by = "name") %>% #<< 
+  select(name, clinic)
 ```
 ]
     
 .panel[.panel-name[Survey missing]
 ```{r}
 enrollment %>% 
-  anti_join(survey, by = "id") #<<
+  anti_join(survey, by = "name") #<<
 ```
 ]
 .panel[.panel-name[MyChart not activated]
 ```{r}
 survey %>% 
-  anti_join(enrollment, by = "id") #<<
+  anti_join(enrollment, by = "name") #<<
 ```
 ]
     

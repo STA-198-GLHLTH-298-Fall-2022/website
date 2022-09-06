@@ -3,7 +3,6 @@
   <head>
     <title>Tidying data</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Back to Website" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
@@ -18,9 +17,6 @@ class: center, middle, inverse, title-slide
 
 # Tidying data
 ## <br><br> Introduction to Global Health Data Science
-### <a
-href="https://sta-198-glhlth-298-fall-2022.github.io/website/">Back to
-Website</a>
 ### <br> Prof. Amy Herring
 
 ---
@@ -56,11 +52,11 @@ This slide deck adapted from Data Science in a Box!
 
 Today we'll do the following:
 
-1. Learn how to `tidy` data
+1. Learn how to `tidy` data in the context of cost of medical care
 
 2. Practice data tidying skills to reproduce a plot of presidential approval ratings
 
-3. Step back and review. We revisit the COVID example from week 1 and explore how those data were wrangled to create the plot.
+3. Practice data tidying skills to explore US COVID-19 confirmed cases during the pandemic
 
 ---
 
@@ -380,14 +376,14 @@ interventions %&gt;%
 
 class: middle
 
-# Line Graph Case Study: Approval Rating of President Trump
+# Line Graph Case Study: Approval Rating of President Biden
 
 ---
 
-&lt;img src="img/trump-approval.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/biden-approval.png" width="70%" style="display: block; margin: auto;" /&gt;
 
 .footnote[
-Source: [FiveThirtyEight](https://projects.fivethirtyeight.com/trump-approval-ratings/adults/)
+Source: [FiveThirtyEight](https://projects.fivethirtyeight.com/biden-approval-rating/)
 ]
 
 ---
@@ -398,25 +394,25 @@ Source: [FiveThirtyEight](https://projects.fivethirtyeight.com/trump-approval-ra
 
 
 ```r
-trump
+biden
 ```
 
 ```
-## # A tibble: 2,702 × 4
+## # A tibble: 1,083 × 4
+## # Groups:   date [591]
 ##    subgroup date       approval disapproval
 ##    &lt;chr&gt;    &lt;date&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-##  1 Voters   2020-10-04     44.7        52.2
-##  2 Adults   2020-10-04     43.2        52.6
-##  3 Adults   2020-10-03     43.2        52.6
-##  4 Voters   2020-10-03     45.0        51.7
-##  5 Adults   2020-10-02     43.3        52.4
-##  6 Voters   2020-10-02     44.5        52.1
-##  7 Voters   2020-10-01     44.1        52.8
-##  8 Adults   2020-10-01     42.7        53.3
-##  9 Adults   2020-09-30     42.2        53.7
-## 10 Voters   2020-09-30     44.2        52.7
-## # … with 2,692 more rows
-## # ℹ Use `print(n = ...)` to see more rows
+##  1 Adults   2021-01-21     49.5        30.1
+##  2 Voters   2021-01-21     53.6        34.8
+##  3 Adults   2021-01-22     49.9        30.2
+##  4 Voters   2021-01-22     56.1        35.0
+##  5 Adults   2021-01-23     50.9        31.2
+##  6 Voters   2021-01-23     57.6        33.1
+##  7 Adults   2021-01-24     53.4        30.4
+##  8 Voters   2021-01-24     53.2        35.9
+##  9 Adults   2021-01-25     53.4        33.2
+## 10 Voters   2021-01-25     54.4        36.8
+## # … with 1,073 more rows
 ```
 
 ---
@@ -424,7 +420,7 @@ trump
 ## Goal
 
 .pull-left-wide[
-&lt;img src="w4-l03-tidying_files/figure-html/unnamed-chunk-20-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w4-l02-tidying_files/figure-html/unnamed-chunk-20-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 --
 .pull-right-narrow[
@@ -443,28 +439,28 @@ trump
 
 
 ```r
-trump_longer &lt;- trump %&gt;%
+biden_longer &lt;- biden %&gt;%
   pivot_longer(
     cols = c(approval, disapproval),
     names_to = "rating_type",
     values_to = "rating_value"
   )
 
-trump_longer
+biden_longer
 ```
 
 ```
-## # A tibble: 5,404 × 4
+## # A tibble: 2,166 × 4
+## # Groups:   date [591]
 ##    subgroup date       rating_type rating_value
 ##    &lt;chr&gt;    &lt;date&gt;     &lt;chr&gt;              &lt;dbl&gt;
-##  1 Voters   2020-10-04 approval            44.7
-##  2 Voters   2020-10-04 disapproval         52.2
-##  3 Adults   2020-10-04 approval            43.2
-##  4 Adults   2020-10-04 disapproval         52.6
-##  5 Adults   2020-10-03 approval            43.2
-##  6 Adults   2020-10-03 disapproval         52.6
-##  7 Voters   2020-10-03 approval            45.0
-##  8 Voters   2020-10-03 disapproval         51.7
+##  1 Adults   2021-01-21 approval            49.5
+##  2 Adults   2021-01-21 disapproval         30.1
+##  3 Voters   2021-01-21 approval            53.6
+##  4 Voters   2021-01-21 disapproval         34.8
+##  5 Adults   2021-01-22 approval            49.9
+##  6 Adults   2021-01-22 disapproval         30.2
+##  7 Voters   2021-01-22 approval            56.1
 ...
 ```
 
@@ -474,13 +470,13 @@ trump_longer
 
 
 ```r
-ggplot(trump_longer, 
+ggplot(biden_longer, 
        aes(x = date, y = rating_value, color = rating_type, group = rating_type)) +
   geom_line() +
   facet_wrap(~ subgroup)
 ```
 
-&lt;img src="w4-l03-tidying_files/figure-html/unnamed-chunk-22-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w4-l02-tidying_files/figure-html/unnamed-chunk-22-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -489,62 +485,36 @@ ggplot(trump_longer,
 .panel[.panel-name[Code]
 
 ```r
-ggplot(trump_longer, 
+ggplot(biden_longer, 
        aes(x = date, y = rating_value, 
            color = rating_type, group = rating_type)) +
   geom_line() +
   facet_wrap(~ subgroup) +
+* theme(axis.text.x = element_text(angle = 45, hjust=1)) +
 * scale_color_manual(values = c("darkgreen", "orange")) +
 * labs(
 *   x = "Date", y = "Rating",
 *   color = NULL,
-*   title = "How (un)popular is President Trump?",
+*   title = "How (un)popular is President Biden?",
 *   subtitle = "Estimates based on polls of all adults and polls of likely/registered voters",
-*   caption = "Source: FiveThirtyEight modeling estimates"
+*   caption = "Source: FiveThirtyEight collection of polls"
 * )
 ```
 ]
 
 .panel[.panel-name[Plot]
-&lt;img src="w4-l03-tidying_files/figure-html/unnamed-chunk-23-1.png" width="75%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w4-l02-tidying_files/figure-html/unnamed-chunk-23-1.png" width="75%" style="display: block; margin: auto;" /&gt;
 ]
 
 ]
 
----
 
-.panelset[
-
-.panel[.panel-name[Code]
-
-```r
-ggplot(trump_longer, 
-       aes(x = date, y = rating_value, 
-           color = rating_type, group = rating_type)) +
-  geom_line() +
-  facet_wrap(~ subgroup) +
-  scale_color_manual(values = c("darkgreen", "orange")) + 
-  labs( 
-    x = "Date", y = "Rating", 
-    color = NULL, 
-    title = "How (un)popular is President Trump?", 
-    subtitle = "Estimates based on polls of all adults and polls of likely/registered voters", 
-    caption = "Source: FiveThirtyEight modeling estimates" 
-  ) 
-```
-]
-
-.panel[.panel-name[Plot]
-&lt;img src="w4-l03-tidying_files/figure-html/unnamed-chunk-24-1.png" width="75%" style="display: block; margin: auto;" /&gt;
-]
-
-]
 
 ---
 
 ## Coronavirus Deaths
 
-First, we should call the libraries we used to make the plot during the first week of class. Because the `coronavirus` package is updated daily, we should re-install it to get the most up to date data.
+First, we should call the libraries that house the data. Because the `coronavirus` package is updated daily, we should re-install it to get the most up to date data if we want to re-create plots in the future.
 
 
 ```r
@@ -560,7 +530,7 @@ library(ggrepel) #for writing names on plot
 
 ---
 
-## Recall the Data
+## Coronavirus Data
 
 The data frame called `coronavirus` in the coronavirus package provides a daily summary of the Coronavirus (COVID-19) cases by country. Each row in the data frame represents a country (or, where relevant, state/province).  Note that the data provided in this package provides daily number of deaths, confirmed cases, and recovered cases. Today we will focus on deaths. 
 
@@ -570,7 +540,7 @@ We will start by making our selection for the countries we want to explore.
 
 
 ```r
-head(coronavirus) #recall variables
+head(coronavirus) #view variables
 ```
 
 ```
@@ -596,6 +566,8 @@ head(coronavirus) #recall variables
 ## 5  North America             NA
 ## 6  North America             NA
 ```
+
+---
 
 ```r
 countries &lt;- c(
@@ -669,7 +641,7 @@ as_of_date &lt;- country_data %&gt;%
 as_of_date_formatted &lt;- glue("{wday(as_of_date, label = TRUE)}, {month(as_of_date, label = TRUE)} {day(as_of_date)}, {year(as_of_date)}")
 ```
 
-These data are as of Wed, Aug 17, 2022.
+These data are as of Mon, Sep 5, 2022.
 
 ---
 
@@ -701,7 +673,7 @@ ggplot(data = country_data,
 ```
 ]
 .panel[.panel-name[Output]
-&lt;img src="w4-l03-tidying_files/figure-html/visualise2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w4-l02-tidying_files/figure-html/visualise2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ]
 ]
@@ -731,7 +703,7 @@ country_data %&gt;%
 ```
 ]
 .panel[.panel-name[Output]
-&lt;img src="w4-l03-tidying_files/figure-html/daily2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w4-l02-tidying_files/figure-html/daily2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ]
 ]
@@ -787,7 +759,7 @@ confirmed_case_US %&gt;%
 ```
 ]
 .panel[.panel-name[Output]
-&lt;img src="w4-l03-tidying_files/figure-html/dplotconfirmed2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w4-l02-tidying_files/figure-html/dplotconfirmed2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ]
 ]

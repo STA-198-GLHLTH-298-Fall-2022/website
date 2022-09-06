@@ -149,7 +149,7 @@ worldbankcountries %>%
 
 *Now would be a good time to knit, commit, and push, again.*
 
-5. How has the distribution of fertility rates of countries changed in the last 60 years? Create faceted or side-by-side boxplots for all the countries (e.g., your 6) for the years 1960, 1980, 2000, and 2020. Briefly comment on what you notice. 
+5. How has the distribution of fertility rates of countries changed in the last 60 years? Create faceted or side-by-side boxplots for the full data (e.g., stop filtering to just your six countries) for the years 1960, 1980, 2000, and 2020. Briefly comment on what you notice.
 
 ```{r ex5, warning=FALSE, message=FALSE, eval=FALSE}
 worldbankcountries %>%

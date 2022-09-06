@@ -33,7 +33,8 @@ title: 'Week 4 - Data wrangling'
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Quiz | [Quiz 3](https://sakai.duke.edu) | Sunday, 9/18 |
+| Quiz | [Quiz 4 on this week's readings](https://sakai.duke.edu) | Sunday, 9/18 |
+| Quiz | [Quiz 5 on next week's readings](https://sakai.duke.edu) | Sunday, 9/25 |
 | Lab 4 |[Data Wrangling](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Fri., 9/23 |
 
 

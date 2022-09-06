@@ -1,7 +1,6 @@
 ---
 title: "Tidying data"
 subtitle: "<br><br> Introduction to Global Health Data Science"
-author: "[Back to Website](https://sta-198-glhlth-298-fall-2022.github.io/website/)"
 date: "<br> Prof. Amy Herring"
 output:
   xaringan::moon_reader:
@@ -43,11 +42,11 @@ This slide deck adapted from Data Science in a Box!
 
 Today we'll do the following:
 
-1. Learn how to `tidy` data
+1. Learn how to `tidy` data in the context of cost of medical care
 
 2. Practice data tidying skills to reproduce a plot of presidential approval ratings
 
-3. Step back and review. We revisit the COVID example from week 1 and explore how those data were wrangled to create the plot.
+3. Practice data tidying skills to explore US COVID-19 confirmed cases during the pandemic
 
 ---
 
@@ -285,16 +284,16 @@ interventions %>%
 
 class: middle
 
-# Line Graph Case Study: Approval Rating of President Trump
+# Line Graph Case Study: Approval Rating of President Biden
 
 ---
 
 ```{r echo=FALSE, out.width="70%"}
-knitr::include_graphics("img/trump-approval.png")
+knitr::include_graphics("img/biden-approval.png")
 ```
 
 .footnote[
-Source: [FiveThirtyEight](https://projects.fivethirtyeight.com/trump-approval-ratings/adults/)
+Source: [FiveThirtyEight](https://projects.fivethirtyeight.com/biden-approval-rating/)
 ]
 
 ---
@@ -302,11 +301,19 @@ Source: [FiveThirtyEight](https://projects.fivethirtyeight.com/trump-approval-ra
 ## Data
 
 ```{r include=FALSE}
-trump <- read_csv("data/trump/trump.csv")
+library(readr)
+library(dplyr)
+biden <- read_csv("data/biden/approval_polllist.csv")
+biden <- biden %>%
+  filter(subgroup != "All polls") %>%
+ mutate(date=as.Date(enddate, "%m/%d/%y")) %>%
+  group_by(date,subgroup) %>%
+  summarize(approval=mean(adjusted_approve),disapproval=mean(adjusted_disapprove)) %>%
+    select(subgroup, date, approval, disapproval) 
 ```
 
 ```{r}
-trump
+biden
 ```
 
 ---
@@ -315,7 +322,7 @@ trump
 
 .pull-left-wide[
 ```{r echo=FALSE, out.width="100%"}
-trump %>%
+biden %>%
   pivot_longer(
     cols = c(approval, disapproval),
     names_to = "rating_type",
@@ -326,12 +333,13 @@ trump %>%
   geom_line() +
   facet_wrap(~ subgroup) +
   scale_color_manual(values = c("darkgreen", "orange")) + 
+  theme(axis.text.x = element_text(angle = 45, hjust=1)) +
   labs( 
     x = "Date", y = "Rating", 
     color = NULL, 
-    title = "How (un)popular is President Trump?", 
+    title = "How (un)popular is President Biden?", 
     subtitle = "Estimates based on polls of all adults and polls of likely/registered voters", 
-    caption = "Source: FiveThirtyEight modeling estimates" 
+    caption = "Source: FiveThirtyEight collection of polls" 
   ) 
 ```
 ]
@@ -351,14 +359,14 @@ trump %>%
 ## Pivot
 
 ```{r output.lines=11}
-trump_longer <- trump %>%
+biden_longer <- biden %>%
   pivot_longer(
     cols = c(approval, disapproval),
     names_to = "rating_type",
     values_to = "rating_value"
   )
 
-trump_longer
+biden_longer
 ```
 
 ---
@@ -366,7 +374,7 @@ trump_longer
 ## Plot
 
 ```{r fig.asp = 0.5}
-ggplot(trump_longer, 
+ggplot(biden_longer, 
        aes(x = date, y = rating_value, color = rating_type, group = rating_type)) +
   geom_line() +
   facet_wrap(~ subgroup)
@@ -377,64 +385,38 @@ ggplot(trump_longer,
 .panelset[
 
 .panel[.panel-name[Code]
-```{r "trump-plot", fig.show="hide"}
-ggplot(trump_longer, 
+```{r "biden-plot", fig.show="hide"}
+ggplot(biden_longer, 
        aes(x = date, y = rating_value, 
            color = rating_type, group = rating_type)) +
   geom_line() +
   facet_wrap(~ subgroup) +
+  theme(axis.text.x = element_text(angle = 45, hjust=1)) + #<<
   scale_color_manual(values = c("darkgreen", "orange")) + #<<
   labs( #<<
     x = "Date", y = "Rating", #<<
     color = NULL, #<<
-    title = "How (un)popular is President Trump?", #<<
+    title = "How (un)popular is President Biden?", #<<
     subtitle = "Estimates based on polls of all adults and polls of likely/registered voters", #<<
-    caption = "Source: FiveThirtyEight modeling estimates" #<<
+    caption = "Source: FiveThirtyEight collection of polls" #<<
   ) #<<
 ```
 ]
 
 .panel[.panel-name[Plot]
-```{r ref.label="trump-plot", echo = FALSE, out.width="75%"}
+```{r ref.label="biden-plot", echo = FALSE, out.width="75%"}
 ```
 ]
 
 ]
 
----
 
-.panelset[
-
-.panel[.panel-name[Code]
-```{r "trump-plot-2", fig.show="hide"}
-ggplot(trump_longer, 
-       aes(x = date, y = rating_value, 
-           color = rating_type, group = rating_type)) +
-  geom_line() +
-  facet_wrap(~ subgroup) +
-  scale_color_manual(values = c("darkgreen", "orange")) + 
-  labs( 
-    x = "Date", y = "Rating", 
-    color = NULL, 
-    title = "How (un)popular is President Trump?", 
-    subtitle = "Estimates based on polls of all adults and polls of likely/registered voters", 
-    caption = "Source: FiveThirtyEight modeling estimates" 
-  ) 
-```
-]
-
-.panel[.panel-name[Plot]
-```{r ref.label="trump-plot-2", echo = FALSE, out.width="75%", fig.width=6}
-```
-]
-
-]
 
 ---
 
 ## Coronavirus Deaths
 
-First, we should call the libraries we used to make the plot during the first week of class. Because the `coronavirus` package is updated daily, we should re-install it to get the most up to date data.
+First, we should call the libraries that house the data. Because the `coronavirus` package is updated daily, we should re-install it to get the most up to date data if we want to re-create plots in the future.
 
 ```{r load-packages, warning=FALSE, message=FALSE}
 library(devtools) #to install package from GitHub
@@ -449,7 +431,7 @@ library(ggrepel) #for writing names on plot
 
 ---
 
-## Recall the Data
+## Coronavirus Data
 
 The data frame called `coronavirus` in the coronavirus package provides a daily summary of the Coronavirus (COVID-19) cases by country. Each row in the data frame represents a country (or, where relevant, state/province).  Note that the data provided in this package provides daily number of deaths, confirmed cases, and recovered cases. Today we will focus on deaths. 
 
@@ -457,8 +439,13 @@ We will start by making our selection for the countries we want to explore.
 
 ---
 
+```{r viewdata}
+head(coronavirus) #view variables
+```
+
+---
 ```{r select-countries}
-head(coronavirus) #recall variables
+
 countries <- c(
   "China",
   "France",
