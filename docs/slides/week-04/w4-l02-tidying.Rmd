@@ -416,7 +416,9 @@ ggplot(biden_longer,
 
 ## Coronavirus Deaths
 
-First, we should call the libraries that house the data. Because the `coronavirus` package is updated daily, we should re-install it to get the most up to date data if we want to re-create plots in the future.
+First we call the package that houses the data.  The `coronavirus` package is updated daily, and we should re-install it to get the most up to date data if we want to re-create plots in the future.
+
+This package is not in CRAN (where many R packages live) but is directly on GitHub, so we will install it slightly differently.
 
 ```{r load-packages, warning=FALSE, message=FALSE}
 library(devtools) #to install package from GitHub
@@ -433,7 +435,7 @@ library(ggrepel) #for writing names on plot
 
 ## Coronavirus Data
 
-The data frame called `coronavirus` in the coronavirus package provides a daily summary of the Coronavirus (COVID-19) cases by country. Each row in the data frame represents a country (or, where relevant, state/province).  Note that the data provided in this package provides daily number of deaths, confirmed cases, and recovered cases. Today we will focus on deaths. 
+The data frame called `coronavirus` in the coronavirus package provides a daily summary of  COVID-19 cases by country. Each row in the data frame represents a country (or, where relevant, state/province).  Note that the data provided in this package provides daily number of deaths, confirmed cases, and recovered cases. Today we will focus on deaths. 
 
 We will start by making our selection for the countries we want to explore.
 
@@ -471,7 +473,7 @@ country_data <- coronavirus %>%
       TRUE ~ country
     )
   ) %>%
-  # calculate number of total cases for each country and date
+  # calculate number of total cases/deaths for each country and date
   group_by(country, date) %>%
   summarise(tot_cases = sum(cases)) %>%
   # arrange by date in ascending order
@@ -491,7 +493,7 @@ country_data <- coronavirus %>%
 ```
 
 
-How did we wrangle those data?  First, we filtered to a smaller list of countries, edited long country names if needed, and summed all the deaths by country and date. For some countries like Canada on the previous slide, we have data on the provincial level, so we need to summarize to put data on the country level.
+How did we wrangle those data?  First, we filtered to a smaller list of countries, edited long country names if needed, and summed all the deaths by country and date. For some countries like Canada, we have data on the provincial level, so we need to summarize to put data on the country level.
 
 ```{r prep-country-data2, eval=FALSE}
 country_data <- coronavirus %>%
