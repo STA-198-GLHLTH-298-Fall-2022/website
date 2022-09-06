@@ -123,7 +123,7 @@ There are a few differences a `tidyverse` tibble and an `R` data frame. We discu
 
 First, a tibble provides more information than a data frame. When you print a tibble, 
 it will show the first ten rows and all of the columns that fit on the screen,
-along with the type of each column. Try this with the `BMI_long` data.
+along with the type of each column. Try this with the `BMI_long` data, available on Sakai under Resources in the Data folder.
 
 You can 
 modify the number of rows and columns shown using the `print()` function options.
@@ -204,6 +204,10 @@ BMI_long %>%
 ```
 
 When reading code "in English", say "and then" whenever you see a pipe.
+
+---
+
+R recently introduced an alternative pipe, which is `|>` instead of `%>%`. Feel free to use either one. 
 
 Keyboard shortcut: command-shift-M (mac) or control-shift-M (windows)
 
@@ -511,8 +515,7 @@ BMI_long %>%
     ),
     right = FALSE
   )) %>%
-  count(bmiclass) %>%
-  group_by(bmiclass) 
+  count(bmiclass)
 ```
 ]
 .panel[.panel-name[Output]
