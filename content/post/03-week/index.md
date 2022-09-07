@@ -27,7 +27,7 @@ title: 'Week 3 - From Distributions to Data Wrangling'
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
 | Discrete Distributions  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/w3-l01-discretedistributions.html#1)  | 
-| Data Wrangling I  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/w3-l02-wrangling1.html#1)  | 
+| Data Wrangling I  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/w3-l02-wrangling1.html#1)  | | Data Wrangling II  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/w3-l03-wrangling2.html#1)  | 
 
 ### Assignments and Labs
 
