@@ -36,7 +36,7 @@ title: 'Week 3 - From Distributions to Data Wrangling'
 | Quiz | [Quiz 3 on this week's readings](https://sakai.duke.edu) | Sunday, 9/11 |
 | Quiz | [Quiz 4 on next week's readings](https://sakai.duke.edu) | Sunday, 9/18 |
 | Lab 3 |[Probability and Teamwork](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/lab-03-prob-teams.html)| Fri., 9/16 |
-| HW 1 | [Coming Soon](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Fri., 9/16 |
+| HW 1 | [COVID-19 Probabilities & Preterm Birth Disparities](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/hw-01-fall-2022.html) | Fri., 9/16 |
 
 
 ### Readings and Videos
