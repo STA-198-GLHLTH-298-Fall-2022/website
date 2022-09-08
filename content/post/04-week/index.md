@@ -44,6 +44,7 @@ title: 'Week 4 - Data wrangling and the Normal distribution'
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
+| :open_book: | R4DS: [Chapter 12, Tidy Data](https://r4ds.had.co.nz/tidy-data.html?q=tidy#tidy-data)  | **Required** |
 | :open_book: | [OpenIntro Chapter 4, Section 4.1: Normal Distribution ](https://www.openintro.org/book/os/) | **Required** |
 | :open_book: | Seeing Theory: [Chapter 3 (focus on continuous distributions)](https://seeing-theory.brown.edu/#secondPage) | **Required** | 
 | :open_book: |Pagano et al: Section 7.4: Normal Distribution | **Recommended** | 
