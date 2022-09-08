@@ -700,7 +700,8 @@ weeks term.</p>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>birth <span class="sc">%&gt;%</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ptb) <span class="sc">%&gt;%</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())</span></code></pre></div>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   ptb           n
 ##   &lt;fct&gt;     &lt;int&gt;
@@ -720,7 +721,8 @@ data and explore other race classifications if you’d like, but for the
 homework we will focus on the <code>racehisp</code> variable.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>birth <span class="sc">%&gt;%</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(racehisp) <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())</span></code></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 2
 ##   racehisp                           n
 ##   &lt;fct&gt;                          &lt;int&gt;
@@ -762,9 +764,9 @@ level)</li>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">qnt_100 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span> <span class="dv">1</span>),</span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">avg =</span> <span class="fu">mean</span>(bwt)</span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>          ) <span class="sc">%&gt;%</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>   <span class="fu">distinct</span>(qnt_0 ,qnt_25 ,qnt_50 ,qnt_75 ,qnt_100 ,avg)</span></code></pre></div>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>   <span class="fu">distinct</span>(qnt_0 ,qnt_25 ,qnt_50 ,qnt_75 ,qnt_100 ,avg) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 7
-## # Groups:   racehisp [8]
 ##   racehisp                     qnt_0 qnt_25 qnt_50 qnt_75 qnt_100   avg
 ##   &lt;fct&gt;                        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
 ## 1 Non-Hispanic White             227   3030   3360   3685    8165 3324.
@@ -792,7 +794,8 @@ post.</li>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>birth <span class="sc">%&gt;%</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(racehisp) <span class="sc">%&gt;%</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cnt =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> formattable<span class="sc">::</span><span class="fu">percent</span>(cnt <span class="sc">/</span> <span class="fu">sum</span>(cnt)))</span></code></pre></div>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> formattable<span class="sc">::</span><span class="fu">percent</span>(cnt <span class="sc">/</span> <span class="fu">sum</span>(cnt))) <span class="sc">%&gt;%</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 3
 ##   racehisp                         cnt freq      
 ##   &lt;fct&gt;                          &lt;int&gt; &lt;formttbl&gt;
@@ -808,7 +811,8 @@ post.</li>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>birth <span class="sc">%&gt;%</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ptb) <span class="sc">%&gt;%</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cnt =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> formattable<span class="sc">::</span><span class="fu">percent</span>(cnt <span class="sc">/</span> <span class="fu">sum</span>(cnt)))</span></code></pre></div>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> formattable<span class="sc">::</span><span class="fu">percent</span>(cnt <span class="sc">/</span> <span class="fu">sum</span>(cnt))) <span class="sc">%&gt;%</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 3
 ##   ptb         cnt freq      
 ##   &lt;fct&gt;     &lt;int&gt; &lt;formttbl&gt;
@@ -819,11 +823,11 @@ post.</li>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>birth <span class="sc">%&gt;%</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(racehisp,ptb) <span class="sc">%&gt;%</span></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cnt =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> formattable<span class="sc">::</span><span class="fu">percent</span>(cnt <span class="sc">/</span> <span class="fu">sum</span>(cnt)))</span></code></pre></div>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> formattable<span class="sc">::</span><span class="fu">percent</span>(cnt <span class="sc">/</span> <span class="fu">sum</span>(cnt))) <span class="sc">%&gt;%</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;racehisp&#39;. You can override using the
 ## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 16 × 4
-## # Groups:   racehisp [8]
 ##    racehisp                     ptb         cnt freq      
 ##    &lt;fct&gt;                        &lt;fct&gt;     &lt;int&gt; &lt;formttbl&gt;
 ##  1 Non-Hispanic White           preterm  190966 10.37%    
@@ -846,11 +850,11 @@ post.</li>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>birth <span class="sc">%&gt;%</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ptb,racehisp) <span class="sc">%&gt;%</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cnt =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> formattable<span class="sc">::</span><span class="fu">percent</span>(cnt <span class="sc">/</span> <span class="fu">sum</span>(cnt)))</span></code></pre></div>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> formattable<span class="sc">::</span><span class="fu">percent</span>(cnt <span class="sc">/</span> <span class="fu">sum</span>(cnt))) <span class="sc">%&gt;%</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;ptb&#39;. You can override using the `.groups`
 ## argument.</code></pre>
 <pre><code>## # A tibble: 16 × 4
-## # Groups:   ptb [2]
 ##    ptb     racehisp                         cnt freq      
 ##    &lt;fct&gt;   &lt;fct&gt;                          &lt;int&gt; &lt;formttbl&gt;
 ##  1 preterm Non-Hispanic White            190966 44.32%    

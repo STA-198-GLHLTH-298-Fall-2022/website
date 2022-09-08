@@ -111,7 +111,8 @@ birth <- birth %>%
 
 birth %>%
   group_by(ptb) %>%
-  summarize(n=n())
+  summarize(n=n()) %>%
+  ungroup()
 
 ```
 
@@ -121,7 +122,8 @@ First, we will explore birth weight as a function of race and ethnicity using th
 ```{r race-eth-dist}
 birth %>%
   group_by(racehisp) %>%
-  summarize(n=n())
+  summarize(n=n()) %>%
+  ungroup()
 
 
 ```
@@ -147,7 +149,8 @@ birth %>%
          qnt_100 = quantile(bwt, probs= 1),
               avg = mean(bwt)
           ) %>%
-   distinct(qnt_0 ,qnt_25 ,qnt_50 ,qnt_75 ,qnt_100 ,avg)
+   distinct(qnt_0 ,qnt_25 ,qnt_50 ,qnt_75 ,qnt_100 ,avg) %>% 
+  ungroup()
 ```
 
 
@@ -165,27 +168,31 @@ birth %>%
 birth %>%
   group_by(racehisp) %>%
   summarise(cnt = n()) %>%
-  mutate(freq = formattable::percent(cnt / sum(cnt)))
+  mutate(freq = formattable::percent(cnt / sum(cnt))) %>%
+  ungroup()
 
 # this code gives percentage of ptb in cohort
 birth %>%
   group_by(ptb) %>%
   summarise(cnt = n()) %>%
-  mutate(freq = formattable::percent(cnt / sum(cnt)))
+  mutate(freq = formattable::percent(cnt / sum(cnt))) %>%
+  ungroup()
 
 # the code below gives the percentage of preterm births in each race/ethnicity group
 
 birth %>%
   group_by(racehisp,ptb) %>%
   summarise(cnt = n()) %>%
-  mutate(freq = formattable::percent(cnt / sum(cnt)))
+  mutate(freq = formattable::percent(cnt / sum(cnt))) %>%
+  ungroup()
 
 
 # this code breaks down race/eth of those with and without ptb
 birth %>%
   group_by(ptb,racehisp) %>%
   summarise(cnt = n()) %>%
-  mutate(freq = formattable::percent(cnt / sum(cnt)))
+  mutate(freq = formattable::percent(cnt / sum(cnt))) %>%
+  ungroup()
 ```
 
 

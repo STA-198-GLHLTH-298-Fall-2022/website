@@ -197,7 +197,6 @@ select(BMI_long, BMI)
 ## 5  22.5
 ## 6  23.6
 ## # … with 2,394 more rows
-## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -221,7 +220,6 @@ select(BMI_long, -BMI)
 ## 5 Afghanistan Men   Rural    2017 
 ## 6 Afghanistan Men   Urban    2017 
 ## # … with 2,394 more rows
-## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -245,7 +243,6 @@ select(BMI_long, Country:Region)
 ## 5 Afghanistan Men   Rural   
 ## 6 Afghanistan Men   Urban   
 ## # … with 2,394 more rows
-## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -272,7 +269,6 @@ arrange(BMI_long, desc(BMI))
 ## 5 American Samoa Men   Rural    2017   34.6
 ## 6 American Samoa Women Urban    1985   34.4
 ## # … with 2,394 more rows
-## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -295,7 +291,6 @@ arrange(BMI_long, BMI)
 ## 5 Nepal       Women Rural    1985   18.3
 ## 6 Ethiopia    Men   Rural    1985   18.4
 ## # … with 2,394 more rows
-## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 
@@ -320,7 +315,6 @@ arrange(BMI_long, desc(Country), BMI)
 ## 5 Zimbabwe Men   National 2017   22.3
 ## 6 Zimbabwe Men   Urban    2017   23.3
 ## # … with 2,394 more rows
-## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -347,7 +341,6 @@ BMI_long %&gt;%
 ## 5 American Samoa  34.6
 ## 6 American Samoa  34.4
 ## # … with 2,394 more rows
-## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 When reading code "in English", say "and then" whenever you see a pipe.
@@ -473,7 +466,6 @@ BMI_long %&gt;%
 ## 5 Iceland Men   Rural    2017   27.3
 ## 6 Iceland Men   Urban    2017   27.1
 ## # … with 6 more rows
-## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -524,7 +516,6 @@ BMI_long %&gt;%
 ## 5 Iceland Women National 1985   24.3
 ## 6 Iceland Women National 2017   25.5
 ## # … with 10 more rows
-## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -606,7 +597,6 @@ Here's the output!
 ## 5  22.5 Normal Range
 ## 6  23.6 Normal Range
 ## # … with 2,394 more rows
-## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 
@@ -651,7 +641,6 @@ BMI_long %&gt;%
 ## 6 Afghanistan Men   Urban    2017   23.6 Normal Range TRUE       
 ## # … with 2,394 more rows, and abbreviated variable name
 ## #   ¹​normal_range
-## # ℹ Use `print(n = ...)` to see more rows
 ```
 ]
 ]
@@ -717,14 +706,15 @@ BMI_long %&gt;%
     ),
     right = FALSE
   )) %&gt;%
-  count(bmiclass)
+  group_by(bmiclass) %&gt;%
+  count(bmiclass) %&gt;%
+  ungroup()
 ```
 ]
 .panel[.panel-name[Output]
 
 ```
 ## # A tibble: 6 × 2
-## # Groups:   bmiclass [6]
 ##   bmiclass         n
 ##   &lt;fct&gt;        &lt;int&gt;
 ## 1 Underweight      7
@@ -848,7 +838,7 @@ BMI_long %&gt;%
 ### `group_by()`
 
 `group_by()` is powerful when paired with
-summarize to calculate summary statistics by group. Here we find the proportion of means that are in the normal range for each region.
+summarize to calculate summary statistics by group. Here we find the proportion of means that are in the normal range for each region. If you don't `ungroup()` after you use it, there may be unforeseen consequences down the road, so this is good practice.
 
 .panelset[
 .panel[.panel-name[Code]
@@ -857,19 +847,13 @@ summarize to calculate summary statistics by group. Here we find the proportion 
 BMI_long %&gt;%
   mutate(bmiclass = cut(BMI,
     breaks = c(-Inf, 18.5, 25, 30, 35, 40, Inf),
-    labels = c(
-      "Underweight",
-      "Normal Range",
-      "Overweight",
-      "Obese I",
-      "Obese II",
-      "Obese III"
+    labels = c("Underweight","Normal Range","Overweight","Obese I","Obese II","Obese III"
     ),
     right = FALSE
   )) %&gt;%
   mutate(normal_range = bmiclass == "Normal Range") %&gt;%
   group_by(Region) %&gt;%
-  summarize(fracnormal = mean(normal_range,na.rm=TRUE))
+  summarize(fracnormal = mean(normal_range,na.rm=TRUE)) %&gt;% ungroup()
 ```
 ]
 .panel[.panel-name[Output]
@@ -911,7 +895,8 @@ BMI_long %&gt;%
   group_by(Region) %&gt;%
   summarize(
     fracnormal = mean(normal_range, na.rm = TRUE),
-    max_BMI = max(BMI, na.rm = TRUE))
+    max_BMI = max(BMI, na.rm = TRUE)) %&gt;%
+  ungroup()
 ```
 ]
 .panel[.panel-name[Output]

@@ -842,13 +842,14 @@
     </item>
     
     <item>
-      <title>Week 4 - Data wrangling</title>
+      <title>Week 4 - Data wrangling and the Normal distribution</title>
       <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/04-week/</link>
       <pubDate>Sun, 04 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/04-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Complete the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/04-week/#assignments&#34;&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Do the &lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/post/04-week/#readings-and-videos&#34;&gt;readings&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;class-slides-and-activities&#34;&gt;Class Slides and Activities&lt;/h3&gt;
 &lt;table&gt;
@@ -860,12 +861,12 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Data Wrangling II&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-04/w4-l01-wrangling2.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Tidying Data&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-04/w4-l01-tidying.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Tidying Data&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-04/w4-l02-tidying.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;The Normal Distribution&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-04/w4-l02-gaussian.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -896,13 +897,33 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;!-- 
-### Readings and Videos
-
-| &lt;div style=&#34;width:50px&#34;&gt;&lt;/div&gt;  | &lt;div style=&#34;width:420px&#34;&gt;&lt;/div&gt;  |  &lt;div style=&#34;width:200px&#34;&gt;&lt;/div&gt; |
-|:---:|:---|:---:|
-
---&gt;
+&lt;h3 id=&#34;readings-and-videos&#34;&gt;Readings and Videos&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:50px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;div style=&#34;width:420px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:200px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.openintro.org/book/os/&#34;&gt;OpenIntro Chapter 4, Section 4.1: Normal Distribution &lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Seeing Theory: &lt;a href=&#34;https://seeing-theory.brown.edu/#secondPage&#34;&gt;Chapter 3 (focus on continuous distributions)&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Pagano et al: Section 7.4: Normal Distribution&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Recommended&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
     </item>
     
@@ -932,6 +953,10 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Data Wrangling I&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/w3-l02-wrangling1.html#1&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Data Wrangling II&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-03/w3-l03-wrangling2.html#1&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -984,7 +1009,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Seeing Theory: &lt;a href=&#34;https://seeing-theory.brown.edu/probability-distributions/index.html&#34;&gt;Chapter 3&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Seeing Theory: &lt;a href=&#34;https://seeing-theory.brown.edu/probability-distributions/index.html&#34;&gt;Chapter 3 (focus on discrete distributions)&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
