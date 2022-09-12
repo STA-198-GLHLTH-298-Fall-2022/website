@@ -36,7 +36,7 @@ title: 'Week 4 - Data wrangling and the Normal distribution'
 |:---|:---|:---|
 | Quiz | [Quiz 4 on this week's readings](https://sakai.duke.edu) | Sunday, 9/18 |
 | Quiz | [Quiz 5 on next week's readings](https://sakai.duke.edu) | Sunday, 9/25 |
-| Lab 4 |[Data Wrangling](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Fri., 9/23 |
+| Lab 4 |[Data Wrangling](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-04/lab-04-spatial-conflict.html)| Fri., 9/23 |
 
 
 

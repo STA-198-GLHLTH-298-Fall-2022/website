@@ -1,0 +1,278 @@
+---
+title: 'Lab #04: Spatial Data and Handling Merge Conflicts'
+subtitle: 'due Friday, September 23, 4:00 PM'
+output:
+  tufte::tufte_html:    
+    css: "sta199-labs.css"
+    tufte_variant: envisioned
+    highlight: pygments
+    toc: no
+    toc_depth: 1
+  html_document:
+    toc: no
+    toc_depth: '1'
+    df_print: paged
+link-citations: yes
+editor_options:
+  chunk_output_type: console
+---
+
+## Goals
+
+- Appropriately handle merge conflicts
+
+- Create informative spatial maps of data
+
+## Getting Started
+
+Log in to GitHub to determine your team number and members for Lab 4 (should be the same as Lab 3).
+
+- Introduce yourself.
+- Find a one hour block of time outside of class that you can use to work on the
+lab / project if needed. You may not need to use this, but it is good to have it
+in reserve. Tools like [Doodle](https://doodle.com/en/)
+and [When2Meet](https://www.when2meet.com/) are helpful.
+- Determine how your group will communicate (email, text, slack, discord, etc).
+
+# Merge conflicts
+
+```{r fig.margin=TRUE, eval=TRUE, echo=FALSE, results='show'}
+knitr::include_graphics("04/merge-no-conflict.png")
+```
+
+You may have seen this already through the course of your collaboration last 
+week in Lab 03. When two collaborators make changes to a file and push the file 
+to their repository, git merges these two files.
+
+```{r fig.margin=TRUE, eval = TRUE, echo=FALSE, results='show'}
+knitr::include_graphics("04/merge-conflict.png")
+```
+
+If these two files have conflicting content on the same line, git will produce a
+**merge conflict**. Merge conflicts need to be resolved manually, as they 
+require a human intervention:
+
+```{r fig.margin=FALSE, eval=TRUE, echo=FALSE, results='show'}
+knitr::include_graphics("04/merge-conflict-identifiers.png")
+```
+
+To resolve the merge conflict, decide if you want to keep only your text/code, 
+the text/code on GitHub, or incorporate changes from both sets. Delete the 
+conflict markers `<<<<<<<`, `=======`, `>>>>>>>` and make the changes you want 
+in the final merge.
+
+**Assign numbers 1, 2, 3, and 4 to each of your team members** (if only 3 team 
+members, other members can share the work of 4). Go through the following steps in detail, 
+which simulate a merge conflict. Completing this exercise will be part of the 
+lab grade.
+
+## Resolving a merge conflict
+
+**Step 1**: *Everyone* clone your team lab and open the Rmd file.
+
+*Member 4* should look at the group’s repo on GitHub to ensure that the other members’ files are pushed to GitHub after every step.
+
+**Step 2**: *Member 3* should change the team name to your team name. 
+            Knit, commit, and push.
+
+**Step 3**: *Member 2* should change the team name to something different 
+            (i.e., not your team name). Knit, commit, and push.
+
+Member 2 should get an error on the attempted push.
+
+Pull and review the document with the merge conflict. Member 2 should display 
+and read the error to the entire team. A merge conflict occurred because 
+Member 2 edited the same part of the document as Member 3. Resolve the conflict 
+with whichever name you want to keep (please keep your real team name), 
+then knit, commit with a message that clearly states you fixed the merge conflict, and push again.
+
+**Step 4**: *Member 1* verifies the commit shows the merge conflict on GitHub. Then Member 1 writes some narrative below the last code chunk
+            in your Rmd file. Knit, commit, and push.
+
+This time, no merge conflicts should occur, since you edited a different part of
+the document from Members 2 and 3. Member 4 should display 
+and read the message to the entire team.
+
+Everyone pull and delete the narrative. All team members should have the same
+content in the Rmd file before proceeding to the exercises.
+
+
+
+## Packages
+
+```{r calltidy, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+# Getting started
+
+In case you forgot...
+
+```{r eval=FALSE}
+library(usethis)
+use_git_config(user.name = "GitHub username", user.email="your email")
+```
+
+# Disparities in Birth Outcomes
+
+## Low Birth Weight
+
+- The [World Health Organization (WHO)](https://www.who.int/data/nutrition/nlis/info/low-birth-weight) includes the proportion of infants with low birth weight as one of its core indicators of the health of the world population. *Low birth weight* is defined as weight at delivery under 2500g. While low birth weight is a measure of several facets of poor population health (e.g., maternal malnutrition, poor health care, poor health) that combines both growth restriction and prematurity, it is easily measured and more readily available than indicators like preterm birth. 
+
+- We consider WHO data on low birth weight from countries that provide reports, recorded in the [WHO Nutrition Landscape Information System (NLIS)](https://www.who.int/data/nutrition/nlis/data-search).
+
+
+
+
+```{r message=FALSE}
+who_lbw <- readr::read_csv("lowbirthweight.csv")
+
+names(who_lbw)
+
+```
+
+## R packages
+
+The R packages `ggplot2` and `sf` (for "simple features") have made it relatively straightforward to make great spatial maps. We'll use these packages along with `rnaturalearth` and `rnaturalearthdata` to access free spatial mapping tools for world maps. You'll need to install these yourself before proceeding (to do that, remove the hash mark comments the first time you run the code, then re-comment so you don't install them every time).
+
+```{r spatialpackages, message=FALSE, warning=FALSE}
+# install.packages("rnaturalearth") 
+# install.packages("rnaturalearthdata")
+# install.packages("sf")
+# install.packages("rgeos") # needed to pull countries for plot 
+# ggplot2 is part of the tidyverse, so we don't have to call it
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(rgeos)
+library(scales)
+# the classic dark-on-light theme for ggplot2 is nice for maps
+theme_set(theme_bw())
+# world contains the country information for plotting in addition to a lot of other information about the countries
+world <- ne_countries(scale = "medium", returnclass = "sf")
+names(world)
+```
+
+Now let's get started!  
+
+```{r firstworldplot}
+ggplot(data=world) +
+  geom_sf()
+```
+
+OK, that's the world (or one projection of it!). Let's dress up the map a bit. 
+
+```{r worldmap}
+ggplot(data = world) +
+    geom_sf() +
+    labs(x = "Longitude",
+       y = "Latitude",
+       title = "World Map")
+```
+
+The standard projection is a Mercator projection, with latitude and longitude at right angles. As you can see, this distorts the size of land masses at the poles. The ETRS89 Lambert Azimuthal Equal-Area projection is focused instead on Europe and Africa and does not force the map into a rectangular shape.
+
+```{r eurocentric}
+ggplot(data = world) +
+  geom_sf() +
+  coord_sf(crs = st_crs(3035)) +
+  labs(title = "World Map")
+
+```
+
+We could also center our map on Asia.
+
+```{r asiacentric}
+ggplot(data = world) +
+  geom_sf() +
+  coord_sf(crs = st_crs(8859)) +
+  labs(title = "World Map")
+
+```
+
+
+
+We can color the world Duke blue...
+
+```{r worldmapblue}
+ggplot(data = world) +
+    geom_sf(color="black", fill="#00539B") +
+    labs(x = "Longitude",
+       y = "Latitude",
+       title = "World Map")
+```
+
+but perhaps it's more informative to use color to convey information. In this plot, color is mapped to the square root of population (you can remove trans="sqrt" to see why the square root transformation is used).
+
+```{r worldmappop}
+ggplot(data = world) +
+  geom_sf(aes(fill = pop_est)) +
+  scale_fill_viridis_c(option = "plasma", #color scheme
+                       trans = "sqrt", #map color to sqrt(pop_est)
+                       labels = label_comma()) + #avoid 1e9 notation
+  labs(x = "Longitude",
+       y = "Latitude",
+       fill = "Population",
+       title = "World Map")
+```
+
+Pretty nifty!  
+
+We will be making plots of our low birth weight data. In order to do so, we need to do a bit of data wrangling.
+
+1. First, create a new data set, `mean_lbw`, that contains the mean low birth weight rate for each year from 2000-2015 (take the mean over all the country-specific rates). Plot the mean low birth weight rate as a function of year and comment on any trends.
+
+```{r ex1}
+#you can do it!
+#meanlbw <- who_lbw %>%
+
+
+```
+
+
+
+2. In order to explore the plotted trends further, transform the data from long to wide format so that the % low birth weight for each year are all on the same line (one line per country). Then, create a new variable named `lbw_change` that is calculated as the 2000 low birth weight % for a country minus the 2015 low birth weight % for that country. What are the mean and median values of `lbw_change`?  Include a useful visualization showing the change in low birth weight, using the variable `lbw_change` and provide a short interpretation of your visualization.
+
+```{r ex2}
+
+
+```
+
+
+
+3. Let's get ready to plot on a map!  The `world` data set is great because it provides [ISO country codes](https://unstats.un.org/unsd/tradekb/knowledgebase/country-code) that conform to international standards (ISO=International Organization for Standardization) to facilitate easy linkage across data sets. The ISO country code is called `iso_a3` in the world data. Fortunately, the WHO data variable `Country Code` is the ISO code, which we can use to join the two datasets. First, create a new low birth weight data set, called `lbwplot`, that contains only `Country Code`, the 2015 low birth weight percentage, and the variable `lbw_change`. Join the world and `lbwplot` data sets using a full join. Then, create two maps: one map showing the 2015 % low birth weight for each country, and another map showing the change in low birth weight rates from 2000-2015 (for this last map, use the ETRS89 Lambert Azimuthal Equal-Area projection). Briefly interpret your maps.
+
+If you want to join data set A to data set B using the values in data set A variable `vara` and data set B variable `varb` to match them, you can use a `by` option as follows:
+`full_join(A, B, by = c("vara"="varb"))`.
+
+
+```{r ex3}
+
+
+
+
+
+
+
+```
+
+
+
+4. Use the filter and arrange functions to print a table, starting with worst progress (biggest negative change), for those countries whose % low birth weight increased from 2000 to 2015. Your table should only include the Country Name and low birth weight change (in raw percentage points) for these countries.
+
+```{r ex4}
+
+```
+ 
+
+
+## Grading
+Total: 50 pts
+
+- Exercise 1: 10 pts
+- Exercise 2: 10 pts
+- Exercise 3: 10 pts
+- Exercise 4: 10 pts
+- Overall:  10 pts
+
+  - Overall includes the number of commits made by different team members (at least 1 by each team member), creating and addressing the merge conflict, naming chunks, updating the names on the assignment to your team name clearly identifying all team members, following tidyverse style (see: https://style.tidyverse.org/), and in general producing a nicely formatted, neat report. 
