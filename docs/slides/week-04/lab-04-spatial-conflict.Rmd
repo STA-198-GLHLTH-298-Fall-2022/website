@@ -224,7 +224,7 @@ We will be making plots of our low birth weight data. In order to do so, we need
 
 ```{r ex1}
 #you can do it!
-#meanlbw <- who_lbw %>%
+#mean_lbw <- who_lbw %>%
 
 
 ```
