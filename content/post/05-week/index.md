@@ -26,8 +26,8 @@ title: 'Week 5 - Point and Interval Estimation'
 ### Class Slides and Activities
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-| Gaussian Distribution | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
-| Point and Interval Estimates | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
+| Central Limit Theorem and Confidence Intervals | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-05/w5-l01-clt.html)  | 
+| Testing | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
 
 
 
@@ -35,10 +35,11 @@ title: 'Week 5 - Point and Interval Estimation'
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
-| :movie_camera: | [Spatial Data](https://warpwire.duke.edu/w/Yw4GAA/) | **Required** |
-| :movie_camera: | [Working with Dates and Other Data Classes](https://www.youtube.com/watch?v=dozvSVQcqqg) | **Required** |
-| :open_book: | [Spatial Data in R](https://r-spatial.org/r/2018/10/25/ggplot2-sf.html)  | **Recommended** |
-| :open_book: | [Displaying Geo-Spatial Data with R](https://slcladal.github.io/maps.html) | **Recommended** |
+| :open_book: | [OpenIntro Chapter 5, Section 5.3: Foundations for Inference ](https://www.openintro.org/book/os/) | **Required** |
+| :movie_camera: | [Dance of the P-Values](https://www.youtube.com/watch?v=5OL1RqHrZQ8&app=desktop) | **Required** |
+| :open_book: | [ASA Statement on P-Values: Press Release ](https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf) | **Required** |
+| :open_book: | [Nature Article on P-Values](http://www.nature.com/news/scientific-method-statistical-errors-1.14700) | **Highly Recommended** |
+
 
 
 ### Assignments and Labs

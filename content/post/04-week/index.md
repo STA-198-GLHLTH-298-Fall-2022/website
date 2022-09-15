@@ -47,6 +47,10 @@ title: 'Week 4 - Data wrangling and the Normal distribution'
 | :open_book: | R4DS: [Chapter 12, Tidy Data](https://r4ds.had.co.nz/tidy-data.html?q=tidy#tidy-data)  | **Required** |
 | :open_book: | [OpenIntro Chapter 4, Section 4.1: Normal Distribution ](https://www.openintro.org/book/os/) | **Required** |
 | :open_book: | Seeing Theory: [Chapter 3 (focus on continuous distributions)](https://seeing-theory.brown.edu/#secondPage) | **Required** | 
+| :movie_camera: | [Working with Dates and Other Data Classes](https://www.youtube.com/watch?v=dozvSVQcqqg) | **Required** |
+| :movie_camera: | [Spatial Data](https://warpwire.duke.edu/w/Yw4GAA/) | **Recommended** |
+| :open_book: | [Spatial Data in R](https://r-spatial.org/r/2018/10/25/ggplot2-sf.html)  | **Recommended** |
+| :open_book: | [Displaying Geo-Spatial Data with R](https://slcladal.github.io/maps.html) | **Recommended** |
 | :open_book: |Pagano et al: Section 7.4: Normal Distribution | **Recommended** | 
 
 
