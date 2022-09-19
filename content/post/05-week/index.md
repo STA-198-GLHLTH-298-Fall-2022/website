@@ -11,9 +11,9 @@ image:
   preview_only: true
 lastmod: "2021-07-05T00:00:00Z"
 projects: []
-subtitle: 'Point and Interval Estimation :world_map:'
+subtitle: 'Point and Interval Estimation; Testing :world_map:'
 summary: Start to gain tools needed to begin rigorous evaluation of hypotheses in science
-title: 'Week 5 - Point and Interval Estimation'
+title: 'Week 5 - Point and Interval Estimation, Testing'
 ---
 
 ### Tasks
@@ -27,7 +27,7 @@ title: 'Week 5 - Point and Interval Estimation'
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
 | Central Limit Theorem and Confidence Intervals | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-05/w5-l01-clt.html)  | 
-| Testing | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
+| Testing I | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-05/w5-l02-testing.html)  | 
 
 
 
