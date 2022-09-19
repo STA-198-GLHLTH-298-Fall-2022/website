@@ -56,7 +56,9 @@ Today we'll do the following:
 
 2. Practice data tidying skills to reproduce a plot of presidential approval ratings
 
-3. Practice data tidying skills to explore US COVID-19 confirmed cases during the pandemic
+3. Practice transforming data from long to wide format and back
+
+4. Practice data wrangling skills to explore US COVID-19 confirmed cases during the pandemic
 
 ---
 
@@ -511,6 +513,21 @@ ggplot(biden_longer,
 
 ---
 
+## Practice: Child Well Care Visits
+
+Important aspects of well-child medical visits include immunizations, disease detection, and monitoring of growth and development. Barriers to these visits include transportation, time off work, and expense. Let's consider a sample data set (you can input yourself into R!).
+
+
+```r
+#aap 1st week (3-5 days), 1 month, 2 months, 4 months
+wellcare &lt;- tibble(name=c("Idara","Fan","Oliver"), visit1=c(0.57, 1, 0.71), visit2=c(1,1.07,0.93), visit3=c(2.17,1.93,NA), visit4=c(3.97,4.5,3.67))
+```
+
+
+We'll work with these data in class!
+
+---
+
 ## Coronavirus Deaths
 
 First we call the package that houses the data.  The `coronavirus` package is updated daily, and we should re-install it to get the most up to date data if we want to re-create plots in the future.
@@ -530,6 +547,7 @@ library(ggrepel) #for writing names on plot
 ```
 
 ---
+
 
 ## Coronavirus Data
 
