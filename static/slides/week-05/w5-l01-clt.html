@@ -66,7 +66,7 @@ library(infer)
 
 ### Central Limit Theorem
 
-The *central limit theorem* says that for any distribution with a well-defined mean and variance, the distribution of *means* for a sample of size `\(n\)` is approximately normal. This result has strong implications in many areas of statistics, including in construction of confidence intervals and in hypothesis testing.
+The *central limit theorem* says that for any distribution with a well-defined mean and variance, the distribution of *means* for a sample of *independent* observations of size `\(n\)` is approximately normal. This result has strong implications in many areas of statistics, including in construction of confidence intervals and in hypothesis testing.
 
 ---
 
@@ -218,7 +218,7 @@ How does the variability of the sampling distribution depend on the size of our 
 
 ### Central Limit Theorem
 
-The *Central Limit Theorem* says that for a population with mean `\(\mu\)` and standard deviation `\(\sigma\)`, the important three properties of the distribution of sample averages `\(\bar{x}\)` hold:
+The *Central Limit Theorem* says that for a population with mean `\(\mu\)` and standard deviation `\(\sigma\)`, the important three properties of the distribution of sample averages `\(\bar{x}\)` taken over independent observations hold:
 - The mean of the sampling distribution is identical to the population mean `\(\mu\)`.
 - The standard deviation of the distribution of the sample averages is `\(\frac{\sigma}{\sqrt{n}}\)`, called the *standard error* of the mean.
 - For `\(n\)` large enough (in the limit as `\(n \rightarrow \infty\)`), the shape of the sampling distribution is approximately normal (Gaussian)

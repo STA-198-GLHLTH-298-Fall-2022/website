@@ -36,8 +36,10 @@ title: 'Week 5 - Point and Interval Estimation, Testing'
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
 | :open_book: | [OpenIntro Chapter 5: Foundations for Inference ](https://www.openintro.org/book/os/) | **Required** |
+| :open_book: | [Seeing Theory Chapter 4](https://seeing-theory.brown.edu/frequentist-inference/index.html#section1) | **Required** |
 | :movie_camera: | [Dance of the P-Values](https://www.youtube.com/watch?v=5OL1RqHrZQ8&app=desktop) | **Required** |
 | :open_book: | [ASA Statement on P-Values: Press Release ](https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf) | **Required** |
+| :open_book: | [case_when](https://www.statology.org/dplyr-case_when/) | **Required**| 
 | :open_book: | [Nature Article on P-Values](http://www.nature.com/news/scientific-method-statistical-errors-1.14700) | **Highly Recommended** |
 
 

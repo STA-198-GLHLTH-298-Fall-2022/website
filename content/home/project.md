@@ -12,7 +12,7 @@ subtitle = "Showcase your inner data scientist"
 
 Pick a global health data set ...
 
-...and do something informative with it. You will work in teams of 2-3 people of your own choosing. That is your final project in a nutshell. More details below.
+...and do something informative with it. You will work in teams of 3-4 people of your own choosing. That is your final project in a nutshell. More details below.
 
 ## May be too long, but please do read
 

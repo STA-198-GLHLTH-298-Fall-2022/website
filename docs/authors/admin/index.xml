@@ -773,6 +773,11 @@
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://seeing-theory.brown.edu/frequentist-inference/index.html#section1&#34;&gt;Seeing Theory Chapter 4&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;🎥&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=5OL1RqHrZQ8&amp;amp;app=desktop&#34;&gt;Dance of the P-Values&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
@@ -780,6 +785,11 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf&#34;&gt;ASA Statement on P-Values: Press Release &lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.statology.org/dplyr-case_when/&#34;&gt;case_when&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
