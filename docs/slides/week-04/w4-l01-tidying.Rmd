@@ -423,7 +423,7 @@ Important aspects of well-child medical visits include immunizations, disease de
 
 ```{r sampledata}
 #aap 1st week (3-5 days), 1 month, 2 months, 4 months
-wellcare <- tibble(name=c("Idara","Fan","Oliver"), visit1=c(0.57, 1, 0.71), visit2=c(1,1.07,0.93), visit3=c(2.17,1.93,NA), visit4=c(3.97,4.5,3.67))
+wellcare <- tibble(name=c("Idara","Fan","Oliver"), visit1=c(0.13, 0.23, 0.17), visit2=c(1,1.07,0.93), visit3=c(2.17,1.93,NA), visit4=c(3.97,4.5,3.67))
 ```
 
 
