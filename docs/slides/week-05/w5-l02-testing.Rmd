@@ -28,7 +28,7 @@ library(emo) #for emojis
 
 ## Main ideas
 
--- Understand Null Hypothesis Significance Testing Framework
+-- Understand Null Hypothesis Significance Testing framework and its limitations
 
 -- Understand use and misuse of p-values
 
