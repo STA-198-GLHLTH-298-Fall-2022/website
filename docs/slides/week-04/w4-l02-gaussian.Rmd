@@ -329,3 +329,19 @@ knitr::include_graphics("img/stdnorm6.png")
 
 To get the probability that a random wearer of men's shoes would wear a size between 10 and 12, we just take `pnorm(12,mean=11,sd=1.5)-pnorm(10,mean=11,sd=1.5)` to get the value `r pnorm(12,mean=11,sd=1.5)-pnorm(10,mean=11,sd=1.5)`.
 
+---
+
+### Practice (Vu & Harrington Chapter 3)
+
+Systolic blood pressure (SBP) for adults in the United States aged 18-39 follow an approximate
+normal distribution with mean 115 mm Hg and standard deviation 17.5 mm Hg. As age increases, systolic blood pressure also tends to increase.
+Mean systolic blood pressure for adults 60 years of age and older is 136 mm Hg, with standard
+deviation 40 mm Hg. Systolic blood pressure of 140 mm Hg or higher is indicative of hypertension
+(high blood pressure). 
+
+- How many standard deviations away from the mean is a 30-year-old with
+systolic blood pressure of 125 mm Hg? 
+
+- Compare how unusual a systolic blood pressure of 140
+mm Hg is for a 65-year-old, versus a 30-year-old.
+
