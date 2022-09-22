@@ -1,0 +1,41 @@
+---
+title: "case_when"
+format: revealjs
+editor: visual
+---
+
+## Control Flow
+
+-   We have not used `if` `else` statements in R yet but they look something like this:
+
+``` r
+a <- 5
+if(a > 0) {
+  print("a is positive!")
+} else {
+  print("a is non-positive!")
+}
+```
+
+This is called *Control Flow*. `case_when` is a way to do control flow when modifying your data!
+
+## Example
+
+**Crazy Carl's Catastrophic Carnival** lets people ride on roller coasters if they are 60 inches tall and 8 years old or above. If you are between 40-70 inches tall and at least 5 years old you can ride the teacups. Anyone 18 and up is allowed to ride any ride if they sign a waiver (if someone under 18 signs it nothing changes). Carl also lets anyone who gives him 5 stars on Yelp ride any ride no matter what. Help him complete a dataframe of his customers with a `can_ride` column.
+
+## Code
+
+```{r}
+customers <- data.frame(
+  name=         c("Annie", "Barry", "Cary", "Daphne", "Emily"),
+  age=          c(4,       13,      19,     9,         6),
+  height=       c(45,      71,      59,     55,        40),
+  yelp_review=  c(1,       1,       1,      3,         5),
+  waiver_signed=c(TRUE,    TRUE,    TRUE,   FALSE,     FALSE)
+)
+
+customers
+
+```
+
+`{.r code-line-numbers="|2|3|7"} customers <- customers %>%   mutate(can_ride = case_when(     (age >= 18 & waiver_signed == TRUE) | yelp_review == 5 ~ "both",     height >= 60 & height <= 70 & age >= 8 ~ "both",     height > 70 & age >= 8 ~ "roller coaster",     height >= 40 & height <= 70 & age >= 5 ~ "teacups",     TRUE ~ "neither"   ))`
