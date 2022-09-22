@@ -1,0 +1,137 @@
+---
+title: 'Lab #05: Maternal Mortality'
+subtitle: 'due Friday, September 30, 4:00 PM'
+output:
+  tufte::tufte_html:    
+    css: "sta199-labs.css"
+    tufte_variant: envisioned
+    highlight: pygments
+    toc: no
+    toc_depth: 1
+  html_document:
+    toc: no
+    toc_depth: '1'
+    df_print: paged
+link-citations: yes
+editor_options:
+  chunk_output_type: console
+---
+
+## Goals
+
+- Link data on all US births for 2020 to data on all maternal deaths associated with 2020 births
+
+- Calculate the 2020 US maternal mortality rate overall and as a function of race and ethnicity
+
+- Explore whether maternal health- and healthcare-related risk factors vary across race and ethnicity
+
+## Getting Started
+
+Log in to GitHub to determine your team number and members for Lab 5 (should be the same as Labs 3 & 4).
+
+- Find two one-hour blocks of time outside of class that you can use to work on the
+lab / project if needed. You may not need to use this, but it is good to have it
+in reserve. Tools like [Doodle](https://doodle.com/en/)
+and [When2Meet](https://www.when2meet.com/) are helpful.
+- Determine how your group will communicate (email, text, slack, discord, etc).
+
+## Packages
+
+```{r calltidy, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+In case you forgot...
+
+```{r eval=FALSE}
+library(usethis)
+use_git_config(user.name = "GitHub username", user.email="your email")
+```
+
+# Disparities in Maternal Mortality
+
+Numerous countries have documented recent racial and ethnic disparities in maternal mortality rates, including Brazil, the UK, and the US. In this lab, we will explore data on maternal mortality in the US in 2020 (the most recent year for which mortality data are available). [Singh (2021)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7792749/) notes that the US has maternal mortality rates higher than expected for an industrialized country, that maternal mortality rates in the US have increased recently, and that racial and ethnic disparities have been persistent.
+
+The maternal mortality rate is usually presented as the expected number of deaths per 100,000 births. We will calculate it by first calculating the proportion of births associated with maternal deaths (count of deaths divided by count of births) and then multiplying by 100,000.
+
+## Mortality Data
+
+The data set `mort2020.Rdata` in the GitHub repo includes maternal deaths to US residents in the year 2020, based on the [US Center for Disease Control and Prevention (CDC)’s 2020 mortality multiple cause-of-death public use data](https://www.cdc.gov/nchs/nvss/mortality_public_use_data.htm); variables include age and a variety of race and ethnicity variables. Note: the maternal death counts in these data do not match exactly the maternal mortality counts published in Hoyert (2022), “Maternal Mortality Rates in the United States, 2020” despite considerable back and forth with CDC and their review of our code to ensure proper exclusions. For purposes of this assignment, assume these differences are due to data corrections after the Hoyert report was published. The format of this data set is that there is one line per maternal death.
+
+## Natality Data
+
+We use the data on [2020 US births](https://www.cdc.gov/nchs/data_access/vitalstatsonline.htm) published by the US Centers for Disease Control and Prevention. While 2021 birth data are now available, the 2021 mortality data have not yet been published, so we will confine our analysis to the last year with data appropriate for combined analysis.
+
+The natality data are more comprehensive than the mortality data, and numerous other risk factors are available in these data that are not included in the mortality file, including the following.
+
+- Trimester of pregnancy in which prenatal care was started `pnc_recode`; research has shown that maternal and child health outcomes are improved when prenatal care starts earlier in pregnancy, so that existing medical conditions can be managed and health can be monitored
+
+- Several health conditions related to potential complications affecting the mother or child(ren), including
+
+  - Pre-pregnancy diabetes `prepreg_diab`
+  
+  - Gestational diabetes `gest_diab`
+  
+  - Pre-pregnancy hypertension `prepreg_htn`
+  
+  - Gestational hypertension `gest_htn`
+  
+  - Eclampsia `htn_eclampsia`
+
+## Connecting Mortality and Natality Data
+
+For privacy reasons, the CDC does not publicly release the linked mortality and natality data. In order to calculate maternal mortality rates, we will need to summarize each data set to obtain the appropriate numerator and denominator for the rates of interest.
+
+
+
+
+```{r readdata, message=FALSE}
+load("natus2020.RData") #automatically reads data set named natus2020 
+load("mort2020.RData") #automatically reads data set named matmort2020
+
+```
+
+
+1. For this analysis, we will focus on the combined race/ethnicity variable `racehisp` in the `natus2020` data. This variable is self-explanatory except perhaps for the abbreviations AIAN American Indian/Alaska Native and NHOPI for Native Hawaiian or other Pacific Islander. As a first step, we focus on the 2020 US births. Create a plot that shows the count of 2020 births to mothers in each group in `racehisp`. Then, calculate by code and report the percentage of 2020 US births for each racial/ethnic group. 
+
+
+
+2. Still using the `natus2020` data, explore whether the prevalence of risk factors (including pre-pregnancy diabetes, gestational diabetes, pre-pregnancy hypertension, gestational hypertension, and eclampsia) and the timing of the start of prenatal care (`pnc_recode`) varies across the racial/ethnic groups in `racehisp`.
+
+- First, include figures depicting the occurrence of each of the above risk factors as a function of race and ethnicity. 
+
+- Then, note that women who already have pre-pregnancy hypertension cannot be diagnosed with gestational hypertension (the same applies to diabetes). Therefore, we would also want to explore hypertension or diabetes on an aggregate level as risk factors. To do so, make two new variables (one for each condition) that groups any diagnosis of hypertension together (similarly for diabetes). Create similar figures to explore each factor's occurrence by race/ethnicity.  
+
+- Write several paragraphs describing any differences in these risk factors across race or ethnicity.
+
+- *Note:* eclampsia is a particularly unsafe condition both for the pregnant person and infant, and delivery is often done quickly after its onset to prevent parental or infant death.
+
+
+
+
+
+3. Remember when joining data sets, there needs to be a variable in each dataframe that matches exactly with each other. In order to prepare for joining our two datasets, create a variable in `matmort2020` that uses the existing race and ethnicity variables (`hisp` and `race_recode`) to then map to all the unique categories in the `racehisp` variable in the natality data. Make sure to show your code for creating this variable in the output. Include a table that shows the count of maternal deaths for each group in your new variable. Using this new variable, calculate what percentage of 2020 US maternal deaths are attributed to each racial/ethnic group. Draw comparisons to your findings from problem 1 about how births are distributed across racial/ethnic groups.
+- Note: Guamanian & Samoan are considered Pacific Islander groups 
+- Hint: you can use the `unique()` function to see the unique categories of a dataframe's variable.
+- Hint: use `&` for representing `and`, use`|` for `or` when connecting multiple conditions together 
+- Hint: the case-when function is your friend! We will illustrate it in lab.
+
+
+4. Now it's time to link the data!  First, you will need to summarize each data set by counts of births (or deaths) by values of `racehisp`, keep the race/ethnicity and count variables, and save the results in new data sets. (Why?  We don't have a way to link individual women across the two data sets, but we can combine summary statistics by `racehisp`.) Then, join the two summarized data sets. After joining the data, calculate and report (a) the overall maternal mortality rate per 100,000 births for 2020 (total maternal deaths divided by total births times 100,000) and (b) the maternal mortality rates for each racial/ethnic group represented in `racehisp`.  
+
+
+5. Create a plot that illustrates how maternal mortality rates per 100,000 births vary across racial/ethnic groups. Write a paragraph describing your plot and any disparities in maternal mortality rates across racial/ethnic groups that you find. 
+
+
+
+## Grading
+Total: 50 pts
+
+- Exercise 1: 6 pts 
+- Exercise 2: 8 pts
+- Exercise 3: 12 pts
+- Exercise 4: 10 pts
+- Exercise 5: 10 pts
+- Overall:  4 pts
+
+  - Overall includes the number of commits made by different team members (at least 1 by each team member), naming chunks, updating the names on the assignment to your team name clearly identifying all team members, following tidyverse style (see: https://style.tidyverse.org/), and in general producing a nicely formatted, neat report. In order to receive credit for this assignment, you must complete the team evaluation on Sakai.
