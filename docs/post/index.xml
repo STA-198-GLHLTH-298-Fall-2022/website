@@ -691,6 +691,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;!-- w6-l03-anova.html#  --&gt;
 &lt;h3 id=&#34;readings-and-videos&#34;&gt;Readings and Videos&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -700,6 +701,13 @@
 &lt;th style=&#34;text-align:center&#34;&gt;&lt;div style=&#34;width:200px&#34;&gt;&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;IMS: &lt;a href=&#34;https://openintro-ims.netlify.app/inference-many-means.html&#34;&gt;Chapters 19-22: Inference for Comparing Means&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;assignments-and-labs&#34;&gt;Assignments and Labs&lt;/h3&gt;
 &lt;table&gt;
