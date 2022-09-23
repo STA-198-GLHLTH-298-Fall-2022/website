@@ -1,7 +1,6 @@
 ---
 title: "ANOVA: Analysis of Variance"
 subtitle: "<br><br> Introduction to Global Health Data Science"
-author: "[Back to Website](https://sta-198-glhlth-298-fall-2022.github.io/website/)"
 date: "<br> Prof. Amy Herring"
 output:
   xaringan::moon_reader:
@@ -55,47 +54,9 @@ library(tidyverse)
 library(tidymodels)
 library(readr)
 mercury <- readr::read_csv("mercury_reg.csv")
+mercury <- mercury %>%
+  filter(withinid==1)
 ```
-
-
----
-
-## Relationship between mercury and individual community
-
-One way to explore this relationship is through a linear regression model, with *dummy* or *indicator variables* for community as predictors.
-
-```{r hg-comm, eval=FALSE}
-res <- linear_reg() %>%
-  set_engine("lm") %>%
-  fit(lhairHg ~ community, data = mercury) %>%
-  tidy() 
-print(res,n=23)
-```
-
----
-
-
-
-```{r ref.label="hg-comm", echo = FALSE}
-```
-
----
-
-- When the categorical explanatory variable has many levels, they're encoded to **indicator** or **dummy variables**
-
-- Each coefficient describes the expected difference between hair mercury levels in that particular community compared to the baseline level
-
-- Here, all the community mean hair mercury levels are different from those in Boca Colorado (the *referent* group, selected alphabetically) with the exception of Puquiri, Setapo, and Shintuya.
-
-- What if we want to make comparisons between pairs of communities that don't involve Boca Colorado?  We'll address that shortly!
-
----
-
-## ANOVA
-
-When our predictor variable is categorical and the response is (approximately) normal (perhaps after transformation), often this type of model is fitted as an **ANOVA** model. **ANOVA or Analysis of Variance** refers to an approach when we have all categorical predictors, in which the hypothesis of interest is related to the degree of variability in the means across groups (versus within-group variability).  
-
-We can think of ANOVA as a special case of regression, when all predictors are categorical. Technically, ANOVA is more of a tool to break apart different sources of variation in data.
 
 ---
 
@@ -144,6 +105,7 @@ One way to do this would be to use t-tests on all possible pairs of communities.
 
 ---
 
+
 ## Multiple Comparisons
 
 - Suppose all means are truly equal, and we conduct all 253 pairwise tests
@@ -154,9 +116,17 @@ One way to do this would be to use t-tests on all possible pairs of communities.
 
 - In reality, this is a little more complicated (tests are not independent), but we still have the problem of an inflated type I error rate.
 
-- ANOVA extends the t-test and is one way to control the overall type I error rate at a fixed level $\alpha$, if we only test pairwise differences when the *chunk* or *overall test* is rejected
+- *ANOVA* extends the t-test and is one way to control the overall type I error rate at a fixed level $\alpha$, if we only test pairwise differences when the *chunk* or *overall test* is rejected
 
 ---
+
+## ANOVA
+
+When our observations are independent, our predictor variable is categorical, and the response is (approximately) normal (perhaps after transformation), often we fit an **ANOVA** model. **ANOVA or Analysis of Variance** refers to an approach when we have all categorical predictors, in which the hypothesis of interest is related to the degree of variability in the means across groups (versus within-group variability).  
+
+
+---
+
 
 ## ANOVA Null Hypothesis
 
@@ -357,10 +327,10 @@ What does variance have to do with our null hypothesis, which is about equality 
 ---
 
 ANOVA model is $$y_{ij}=\mu_i+\varepsilon_{ij}$$ where we assume the $\varepsilon_{ij}$ are independent and normally distributed with mean 0 and variance $\sigma^2$.   
-- $\varepsilon_{ij}$ represent random error about each group mean, $\mu_i$
+- $\varepsilon_{ij}$ represent random error about each group mean, $\mu_i$, so that each observation $y_{ij}$ has some random error around a group mean
 - Model assumes the $y_{ij}$ are independent and normally distributed with mean $\mu_i$ and variance $\sigma^2$
 - Sometimes you see the model broken out with $\mu_i=\mu+\alpha_i$, where $\mu$ represents the overall or *grand mean* and $\alpha_i$ represents each group's deviation from the overall mean
-- Alternatively *reference cell* coding, like we used when fitting the regression model, could be used, where one group is the *referent group* and the other coefficients represent differences between each group and the referent group
+- Alternatively *reference cell* coding could be used, where one group is the *referent group* and the other coefficients represent differences between each group and the referent group (we'll see this when we learn about *regression analysis*)
 
 ---
 
@@ -372,6 +342,7 @@ ANOVA model is $$y_{ij}=\mu_i+\varepsilon_{ij}$$ where we assume the $\varepsilo
 
 - Samples are independent
 
+Basically, you can think of ANOVA as the extension of the two-sample t-test with equal variances to more than two groups
 ---
 
 ### Checking ANOVA Assumptions in Mercury Data: PPM Scale
@@ -429,7 +400,7 @@ mercury %>%
 
 - Equal variances: more or less ok on the log scale
 
-- Independence: this is an issue with these data, as some households provided multiple hair samples, and individuals within households may share exposure sources (e.g., meals), leading to correlated data within household. We will address this issue shortly.
+- Independence: this is an issue with these data, as some households provided multiple hair samples, and individuals within households may share exposure sources (e.g., meals), leading to correlated data within household. For this reason, we have just selected the first participant from each household.
 
 ---
 
@@ -520,43 +491,43 @@ sigpairs <- broom::tidy(hairpair) %>%
 nrow(sigpairs)
 ```
 
-OK, that's a lot of differences!  More community pairs are different than not.
+OK, that's a lot of differences!  
 
 ---
 ```{r printsig}
 print(sigpairs,n=10)
 ```
 
-Most communities do differ in levels of hair mercury! 
-
----
-
-## Write-up of Methods and Results
-
-The data were analyzed using one-way ANOVA to test the overall hypothesis of no difference across communities, with planned step-down tests using a Holm correction for multiple comparisons when the overall hypothesis was rejected.
-
-Using the overall F test (ndf=22, ddf=2285), a significant difference among the communities was identified (p<0.0001). Step-down tests indicated that mercury levels differed across the majority of pairwise community comparisons.
-
-One challenge to the validity of this analysis is that multiple measures were obtained per household. If shared exposures or other factors induced positive correlations in mercury measures among household members, our standard errors would be too small, and our estimated significance levels would be anti-conservative.
-
----
-
-class: middle
-
-# Wait, is that wrong? Hold that thought.
 
 ---
 
 
 ## Bonferroni Correction
 
-As we showed earlier, conducting multiple tests on a data set increases the *family-wise error rate*.  One very conservative way to ensure this is not the case is to divide $\alpha$ by the number of tests to be done and to use that as the significance level.  This procedure is called the Bonferroni correction. For example for two tests, to preserve an overall 0.05 type I error rate, the Bonferroni correction would use $\frac{\alpha}{2}=0.025$ as the significance level for each individual test instead of $0.05$.  Bonferroni is a conservative multiple comparisons correction (like saving your money in your mattress!), making it harder to reject the null hypothesis, but it is a safe bet in controlling the type I error rate. A less conservative method that also offers strong control of the error rate is Holm's method, which we used in our code.
+As we showed earlier, conducting multiple tests on a data set increases the *family-wise error rate*.  One very conservative way to ensure this is not the case is to divide $\alpha$ by the number of tests to be done and to use that as the significance level.  This procedure is called the Bonferroni correction. For example for two tests, to preserve an overall 0.05 type I error rate, the Bonferroni correction would use $\frac{\alpha}{2}=0.025$ as the significance level for each individual test instead of $0.05$.  Bonferroni is a conservative multiple comparisons correction (like saving your money in your mattress!), making it harder to reject the null hypothesis, but it is a safe bet in controlling the type I error rate. A less conservative method that also offers strong control of the error rate is [Holm's method](https://en.wikipedia.org/wiki/Holm–Bonferroni_method), which we used in our code.
 
 ---
 
+
+## Write-up of Methods and Results
+
+The data were analyzed using one-way ANOVA to test the overall hypothesis of no difference across communities, with planned step-down tests using a Holm correction for multiple comparisons when the overall hypothesis was rejected.
+
+Using the overall F test (ndf=22, ddf=2285), a significant difference among the communities was identified (p<0.0001). Step-down tests indicated that mercury levels differed across many pairwise community comparisons. (You might then provide further discussion of which communities were different, and what factors might drive differences -- we can explore this using multiple regression models later in the course.)
+
+---
+
+## What about the data we excluded?
+
+The study obtained multiple measures per household, but we just took one person per household. We could potentially learn more by increasing the sample size by taking data on all household members. However, that would lead to violations of the independence assumption. How might we address that issue?
+
+
+---
+
+
 ## Violation of independence
 
-The violation of the independence assumption due to the inclusion of multiple household members is indeed a concern.  To explore this, let's calculate the fraction of households (coded using `hid`) that provided hair measures from more than one household member.
+The violation of the independence assumption due to the inclusion of multiple household members would indeed be a concern.  To explore this, let's calculate the fraction of households (coded using `hid`) that provided hair measures from more than one household member.
 
 .panelset[
 .panel[.panel-name[Output]
@@ -566,7 +537,8 @@ The violation of the independence assumption due to the inclusion of multiple ho
 .panel[.panel-name[Code]
 
 ```{r hg-hhid, fig.show="hide"}
-mercury %>%
+mercury2 <- readr::read_csv("mercury_reg.csv")
+mercury2 %>%
   filter(is.na(lhairHg)==FALSE) %>%
   group_by(hid) %>%
   mutate(hhobs=n(),
@@ -587,43 +559,29 @@ Typically, observations within a household are positively correlated (e.g., if o
 
 ## Simple Fix: Limit to One Person Per Household
 
-The easiest solution to this problem is to limit the dataset to a single person per household. In this case, we'll limit to the household member denoted `withinid=1`.
+The easiest solution to this problem is to limit the dataset to a single person per household. That's what we did. How different would our results be if we included everyone and ignored the violation of independence?
 
-```{r oneperhh}
-mercuryone <- mercury %>%
-  filter(withinid==1)
-
-summary(aov(lhairHg~community,data=mercuryone))
+```{r allperhh}
+summary(aov(lhairHg~community,data=mercury2))
 ```
 
-Our dataset is much smaller now, but we still see differences across communities and reject the overall test.
 
 ---
 
-```{r stepdownone}
-hairpair <- pairwise.t.test(mercuryone$lhairHg,    mercuryone$community, p.adj = "holm")
+```{r stepdownall}
+hairpair <- pairwise.t.test(mercury2$lhairHg,    mercury2$community, p.adj = "holm")
 sigpairs <- broom::tidy(hairpair) %>%
   filter(p.value<0.05) %>%
   arrange(group1,group2)
 nrow(sigpairs)
 ```
 
+Wow, we see many more pairwise differences -- this is due to a combination of the increased sample size due to adding all household members (great!) and the violation of independence leading to standard errors that are too small (awful!).  How can we get the best of both worlds?
 ---
-```{r printsigone}
-print(sigpairs,n=10)
-```
-
-Now just 55 community pair comparisons are different -- still a marked difference across communities.
-
----
-
-
-
-
 
 ## Random Effects ANOVA
 
-Another way to address multiple measures in each household is to add a **random effect** for household, to allow data from individuals within households to be positively correlated. This allows us to use all the data but controls for the within-household correlation that causes us to violate the independence assumption, replacing it with a *conditional independence* assumption: conditional on household, individuals are independent.
+One way to address multiple measures in each household is to add a **random effect** for household, to allow data from individuals within households to be positively correlated. This allows us to use all the data but controls for the within-household correlation that causes us to violate the independence assumption, replacing it with a *conditional independence* assumption: conditional on household, individuals are independent.
 
 The random effect allows the model to capture correlation between residents of the same household.
 
@@ -636,10 +594,11 @@ NOTE:  this discussion of *random effects ANOVA* is something you get for free w
 ```{r re}
 library(lme4)
 # need a factor version of hid
-mercury <- mercury %>%
+
+mercury2 <- mercury2 %>%
   mutate(hhid=as.factor(hid))
 
-m1=lmer(lhairHg ~ community + (1 | hhid), data = mercury)
+m1=lmer(lhairHg ~ community + (1 | hhid), data = mercury2)
 anova(m1)
 ```
 
@@ -654,22 +613,20 @@ icc(m1)
 # you want the adjusted ICC
 ```
 
-We interpret the ICC=0.49 as the correlation inside a household, or the fraction of variance explained by household membership.  The correlation here is quite large. We should not be making any decisions based on the first analysis that included multiple individuals per household with no adjustment for correlated data (the analysis limiting to one person per household is still fine).
+We interpret the ICC=0.49 as the correlation inside a household, or the fraction of variance explained by household membership.  The correlation here is quite large. We should not be making any decisions based on any analysis that includes multiple individuals per household with no adjustment for correlated data (the analysis limiting to one person per household is still fine, assuming no bias in how `withinid=1` is assigned within household -- we should understand that).
 
 ---
-
+Here we see estimated means by community.
 ```{r pairwise_re}
 library(emmeans)
 library(lmerTest)
 library(pbkrtest)
 paired <- m1 %>%
     emmeans(pairwise~community) 
-
 paired$emmeans
-
 ```
 
-Here we see estimated means by community.
+
 
 ---
 

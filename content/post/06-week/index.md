@@ -28,9 +28,9 @@ title: 'Week 6 - Evaluating Hypotheses'
 |:---:|:---------------------|
 | Testing Means and Proportions | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-06/w6-l01-test-mean-prop.html)  | 
 | Case Study: Mercury Exposures in the Amazon   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-06/w6-l02-case-study-amazon.html)  | 
-| ANOVA  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  |  
+| ANOVA  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-06/w6-l03-anova.html)  |  
 
-<!-- w6-l03-anova.html#  -->
+
 
 
 ### Readings and Videos
