@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Case Study: Mercury Exposures in Amazon</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Case Study: Mercury Exposures in Amazon
+## <br><br> Introduction to Global Health Data Science
+### <br> Prof. Amy Herring
+
+---
+
+
+
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="https://sta-198-glhlth-298-fall-2022.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+ 
+### Case Study: Artisanal and Small Scale Gold Mining in the Peruvian Amazon
+
+Artisinal and small scale gold mining has grown significantly over the past twenty years. It has the potential to provide strong socioeconomic benefits to individuals and communities. However, unlike large-scale mining, which is governed by regulatory controls and state standards, regulation of artisinal and small scale mining is often poorly-policed with a lack of enforcement, leading to human and labor rights conflicts, safety issues, and environmental degradation. One of the major associated environmental contaminants is mercury -- the miners themselves are subject to mercury vapor inhalation, and contamination of fish in nearby waterways is a concern for the general population.
+
+In this case study we will conduct several different tests of means and discuss how we know which test to use.
+
+---
+
+Professor Bill Pan in Duke's Global Health Institute in collaboration with colleagues in the US and Peru designed and conducted a population-based mercury exposure assessment in 23 communities around the Amarakaeri Communal Reserve, which is bordered by an area of significant artisinal and small scale gold mining activity. We explore mercury levels in hair samples (`lhairHg`, on the scale of log ppm), which are an indicator of chronic exposure over roughly one year, and in blood samples (`lbloodHg`, on the scale of log ppm), which measure exposure over just the past few months. We are curious about the correspondence between hair and blood measures, as one measure of how much fluctuation there is in exposure over time. In addition, we would like to explore whether exposure levels are different for those living in communities classified as indigenous or native `native` (1=yes, 0=no) by the Peruvian government.
+
+---
+
+Other variables in the data set of potential interest for this assignment include `hid` (household ID), `withinid` (ID of the individual within the household), `cid` (community ID), `community` (community name), `longitude`, and `latitude` (these refer to the household location).
+
+
+
+
+```r
+library(tidyverse)
+library(infer)
+
+mercury &lt;- readr::read_csv("06/mercury_lab6.csv")
+```
+
+---
+
+Are hair mercury levels are different in native/indigenous and non-native/indigenous communities? We'll start by plotting hair mercury levels as a function of community type.
+
+.panelset[
+.panel[.panel-name[Plot]
+&lt;img src="w6-l02-case-study-amazon_files/figure-html/unnamed-chunk-2-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+The log mercury levels look approximately normal in each group. The histogram for native communities is shifted further right than the histogram for non-native communities.
+]
+.panel[.panel-name[Code]
+
+```r
+mercury &lt;- mercury %&gt;%
+  mutate(nativecat = if_else(native == 1, "Native", "Non-Native")) %&gt;%
+  filter(withinid==1) #one obs per household
+
+mercury %&gt;%
+  ggplot(aes(x = lhairHg, fill = as.factor(nativecat))) +
+  geom_histogram(position = "identity", alpha = 0.7) +
+  labs(x = "Log(Hair Mercury)",
+       y = "Count",
+       title = "Hair Mercury Levels by Native Status",
+       fill = NULL)
+```
+
+]
+]
+
+---
+
+### Reminder: Two-Sample T-Test
+
+The two-sample t-test for independent samples is given by `$$t=\frac{(\bar{x}_1-\bar{x}_2)-(\mu_1-\mu_2)}{\sqrt{s_1^2/{n_1}+s_2^2/n_2}}.$$` The degrees of freedom (df) depend on whether or not `\(\sigma_1=\sigma_2\)`.
+---
+
+### Equal or Unequal Variance?
+
+The choice of df depends on whether the independent samples have the same, or different, variances.  There are tests for this in R (e.g., bartlett.test()), but these tests have low power when sample sizes are not large and thus tends to tell you variances are equal in this setting when in fact, they may not be.
+
+If the variances are equal, then we can use a pooled estimate of `\(s^2\)`, and the degrees of freedom are given by `\((n_1-1)+(n_2-1)=n_1+n_2-2\)`.  
+
+If the variances are unequal, the degrees of freedom are difficult to derive, and the Welch/Satterthwaite approximation is often used (software will do this for you), which is `\(df=\frac{\left(\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}\right)^2}{\frac{1}{n_1-1}\left(\frac{s_1^2}{n_1}\right)^2+\frac{1}{n_2-1}\left(\frac{s_2^2}{n_2}\right)^2}\)`.  Unequal variances should be the default choice, as the t-test assuming equal variances can be quite unreliable if the variances differ, especially when the group sizes differ as well.
+
+
+
+---
+
+
+
+```r
+t.test(mercury$lhairHg~mercury$nativecat, var.equal=FALSE)
+```
+
+```
+## 
+## 	Welch Two Sample t-test
+## 
+## data:  mercury$lhairHg by mercury$nativecat
+## t = 11.465, df = 214.96, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means between group Native and group Non-Native is not equal to 0
+## 95 percent confidence interval:
+##  0.8925664 1.2632014
+## sample estimates:
+##     mean in group Native mean in group Non-Native 
+##                1.0930025                0.0151186
+```
+
+The mean log mercury levels in hair in native communities (1.09 log ppm) are higher than those in hair in non-native communities (0.02 log ppm), with 95% confidence interval for the difference given by (0.89, 1.26). Using the two-sample t-test with unequal variances, we obtain t=11.47 with 214.96 df, corresponding to a p-value &lt;0.001. Thus we conclude that there is evidence these means are not equal and that mercury levels in hair of those in native communities are higher. 
+
+---
+
+Now we want to evaluate whether the log mercury levels in hair and blood are the same. This gives us information about how consistent the exposures are over shorter (blood) vs longer (hair) periods of time.
+
+Because some people object to giving blood and/or hair samples, we want to explore missing data a bit.
+
+---
+
+HINT: the `janitor` library contains the function `tabyl` that is an easy way to make cross-tabulated tables. For example, if you have two logical variables, tabyl(var1,var2) will give you counts of all possible combinations of TRUE and FALSE. [Click here for details](https://cran.r-project.org/web/packages/janitor/vignettes/tabyls.html).
+
+
+```r
+library(janitor)
+
+
+
+mercury %&gt;%
+  mutate(msnghair = is.na(lhairHg)) %&gt;%
+  tabyl(msnghair, show_missing_levels = TRUE)
+```
+
+```
+##  msnghair   n   percent
+##     FALSE 692 0.6145648
+##      TRUE 434 0.3854352
+```
+
+```r
+mercury %&gt;%
+  mutate(msngblood = is.na(lbloodHg)) %&gt;%
+  tabyl(msngblood, show_missing_levels = TRUE)
+```
+
+```
+##  msngblood   n   percent
+##      FALSE 177 0.1571936
+##       TRUE 949 0.8428064
+```
+
+The majority of participants have missing blood measures (84%), and 39% of participants have missing hair measurements. 
+
+---
+
+
+```r
+mercury %&gt;%
+  mutate(msnghair = is.na(lhairHg),
+         msngblood = is.na(lbloodHg)) %&gt;%
+  tabyl(msnghair, msngblood, show_missing_levels = TRUE) %&gt;%
+  adorn_percentages("all")
+```
+
+```
+##  msnghair      FALSE      TRUE
+##     FALSE 0.14298401 0.4715808
+##      TRUE 0.01420959 0.3712256
+```
+
+Of the total sample, 14% have both hair and blood measures, 37% have neither, 47% have hair but not blood, and just 1% have blood but not hair.
+
+---
+
+When we have large fractions of missing data, we often worry about representativeness of our sample. First, we compare those who did and did not provide hair samples by community status and blood mercury levels.
+
+
+```r
+mercury %&gt;%
+  mutate(msnghair = is.na(lhairHg)) %&gt;%
+  group_by(msnghair) %&gt;%
+  summarize(meanblood=mean(lbloodHg, na.rm=TRUE),
+            medblood=median(lbloodHg, na.rm=TRUE),
+            fracnative=mean(native), n=n())
+```
+
+```
+## # A tibble: 2 × 5
+##   msnghair meanblood medblood fracnative     n
+##   &lt;lgl&gt;        &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;
+## 1 FALSE         1.36     1.39      0.195   692
+## 2 TRUE          1.19     1.35      0.212   434
+```
+
+---
+.panelset[
+.panel[.panel-name[Plot]
+&lt;img src="w6-l02-case-study-amazon_files/figure-html/unnamed-chunk-3-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+We can see some difference in blood levels of mercury as a function of whether hair samples were provided -- would be nice to know how meaningful this difference is.
+]
+.panel[.panel-name[Code]
+
+```r
+mercury %&gt;%
+  mutate(msnghair = is.na(lhairHg)) %&gt;%
+  ggplot(aes(x=msnghair,y=lbloodHg, fill=msnghair)) +
+  geom_boxplot() +
+  labs(x = "Hair Mercury Missing",
+       y = "Blood Mercury (log ppm)",
+       title = "Blood Mercury by Missingness of Hair") +
+  theme(legend.position = "none") 
+```
+]
+]
+
+
+
+---
+
+Now we compare those who did and did not provide blood samples by community status and hair mercury levels.
+
+
+```r
+mercury %&gt;%
+  mutate(msngblood = is.na(lbloodHg)) %&gt;%
+  group_by(msngblood) %&gt;%
+  summarize(meanhair=mean(lhairHg, na.rm=TRUE),
+            medhair=median(lhairHg, na.rm=TRUE),
+            fracnative=mean(native),
+            n=n())
+```
+
+```
+## # A tibble: 2 × 5
+##   msngblood meanhair medhair fracnative     n
+##   &lt;lgl&gt;        &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;
+## 1 FALSE        0.494   0.590      0.282   177
+## 2 TRUE         0.144   0.101      0.187   949
+```
+
+---
+.panelset[
+.panel[.panel-name[Plot]
+&lt;img src="w6-l02-case-study-amazon_files/figure-html/unnamed-chunk-4-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+We can see some difference in hair levels of mercury as a function of whether blood samples were provided -- with people missing samples of one type tending to have slightly lower values of mercury in the other -- but again, this is not a massive difference.
+]
+.panel[.panel-name[Code]
+
+```r
+mercury %&gt;%
+  mutate(msngblood = is.na(lbloodHg)) %&gt;%
+  ggplot(aes(x=msngblood,y=lhairHg, fill=msngblood)) +
+  geom_boxplot() +
+  labs(x = "Blood Mercury Missing",
+       y = "Hair Mercury (log ppm)",
+       title = "Hair Mercury by Missingness of Blood") +
+  theme(legend.position = "none") 
+```
+]
+]
+
+---
+
+Next, we filter the data to include only observations with both hair and blood measures available and create a  scatter plot with hair mercury on the x-axis and blood mercury on the y-axis (both in log ppm units), using `geom_abline()` to draw the `\(x=y\)` line through the points (i.e., intercept 0 and slope 1). 
+
+---
+
+.panelset[
+.panel[.panel-name[Plot]
+&lt;img src="w6-l02-case-study-amazon_files/figure-html/unnamed-chunk-5-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+In the scatter plot we can see that blood levels tend to be higher than hair levels.
+]
+.panel[.panel-name[Code]
+
+```r
+merccomplete &lt;- mercury %&gt;%
+  mutate(msnghair = is.na(lhairHg),
+         msngblood = is.na(lbloodHg),
+         diff = lhairHg - lbloodHg) %&gt;%
+  filter(msnghair == "FALSE" &amp; msngblood == "FALSE") 
+
+merccomplete %&gt;%
+  ggplot(aes(x = lhairHg, y = lbloodHg)) + geom_point() + geom_abline(color = "red") +
+  labs(x = "Hair Hg (log ppm)",
+       y = "Blood Hg (log ppm)",
+       title = "Hair vs Blood Hg")
+```
+
+]
+]
+
+
+---
+
+Now we simulate the null distribution for a test of the hypothesis that the difference between log hair and blood mercury measures (hair-blood) is zero. 
+
+.panelset[
+.panel[.panel-name[Plot]
+&lt;img src="w6-l02-case-study-amazon_files/figure-html/unnamed-chunk-6-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+The observed mean difference is a great distance away from the histogram of the null distribution, providing evidence against the hypothesis that the mean difference is 0.
+]
+.panel[.panel-name[Code]
+
+```r
+set.seed(1213)
+
+null_dist &lt;- merccomplete %&gt;%
+  specify(response = diff) %&gt;%
+  hypothesize(null = "point", mu = 0) %&gt;%
+  generate(reps = 10000, type = "bootstrap") %&gt;%
+  calculate(stat = "mean")
+
+x_bar &lt;- merccomplete %&gt;%
+  summarize(meandiff=mean(diff))
+            
+visualize(null_dist) +
+  shade_p_value(obs_stat = x_bar, 
+                direction = "two-sided") +
+  labs(x = "Mean Differences", y = "Count")
+```
+
+]
+]
+
+
+---
+
+We conduct a paired t-test (equivalent to the one-sample t-test on the within-person differences) because hair and blood samples are from the same individuals.
+
+
+```r
+t.test(merccomplete$diff)
+```
+
+```
+## 
+## 	One Sample t-test
+## 
+## data:  merccomplete$diff
+## t = -13.451, df = 160, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  -0.9958552 -0.7408634
+## sample estimates:
+##  mean of x 
+## -0.8683593
+```
+
+The test of the null hypothesis that the mean difference is 0 yields a t-statistic of -13.45 on 160 df, p&lt;0.0001. There is substantial evidence hair and blood concentrations differ, with blood concentrations roughly 0.87 log ppm lower on average, with a 95% CI=(-1.00, -0.74).
+
+---
+
+Suppose we wish to conduct a formal test of whether hair mercury measures differ between those with measured and missing blood mercury. We can set up this test as follows
+
+`$$H_0: \mu_O=\mu_M \text{ vs } H_A:  \mu_O \neq \mu_M$$`
+where `\(\mu_O\)` is the mean log hair mercury for those with measured/observed blood mercury, and `\(\mu_M\)` is the mean log hair mercury for those with missing blood mercury.
+
+---
+
+
+
+```r
+m2 &lt;- mercury %&gt;%
+  mutate(msngblood = is.na(lbloodHg)) 
+t.test(m2$lhairHg~m2$msngblood,var.equal=FALSE)
+```
+
+```
+## 
+## 	Welch Two Sample t-test
+## 
+## data:  m2$lhairHg by m2$msngblood
+## t = 3.6645, df = 279.3, p-value = 0.0002965
+## alternative hypothesis: true difference in means between group FALSE and group TRUE is not equal to 0
+## 95 percent confidence interval:
+##  0.1619285 0.5378152
+## sample estimates:
+## mean in group FALSE  mean in group TRUE 
+##           0.4938705           0.1439986
+```
+
+A two-sample t-test of the null hypothesis that the mean difference is zero yields `\(t=3.66\)` with estimated df=279.3, p&lt;0.001. We conclude that the means are likely not the same, and evidence suggests the mean hair mercury levels are higher on those with observed blood data. Hair mercury levels are 0.35 log ppm higher on average in participants with observed blood mercury levels, with a 95% CI of (0.16, 0.54).  
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLines": true,
+"highlightStyle": "solarized-light",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
