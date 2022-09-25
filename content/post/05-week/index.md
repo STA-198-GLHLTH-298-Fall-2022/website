@@ -50,6 +50,7 @@ title: 'Week 5 - Point and Interval Estimation, Testing'
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
 | Quiz | [Quiz 5](https://sakai.duke.edu) | Sunday, 9/25 |
+| Quiz | [Quiz 6 on next week's readings](https://sakai.duke.edu) | Sunday, 10/2 |
 | Lab 5 Tutorial | [case_when()](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-05/case_when.html)
 | Lab 5 | [Maternal Mortality](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-05/lab-05-maternal-mortality.html) | Friday, 9/30 |
 
