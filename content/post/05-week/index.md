@@ -54,3 +54,17 @@ title: 'Week 5 - Point and Interval Estimation, Testing'
 | Lab 5 Tutorial | [case_when()](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-05/case_when.html)
 | Lab 5 | [Maternal Mortality](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-05/lab-05-maternal-mortality.html) | Friday, 9/30 |
 
+
+### Extra Practice
+
+ If you're struggling with the topics covered the past week, we strongly recommend you work through these additional problems.
+ 
+|  <div style="width:480px"></div>  |  <div style="width:200px"></div>  |
+|:---|:---|
+| Vu and Harrington (under Resources on Sakai) problems  | 5.3, 5.5 |
+
+
+
+
+
+
