@@ -1,0 +1,110 @@
+---
+title: 'Lab #06: Smoking and Health Knowledge'
+subtitle: 'due Friday, October 7, 4:00 PM'
+output:
+  tufte::tufte_html:    
+    css: "sta199-labs.css"
+    tufte_variant: envisioned
+    highlight: pygments
+    toc: no
+    toc_depth: 1
+  html_document:
+    toc: no
+    toc_depth: '1'
+    df_print: paged
+link-citations: yes
+editor_options:
+  chunk_output_type: console
+---
+
+## Goals
+
+- Explore patterns of smoking as a function of knowledge about health effects of smoking in the Global Adult Tobacco Survey in China
+
+- Use confidence intervals and statistical tests to evaluate hypotheses about smoking and its relationship with health knowledge
+
+## Getting Started
+
+Log in to GitHub to determine your team number and members for Lab 6 (a new team!).
+
+- Find a one-hour block of time outside of class that you can use to work on the
+lab / project if needed. You may not need to use this, but it is good to have it
+in reserve. Tools like [Doodle](https://doodle.com/en/)
+and [When2Meet](https://www.when2meet.com/) are helpful.
+- Determine how your group will communicate (email, text, slack, discord, etc).
+
+## Packages
+
+```{r calltidy, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(ggridges)
+
+```
+
+
+## Two-sample test of proportions
+
+We learned in class how to use the central limit theorem to conduct a z-test of whether the population proportion takes a given value. We can extend this type of test to address the hypothesis that proportions are the same in two groups of interest.
+
+Suppose we are interested in testing $H_0: \pi_1=\pi_2$, where $\pi_1$ is the proportion of successes in group 1, and $\pi_2$ is the proportion of successes in group 2.  Then our z-statistic is given by $$z = \frac{\text{estimated difference} - \text{hypothesized mean difference}}{\text{sd of estimated difference}}$$ $$= \frac{(\hat{\pi_1}-\hat{\pi_2})-0}{\sqrt{\frac{\hat{\pi_1}(1-\hat{\pi_1})}{n_1} +\frac{\hat{\pi_2}(1-\hat{\pi_2})}{n_2} }}$$ and a confidence interval for the difference in proportions is given by $$(\hat{\pi}_1-\hat{\pi}_2) \pm z_{\frac{\alpha}{2}}\sqrt{\frac{\hat{\pi_1}(1-\hat{\pi_1})}{n_1} +\frac{\hat{\pi_2}(1-\hat{\pi_2})}{n_2} },$$ where $\hat{\pi}_1$ is the estimated proportion in group 1 (e.g. number of successes divided by total sample size), and $\hat{\pi}_2$ is the estimate from group 2.  The `prop.test()` function in R can be used to carry out the test.
+
+## Example: Global Sleep Survey
+
+The [Global Sleep Survey](https://www.usa.philips.com/c-dam/b2c/master/experience/smartsleep/world-sleep-day/2021/philips-world-sleep-day-2021-report.pdf) was carried out in 2021 in 13 countries. We compare sleep satisfaction in two of them: China and India. In each country, 1000 people were surveyed, and in China, 570 reported they were "completely or somewhat satisfied" with their sleep, while in India, 670 reported they were "completely or somewhat satisfied." We will test the hypothesis that the proportion completely or somewhat satisfied with sleep is the same in China and India.
+
+```{r sleep}
+sleepdat <- tibble(satisfied=c(670,570),n=c(1000,1000),country=c("India","China"))
+
+prop.test(sleepdat$satisfied,sleepdat$n,correct=FALSE) #correct=TRUE gives a test different from the one we learned
+
+```
+
+Here, we get a 95% confidence interval for the difference in proportions of sleep satisfaction of (0.06, 0.14), indicating that residents of India show greater sleep satisfaction (67%) than residents of China (57%). A two-sample test of proportions yields a p-value $<0.001$, supporting the conclusion that Indian residents have greater sleep satisfaction than residents of China. 
+
+NOTE:  prop.test() actually reports $z^2$ (known as a $\chi^2_1$ statistic) rather than $z$. We will learn more about this later in the course, but note the p-value is the same regardless of whether $z$ or $z^2$ is reported by this function. If the "rule of thumb" for a big enough sample size relative to the proportion being tested is not satisfied, R will give you a warning that the approximation here may be incorrect. Later in the course we'll learn how to get an exact test, which is always valid, in such situations.
+
+ 
+## Global Adult Tobacco Survey (GATS)
+
+Previously, when exploring GATS data from China, we saw evidence of very different reported smoking behavior between men and women.  Now we will explore whether survey respondents with better health knowledge exhibit different smoking behavior from respondents with lower health knowledge. The code below inputs and processes the data.
+
+```{r readdata, message=FALSE}
+gats <- readr::read_csv("gats_rev.csv")
+
+gats$RESIDENCE=factor(gats$RESIDENCE,levels=c(1,2),labels=c("Urban","Rural"))
+gats$PROVINCE=factor(gats$PROVINCE,levels=seq(1:31),labels=c("Beijing","Tianjin","Hebei","Shanxi","Neimenggu","Liaoning","Jilin","Heilongjiang","Shanghai","Jiangsu","Zhejiang","Anhui","Fujian","Jiangxi","Shangdong","Henan","Hubei","Hunan","Guangdong","Guangxi","Hainan","Chongqing","Sichuan","Guizhou","Yunnan","Xizang","Shaanxi","Gansu","Qinghai","Ningxia","Xinjiang"))
+gats$REGION6=factor(gats$REGION6,levels=seq(1:6),labels=c("North","North-East","East","South-Central","South-West","North-West"))
+gats$REGION3=factor(gats$REGION3,levels=seq(1:3),labels=c("East","Central","West"))
+gats$GENDER=factor(gats$GENDER,levels=c(1,2),labels=c("Male","Female"))
+gats$CURRENTSMOKE=factor(gats$CURRENTSMOKE,levels=c(1,2,7),labels=c("Yes","No","Don't Know"))
+gats$EDUCATION=factor(gats$EDUCATION,levels=c(1,2,3,4,5,6,7,8,77,99),labels=c("None","Less than Primary School","Primary School","Less than Secondary School","Secondary School","High School","University","Postgraduate","Don't Know","Refused"))
+gats$OCCUPATION=factor(gats$OCCUPATION,levels=c(1,2,3,4,5,6,7,8,9,10,77,99),labels=c("Farming","Government","Business","Teacher","Healthcare","Student","Soldier","Unemployed","Retired","Other","Don't Know","Refused"))
+gats$HEARDOFECIG=factor(gats$HEARDOFECIG,levels=c(1,2,9),labels=c("Yes","No","Refused"))
+gats$ECIGUSE=factor(gats$ECIGUSE,levels=c(1,2,3,9),labels=c("Daily","Less than Daily","Not at All","Refused"))
+gats$TRYSTOP=factor(gats$TRYSTOP,levels=c(1,2,9),labels=c("Yes","No","Refused"))
+gats$HOMESMOKERULES=factor(gats$HOMESMOKERULES,levels=c(1,2,3,4,7,9),labels=c("Allowed","Not Allowed but Exceptions","Never Allowed","No Rules","Don't Know","Refused"))
+gats$SMOKESICK=factor(gats$SMOKESICK,levels=c(1,2,7,9),labels=c("Yes","No","Don't Know","Refused"))
+gats$SMOKECANCER=factor(gats$SMOKECANCER,levels=c(1,2,7,9),labels=c("Yes","No","Don't Know","Refused"))
+
+```
+
+1. Create a new dataset, named `know_health`, that contains only three variables: CURRENTSMOKE (Yes, No, or Don't Know), GENDER (Male or Female), and SMOKESICK (Yes, No, Don't Know, or Refused).  Limit the dataset to exclude respondents who answered "Don't Know" for the current smoking questions or who answered "Don't Know" or "Refused" on the question that asks the respondent whether smoking can cause serious illness. Then create three appropriate graphical displays to show (1) the conditional probability of smoking status given gender, (2) the conditional probability of smoking status given knowledge about smoking causing illness, and (3) the conditional probability of having knowledge about smoking causing illness given gender. Interpret your plots.
+
+2. We would like to test whether the proportions who believe smoking causes serious illness are the same among men and women. First, determine whether the "rule of thumb" criteria ($np>10$ and $n(1-p)>10$) for validity of this test are satisfied. If these criteria are satisfied, carry out the test, and then report and interpret the test result.
+
+3. Now restrict the data to include only men, given the low reported prevalence of smoking among women. Conduct a test of the hypothesis that among men, smoking rates are the same regardless of men's beliefs about whether smoking can cause serious illness, and report and interpret your results. Include a graphical display that helps illustrate your findings.
+
+
+
+
+
+## Grading
+Total: 50 pts
+
+- Exercise 1: 15 pts 
+- Exercise 2: 15 pts
+- Exercise 3: 15 pts
+- Overall:  5 pts
+
+  - Overall includes the number of commits made by different team members (at least 1 by each team member), naming chunks, updating the names on the assignment to your team name clearly identifying all team members, following tidyverse style (see: https://style.tidyverse.org/), and in general producing a nicely formatted, neat report. 

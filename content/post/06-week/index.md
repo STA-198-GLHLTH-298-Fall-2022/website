@@ -46,7 +46,7 @@ title: 'Week 6 - Evaluating Hypotheses'
 |:---|:---|:---|
 | Quiz | [Quiz 6](https://sakai.duke.edu) | Sunday, 10/2 |
 | Homework 2 | [HPV Vaccine Regimens](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-06/hw-02-hpv.html) | Friday, 10/7 (submissions up to 4pm Friday, 10/14 graded with no penalty; no submissions after that time will be graded)|
-| Lab 6 |[Testing](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Friday, 10/7 |
+| Lab 6 |[Smoking and Health Knowledge](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-06/lab-06-gats.html)| Friday, 10/7 |
  
 
 
