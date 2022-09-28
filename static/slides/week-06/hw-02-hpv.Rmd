@@ -1,0 +1,80 @@
+---
+title: "Homework #02"
+subtitle: "due Friday, October 7 at 4:00pm (last opportunity to turn in for a grade is Friday, October 14 at 4:00pm; no late penalty applies for this hw)"
+output: 
+  tufte::tufte_html:
+    css: "sta199-labs.css"
+    tufte_variant: "envisioned"
+    highlight: pygments
+    toc: true
+    toc_depth: 1
+link-citations: yes
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+Note: Homework should be done *individually*. While you can discuss general classes of problems with friends (e.g., work through extra practice problems together), working on homework together constitutes a violation of the Duke Community Standard.
+
+
+
+   
+# One-Dose HPV Vaccine
+
+```{r gendata, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(tidyverse)
+
+load("hpvvax.Rdata") #reads dataset called hpvdat
+```
+
+The human papilloma virus (HPV) vaccine is used to prevent infection with the virus, a well-known risk factor for later cervical cancer. The number of doses administered depends on the timing of the first dose. For example, in the US, the CDC recommends a two-dose regimen for those initiating the vaccine at age 9-14, and a three-dose regimen for those initiating the vaccine later or for those who are immunocompromised. The current World Health Organization (WHO) recommendation of a two-dose regimen in young girls is based primarily on data from high and upper middle income countries. However, because high rates of parasitic infections can affect immune response, it is important to consider data from areas in which these infections (e.g., malaria) are common in order to make the most relevant recommendations.
+
+Recent studies in women in their later teens and/or twenties (CVT in Costa Rica and IARC in India) have suggested that one dose may provide good protection (in addition to being easier to administer).  In the October 2022 issue of **Lancet Global Health**, Baisley et al report results from the DoRIS study. The DoRIS study compared immune responses of girls aged 9-14 in Tanzania. We consider data inspired by these three studies (we do not have the actual study data) on HPV16 IgG antibody levels (measured in IU), a marker of immune response to vaccination for one of the two most common HPV strains. In addition, we consider the fraction of girls who are seropositive. For HPV16, seropositivity is defined as an IgG antibody level greater than or equal to 1.309 IU.
+
+The CVT and IARC studies in Costa Rica and India, respectively, made formal comparisons between one-dose and multiple dose regimens. Our data contain HPV16 IgG levels from these studies, as well as from DoRIS, based on a single dose of the vaccine. The CVT and IARC studies showed that seropositivity did not differ significantly between women randomized to one dose and women randomized to multiple doses of the vaccines. We want as many girls and women to be seropositive as possible, indicating that they have antibodies to fight against potential HPV infection.
+
+While all three studies recruited only girls or women because the WHO recommends that the primary target of vaccination be young girls, it is important to note that the US CDC recommends HPV vaccination for all genders, given that HPV is sexually transmitted. 
+
+1. One measure of efficacy in the DoRIS trial is comparing seropositivity levels after the single DoRIS vaccination to seropositivity levels after single vaccination in CVT and IARC. First, create a variable called `seropositive` that indicates if a person is seropositive based on the definition and store it back to the `hpvdat` dataframe. Then, calculate the proportion of girls and women in each study (separately) who are seropositive. (Note: these are equivalent to the **conditional probabilities** of seropositivity given the study cohort.) Comment on whether the assumptions behind using a Central Limit Theorem-based test for comparing two proportions are satisfied. If the assumptions are satisfied, report results of the 2 (two-sided) z-score based tests that seropositivity rates are the same in DoRIS vs CVT and in DoRIS vs IARC. Regardless of whether or not you conduct a formal test, comment on whether DoRIS results indicate good proportions of seropositivity compared with CVT and IARC. 
+
+2. An alternative confidence interval for the proportion seropositive is based on the exact binomial distribution. This confidence interval is always valid, whether or not we have large enough $n$. To get it from R, we can conduct an exact binomial test. Suppose we find $x$ seropositive girls in a sample of $n$. To get a 95% confidence interval for the true proportion seropositive, we can use the code `binom.test(x,n,p)`, where $n$ is the total number in the sample, and $x$ is the number of successes. Here since we only care about the confidence interval, which does not depend on the success proportion under the null hypothesis, $p$, we can choose any value of $p$ as long as it is between 0 and 1. (If we wanted to carry out a hypothesis test that the seropositivity proportion equaled some $p$, then $p$ would matter.) To prepare for this test, first create a new dataset called `DoRIS` that contains the number of seropositive girls and the total number of girls for this study. Then using this dataset and the above `binom.test()` function, calculate an exact 95% confidence interval for the proportion of girls who are seropositive in the DoRIS study.  Based on this confidence interval, do DoRIS results indicate good proportions of seropositivity compared with CVT and IARC?
+
+
+3. Now suppose we would like to test for any differences across the three studies in quantitative HPV16 IgG levels.  Construct side-by-side box plots of the IgG levels in IU and also the natural log transformed IgG levels.  Also calculate means and standard deviations of antibody levels on both scales. Discuss whether untransformed or natural log transformed IgG levels are more appropriate for analysis using ANOVA.
+
+
+4.  Suppose you decide that log transformed IgG levels are most appropriate (NOTE: don't infer this is the answer to #3). Fit the ANOVA model and comment on whether there is any difference in levels across the three groups. If appropriate, use step-down tests to determine which studies have different IgG levels, and describe those differences.
+
+
+5. Suppose we consider a seropositivity level of at least 95% to be sufficient performance of a vaccine regimen. Based on these data, write a paragraph to share with policymakers in Tanzania to address the question of whether a single dose of HPV vaccine in girls aged 9-14 provides sufficient protection against infection.
+
+
+
+
+
+# Submission
+
+Once you are finished with the homework, you will submit the PDF document produced from your final *knit, commit, and push* to Gradescope. Be sure you clean up any "mess" in the output and file before submitting. Be sure your final version on GitHub is the one you submit to Gradescope!
+
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
+
+Remember -- you must turn in a .pdf file to the Gradescope page by the submission deadline to be considered "on time". Remember to select the first page of your .pdf submission to be associated with the *"Workflow"* section and be sure each question is associated with a page of your submission.
+
+# Grading (50 pts)
+
+<br>
+
+| Component | Points |
+|:----------|:-------|
+| Ex 1      | 10     |
+| Ex 2      | 10     |
+| Ex 3      | 10     |
+| Ex 4      | 10     |
+| Ex 5      |  5     |
+| Workflow & formatting   | 5      |
+
+**Grading notes**:
+
+-   The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages, labeling the code chunks, updating the name and date in the YAML, and in general having a neat report.
+
