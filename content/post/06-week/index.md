@@ -37,7 +37,7 @@ title: 'Week 6 - Evaluating Hypotheses'
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
-| :open_book: | IMS: [Chapters 19-22: Inference for Comparing Means](https://openintro-ims.netlify.app/inference-many-means.html) | **Required** |
+| :open_book: | IMS: [Chapters 19-22 (opening matter and then sections 16.2, 17.3, 19.2, 20.3-20.4, 21.3, 22.3): Inference for Comparing Means](https://openintro-ims.netlify.app/inference-many-means.html) | **Required** |
 
 
 ### Assignments and Labs
