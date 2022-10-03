@@ -47,6 +47,17 @@ title: 'Week 6 - Evaluating Hypotheses'
 | Quiz | [Quiz 6](https://sakai.duke.edu) | Sunday, 10/2 |
 | Homework 2 | [HPV Vaccine Regimens](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-06/hw-02-hpv.html) | Friday, 10/7 (submissions up to 4pm Friday, 10/14 graded with no penalty; no submissions after that time will be graded)|
 | Lab 6 |[Smoking and Health Knowledge](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-06/lab-06-gats.html)| Friday, 10/7 |
+
+
+
+### Interactive R Tutorials & Extra Practice
+
+ If you're struggling with the topics covered the past two weeks, we strongly recommend you work through these additional tutorials/problems.
+ 
+|  <div style="width:480px"></div>  |  <div style="width:200px"></div>  |
+|:---|:---|
+| Vu and Harrington (under Resources on Sakai) problems  | 4.1, 4.3, 4.5, 4.9, 4.11, 4.15, 4.17, 4.19 |
+
  
 
 

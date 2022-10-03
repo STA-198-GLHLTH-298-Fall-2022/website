@@ -21,7 +21,7 @@ title: 'Week 7 - Introduction to Modeling'
 - Complete the [readings](/post/07-week/#readings-and-videos)
 - Complete the [project proposal](https://sta-198-glhlth-298-fall-2022.github.io/website/#project)
 - Study for the exam!
-- Team meeting with Prof. Herring by Friday, October 14, to discuss project proposal
+- Team meeting with Prof. Herring by Friday, October 21, to discuss project proposal
 
 
 
