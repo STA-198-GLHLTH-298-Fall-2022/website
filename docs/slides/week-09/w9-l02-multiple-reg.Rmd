@@ -393,7 +393,7 @@ mercury1 %>%
 
 ---
 
-## Typical surface area
+## Data Exploration
 
 .panelset[
 .panel[.panel-name[Plot]

@@ -12,8 +12,8 @@ image:
 lastmod: "2021-07-09T00:00:00Z"
 projects: []
 subtitle: ' Model building for continuous data :construction:'
-summary: Linear regression and ANOVA
-title: 'Week 9 - Regression and ANOVA'
+summary: Linear regression
+title: 'Week 9 - Regression'
 ---
 
 
@@ -28,9 +28,9 @@ title: 'Week 9 - Regression and ANOVA'
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-| Model Fitting and Interpretation   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | 
-| Residuals and Transformations   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | 
-| ANOVA  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | 
+| Model Fitting and Interpretation   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-09/w9-l01-fitting-interpretation.html) | 
+| Residuals &Transformations, Multiple Predictors   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-09/w9-l02-resid-xform-multpred.html) | 
+
 
 
 
@@ -51,7 +51,7 @@ Note: the video this week tracks the lecture topics fairly closely but uses diff
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
-| :open_book: | IMS: [Chp 22: Inference for Comparing Many Means](https://openintro-ims.netlify.app/inference-many-means.html) | **Required** |
+| :open_book: | IMS: [Chp 7: Linear Regression with a Single Predictor](https://openintro-ims.netlify.app/model-slr.html) | **Required** |
 | :movie_camera: |[Linear Regression](https://www.youtube.com/watch?v=69U92Q3pwnA) | **Optional** |
 
 

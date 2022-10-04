@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Model Fitting and Interpretation</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Model Fitting and Interpretation
+## <br><br> Introduction to Global Health Data Science
+### <br> Prof. Amy Herring
+
+---
+
+
+
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="https://sta-198-glhlth-298-fall-2022.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+class: middle
+
+# Models with numeric explanatory variables
+
+---
+
+class: middle
+
+# Data: Artisanal and Small-Scale Gold Mining in the Peruvian Amazon
+
+---
+
+## Mercury and Assets
+
+Are mercury concentrations in hair related to household socioeconomic position, as measured by assets?
+
+
+```r
+library(tidyverse)
+library(tidymodels)
+library(readr)
+mercury &lt;- readr::read_csv("mercury_reg.csv")
+mercury &lt;-
+  mercury %&gt;%
+  # scale() subtracts the mean and divides by the SD to make the units "standard deviations" like a z-score
+  mutate(assets_sc=scale(SESassets)) %&gt;%
+  #another variable we may use later
+  mutate(form_min_sc=scale(FM_buffer)) %&gt;%
+  #so I don't have to remember coding
+  mutate(sex,sex_cat=ifelse(sex==1,"Male","Female")) %&gt;%
+  mutate(native,native_cat=ifelse(native==1,"Native","Non-native")) %&gt;%
+  filter(withinid==1)
+```
+
+---
+## Goal: Predict mercury from assets
+
+`$$\widehat{y}_{i} = \widehat{\beta}_0 + \widehat{\beta}_1 \times x_{i}$$`
+Here `\(y_i\)` represents log hair mercury for subject `\(i\)`, and `\(x_i\)` represents standardized household income.
+&lt;img src="w9-l01-fitting-interpretation_files/figure-html/hg_asset_plot-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+&lt;img src="img/tidymodels.png" width="98%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Step 1: Specify model
+
+
+```r
+linear_reg()
+```
+
+```
+#&gt; Linear Regression Model Specification (regression)
+#&gt; 
+#&gt; Computational engine: lm
+```
+
+---
+
+## Step 2: Set model fitting *engine*
+
+
+```r
+linear_reg() %&gt;%
+  set_engine("lm") # lm: linear model
+```
+
+```
+#&gt; Linear Regression Model Specification (regression)
+#&gt; 
+#&gt; Computational engine: lm
+```
+
+---
+
+## Step 3: Fit model &amp; estimate parameters
+
+... using **formula syntax**
+
+
+```r
+linear_reg() %&gt;%
+  set_engine("lm") %&gt;%
+  fit(lhairHg ~ assets_sc, data = mercury)
+```
+
+```
+#&gt; parsnip model object
+#&gt; 
+#&gt; Fit time:  1ms 
+#&gt; 
+#&gt; Call:
+#&gt; stats::lm(formula = lhairHg ~ assets_sc, data = data)
+#&gt; 
+#&gt; Coefficients:
+#&gt; (Intercept)    assets_sc  
+#&gt;      0.2386      -0.3009
+```
+
+---
+
+## A closer look at model output
+
+
+```
+#&gt; parsnip model object
+#&gt; 
+#&gt; Fit time:  2ms 
+#&gt; 
+#&gt; Call:
+#&gt; stats::lm(formula = lhairHg ~ assets_sc, data = data)
+#&gt; 
+#&gt; Coefficients:
+#&gt; (Intercept)    assets_sc  
+#&gt;      0.2386      -0.3009
+```
+
+.large[
+`$$\widehat{y}_{i} = 0.2386 - 0.3009 \times x_{i}$$`
+]
+
+---
+
+## A tidy look at model output
+
+
+```r
+linear_reg() %&gt;%
+  set_engine("lm") %&gt;%
+  fit(lhairHg ~ assets_sc, data = mercury) %&gt;%
+  tidy()
+```
+
+```
+#&gt; # A tibble: 2 × 5
+#&gt;   term        estimate std.error statistic  p.value
+#&gt;   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 (Intercept)    0.239    0.0408      5.85 7.66e- 9
+#&gt; 2 assets_sc     -0.301    0.0423     -7.11 2.98e-12
+```
+
+.large[
+`$$\widehat{y}_{i} = 0.239 - 0.301 \times x_{i}$$`
+]
+
+---
+
+## Slope and intercept
+
+.large[
+`$$\widehat{y}_{i} = 0.239 - 0.301 \times x_{i}$$`
+]
+
+--
+
+- **Slope:** For each standard deviation increase in assets, the log hair mercury level is expected to be lower, on average, by 0.301 log ppm.
+
+
+
+- perhaps not a very useful statement given the scale
+
+
+- **Intercept:** Individuals with household assets at the mean level (`assets_sc`=0) are expected to have hair mercury concentrations of 0.239 log ppm, on average
+
+  - Remember `assets_sc` was standardized, so `assets_sc`=0 does not mean "no assets" but instead means "average assets" as it corresponds to an assets z-score of 0
+
+---
+class: middle
+
+# Models with log transformation
+
+---
+
+## Working with logs
+
+- Subtraction and logs: `\(log(a) − log(b) = log(a / b)\)`
+
+--
+- Natural logarithm: `\(e^{log(x)} = x\)`
+
+--
+- We can use these identities to "undo" the log transformation
+
+---
+
+## Interpreting the slope
+
+The slope coefficient for the log transformed model is -0.301, meaning the log mercury difference between people whose household incomes are one SD apart is predicted to be -0.301 log ppm.
+
+--
+
+.question[
+Using this information, and properties of logs that we just reviewed, fill in the blanks in the following alternate interpretation of the slope:
+
+&gt;For each additional SD the household assets are greater, the hair mercury concentration is expected to be `___` , on average, by a factor of `___`.
+]
+
+---
+
+&gt;For each additional increase in scaled assets, hair mercury content is expected to be `___` , on average, by a factor of `___`.
+
+
+$$ log(\text{hair Hg for assets x+1}) - log(\text{hair Hg for assets x}) = -0.301 $$
+
+--
+
+$$ log\left(\frac{\text{hair Hg for assets x+1}}{\text{hair Hg for assets x}}\right) = -0.301 $$
+
+--
+
+$$ e^{log\left(\frac{\text{Hg for assets x+1}}{\text{Hg for assets x}}\right)} = e^{-0.301} $$
+
+--
+
+$$ \frac{\text{Hg for assets x+1}}{\text{Hg for assets x}} \approx 0.74 $$
+
+--
+
+For each SD increase in assets, the hair Hg is expected to be lower, on average, by a factor of 0.74.
+
+---
+
+## Correlation does not imply causation
+
+Remember this when interpreting model coefficients
+
+&lt;img src="img/cell_phones.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+Source: XKCD, [Cell phones](https://xkcd.com/925/)
+]
+
+---
+
+class: middle
+
+# Parameter estimation
+
+---
+
+## Linear model with a single predictor
+
+- We're interested in `\(\beta_0\)` (population parameter for the intercept) and `\(\beta_1\)` (population parameter for the slope) in the following model:
+
+`$$y_{i} = \beta_0 + \beta_1~x_{i}+\varepsilon_i$$`
+where `\(\varepsilon\)` represents random error around our mean
+
+--
+- Tough luck, you can't have them...
+
+--
+- So we use sample statistics to estimate them, using the notation  `\(b\)` or `\(\widehat{\beta}\)` to distinguish our estimates from the true parameters `\(\beta\)`
+
+`$$\widehat{y}_{i} = b_0 + b_1~x_{i}$$` or `$$\widehat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1~x_i$$`
+
+---
+
+## Least squares regression
+
+- The regression line minimizes the sum of squared residuals.
+
+--
+- If `\(e_i = y_i - \hat{y}_i\)`, then, the regression line minimizes 
+`\(\sum_{i = 1}^n e_i^2\)`.
+
+---
+
+## Visualizing residuals
+
+&lt;img src="w9-l01-fitting-interpretation_files/figure-html/vis-res-1-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Visualizing residuals (cont.)
+
+&lt;img src="w9-l01-fitting-interpretation_files/figure-html/vis-res-2-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Visualizing residuals (cont.)
+
+&lt;img src="w9-l01-fitting-interpretation_files/figure-html/vis-res-3-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Properties of least squares regression
+
+- The regression line goes through the center of mass point, the coordinates corresponding to average `\(x\)` and average `\(y\)`, `\((\bar{x}, \bar{y})\)`:  
+
+`$$\bar{y} = b_0 + b_1 \bar{x} ~ \rightarrow ~ b_0 = \bar{y} - b_1 \bar{x}$$`
+
+--
+- The slope has the same sign as the correlation coefficient: `\(b_1 = r \frac{s_y}{s_x}\)`
+
+--
+- The sum of the residuals is zero: `\(\sum_{i = 1}^n e_i = 0\)`
+
+--
+- The residuals and `\(x\)` values are uncorrelated
+
+---
+
+## Aside: Correlation Coefficient
+
+The *correlation coefficient* describes the linear relationship between `\(x\)` and `\(y\)` on the standard deviation scale.
+
+
+```r
+cor(mercury$lhairHg,mercury$assets_sc,use="complete.obs")
+```
+
+```
+#&gt;            [,1]
+#&gt; [1,] -0.2615147
+```
+
+Here, for each one SD increase in assets, we expect a -0.26 SD increase (so thus a 0.26 decrease) in standard deviations of log hair mercury.
+
+---
+
+
+class: middle
+
+# Models with categorical explanatory variables
+
+---
+
+## Categorical predictor with 2 levels
+
+.pull-left-narrow[
+.small[
+
+```
+#&gt; # A tibble: 692 × 3
+#&gt;    lhairHg assets_sc[,1] native_cat
+#&gt;      &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;     
+#&gt;  1  0.676         -0.837 Non-native
+#&gt;  2 -0.512         -0.280 Non-native
+#&gt;  3 -0.125          0.826 Non-native
+#&gt;  4  0.351         -1.27  Non-native
+#&gt;  5  0.662         -0.359 Non-native
+#&gt;  6  1.51           0.517 Non-native
+#&gt;  7  0.0553         0.533 Non-native
+#&gt;  8  0.768          1.29  Non-native
+#&gt;  9  0.431          1.30  Non-native
+#&gt; 10  1.35          -0.119 Non-native
+#&gt; 11  0.640         -0.246 Non-native
+#&gt; 12  0.0563         0.331 Non-native
+#&gt; 13  1.19          -1.15  Non-native
+#&gt; 14  0.0758         1.40  Non-native
+#&gt; 15  1.60           0.787 Non-native
+#&gt; 16  0.560         -0.246 Non-native
+#&gt; 17 -0.0932        -0.416 Non-native
+#&gt; 18 -0.237          0.921 Non-native
+#&gt; 19  0.585          0.154 Non-native
+#&gt; 20 -0.533         -1.15  Non-native
+#&gt; # … with 672 more rows
+```
+]
+]
+.pull-right-wide[
+- `Native`: community classified as native by Peruvian government
+- `Non-native`: community does not have native classification
+]
+
+---
+
+## Mercury &amp; native community relationship
+
+
+```r
+linear_reg() %&gt;%
+  set_engine("lm") %&gt;%
+  fit(lhairHg ~ native_cat, data = mercury) %&gt;%
+  tidy()
+```
+
+```
+#&gt; # A tibble: 2 × 5
+#&gt;   term                 estimate std.error statistic  p.value
+#&gt;   &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 (Intercept)              1.09    0.0880      12.4 4.05e-32
+#&gt; 2 native_catNon-native    -1.08    0.0981     -11.0 5.25e-26
+```
+
+---
+
+## Mercury and native communities
+
+Define `\(\text{Non-native}_i\)`=1 if non-native community and 0 otherwise.
+
+`$$\widehat{y_i} = 1.09 - 1.08~\text{Non-native}_i$$`
+
+- **Slope:** Residents of non-native communities, on average, are expected to have Hg concentrations that are -1.08 log ppm lower, on average, than residents of native communities.  Alternatively, the hair Hg is expected to be lower, on average, by a factor of `\(e^{-1.08}=0.34\)` among residents of non-native communities.
+  - Compares baseline level (`Native`) to the other level (`Non-native`)
+    
+- **Intercept:** Individuals living in native communities (`Non-native`=0) are expected to have hair mercury exposures of 1.09 log ppm.
+
+---
+
+## Relationship between mercury and individual community
+
+
+```r
+com_fit &lt;- linear_reg() %&gt;%
+  set_engine("lm") %&gt;%
+  fit(lhairHg ~ community, data = mercury) 
+
+tidy(com_fit)
+```
+
+```
+#&gt; # A tibble: 23 × 5
+#&gt;    term                        estimate std.error stati…¹ p.value
+#&gt;    &lt;chr&gt;                          &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1 (Intercept)                    0.617     0.117    5.29 1.65e-7
+#&gt;  2 communityBoca Isiriwe          1.12      0.339    3.30 1.00e-3
+#&gt;  3 communityBoca Manu             0.442     0.266    1.66 9.64e-2
+#&gt;  4 communityCaychihue            -1.07      0.273   -3.91 1.02e-4
+#&gt;  5 communityChoque               -0.755     0.239   -3.16 1.63e-3
+#&gt;  6 communityDiamante              0.907     0.212    4.27 2.21e-5
+#&gt;  7 communityHuepetuhe            -0.648     0.132   -4.89 1.24e-6
+#&gt;  8 communityIsla de los Valles    1.10      0.491    2.25 2.50e-2
+#&gt;  9 communityMasenawa              1.51      0.685    2.21 2.75e-2
+#&gt; 10 communityPalotoa Teparo        0.491     0.299    1.64 1.02e-1
+#&gt; # … with 13 more rows, and abbreviated variable name ¹​statistic
+```
+
+---
+
+## Dummy or indicator variables
+
+
+```
+#&gt; # A tibble: 23 × 5
+#&gt;    term                        estimate std.error stati…¹ p.value
+#&gt;    &lt;chr&gt;                          &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1 (Intercept)                    0.617     0.117    5.29 1.65e-7
+#&gt;  2 communityBoca Isiriwe          1.12      0.339    3.30 1.00e-3
+#&gt;  3 communityBoca Manu             0.442     0.266    1.66 9.64e-2
+#&gt;  4 communityCaychihue            -1.07      0.273   -3.91 1.02e-4
+#&gt;  5 communityChoque               -0.755     0.239   -3.16 1.63e-3
+#&gt;  6 communityDiamante              0.907     0.212    4.27 2.21e-5
+#&gt;  7 communityHuepetuhe            -0.648     0.132   -4.89 1.24e-6
+#&gt;  8 communityIsla de los Valles    1.10      0.491    2.25 2.50e-2
+#&gt;  9 communityMasenawa              1.51      0.685    2.21 2.75e-2
+#&gt; 10 communityPalotoa Teparo        0.491     0.299    1.64 1.02e-1
+#&gt; # … with 13 more rows, and abbreviated variable name ¹​statistic
+```
+
+- When the categorical explanatory variable has many levels, they're encoded to **dummy** or **indicator variables**
+- Each coefficient describes the expected difference between log mercury concentrations in that particular community compared to the baseline community 
+
+---
+
+## Categorical predictor with 3+ levels
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; community &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; BI &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; BM &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Cay &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Cho &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Dia &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Hue &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Isl &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Mas &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Boca Colorado &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Boca Isiriwe &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(122, 209, 81, 1) !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Boca Manu &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(122, 209, 81, 1) !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Caychihue &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(122, 209, 81, 1) !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Choque &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(122, 209, 81, 1) !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Diamante &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(122, 209, 81, 1) !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Huepetuhe &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(122, 209, 81, 1) !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Isla de los Valles &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(122, 209, 81, 1) !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Masenawa &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;width: 10em; color: white !important;background-color: rgba(68, 1, 84, 1) !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 10em; color: white !important;background-color: rgba(122, 209, 81, 1) !important;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+etc. for the other communities. Note Boca Colorado, the *referent community*, =0 for all vars
+
+---
+
+## Relationship between mercury and community
+
+.small[
+
+```
+#&gt; # A tibble: 23 × 5
+#&gt;    term                        estimate std.error stati…¹ p.value
+#&gt;    &lt;chr&gt;                          &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1 (Intercept)                    0.617     0.117    5.29 1.65e-7
+#&gt;  2 communityBoca Isiriwe          1.12      0.339    3.30 1.00e-3
+#&gt;  3 communityBoca Manu             0.442     0.266    1.66 9.64e-2
+#&gt;  4 communityCaychihue            -1.07      0.273   -3.91 1.02e-4
+#&gt;  5 communityChoque               -0.755     0.239   -3.16 1.63e-3
+#&gt;  6 communityDiamante              0.907     0.212    4.27 2.21e-5
+#&gt;  7 communityHuepetuhe            -0.648     0.132   -4.89 1.24e-6
+#&gt;  8 communityIsla de los Valles    1.10      0.491    2.25 2.50e-2
+#&gt;  9 communityMasenawa              1.51      0.685    2.21 2.75e-2
+#&gt; 10 communityPalotoa Teparo        0.491     0.299    1.64 1.02e-1
+#&gt; # … with 13 more rows, and abbreviated variable name ¹​statistic
+```
+
+- **Boca Colorado** hair mercury levels are expected, on average, to be **0.617 log ppm**.
+- **Boca Isiriwe** hair mercury levels are expected, on average, to be **1.12 log ppm higher** than *Boca Colorado* levels, at **1.737 log ppm** on average.
+- **Boca Manu** hair mercury levels are expected, on average, to be **0.442 log ppm higher** than *Boca Colorado* levels, at **1.059 log ppm** on average.
+- **Choque** hair mercury levels are expected, on average, to be **0.755 log ppm lower** than *Boca Colorado* levels, at **-0.138 log ppm** on average.
+- etc. It can be nice to have a table showing the estimated mean (along with uncertainty measures -- coming soon) for each community, and a plot can also be useful.
+]
+
+---
+
+## Regression and ANOVA
+
+You might be wondering how this model differs from the ANOVA model we presented previously when exploring how community is related to mercury levels.  In fact, the two models are equivalent!  In our ANOVA discussion, we specified our model as `$$y_{ij}=\mu_i+\varepsilon_{ij}$$` with a separate mean `\(\mu_i\)` for each community, `\(\mu_1, \mu_2, \ldots, \mu_{23}\)`.
+
+Here, we fit the same model with a slightly different **coding scheme**, where we define the regression model intercept `\(\beta_0\)` to be the mean for the **reference** community, Boca Colorado, and the regression model parameters `\(\beta_1, \beta_2, \ldots, \beta_{22}\)` each measure the difference in mercury levels between Boca Colorado and the community of interest. 
+
+---
+
+## ANOVA as Regression
+
+Our model thus is `$$y_i=\beta_0 + \beta_1\text{Boca Isiriwe}_i + \beta_2\text{Boca Manu}_i + \ldots + \beta_{22}\text{Shipitiari}_i + \varepsilon_i$$` where `\(\text{Boca Manu}_i\)` is an indicator variable that takes value 1 if the measurement is from a resident of Boca Manu, and it takes value 0 otherwise. 
+
+---
+
+The mean for each community is given below.
+
+Boca Colorado:  `\(\beta_0\)`
+
+Boca Isiriwe: `\(\beta_0+\beta_1\)`
+
+Boca Manu: `\(\beta_0 + \beta_2\)`
+...
+Shipitiari: `\(\beta_0+\beta_{22}\)`
+
+In the ANOVA model, the Boca Colorado mean was `\(\mu_1\)`, the Boca Isiriwe mean was `\(\mu_2\)`, etc. There is a 1:1 correspondence between the parameters in the two formulations with `\(\mu_1=\beta_0,\)` `\(\mu_2=\beta_0+\beta_1\)`, etc.
+
+
+---
+
+## Correspondence between regression and ANOVA
+
+Here we can compare the F test from the regression model with that from ANOVA.
+
+Regression:
+
+```r
+res &lt;- summary(lm(lhairHg~community, data = mercury))
+print(res$fstatistic)
+```
+
+```
+#&gt;    value    numdf    dendf 
+#&gt;  11.8362  22.0000 669.0000
+```
+
+---
+
+ANOVA:
+
+
+```r
+summary(aov(lhairHg~community,data=mercury))
+```
+
+```
+#&gt;              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+#&gt; community    22  237.4  10.792   11.84 &lt;2e-16 ***
+#&gt; Residuals   669  610.0   0.912                   
+#&gt; ---
+#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#&gt; 434 observations deleted due to missingness
+```
+
+
+We get the same F statistic and degrees of freedom fitting the model using either parameterization!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLines": true,
+"highlightStyle": "solarized-light",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

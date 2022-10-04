@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Residual Analysis, Transformations, and Multiple Predictors</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Residual Analysis, Transformations, and Multiple Predictors
+## <br><br> Introduction to Global Health Data Science
+### <br> Prof. Amy Herring
+
+---
+
+
+
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="https://sta-198-glhlth-298-fall-2022.github.io/website/" target="_blank"&gt;Back to website&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+## Read in Data
+
+
+
+
+
+
+```r
+library(tidyverse)
+library(tidymodels)
+library(readr)
+library(ggtext)
+library(knitr)
+library(kableExtra)
+mercury &lt;- readr::read_csv("mercury_reg.csv")
+mercury &lt;-
+  mercury %&gt;%
+  # scale() subtracts the mean and divides by the SD to make the units "standard deviations" like a z-score
+  mutate(assets_sc=scale(SESassets)) %&gt;%
+  mutate(hairHg=exp(lhairHg)) %&gt;%
+  mutate(sex,sex_cat=ifelse(sex==1,"Male","Female")) %&gt;%
+  mutate(native,native_cat=ifelse(native==1,"Native","Non-native")) %&gt;%
+  filter(withinid==1)
+```
+
+---
+
+class: middle
+
+# Model checking
+
+---
+
+## "Linear" models
+
+- We're fitting a "linear" model, which assumes a linear relationship between our explanatory and response variables.
+- But how do we assess this?
+
+---
+
+## Graphical diagnostic: residual plot (ppm units)
+
+.panelset[
+.panel[.panel-name[Plot]
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+]
+.panel[.panel-name[Code]
+
+```r
+hg_asset_fit &lt;- linear_reg() %&gt;%
+  set_engine("lm") %&gt;%
+  fit(hairHg ~ assets_sc, data = mercury)
+
+*hg_asset_fit_aug &lt;- augment(hg_asset_fit$fit)
+
+ggplot(hg_asset_fit_aug, mapping = aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
+  labs(x = "Predicted mercury (ppm)", y = "Residuals")
+```
+]
+
+.panel[.panel-name[Augment]
+
+```r
+hg_asset_fit_aug
+```
+
+```
+#&gt; # A tibble: 690 × 9
+#&gt;   .rownames hairHg assets…¹ .fitted .resid    .hat .sigma .cooksd
+#&gt;   &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 1          1.97    -0.837    2.85 -0.888 0.00265   2.58 1.58e-4
+#&gt; 2 6          0.599   -0.280    2.44 -1.84  0.00161   2.58 4.11e-4
+#&gt; 3 7          0.883    0.826    1.62 -0.737 0.00241   2.58 9.89e-5
+#&gt; 4 8          1.42    -1.27     3.18 -1.76  0.00415   2.58 9.70e-4
+#&gt; 5 9          1.94    -0.359    2.50 -0.561 0.00170   2.58 4.03e-5
+#&gt; 6 12         4.53     0.517    1.85  2.68  0.00180   2.58 9.79e-4
+#&gt; # … with 684 more rows, 1 more variable: .std.resid &lt;dbl&gt;, and
+#&gt; #   abbreviated variable name ¹​assets_sc[,1]
+```
+]
+]
+
+---
+
+## More on `augment()`
+
+
+```r
+glimpse(hg_asset_fit_aug)
+```
+
+```
+#&gt; Rows: 690
+#&gt; Columns: 9
+#&gt; $ .rownames  &lt;chr&gt; "1", "6", "7", "8", "9", "12", "14", "15", "…
+#&gt; $ hairHg     &lt;dbl&gt; 1.96520, 0.59930, 0.88290, 1.41980, 1.93780,…
+#&gt; $ assets_sc  &lt;dbl[,1]&gt; &lt;matrix[21 x 1]&gt;
+#&gt; $ .fitted    &lt;dbl&gt; 2.853424, 2.440441, 1.619767, 3.177236, …
+#&gt; $ .resid     &lt;dbl&gt; -0.8882244, -1.8411414, -0.7368674, -1.75743…
+#&gt; $ .hat       &lt;dbl&gt; 0.002652097, 0.001609967, 0.002413513, 0.004…
+#&gt; $ .sigma     &lt;dbl&gt; 2.582131, 2.581397, 2.582201, 2.581480, 2.58…
+#&gt; $ .cooksd    &lt;dbl&gt; 1.579471e-04, 4.111127e-04, 9.887745e-05, 9.…
+#&gt; $ .std.resid &lt;dbl&gt; -0.34466677, -0.71406388, -0.28589998, -0.68…
+```
+
+---
+
+
+## Looking for...
+
+- Residuals distributed randomly around 0
+- With no visible pattern along the x or y axes
+
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-5-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Not looking for...
+
+.large[
+**Fan shapes**
+]
+
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-6-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Not looking for...
+
+.large[
+**Groups of patterns**
+]
+
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-7-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Not looking for...
+
+.large[
+**Residuals correlated with predicted values**
+]
+
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-8-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Not looking for...
+
+.large[
+**Any patterns!**
+]
+
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-9-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+.question[
+What patterns does the residual plot reveal that should make us question whether a linear model is a good fit for modeling the relationship between mercury (ppm) and assets?
+]
+
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: middle
+
+# Exploring linearity
+
+---
+
+## Data: Mercury
+
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-11-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Mercury vs. assets
+
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-12-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Mercury vs assets
+
+.question[
+Which plot shows a more linear relationship?
+]
+
+.small[
+  
+.pull-left[
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-13-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-14-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+]
+
+---
+
+## Mercury and Assets, residuals
+
+.question[
+Which plot shows residuals that are uncorrelated with predicted values from the model? Also, what is the unit of the residuals?
+]
+  
+.pull-left[
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-15-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-16-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## Transforming the data
+
+- We saw that `hairHg` has a right-skewed distribution, and the residuals of that model don't look great.
+
+--
+- In these situations a transformation applied to the response variable may be useful.
+
+--
+- In order to decide which transformation to use, we should examine the distribution of the response variable.
+
+--
+- The extremely right skewed distribution suggests that a log transformation may 
+be useful.
+    - log = natural log, `\(ln\)`
+    - Default base of the `log` function in R is the natural log: &lt;br&gt;
+    `log(x, base = exp(1))`
+    
+---
+
+## Transformations
+
+- Non-constant variance is one of the most common model violations, however it is usually fixable by transforming the response (y) variable.
+
+--
+- The most common transformation when the response variable is right skewed is the log transform: `\(log(y)\)`, especially useful when the response variable is 
+(extremely) right skewed.
+
+--
+- This transformation is also useful for variance stabilization.
+
+--
+- When using a log transformation on the response variable the interpretation of 
+the slope changes: *"For each unit increase in x, y is expected on average to be higher/lower &lt;br&gt; by a factor of `\(e^{b_1}\)`."*
+
+--
+- Another useful transformation is the square root: `\(\sqrt{y}\)`, especially 
+useful when the response variable is a count.
+
+---
+
+## Transform, or learn more?
+
+- Data transformations may also be useful when the relationship is non-linear
+- However in those cases a polynomial regression may be more appropriate
+  + This is beyond the scope of this course, but you’re welcomed to try it for your final project, and I’d be happy to provide further guidance
+
+---
+
+## Aside: when `\(y = 0\)`
+
+In some cases the value of the response variable might be 0, and
+
+
+```r
+log(0)
+```
+
+```
+#&gt; [1] -Inf
+```
+
+--
+
+The trick is to add a very small number to the value of the response variable for these cases so that the `log` function can still be applied:
+
+
+```r
+log(0 + 0.00001)
+```
+
+```
+#&gt; [1] -11.51293
+```
+
+
+---
+
+class: middle
+
+# The linear model with multiple predictors
+
+---
+
+## Hair mercury vs assets and native status 
+
+.pull-left[
+Linear regression model with assets (standardized to mean 0 and sd 1) and community native status as predictors and log(hair Hg) as the response.
+
+```r
+linear_reg() %&gt;%
+  set_engine("lm") %&gt;%
+  fit(lhairHg ~ assets_sc + native_cat,
+      data = mercury) %&gt;%
+  tidy()
+```
+
+```
+#&gt; # A tibble: 3 × 5
+#&gt;   term                 estimate std.error statistic  p.value
+#&gt;   &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 (Intercept)            1.00      0.0994     10.1  2.65e-22
+#&gt; 2 assets_sc             -0.0945    0.0474     -1.99 4.66e- 2
+#&gt; 3 native_catNon-native  -0.957     0.115      -8.32 4.58e-16
+```
+
+]
+.pull-right[
+&lt;img src="w9-l02-resid-xform-multpred_files/figure-html/unnamed-chunk-20-1.png" width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+]
+
+
+
+---
+
+## Interpretation of estimates
+
+
+```
+#&gt; # A tibble: 3 × 5
+#&gt;   term                 estimate std.error statistic  p.value
+#&gt;   &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 (Intercept)            1.00      0.0994     10.1  2.65e-22
+#&gt; 2 assets_sc             -0.0945    0.0474     -1.99 4.66e- 2
+#&gt; 3 native_catNon-native  -0.957     0.115      -8.32 4.58e-16
+```
+
+
+Model: `\(lhairHg_i=\beta_0+\beta_1 assets\_sc_i + \beta_2 native\_cat_i + \varepsilon_i\)`, where the `\(\varepsilon_i\)` have mean 0 (and are typically assumed to follow a normal distribution)
+
+`$$\hat{\beta_0}=1.00, ~~ \hat{\beta_1}=-0.0945, ~~\hat{\beta_2}=-0.957$$`
+
+
+
+We can predict log hair mercury as:
+`$$\widehat{lhairHg}_i=\hat{\beta_0}+\hat{\beta_1} assets\_sc_i + \hat{\beta_2} native\_cat_i$$`
+so
+`\(\widehat{lhairHg}_i=1.00 - 0.0945 \times assets\_sc_i - 0.957 \times native\_cat_i\)`
+
+---
+
+## Interpretation of estimates
+
+`\(\widehat{lhairHg}_i=1.00 - 0.0945 \times assets\_sc_i - 0.957 \times native\_cat_i\)`
+
+Because our model contains two terms in it, when we interpret the coefficient of one term, we need to hold the other constant.  That is, the estimate for native community status needs to be interpreted for two individuals who have the same level of assets, and vice versa.
+
+--
+
+- **Slope - non-native:** *At the same level of assets*, those living in non-native communities have hair mercury levels that are on average 0.957 log ppm lower than those living in native communities. Alternatively,  *at the same level of assets*, those living in non-native communities are expected to have hair mercury that is lower by a factor of `\(e^{-0.957}=0.38\)`.
+
+
+---
+## Interpretation of estimates
+
+
+```
+#&gt; # A tibble: 3 × 5
+#&gt;   term                 estimate std.error statistic  p.value
+#&gt;   &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 (Intercept)            1.00      0.0994     10.1  2.65e-22
+#&gt; 2 assets_sc             -0.0945    0.0474     -1.99 4.66e- 2
+#&gt; 3 native_catNon-native  -0.957     0.115      -8.32 4.58e-16
+```
+
+--
+- **Slope - assets:** *All else held constant* / *for people living in a given community type*, for each additional standard deviation that assets are larger, we would expect the log hair mercury to be lower, on average, by 0.09 log ppm. Alternatively, *for people living in a given community type*, for each additional standard deviation that assets are larger, we would expect hair mercury to be lower by a factor of `\(e^{-0.0945}=0.91\)`.
+
+--
+- **Slope - non-native:** *At the same asset level*, those in non-native communities have hair mercury levels that are on average 0.957 log ppm lower than those in native communities. Alternatively,  *at the same asset level*, those in non-native communities are expected to have hair mercury that is lower by a factor of `\(e^{-0.957}=0.38\)`.
+
+--
+- **Intercept:** Individuals with the mean level of assets (remember this is standardized!) living in native communities are expected to have hair mercury levels of 1 log ppm, on average. 
+
+
+---
+
+## Interpretation of estimates
+
+
+```
+#&gt; # A tibble: 3 × 5
+#&gt;   term                 estimate std.error statistic  p.value
+#&gt;   &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 (Intercept)            1.00      0.0994     10.1  2.65e-22
+#&gt; 2 assets_sc             -0.0945    0.0474     -1.99 4.66e- 2
+#&gt; 3 native_catNon-native  -0.957     0.115      -8.32 4.58e-16
+```
+
+The column labeled "statistic" contains the t-statistic calculated by subtracting the hypothesized value (0 by default) from the parameter estimate, and then dividing by the appropriate standard error (so the estimate column entries divided by the std.error column entries). These are t-statistics because we had to estimate the variance (you'll learn more about how that is done if you take STA 210!).
+
+Each of the p-values here reflects the result of a t-test of `\(H_0: \beta_k=0\)` for the `\(k^{th}\)` regression coefficient, versus the alternative `\(H_A: \beta_k \neq 0\)`. Generally, we don't care too much about the model intercept and focus on tests of the slope.  If we use `\(\alpha=0.05\)` as our significance level, then both slope parameter estimates appear to be important.
+
+
+
+---
+
+## Interpretation of estimates
+
+
+```r
+linear_reg() %&gt;%
+  set_engine("lm") %&gt;%
+  fit(lhairHg ~ assets_sc + native_cat, data = mercury) %&gt;%
+  tidy(conf.int=TRUE)
+```
+
+```
+#&gt; # A tibble: 3 × 7
+#&gt;   term          estim…¹ std.e…² stati…³  p.value conf.…⁴ conf.h…⁵
+#&gt;   &lt;chr&gt;           &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 (Intercept)    1.00    0.0994   10.1  2.65e-22   0.805  1.20   
+#&gt; 2 assets_sc     -0.0945  0.0474   -1.99 4.66e- 2  -0.187 -0.00143
+#&gt; 3 native_catNo… -0.957   0.115    -8.32 4.58e-16  -1.18  -0.732  
+#&gt; # … with abbreviated variable names ¹​estimate, ²​std.error,
+#&gt; #   ³​statistic, ⁴​conf.low, ⁵​conf.high
+```
+
+
+We can use a CLT-based confidence interval here. Because we had to estimate the standard error of our estimates `\(\hat{\beta}\)`, we use a t-interval, and R can calculate this for us upon request. 
+
+This type of model, with one continuous predictor and the rest categorical, can also be formulated as an ANCOVA (analysis of covariance) model, in case you ever see that language used.
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLines": true,
+"highlightStyle": "solarized-light",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
