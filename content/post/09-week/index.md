@@ -29,7 +29,7 @@ title: 'Week 9 - Regression'
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
 | Model Fitting and Interpretation   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-09/w9-l01-fitting-interpretation.html) | 
-| Residuals &Transformations, Multiple Predictors   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-09/w9-l02-resid-xform-multpred.html) | 
+| Residuals & Transformations, Multiple Predictors   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-09/w9-l02-resid-xform-multpred.html) | 
 
 
 

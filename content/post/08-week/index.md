@@ -27,13 +27,22 @@ title: 'Week 8 - Modelling Data'
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-| In-Class Practice  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
+| Introduction to Modelling   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-08/w8-l01-intro-model.html) | 
+| Exam 1 | In class|
+
+
+### Readings and Videos
+
+| <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
+|:---:|:---|:---:|
+| :open_book: | IMS: [Chp 7: Linear Regression with a Single Predictor](https://openintro-ims.netlify.app/model-slr.html#model-slr) | **Required** |
+| :movie_camera: | [Modeling I](https://www.youtube.com/watch?v=MWkkvDopBKc) | **Optional** |
+
 
 ### Assignments and Labs
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Quiz | [Quiz 6](https://sakai.duke.edu) | Sunday, 10/16 |
-| Lab 6 |[Project Work Session](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Tuesday, 10/18 |
+| Lab 6 |[Project Work and Review Session](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Tuesday, 10/18 |
 
 
