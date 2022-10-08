@@ -46,10 +46,10 @@ title: 'Week 15 - Final Presentations and Wrapping it Up'
 
 
 
-### Readings
+### Readings and Videos
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
-| :page_facing_up: |[Data Values and Principles ](https://datapractices.org/manifesto/)  |**Required** |
-| :page_facing_up: |[Navigating the Ethics of Big Data in Public Health ](https://sakai.duke.edu/access/content/group/26a48538-f5d9-44cf-bece-434eafc5d340/oxfordhb-9780190245191-e-31.pdf)  |**Recommended** |
+| :movie_camera: |[Coded Bias ](https://find.library.duke.edu/catalog/DUKE009834953)  |**Required** |
+
 
