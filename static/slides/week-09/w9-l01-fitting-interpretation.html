@@ -132,7 +132,7 @@ linear_reg() %&gt;%
 ```
 #&gt; parsnip model object
 #&gt; 
-#&gt; Fit time:  1ms 
+#&gt; Fit time:  0ms 
 #&gt; 
 #&gt; Call:
 #&gt; stats::lm(formula = lhairHg ~ assets_sc, data = data)
@@ -387,7 +387,7 @@ where `\(\varepsilon\)` represents random error around our mean
 
 ## Aside: Correlation Coefficient
 
-The *correlation coefficient* describes the linear relationship between `\(x\)` and `\(y\)` on the standard deviation scale.
+The *correlation coefficient* describes the linear relationship between `\(x\)` and `\(y\)`.
 
 
 ```r
@@ -399,7 +399,7 @@ cor(mercury$lhairHg,mercury$assets_sc,use="complete.obs")
 #&gt; [1,] -0.2615147
 ```
 
-Here, for each one SD increase in assets, we expect a -0.26 SD increase (so thus a 0.26 decrease) in standard deviations of log hair mercury.
+The correlation coefficient is on a scale from -1 to 1 and reflects the linear association between `\(x\)` and `\(y\)`. When it is positive, larger values of `\(x\)` are associated with larger values of `\(y\)`, and when it is negative, larger values of `\(x\)` are associated with smaller values of `\(y\)`. When it is zero, we don't see a linear relationship between `\(x\)` and `\(y\)`.
 
 ---
 

@@ -366,13 +366,13 @@ $$\bar{y} = b_0 + b_1 \bar{x} ~ \rightarrow ~ b_0 = \bar{y} - b_1 \bar{x}$$
 
 ## Aside: Correlation Coefficient
 
-The *correlation coefficient* describes the linear relationship between $x$ and $y$ on the standard deviation scale.
+The *correlation coefficient* describes the linear relationship between $x$ and $y$.
 
 ```{r corr}
 cor(mercury$lhairHg,mercury$assets_sc,use="complete.obs")
 ```
 
-Here, for each one SD increase in assets, we expect a `r round(cor(mercury$lhairHg,mercury$assets_sc,use="complete.obs"),2)` SD increase (so thus a `r -round(cor(mercury$lhairHg,mercury$assets_sc,use="complete.obs"),2)` decrease) in standard deviations of log hair mercury.
+The correlation coefficient is on a scale from -1 to 1 and reflects the linear association between $x$ and $y$. When it is positive, larger values of $x$ are associated with larger values of $y$, and when it is negative, larger values of $x$ are associated with smaller values of $y$. When it is zero, we don't see a linear relationship between $x$ and $y$.
 
 ---
 
