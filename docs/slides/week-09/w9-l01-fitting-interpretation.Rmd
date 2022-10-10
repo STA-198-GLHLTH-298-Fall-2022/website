@@ -169,6 +169,33 @@ $$\widehat{y}_{i} = 0.239 - 0.301 \times x_{i}$$
   - Remember `assets_sc` was standardized, so `assets_sc`=0 does not mean "no assets" but instead means "average assets" as it corresponds to an assets z-score of 0
 
 ---
+## Tests in regression 
+
+```{r, echo=FALSE}
+linear_reg() %>%
+  set_engine("lm") %>%
+  fit(lhairHg ~ assets_sc, data = mercury) %>%
+  tidy()
+```
+The column labeled "statistic" contains the t-statistic for the test that the parameter of interest takes value 0.  The t-statistic is calculated by subtracting the hypothesized value (0) from the parameter estimate, and then dividing by the standard error (estimate column entries divided by std.error column entries). 
+
+Each of the p-values here reflects the result of a t-test of $H_0: \beta_k=0$ for the $k^{th}$ regression coefficient, versus the alternative $H_A: \beta_k \neq 0$. Generally, we don't care too much about the model intercept and focus on tests of the slope.  If we use $\alpha=0.05$ as our significance level, then both slope parameter estimates appear to be important.
+
+---
+
+## Estimating confidence intervals 
+
+```{r}
+linear_reg() %>%
+  set_engine("lm") %>%
+  fit(lhairHg ~ assets_sc, data = mercury) %>%
+  tidy(conf.int=TRUE)
+```
+
+We can also estimate confidence intervals. Here the confidence intervals for scaled assets is (-0.38,-0.22), which we can interpret as saying we're 95% confident that a one standard deviation increase in assets is associated with an average decrease in log hair mercury between 0.22 and 0.38 ppm.
+
+---
+
 class: middle
 
 # Models with log transformation
