@@ -43,6 +43,6 @@ title: 'Week 8 - Modelling Data'
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Lab 6 |[Project Work and Review Session](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Tuesday, 10/18 |
+| Lab 7 |[Project Work and Review Session](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-08/exam1review.html)| Tuesday, 10/18 |
 
 

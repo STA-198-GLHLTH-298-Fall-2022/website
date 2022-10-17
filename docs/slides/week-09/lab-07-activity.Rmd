@@ -1,0 +1,136 @@
+---
+title: 'Lab #07: BMI and Related(?) Factors'
+subtitle: 'due Friday, October 28, 4:00 PM'
+output:
+  tufte::tufte_html:    
+    css: "sta199-labs.css"
+    tufte_variant: envisioned
+    highlight: pygments
+    toc: no
+    toc_depth: 1
+  html_document:
+    toc: no
+    toc_depth: '1'
+    df_print: paged
+link-citations: yes
+editor_options:
+  chunk_output_type: console
+---
+
+## Goals
+
+- Explore how age is related to body mass index in age-stratified random sample of the voting-age population of New Zealanders
+
+- Explore whether self-reported frequency of TV watching is related to BMI
+
+- Explore whether self-reported physical activity frequency is related to BMI
+
+
+## Getting Started
+
+Log in to GitHub to determine your team number and members for Lab 7 (should be the same as Lab 6).
+
+- Find two one-hour blocks of time outside of class that you can use to work on the
+lab / project if needed. You may not need to use this, but it is good to have it
+in reserve. Tools like [Doodle](https://doodle.com/en/)
+and [When2Meet](https://www.when2meet.com/) are helpful.
+- Determine how your group will communicate (email, text, slack, discord, etc).
+
+## Packages
+
+```{r calltidy, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(haven) #to read a SPSS file
+```
+
+In case you forgot...
+
+```{r eval=FALSE}
+library(usethis)
+use_git_config(user.name = "GitHub username", user.email="your email")
+```
+
+# Activity Study
+
+The International Social Survey Programme (ISSP) is a cross-national collaboration conducting surveys on diverse topics, with participants on six continents. We consider data on an ISSP sports survey conducted in 2007 in New Zealand. This survey was a stratified random sample of New Zealanders selected from electoral rolls, with stratification by age.
+
+In this lab, we explore how body mass index is related to age, self-reported TV watching, and self-reported physical activity levels. The data are in a SPSS data format, so we use the package `haven` to read them into R. 
+
+```{r readdata, message=FALSE}
+sports <- read_sav("ISSP2007LeisureTimeSportsIdataset.sav")
+```
+
+
+## Regression with Continuous Predictors
+
+1. Create a variable for body mass index (BMI). Note that in these data, height is reported in cm in the variable `Q19a`, and weight is reported in kg in the variable `Q19b`.  The formula for BMI is $\text{BMI}= \frac{\text{weight (in kg)}}{\text{height}^2\text{(in m}^2)}$. Then plot a histogram of BMI. Does the distribution of BMI look fairly close to normal?
+
+2.  Now we will explore the relationship between BMI and age (`Q22`). First, using ggplot, create a scatterplot of BMI by age, adding a straight line fit to the plot (see example from lecture). Then, use the option `coord_cartesian(ylim = c(18, 40))` in ggplot to restrict the y-axis to exclude very small and very large BMI values, so we can better explore the main portion of the data (note: these values are still used to estimate the line). What kind of linear relationship between age and BMI is present in the plot, if any?  
+
+
+
+3. Now, fit a linear regression model, with BMI as the outcome and age as the predictor. Carry out a test of the null hypothesis that (linear) age is not related to BMI and report the results of your test. Interpret the test results in language suitable for a short excerpt in the health section of a local newspaper.
+
+
+
+4.  In many cases, the relationship between a predictor and response variable is more complex than a simple linear one (remember the datasaurus dozen!). Using the `gam` method in `geom_smooth()`, explore whether we see evidence of a nonlinear relationship between age and BMI, again restricting the plotting area to BMI values of 18-40 to help with visualization.  Describe what you see.
+
+
+5.  Now fit a *polynomial* regression to explore whether the data provide evidence of a **quadratic** relationship between age and BMI.  You can do this by using mutate to create a term that contains age$^2$ and adding it to the model.  Look at the t-tests of the linear and quadratic terms for age and discuss whether the data provide evidence that age is related to BMI. Use the starter code provided to create a plot of the model-predicted BMI as a function of the age variables.
+
+```{r ex5, eval=FALSE}
+
+# Suppose m1 is the name of the model 
+# you fit with linear and quadratic 
+# terms of age
+
+# We'll see more of the augment function 
+# in class when we talk about residuals. 
+# For now, note that we are using it to 
+# get the predicted value of y as a 
+# function of age, which will be called
+# .fitted in the dataset.
+
+m1_aug <- augment(m1$fit) 
+ggplot(m1_aug, mapping = 
+          aes(x = Q22, y = .fitted)) +
+  geom_line() +
+  labs(x = "Age", y = "Predicted BMI", 
+       title = "Fitted Regression Function")
+```
+
+
+## Regression with Categorical Predictors
+
+Now we will explore, in turn, how TV watching (`Q1a`) and how self-reported physical activity (`Q1j`) (including sports, going to the gym, or going for a walk) are related to BMI.  
+
+6. First, we will need to re-code or re-label these variables for interpretability.  Both follow the same coding scheme, where 1=daily, 2=several times/week, 3=several times/month, 4=several times/year, and 8=never. Note that some individuals did not answer these questions, so that there are missing values of both variables. Create categorical variables for TV watching and physical activity that replace the numeric entries with text categories, and summarize each variable. Briefly describe the distributions of TV watching and self-reported activity in the data.
+
+
+7. To explore the relationship between self-reported TV watching and BMI, fit a linear regression model with BMI as the response and the categorical TV watching levels as predictors.  R will automatically drop those who didn't respond to the question, which is fine in this case given that a low fraction of participants failed to respond, and we don't have additional information about reasons for lack of response.  Interpret any regression coefficients that are significant at a 5% significance level and address whether the data provide evidence that TV watching is related to BMI.
+
+
+
+8. To explore the relationship between self-reported physical activity and BMI, fit a linear regression model with BMI as the response and the categorical physical activity levels as predictors.  Interpret any regression coefficients that are significant at a 5% significance level and address whether the data provide evidence that self-reported physical activity is related to BMI.
+
+
+
+
+
+
+## Grading
+Total: 50 pts
+
+- Exercise 1: 3 pts 
+- Exercise 2: 4 pts
+- Exercise 3: 8 pts
+- Exercise 4: 4 pts
+- Exercise 5: 8 pts
+- Exercise 6: 4 pts
+- Exercise 7: 8 pts
+- Exercise 8: 8 pts
+
+- Overall:  3 pts
+
+  - Overall includes the number of commits made by different team members (at least 1 by each team member), naming chunks, updating the names on the assignment to your team name clearly identifying all team members, following tidyverse style (see: https://style.tidyverse.org/), and in general producing a nicely formatted, neat report. In order to receive credit for this assignment, you must complete the team evaluation on Sakai.

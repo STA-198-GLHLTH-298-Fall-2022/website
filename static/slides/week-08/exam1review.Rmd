@@ -1,0 +1,63 @@
+---
+title: 'Exam 1 Practice'
+output:
+  tufte::tufte_html:    
+    css: "sta199-labs.css"
+    tufte_variant: envisioned
+    highlight: pygments
+    toc: no
+    toc_depth: 1
+  html_document:
+    toc: no
+    toc_depth: '1'
+    df_print: paged
+link-citations: yes
+editor_options:
+  chunk_output_type: console
+---
+
+
+# Growth Curves for Children
+
+The World Health Organization (WHO) publishes data on expected growth for children. These data are useful to monitor nutritional status and to check for disorders that may affect growth.
+
+Suppose that the distribution of height of 5 year old children worldwide is normal with mean 110cm and standard deviation 5cm.
+
+1. Draw this distribution, labeling the mean and values 1 and 2 standard deviations away from the mean.
+
+2. Suppose you are working in a health clinic, and a parent is concerned that their child, who is 102 cm tall and 5 years old, is not growing appropriately.  Add this child to your drawing. Given the distribution of height in 5 year olds, what fraction of 5 year olds would you expect to be 102 cm or shorter? 
+
+
+3. Many of the more "exciting" amusement park rides have a minimum height requirement of 48 inches. Add this value to your drawing. Suppose a school is bringing a group of 5 year olds to the amusement park for a field trip.  What percentage of children would they expect to be tall enough to meet the height requirement for these rides?
+
+
+4.  Many "slightly exciting" amusement park rides that target kids in the 5 year old range have a minimum height requirement of 36 inches. Now add this value to your drawing. Suppose a school is bringing a group of 5 year olds to the amusement park for a field trip.  What percentage of children would they expect to be too short to meet the height requirement for these rides? 
+
+
+5. Suppose a school is bringing a group of 5 year olds to the amusement park for a field trip. What fraction of children would be expected to qualify for the 36" rides but not the 48" rides?
+
+
+6. Suppose the school group contains 64 children, and in this group the average height is $\overline{X}=115$cm, with standard deviation $8$cm and thus standard error (standard deviation of the mean) of $\frac{8}{\sqrt{64}}=1$.  Is this sample consistent with a population with mean 110cm, or do you have reason to think these children may come from a taller group (or maybe they're just older 5 year olds)?  Provide statistical evidence to support your reasoning, including a confidence interval for the population mean based on your observed data.
+
+
+
+# Hepatitis B (from Pagano & Gauvreau, 2nd edition)
+
+Suppose we wish to know the probability someone who has been stuck with a needle infected with hepatitis B actually develops the disease.  Let the random variable $Y$ take value 1 if the person gets hepatitis, and let $Y=0$ otherwise.  Suppose 30% of people who are exposed to hepatitis B become infected -- then $\pi=Pr(Y=1)=0.30$.
+
+Now suppose we take a random sample of 5 individuals from the population of unlucky patients who have been stuck with a needle infected with hepatitis B. 
+
+1. What distribution can be used to characterize the number of patients in this sample who develop hepatitis B?
+
+
+
+2. Using this distribution, what is the probability that exactly 3 patients develop hepatitis B?
+
+3. Using this distribution, what is the probability that 3 or more patients develop hepatitis B?
+
+
+
+4. Suppose that in our sample, only 1 of the 5 patients develops hepatitis B.  What would be our estimate, $\hat{\pi}$, based on our sample data?
+
+
+
