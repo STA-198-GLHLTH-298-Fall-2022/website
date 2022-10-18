@@ -38,7 +38,7 @@ title: 'Week 10 - Regression with Multiple Predictors'
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
 | Quiz | [Quiz 8](https://sakai.duke.edu) | Sun., 10/30 |
-| Lab 8 |[Modeling](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-102/coming-soon.html) | Fri., 11/4 |
+| Lab 8 |[Multiple Regression](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-10/lab-08-mult-reg-activity.html) | Fri., 11/4 |
 
 
 

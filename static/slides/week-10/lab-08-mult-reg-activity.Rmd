@@ -1,0 +1,86 @@
+---
+title: 'Lab #08: BMI and Related Factors'
+subtitle: 'due Friday, November 4, 4:00 PM'
+output:
+  tufte::tufte_html:    
+    css: "sta199-labs.css"
+    tufte_variant: envisioned
+    highlight: pygments
+    toc: no
+    toc_depth: 1
+  html_document:
+    toc: no
+    toc_depth: '1'
+    df_print: paged
+link-citations: yes
+editor_options:
+  chunk_output_type: console
+---
+
+## Goals
+
+- Use regression diagnostics to assess and refine model fit
+
+- Fit and interpret results of multiple regression models
+
+
+## Getting Started
+
+Log in to GitHub to determine your team number and members for Lab 8 (should be the same as Labs 6 & 7).
+
+- Find two one-hour blocks of time outside of class that you can use to work on the
+lab / project if needed. You may not need to use this, but it is good to have it
+in reserve. Tools like [Doodle](https://doodle.com/en/)
+and [When2Meet](https://www.when2meet.com/) are helpful.
+- Determine how your group will communicate (email, text, slack, discord, etc).
+
+## Packages and Reading Data
+
+First, we read in the data and replicate the data processing steps from the previous lab. 
+
+```{r calltidy, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(haven) #to read a SPSS file
+
+sports <- read_sav("ISSP2007LeisureTimeSportsIdataset.sav")
+
+```
+
+
+
+
+
+## Multiple Regression
+
+
+1. Fit a multiple regression model with two of the variables we used last time: age (using linear and quadratic terms) and self-reported physical activity. Suppose we are interested in how physical activity is related to BMI, controlling for age. Fit a linear regression model with BMI as the response and these two variables as predictors and provide interpretations of each of the statistically-significant physical activity terms in the model. In addition, look at the signs of the age coefficients and comment on whether we see the same trend in this model that we saw in the model with age unadjusted for physical activity.
+
+
+2. Now, examine the residuals from the model fit in part 1. Provide a plot with residuals on the $y$ axis and predicted values on the $x$ axis, and comment on whether the model fit appears to be adequate.
+
+
+
+## Searching for a Lurking Variable
+
+The race and ethnicity variable (Q27) may be important to include in the model. At the beginning of the semester, we saw that obesity rates in some Pacific countries were quite high. In addition, because of a variety of social and cultural factors, physical activity levels in the population may vary by race and ethnicity. A similar case can be made for inclusion of gender (Q23).
+
+3. First, use `group_by` and `summarize` to look at the distribution of race and ethnicity in the data. (These commands also kindly provide the labels for this variable.) Then, create a new character variable for race and ethnicity in these data and add it to your previous model along with the gender variable. When fitting your model, the reference group (baseline) for race and ethnicity should be the race/ethnic group with the largest number of participants in the data (the `relevel` command can be helpful here). Make female the reference/baseline group for gender.  Provide interpretations of each of the statistically-significant physical activity terms in the model and include their confidence intervals.  Comment on whether the plot of residuals by predictor variables looks better for this model than for the previous model.
+
+4. Finally, there is some evidence that the relationship between self-reported physical activity and BMI may depend on gender. Evaluate this hypothesis in the data by adding to the model in part 3, and if the relationship does depend on gender, describe how. You do not need to include additional residual analysis as part of this answer.
+
+Tip:  with females as the reference group, the main effect coefficients for the physical activity variables describe the associations between physical activity and BMI for females. To get similar estimates (and confidence intervals) for males, simply make males the reference group and re-run the model, so that now the main effects for the physical activity variables describe the associations between physical activity and BMI for males.
+
+
+
+## Grading
+Total: 50 pts
+
+- Exercise 1: 10 pts 
+- Exercise 2: 10 pts
+- Exercise 3: 10 pts
+- Exercise 4: 15 pts
+
+- Overall:  5 pts
+
+  - Overall includes the number of commits made by different team members (at least 1 by each team member), naming chunks, updating the names on the assignment to your team name clearly identifying all team members, following tidyverse style (see: https://style.tidyverse.org/), and in general producing a nicely formatted, neat report. In order to receive credit for this assignment, you must complete the team evaluation on Sakai.
