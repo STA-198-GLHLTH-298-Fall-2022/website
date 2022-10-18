@@ -40,7 +40,7 @@ title: 'Week 9 - Regression'
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
 | Quiz | [Quiz 7](https://sakai.duke.edu) | Sun., 10/23 |
-| Lab 7 |[Coming Soon](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)| Friday, 10/28 |
+| Lab 7 |[New Zealand Sports Survey](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-09/lab-07-activity.html)| Friday, 10/28 |
 
 
 
