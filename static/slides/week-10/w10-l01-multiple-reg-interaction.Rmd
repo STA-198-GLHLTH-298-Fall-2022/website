@@ -74,7 +74,7 @@ linear_reg() %>%
 ```
 
 
-We can use a CLT-based confidence interval here. Because we had to estimate the standard error of our estimates $\hat{\beta}$, we use a t-interval, and R can calculate this for us upon request. 
+The t-statistics provided are calculated by taking $\frac{\text{estimate}-0}{\text{std.error}}$. For the intercept this is often not meaningful, for parameter effects we are testing $H_0: \beta=0$ against $H_A: \beta \neq 0$. We can use a CLT-based confidence interval here. Because we had to estimate the standard error of our estimates $\hat{\beta}$, we use a t-interval, and R can calculate this for us upon request. 
 ---
 
 ## Main vs. interaction effects

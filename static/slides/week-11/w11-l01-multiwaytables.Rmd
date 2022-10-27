@@ -1,7 +1,6 @@
 ---
 title: "Paradoxes and Fallacies"
 subtitle: "<br><br> Introduction to Global Health Data Science"
-author: "[Back to Website](https://sta-198-glhlth-298-fall-2022.github.io/website/)"
 date: "<br> Prof. Amy Herring"
 output:
   xaringan::moon_reader:
@@ -154,7 +153,7 @@ In 1986 *British Medical Journal* reported the results of a study comparing open
 | Open Procedure | 81 | 6 |
 | PN | 234 | 36 |
 
-The estimated probability of success for small stones using open procedures was $\frac{81}{87}=0.93$, and the corresponding probability using PN was $\frac{234}{234+36}=0.87$.  The corresponding $$\widehat{OR}=\frac{\frac{81/87}{6/87}}{\frac{234/270}{36/270}}$$ and 95% CI = 2.08 (0.84, 5.11).
+The estimated probability of success for small stones using open procedures was $\frac{81}{87}=0.93$, and the corresponding probability using PN was $\frac{234}{234+36}=0.87$.  The corresponding $$\widehat{OR}=\frac{\frac{81/87}{6/87}}{\frac{234/270}{36/270}}=2.08$$ and 95% CI = (0.84, 5.11).
 
 Here, we are not able to reject the null hypothesis that the treatments have different success rates, but note the (non-significant) point estimate of the probability of success is higher in the open surgery group.
 ---
@@ -222,7 +221,9 @@ epi.2by2(matrix(c(273,77,289,61),byrow=TRUE,nrow=2))
 
 ## Famous Example of Simpson's Paradox: Berkeley Grad School Admissions
 
-A math and English double major, you are looking at graduate programs and discover during your interview that your dream university last year admitted 30.0% of men but only 21.3% of women.  You are shocked by the apparent gender bias and decide to apply elsewhere, but during your meetings with the directors of graduate studies of the two departments (math and English are the only departments in this dream university), you see some startling figures.
+A math and English double major, you are looking at graduate programs and discover during your interview that your dream university last year admitted 30.0% of men but only 21.3% of women.  
+
+You are shocked by the apparent gender bias and decide to apply elsewhere, but during your meetings with the directors of graduate studies of the two departments (math and English are the only departments in this dream university), you see some startling figures.
 
 ---
 

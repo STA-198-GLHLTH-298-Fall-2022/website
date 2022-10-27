@@ -29,7 +29,8 @@ title: 'Week 10 - Regression with Multiple Predictors'
 |:---:|:---------------------|
 | Multiple Regression  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-10/w10-l01-multiple-reg-interaction.html)   | 
 | Contingency Tables   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-10/w10-l02-fish-chi2.html)  | 
-| Fallacies and Paradoxes   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
+<!--
+| Fallacies and Paradoxes   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  |  -->
 
 
 

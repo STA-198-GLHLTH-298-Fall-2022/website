@@ -1,7 +1,6 @@
 ---
 title: "Logistic Regression"
 subtitle: "<br><br> Introduction to Global Health Data Science"
-author: "[Back to Website](https://sta-198-glhlth-298-fall-2022.github.io/website/)"
 date: "<br> Prof. Amy Herring"
 output:
   xaringan::moon_reader:
@@ -89,7 +88,7 @@ What's up with all that code? I don't want alphabetical order in plots of educat
 variable        | description
 ----------------|-------------
 `CURRENTSMOKE`      |	yes, no, or don't know
-`AGE` |	computed from date of birth
+`AGE` |	computed from date of birth (`DECADES`=`AGE`/10)
 `EDUCATION`	          | highest level of education completed
 `OCCUPATION` | occupation
 `RESIDENCE` | urban or rural
@@ -256,12 +255,16 @@ gats %>%
 
 ## Don't Know What to Do About Don't Know
 
-The "don't know" for current smoking category is complicated. Ideally, we would work with the survey leaders to understand whether "don't know" is a way to avoid saying "yes," an indicator of only occasional smoking, or something else. For now, we will drop it and just consider responses of people who endorsed either "Yes" or "No" on the current smoking variable.
+The "don't know" for current smoking category is complicated. Ideally, we would work with the survey leaders to understand whether "don't know" is a way to avoid saying "yes," an indicator of only occasional smoking, or something else. For now, we will drop levels of "don't know" or "refused" throughout and just consider responses of people who provided substantive answers to questions.
 
 ```{r dropdk}
 gatsbin <- gats %>%
-  filter(CURRENTSMOKE != "Don't Know")
+  filter(CURRENTSMOKE != "Don't Know") %>%
+  filter(EDUCATION != "Don't Know" & EDUCATION != "Refused") %>%
+  filter(OCCUPATION != "Don't Know" & OCCUPATION != "Refused")
 
+#I used these two lines of code to get
+#rid of the empty "Don't Know" level
 gatsbin$SMOKE <- gatsbin$CURRENTSMOKE[gatsbin$CURRENTSMOKE != "Don't Know"]
 gatsbin$SMOKE <- factor(gatsbin$SMOKE)
 
@@ -300,18 +303,16 @@ ggplot(gatsbin, aes(x = AGE, y = SMOKE, color = SMOKE)) +
 ## Framing the problem
 
 - We can treat each outcome (smoking and not) as successes and failures arising from separate Bernoulli trials
-  - Bernoulli trial: a random experiment with exactly two possible outcomes, "success" and "failure", in which the probability of success is the same every time the experiment is conducted
+  - Bernoulli trial: a random experiment with exactly two possible outcomes, "success" and "failure", in which the probability of success *is the same* every time the experiment is conducted
 
 --
-- Each Bernoulli trial can have a separate probability of success
-
-$$ y_i ∼ Bern(\pi_i) $$
+- We can generalize by allowing each Bernoulli trial to have a separate probability of success. We can state that as $P(y_i=1)=\pi_i$ or as $y_i ∼ Bern(\pi_i)$, where the tilde is read "is distributed as".
 
 --
-- We can then use the predictor variables to model that probability of success, $\pi_i$
+- We can then use the predictor variables to model that probability of success, $\pi_i$. For example, we know $\pi_i$ is much higher for men in this study than for women. We could further refine $\pi_i$ by letting it be different for those who believe smoking makes you sick and those who don't, etc.
 
 --
-- We can't just use a linear model for $\pi_i$ (since $\pi_i$ must be between 0 and 1) but we can transform the linear model to have the appropriate range
+- We can't just use a linear regression model for $\pi_i$ ($\pi_i$ must be between 0 and 1), but we can transform the linear model to have the appropriate range
 
 ---
 
@@ -328,14 +329,27 @@ $$ y_i ∼ Bern(\pi_i) $$
 
 All GLMs have the following three characteristics:
 
-1. A probability distribution describing a generative model for the outcome variable
+`1` A probability distribution describing a generative model for the outcome variable. For binary outcomes like yes/no smoking, a Bernoulli distribution makes sense. For continuous outcomes like BMI, a normal distribution is often appropriate.
 
 --
-2. A linear model:
-$$\eta_i = \beta_0 + \beta_1 X_{1,i} + \cdots + \beta_k X_{k,i}$$
 
---
-3. A link function that relates the linear model to the parameter of the outcome distribution
+`2` A linear model:
+$\eta_i = \beta_0 + \beta_1 X_{1,i} + \cdots + \beta_k X_{k,i}$
+
+We have already studied linear regression, where $y_i=\eta_i+\varepsilon_i$ or $y_i=\beta_0 + \beta_1 X_{1,i} + \cdots + \beta_k X_{k,i}+\varepsilon_i$
+
+Our predictors $X_i$ can be binary, continuous, etc. For example, maybe $X_{1,i}$ takes value 1 for one gender and 0 for the other, and maybe $X_{k,i}$ is age in years. Here, $k$ is just an generic index indicating we could have any number $k$ of predictors.
+
+---
+
+## Three characteristics of GLMs
+
+
+`3` A link function that relates the linear model to the parameter of the outcome distribution. In linear regression, we have the **identity** link. This is a nice case, where our response $y_i$ is continuous and can theoretically range from $-\infty$ to $\infty$. 
+
+If our response is binary, we need to be sure that our predicted $\pi_i$ is a valid probability ranging from 0 to 1, so a form like $$\pi_i=\beta_0 + \beta_1 X_{1,i} + \cdots + \beta_k X_{k,i}$$ will not work because if our $X$'s are positive but our estimates $\hat{\beta}$'s are negative, then $\hat{\pi_i}$ will be negative and not a valid probability.
+
+The **link function** is used to map our **linear predictor** $\eta_i=\beta_0 + \beta_1 X_{1,i} + \cdots + \beta_k X_{k,i}$ to an appropriate range (e.g., 0-1 if we are modeling a probability).
   
 ---
 
@@ -348,6 +362,11 @@ We can formulate the linear regression model as a GLM!
   - $\eta_i=\beta_0 + \beta_1 X_{1,i} + \cdots + \beta_k X_{k,i}$
   
   - Link function: $\mu_i=\eta_i$
+  
+  
+We can put it all together as $$y_i=\beta_0 + \beta_1 X_{1,i} + \cdots + \beta_k X_{k,i} + \varepsilon_i$$ where $\varepsilon_i \sim N\left(0,\sigma^2\right)$
+
+
 
 ---
 
@@ -355,9 +374,9 @@ We can formulate the linear regression model as a GLM!
 
 The GLM provides an overarching framework for estimation and testing in a broad class of models. For any GLM, the following apply.
 
-  - A hypothesis test of $H_0: \beta=0$ versus $H_A: \beta \neq 0$ can be obtained using a z-statistic. This test is valid as long as we have a big enough sample size. In some models, an "exact" test is available for a given outcome distribution (e.g., in linear regression, the t-test is an exact test if the response is normally distributed).
+  - A hypothesis test of $H_0: \beta=0$ versus $H_A: \beta \neq 0$ can be obtained using a z-statistic. In linear regression, an "exact" test (t-test) is available if the response is normally distributed, and for this reason the t-test is the default for linear regression. In other GLM's, the z-tests are approximate and require a "big enough" sample size.
   
-  - 95% confidence intervals for $\beta$ can be constructed as $\hat{\beta} \pm 1.96 \times s_\hat{\beta}$ - again these are valid as long as we have "enough" data -- and for other coverage levels (e.g., 99% CI), we just use the relevant confidence multiplier
+  - 95% confidence intervals for $\beta$ can be constructed as $\hat{\beta} \pm 1.96 \times s_\hat{\beta}$ - again these are valid as long as we have "enough" data -- and for other coverage levels (e.g., 99% CI), we just use the relevant confidence multiplier. For linear regression, t-intervals are typically used (this changes the confidence multiplier) because they have better properties if the sample size is not that large.
   
 If we reject $H_0$, or if our confidence interval excludes the value 0, our conclusion is that our data provide evidence against the null hypothesis.
 
@@ -383,7 +402,7 @@ class: middle
 - **Logit function:** For $0\le \pi \le 1$
 
 $$logit(\pi) = \log\left(\frac{\pi}{1-\pi}\right)$$
-
+$\frac{\pi}{1-\pi}$ is the odds of the response.
 
 
 ---
@@ -472,7 +491,7 @@ In R we fit a GLM in the same way as a linear model except we
 
 --
 
-Our model is $$\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_1\times \text{DECADES_i},$$ where $\pi_i$ is the probability person $i$ is a smoker. If age and smoking are independent, we would expect to see $\beta_1$ close to 0.
+Our model is $$\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_1\times \text{DECADES_i},$$ where $\pi_i$ is the probability person $i$ is a smoker. If age and smoking are unrelated, we would expect to see $\beta_1$ close to 0.
 ---
 
 ```{r}
@@ -484,6 +503,9 @@ smoke_fit <- logistic_reg() %>%
 tidy(smoke_fit)
 ```
 
+
+The value `statistic` is calculated as `estimate` minus 0 (the hypothesized value) divided by `std.error`, and the p-value is obtained by comparing the `statistic` to a standard normal distribution.
+
 ---
 
 ## Smoking model
@@ -494,12 +516,12 @@ tidy(smoke_fit, conf.int=TRUE)
 
 --
 Fitted model:
-$$\log\left(\frac{\hat{\pi}_i}{1-\hat{\pi}_i}\right) = -1.19+0.0241\times \text{DECADES_i}$$
-Our confidence interval does not contain 0, so we can reject the null hypothesis that age is independent of smoking.
+$$\log\left(\frac{\hat{\pi}_i}{1-\hat{\pi}_i}\right) = -1.19+0.0234\times \text{DECADES_i}$$
+Our confidence interval does not contain 0, so we can reject the null hypothesis that age is unrelated to smoking.
 
 ---
 
-We can interpret the estimate $\hat{\beta}_1=0.0241$ as the log OR for a one-unit increase in decades: the odds of smoking for a group one decade older is $\exp(0.0241)$ = `r round(exp(0.0241),3)` times the odds of the referent group.  Alternatively, each 10 year increment in age is associated with  `r round(exp(0.0241),3)` times the odds of smoking. Older individuals have higher odds of smoking.  
+We can interpret the estimate $\hat{\beta}_1=0.0234$ as the log OR for a one-unit increase in decades: the odds of smoking for a group one decade older is $\exp(0.0234)$ = `r round(exp(0.0234),3)` times the odds of the referent group.  Alternatively, each 10 year increment in age is associated with  `r round(exp(0.0234),3)` times the odds of smoking. Older individuals have higher odds of smoking.  
 
 In a *multiple logistic regression model* with many predictors, we'd interpret this OR conditionally on fixed values of the other predictors, just as we would in multiple linear regression.
 
@@ -523,14 +545,14 @@ Confidence intervals for the effects on the logit scale, $\hat{\beta}_j \pm 1.96
 Next, we'll back out estimates of probabilities from our model.
 
 
-$$\log \frac{\hat{\pi}_i}{1-\hat{\pi}_i} = -1.19+0.0241\times 2$$
+$$\log \frac{\hat{\pi}_i}{1-\hat{\pi}_i} = -1.19+0.0234\times 2$$
 --
-$$\frac{\hat{\pi}_i}{1-\hat{\pi}_i} = \exp(-1.1418) = 0.3192 \rightarrow \hat{\pi} = 0.3192 \times (1 - \hat{\pi})$$
+$$\frac{\hat{\pi}_i}{1-\hat{\pi}_i} = \exp(-1.1432) = 0.3188 \rightarrow \hat{\pi} = 0.3188 \times (1 - \hat{\pi})$$
 
 --
-$$\hat{\pi} = 0.3192 - 0.3192\hat{\pi} \rightarrow 1.3192\hat{\pi} = 0.3192$$
+$$\hat{\pi} = 0.3188 - 0.3188\hat{\pi} \rightarrow 1.3188\hat{\pi} = 0.3188$$
 --
-$$\hat{\pi} = 0.3192 / 1.3192 = 0.24$$
+$$\hat{\pi} = 0.3188 / 1.3188 = 0.24$$
 
 ---
 
@@ -591,23 +613,41 @@ ggplot(smoke_aug, aes(x = DECADES)) +
 
 Let's look at the relationships now among age, gender, occupation, and current smoking.  First, let's go back to the plots.
 
-```{r ref.label = "smokegender", echo = FALSE, warning = FALSE, out.width = "50%"}
+```{r replot, echo = FALSE, warning = FALSE, out.width = "50%"}
+ggplot(gatsbin, aes(x = GENDER,
+                 fill =CURRENTSMOKE)) +
+  geom_bar() + 
+  labs(x = 'Gender',
+       fill = "Current Smoking") +
+   scale_fill_manual(values = c("#E48957", "#071381","#07813e"))
 ```
 
 The gender effect seems strong. Male will be the referent group. You can check using the code `levels(gats$GENDER)` -- the referent will be the first level.
 
 ---
 
-There are some odd levels of occupation. We could combine them, drop them, or leave them alone for now.  Let's do the latter.
+Here are the levels of occupation (don't know and refused have been excluded).
 
-```{r ref.label = "smokeocc", echo = FALSE, warning = FALSE, out.width = "50%"}
+```{r occbin, echo = FALSE, warning = FALSE, out.width = "50%"}
+ggplot(gatsbin, aes(x = OCCUPATION,
+                 fill = CURRENTSMOKE)) +
+  geom_bar() +
+  labs(x = 'OCCUPATION',
+       fill = "Current Smoking") +
+  scale_fill_manual(values = c("#E48957", "#071381", "#07813e")) +
+  theme(axis.text.x = element_text(angle = 45,hjust=1))
+
 ```
 
 The default referent group in the model will be the first level shown here, farming, and the other occupation levels will be represented by 1/0 indicator variables. Recall occupation is a factor variable, and each person belongs to just one level of occupation.
 
 ---
 
-Our model is $$\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_1\times \text{DECADES}_i + \beta_2 \times \text{Female}_i + \beta_3 \times \text{Government}_i$$ $$+ ~\beta_4 \times \text{Business}_i + \beta_5 \times \text{Teacher}_i + \beta_6 \times \text{Healthcare}_i+\beta_7 \times \text{Student}_i$$ $$+ ~\beta_8 \times \text{Soldier}_i + \beta_9 \times \text{Unemployed}_i+ \beta_{10} \times \text{Retired}_i + \beta_{11} \times \text{Other}_i$$ $$+ ~\beta_{12} \times \text{Don't Know}_i + \beta_{13} \times \text{Refused}_i,$$ where $\pi_i$ is the probability person $i$ is a smoker.
+Our model is $$\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_1\times \text{DECADES}_i + \beta_2 \times \text{Female}_i + \beta_3 \times \text{Government}_i$$ $$+ ~\beta_4 \times \text{Business}_i + \beta_5 \times \text{Teacher}_i + \beta_6 \times \text{Healthcare}_i+\beta_7 \times \text{Student}_i$$ $$+ ~\beta_8 \times \text{Soldier}_i + \beta_9 \times \text{Unemployed}_i+ \beta_{10} \times \text{Retired}_i + \beta_{11} \times \text{Other}_i,$$ where $\pi_i$ is the probability person $i$ is a smoker.
+
+
+The way the indicator variables work is that $\text{Business}_i=1$ if the occupation of person $i$ is business and 0 if the occupation is not business. The other indicator variables work the same way, and we know a person is a farmer if $$\text{Government}_i=\text{Business}_i=\text{Teacher}_i=\text{Healthcare}_i=\text{Student}_i=\text{Soldier}_i$$
+$$ = \text{Unemployed}_i=\text{Retired}_i=\text{Other}_i=0$$.
 ---
 
 Let's fit the model!
@@ -631,7 +671,7 @@ print(result,n=14)
 
 ---
 
-Let's print the levels of occupation so we can interpret those terms!
+Let's print the levels of occupation so we can interpret those terms. Note the (empty) levels for "don't know" and "refused" still are printed, even though we dropped them using the `filter` command.
 
 ```{r occ}
 levels(gats$OCCUPATION)
@@ -665,7 +705,7 @@ Gender is a very strong predictor of smoking. Conditional on age and occupation,
 
 ---
 
-There are many occupation estimates to interpret!  First, let's pick off the easy ones -- conditional on gender and age, we don't see evidence that the odds of smoking are any different for those who reported other occupations or reported they didn't know their occupation than they are for farmers.  Conditional on age and gender, all the other occupations have lower odds of smoking than do farmers.  For example, those in government positions have 0.58 (95% CI=(0.46, 0.73)) times the odds of smoking as farmers, conditional on gender and age. Those in healthcare have 0.50 (95% CI=(0.33, 0.74)) times the odds of smoking as farmers, conditional on gender and age.
+There are many occupation estimates to interpret!  First, let's pick off the easy one -- conditional on gender and age, we don't see evidence that the odds of smoking are any different for those who reported other occupations than they are for farmers.  Conditional on age and gender, all the remaining occupations have lower odds of smoking than do farmers.  For example, those in government positions have 0.58 (95% CI=(0.46, 0.73)) times the odds of smoking as farmers, conditional on gender and age. Those in healthcare have 0.50 (95% CI=(0.33, 0.74)) times the odds of smoking as farmers, conditional on gender and age.
 
 ---
 
@@ -682,29 +722,29 @@ print(result_int,n=15)
 ```
 
 ---
-You'll be able to see all the text in the R console, sorry about this formatting.  The interaction term is listed last in this output.
+The interaction term is listed last in this output and is constructed by multiplying the term `DECADES` by the indicator variable for female gender. 
 
 Now, both main effects and the interaction term are statistically significant. This is a bit tricky to interpret, so let's write out the model separately for men and women, and for simplicity let's consider the occupation farming (the referent). Since there's no interaction involving occupation, it doesn't matter which occupation we pick for this comparison, as long as we hold it constant.
 
 ---
 
 Our full model is
-$$\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_1\times \text{DECADES}_i + \beta_2 \times \text{Female}_i + \beta_3 \times \text{Government}_i$$ $$+ ~\beta_4 \times \text{Business}_i + \beta_5 \times \text{Teacher}_i + \beta_6 \times \text{Healthcare}_i+\beta_7 \times \text{Student}_i$$ $$+ ~\beta_8 \times \text{Soldier}_i + \beta_9 \times \text{Unemployed}_i+ \beta_{10} \times \text{Retired}_i + \beta_{11} \times \text{Other}_i$$ $$+ ~\beta_{12} \times \text{Don't Know}_i + \beta_{13} \times \text{Refused}_i + \beta_{14} \times \text{Female}_i \times \text{DECADES}_i$$
+$$\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_1\times \text{DECADES}_i + \beta_2 \times \text{Female}_i + \beta_3 \times \text{Government}_i$$ $$+ ~\beta_4 \times \text{Business}_i + \beta_5 \times \text{Teacher}_i + \beta_6 \times \text{Healthcare}_i+\beta_7 \times \text{Student}_i$$ $$+ ~\beta_8 \times \text{Soldier}_i + \beta_9 \times \text{Unemployed}_i+ \beta_{10} \times \text{Retired}_i + \beta_{11} \times \text{Other}_i$$ $$+ ~\beta_{12} \times \text{Female}_i \times \text{DECADES}_i$$
 Model for male farmers: $\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_1\times \text{DECADES}_i$
 
-Model for female farmers: $\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_1\times \text{DECADES}_i + \beta_2 \times \text{Female}_i + \beta_{14} \times \text{Female}_i \times \text{DECADES}_i$
+Model for female farmers: $\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_1\times \text{DECADES}_i + \beta_2 \times \text{Female}_i + \beta_{12} \times \text{Female}_i \times \text{DECADES}_i$
 
 ---
 
 Model for male farmers: $\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_1\times \text{DECADES}_i$
 
-Model for female farmers: $\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_2 + (\beta_1 + \beta_{14}) \times \text{DECADES}_i$
+Model for female farmers: $\log\left(\frac{\pi_i}{1-\pi_i}\right) = \beta_0+\beta_2 + (\beta_1 + \beta_{12}) \times \text{DECADES}_i$
 
 So $\beta_1$ gives is the age effect among men:  conditional on occupation, a one decade increase in age among men is associated with 0.95 (95% CI=(0.92, 0.98)) times the odds of smoking.
 
 ---
 
-We have to be careful about getting the OR of age among females.  The **odds** of smoking for a female farmer are given by $$\exp\left(\beta_0+\beta_2 + (\beta_1 + \beta_{14}) \times \text{DECADES}_i\right)$$, and if we add a decade, the odds of smoking for that female farmer one decade older are given by $$\exp\left(\beta_0+\beta_2 + (\beta_1 + \beta_{14}) \times (\text{DECADES}_i+1)\right).$$ This means the OR for an increase in age (in decades) among females is given by $\exp\left(\beta_1+\beta_{14}\right).$ We can get the estimated OR itself by just taking $\exp\left(\beta_1+\beta_{14}\right)=\exp(\beta_1)\exp(\beta_{14})=1.28,$ but the variance of this quantity cannot be estimated from the model fitting output provided. This is a bit of a drag.
+We have to be careful about getting the OR of age among females.  The **odds** of smoking for a female farmer are given by $$\exp\left(\beta_0+\beta_2 + (\beta_1 + \beta_{12}) \times \text{DECADES}_i\right),$$ and if we add a decade, the odds of smoking for that female farmer one decade older are given by $$\exp\left(\beta_0+\beta_2 + (\beta_1 + \beta_{12}) \times (\text{DECADES}_i+1)\right).$$ This means the OR for an increase in age (in decades) among females is given by $\frac{\exp\left(\beta_0+\beta_2 + (\beta_1 + \beta_{12}) \times (\text{DECADES}_i+1)\right)}{\exp\left(\beta_0+\beta_2 + (\beta_1 + \beta_{12}) \times \text{DECADES}_i\right)}=\exp\left(\beta_1+\beta_{12}\right).$ We can get the estimated OR itself by just taking $\exp\left(\beta_1+\beta_{12}\right)=\exp(\beta_1)\exp(\beta_{12})=1.28,$ but the variance of this quantity cannot be estimated from the model fitting output provided. This is a bit of a drag.
 
 ---
 

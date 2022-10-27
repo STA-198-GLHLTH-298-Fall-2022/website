@@ -787,7 +787,7 @@ We calculate the RR of mortality as the ratio of conditional probabilities of de
 ```{r ref.label = "RR", echo = FALSE, warning = FALSE}
 ```
 ]
-.panel[.panel-name[Code]
+.panel[.panel-name[Code and Interpretation]
 ```{r RR, results="hide"}
 pneu3 <- pneu2 %>% 
   group_by(Serotype, Survived) %>%
