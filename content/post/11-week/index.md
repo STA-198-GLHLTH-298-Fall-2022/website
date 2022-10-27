@@ -11,9 +11,9 @@ image:
   preview_only: true
 lastmod: "2021-07-11T00:00:00Z"
 projects: []
-subtitle: 'Model Validation; Contingency Tables :eyes:'
-summary: Validation of any model; categorical data methods
-title: 'Week 11 - Model Validation; Categorical Data'
+subtitle: 'Contingency Tables and Logistic Regression :eyes:'
+summary: Modeling Categorical Data
+title: 'Week 11 - Categorical Data Modeling'
 ---
 
 ### Tasks
@@ -25,6 +25,7 @@ title: 'Week 11 - Model Validation; Categorical Data'
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
+| Paradoxes and Fallacies   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
 | Logistic Regression   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
 | Logistic Regression Application   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
 | Logistic Regression: Coding with Aggregate Data   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | 
@@ -37,6 +38,8 @@ title: 'Week 11 - Model Validation; Categorical Data'
 | Quiz | [Quiz 9](https://sakai.duke.edu) | Sun., 11/6 |
 | Lab 9 | [Lab 9](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Fri., 11/11 |
 | HW 3 | [Coming Soon](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Fri., 11/11 |
+| In-Class Activity | [Logistic Regression with Interaction](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/w11-ae-problem.html) | In Class |
+
 
 
 ### Readings

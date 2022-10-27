@@ -269,7 +269,7 @@
     </item>
     
     <item>
-      <title>Week 11 - Model Validation; Categorical Data</title>
+      <title>Week 11 - Categorical Data Modeling</title>
       <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/11-week/</link>
       <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/11-week/</guid>
@@ -287,6 +287,10 @@
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Paradoxes and Fallacies&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Logistic Regression&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
@@ -322,13 +326,18 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Lab 9&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Modeling and Cross-Validation&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Lab 9&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Fri., 11/11&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;HW 3&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;Coming Soon&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Fri., 11/11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;In-Class Activity&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/w11-ae-problem.html&#34;&gt;Logistic Regression with Interaction&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;In Class&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -349,7 +358,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Penn State Statistics for Epidemiology: &lt;a href=&#34;&#34;&gt;Unit 12, Sections 12-12.2; 12.4-12.5&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Penn State Statistics for Epidemiology: &lt;a href=&#34;https://online.stat.psu.edu/stat507/lesson/12&#34;&gt;Unit 12, Sections 12-12.2; 12.4s&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -427,7 +436,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📖&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;OIS: &lt;a href=&#34;https://www.openintro.org/book/os/&#34;&gt;Chp 6, Section 6.4&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;OIS: &lt;a href=&#34;https://www.openintro.org/book/os/&#34;&gt;Chp 9, 9.1-9.3; Chp 6, Section 6.4&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
