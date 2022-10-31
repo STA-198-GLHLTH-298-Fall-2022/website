@@ -47,7 +47,7 @@ title: 'Week 11 - Categorical Data Modeling'
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
 | :open_book: | OIS: [Chp 9, Section 9.5](https://www.openintro.org/book/os/)  | **Required** |
-| :open_book: | Penn State Statistics for Epidemiology: [Unit 12, Sections 12-12.2; 12.4s](https://online.stat.psu.edu/stat507/lesson/12) | **Required** | 
+| :open_book: | Penn State Statistics for Epidemiology: [Unit 12, Sections 12-12.2; 12.4](https://online.stat.psu.edu/stat507/lesson/12) | **Required** | 
 
 
 

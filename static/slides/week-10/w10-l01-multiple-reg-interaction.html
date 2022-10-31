@@ -95,7 +95,8 @@ linear_reg() %&gt;%
 ```
 
 
-The t-statistics provided are calculated by taking `\(\frac{\text{estimate}-0}{\text{std.error}}\)`. For the intercept this is often not meaningful, for parameter effects we are testing `\(H_0: \beta=0\)` against `\(H_A: \beta \neq 0\)`. We can use a CLT-based confidence interval here. Because we had to estimate the standard error of our estimates `\(\hat{\beta}\)`, we use a t-interval, and R can calculate this for us upon request. 
+The t-statistics provided are calculated by taking `\(\frac{\text{estimate}-0}{\text{std.error}}\)`. For the intercept this is often not meaningful, for parameter effects we are testing `\(H_0: \beta=0\)` against `\(H_A: \beta \neq 0\)`. Here we use a t-interval, and R can calculate this for us upon request. The degrees of freedom here is the sample size minus the total number of regression coefficients (predictors+intercept) in the model.
+
 ---
 
 ## Main vs. interaction effects
@@ -303,7 +304,7 @@ tidy(mr_fit)
 
 &lt;br&gt;
 
-`$$\widehat{log\_Hg}_i = 0.249 - 0.258 \times {assets\_sc}_i  - 0.126 \times {form\_min\_sc}_i$$`
+`$$\widehat{lhairhg}_i = 0.249 - 0.258 \times {assets\_sc}_i  - 0.126 \times {form\_min\_sc}_i$$`
 
 ---
 
@@ -455,7 +456,7 @@ tidy(hg_main_fit)
 
 --
 
-`$$\widehat{log\_Hg}_i = 1.00 - 0.0945 \times assets\_sc_i - 0.957 \times I(nonnative_i=1)$$`
+`$$\widehat{lhairhg}_i = 1.00 - 0.0945 \times assets\_sc_i - 0.957 \times I(nonnative_i=1)$$`
 The notation `\(I(nonnative_i=1)\)` indicates that predictor takes value 1 if the person's community is non-native, and 0 otherwise. 
 ---
 
@@ -464,13 +465,13 @@ The notation `\(I(nonnative_i=1)\)` indicates that predictor takes value 1 if th
 - Native community: Plug in 0 for `native_cat`
 
 
-`$$\widehat{log\_Hg}_i = 1.00 - 0.0945 \times assets\_sc_i - 0.957  \times 0 = 1.00 - 0.0945 \times assets\_sc_i$$`
+`$$\widehat{lhairhg}_i = 1.00 - 0.0945 \times assets\_sc_i - 0.957  \times 0 = 1.00 - 0.0945 \times assets\_sc_i$$`
 
 
 --
 - Non-native community: Plug in 1 for `native_cat`
 
-`$$\widehat{log\_Hg}_i = 1.00 - 0.0945 \times assets\_sc_i - 0.957 = 0.043 - 0.0945 \times assets\_sc_i$$`
+`$$\widehat{lhairhg}_i = 1.00 - 0.0945 \times assets\_sc_i - 0.957 = 0.043 - 0.0945 \times assets\_sc_i$$`
 
 ---
 
@@ -563,7 +564,7 @@ tidy(Hg_int_fit)
 #&gt; # … with abbreviated variable names ¹​std.error, ²​statistic
 ```
 
-$$\widehat{log\_Hg}_i = 0.779 - 0.320 \times assetssc_i $$
+$$\widehat{lhairhg}_i = 0.779 - 0.320 \times assetssc_i $$
 $$ - 0.757 \times I(nonnative_i=1) + 0.301 \times {assetssc}_i \times I(nonnative_i=1)$$
 
 
@@ -576,13 +577,13 @@ vary between residents of native and non-native communities (different slopes), 
 
 - Native community resident: 
 
-$$\widehat{log\_Hg}_i = 0.779 - 0.320 \times assetssc_i - 0.757 \times 0 + 0.301 \times assetssc_i \times 0 $$
-`$$\widehat{log\_Hg}_i = 0.779 - 0.320 \times assetssc_i$$`
+$$\widehat{lhairhg}_i = 0.779 - 0.320 \times assetssc_i - 0.757 \times 0 + 0.301 \times assetssc_i \times 0 $$
+`$$\widehat{lhairhg}_i = 0.779 - 0.320 \times assetssc_i$$`
 
 - Non-native community resident: 
-`$$\widehat{log\_Hg}_i = 0.779 - 0.320 \times assetssc_i - 0.757 \times 1 + 0.301 \times assetssc_i \times 1$$`
+`$$\widehat{lhairhg}_i = 0.779 - 0.320 \times assetssc_i - 0.757 \times 1 + 0.301 \times assetssc_i \times 1$$`
 
-`$$\widehat{log\_Hg}_i = 0.022 - 0.019 \times assetssc_i$$`
+`$$\widehat{lhairhg}_i = 0.022 - 0.019 \times assetssc_i$$`
 
 ---
 
@@ -592,11 +593,11 @@ $$\widehat{log\_Hg}_i = 0.779 - 0.320 \times assetssc_i - 0.757 \times 0 + 0.301
 .pull-left[
 - Native community resident: 
 
-`$$\widehat{log\_Hg}_i = 0.779 - 0.320 \times assetssc_i$$`
+`$$\widehat{lhairhg}_i = 0.779 - 0.320 \times assetssc_i$$`
 
 - Non-native community resident: 
 
-`$$\widehat{log\_Hg}_i = 0.022 - 0.019 \times assetssc_i$$`
+`$$\widehat{lhairhg}_i = 0.022 - 0.019 \times assetssc_i$$`
 
 ]
 ]
