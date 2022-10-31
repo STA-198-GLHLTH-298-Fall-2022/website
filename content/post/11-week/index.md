@@ -37,7 +37,7 @@ title: 'Week 11 - Categorical Data Modeling'
 |:---|:---|:---|
 | Quiz | [Quiz 9](https://sakai.duke.edu) | Sun., 11/6 |
 | Lab 9 | [Lab 9](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Fri., 11/11 |
-| HW 3 | [Coming Soon](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Fri., 11/11 |
+| HW 3 | [Coming Soon](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/hw-03-community-neurodevelopment-2022-new.html) | Fri., 11/11 |
 | In-Class Activity | [Logistic Regression with Interaction](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/w11-ae-problem.html) | In Class |
 
 
