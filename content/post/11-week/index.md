@@ -26,10 +26,9 @@ title: 'Week 11 - Categorical Data Modeling'
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
 | Paradoxes and Fallacies   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
-| Logistic Regression   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
-| Logistic Regression Application   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
-| Logistic Regression: Coding with Aggregate Data   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | 
-| Confounding, Interaction, and Complex Interplay of Variables  | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
+| Logistic Regression   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/w11-l02-logistic.html)  | 
+| Logistic Regression: Coding with Aggregate Data   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/w11-aggregation.html) | 
+
 
 ### Assignments and Labs
 
@@ -37,8 +36,8 @@ title: 'Week 11 - Categorical Data Modeling'
 |:---|:---|:---|
 | Quiz | [Quiz 9](https://sakai.duke.edu) | Sun., 11/6 |
 | Lab 9 | [Lab 9](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Fri., 11/11 |
-| HW 3 | [Coming Soon](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/hw-03-community-neurodevelopment-2022-new.html) | Fri., 11/11 |
-| In-Class Activity | [Logistic Regression with Interaction](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/w11-ae-problem.html) | In Class |
+| HW 3 | [Social Development Study](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/hw-03-community-neurodevelopment-2022-new.html) | Fri., 11/11 |
+| In-Class Activity | [Logistic Regression Practice](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/w11-ae-problem.html) | In Class |
 
 
 

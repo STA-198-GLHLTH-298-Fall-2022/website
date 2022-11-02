@@ -374,7 +374,7 @@ We can put it all together as $$y_i=\beta_0 + \beta_1 X_{1,i} + \cdots + \beta_k
 
 The GLM provides an overarching framework for estimation and testing in a broad class of models. For any GLM, the following apply.
 
-  - A hypothesis test of $H_0: \beta=0$ versus $H_A: \beta \neq 0$ can be obtained using a z-statistic. In linear regression, an "exact" test (t-test) is available if the response is normally distributed, and for this reason the t-test is the default for linear regression. In other GLM's, the z-tests are approximate and require a "big enough" sample size.
+  - A hypothesis test of $H_0: \beta=0$ versus $H_A: \beta \neq 0$ can be obtained using a z-statistic. In linear regression, an "exact" test (t-test) is available if the response is normally distributed, and for this reason the t-test is the default for linear regression. In GLM's, the z-tests are approximate and require a "big enough" sample size.
   
   - 95% confidence intervals for $\beta$ can be constructed as $\hat{\beta} \pm 1.96 \times s_\hat{\beta}$ - again these are valid as long as we have "enough" data -- and for other coverage levels (e.g., 99% CI), we just use the relevant confidence multiplier. For linear regression, t-intervals are typically used (this changes the confidence multiplier) because they have better properties if the sample size is not that large.
   
@@ -776,4 +776,6 @@ print(result3,n=15)
 There you have it, the estimated OR is 1.28, 95% CI=(1.17, 1.39), so holding occupation constant, a one-decade increase in age for women is associated with 1.28 times the odds of smoking.
 
 What's up with male gender here?  Well, it wasn't as obvious in the prior model, but we had the same problem. So few women smoke in the data that these odds ratios are getting quite large (or small in the other model). It might even make more sense to exclude women entirely when examining predictors of smoking.
+
+This is an example of **effect measure modification** -- the association between age and smoking depends on gender.
 

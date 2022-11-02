@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Logistic Regression Practice</title>
+    <title>Aggregate Data</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
@@ -15,7 +15,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Logistic Regression Practice
+# Aggregate Data
 ## <br><br> Introduction to Global Health Data Science
 ### <br> Prof. Amy Herring
 
@@ -86,21 +86,93 @@ gats$DECADES=gats$AGE/10
 
 Let's explore factors related to a respondent's belief that smoking makes you sick.  First, filter to data to exclude anyone who did not respond to the education question or who reported they didn't know their education level.
 
-Then, conduct some initial exploratory analysis of how the belief smoking makes you sick varies across levels of gender and education. Fit a logistic regression model with gender and education as predictors. Write a paragraph or two describing your findings.
 
----
-
-### Have aggregate data like counts and/or rates?
 
 
 ```r
-# create 0/1 version of SMOKESICKBINARY where 1=yes makes you sick and 0=no
-#right now 1=yes and 2=no
 gats2 &lt;- gats %&gt;%
   filter(EDUCATION != "Don't Know") %&gt;%
   filter(EDUCATION != "Refused") %&gt;%
   filter(SMOKESICK != "Don't Know") %&gt;%
   filter(SMOKESICK != "Refused")
+
+table(gats2$SMOKESICK)
+```
+
+```
+#&gt; 
+#&gt;        Yes         No Don't Know    Refused 
+#&gt;      15932        953          0          0
+```
+
+---
+
+## Model with one line per person data format
+
+
+```r
+sick_m1 &lt;- logistic_reg() %&gt;%
+  set_engine("glm") %&gt;%
+  fit(SMOKESICKBINARY ~ GENDER + EDUCATION, data=gats2, family="binomial")
+result&lt;-tidy(sick_m1, conf.int=TRUE)
+```
+
+---
+
+
+```r
+print(result[,1],n=9)
+```
+
+```
+#&gt; # A tibble: 9 × 1
+#&gt;   term                               
+#&gt;   &lt;chr&gt;                              
+#&gt; 1 (Intercept)                        
+#&gt; 2 GENDERFemale                       
+#&gt; 3 EDUCATIONLess than Primary School  
+#&gt; 4 EDUCATIONPrimary School            
+#&gt; 5 EDUCATIONLess than Secondary School
+#&gt; 6 EDUCATIONSecondary School          
+#&gt; 7 EDUCATIONHigh School               
+#&gt; 8 EDUCATIONUniversity                
+#&gt; 9 EDUCATIONPostgraduate
+```
+
+
+---
+
+
+```r
+print(result,n=9)
+```
+
+```
+#&gt; # A tibble: 9 × 7
+#&gt;   term           estim…¹ std.e…² stati…³  p.value conf.…⁴ conf.…⁵
+#&gt;   &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 (Intercept)      1.83   0.105    17.5  1.09e-68  1.63     2.04 
+#&gt; 2 GENDERFemale     0.801  0.0716   11.2  4.48e-29  0.662    0.943
+#&gt; 3 EDUCATIONLess…   0.187  0.126     1.48 1.39e- 1 -0.0618   0.434
+#&gt; 4 EDUCATIONPrim…   0.513  0.127     4.04 5.36e- 5  0.263    0.761
+#&gt; 5 EDUCATIONLess…   0.551  0.163     3.37 7.46e- 4  0.235    0.876
+#&gt; 6 EDUCATIONSeco…   0.760  0.118     6.46 1.05e-10  0.528    0.990
+#&gt; 7 EDUCATIONHigh…   1.09   0.137     7.93 2.28e-15  0.820    1.36 
+#&gt; 8 EDUCATIONUniv…   1.00   0.139     7.19 6.45e-13  0.729    1.28 
+#&gt; 9 EDUCATIONPost…   0.684  0.432     1.58 1.14e- 1 -0.0822   1.64 
+#&gt; # … with abbreviated variable names ¹​estimate, ²​std.error,
+#&gt; #   ³​statistic, ⁴​conf.low, ⁵​conf.high
+```
+
+---
+
+
+## Have aggregate data like counts and/or rates?
+
+
+```r
+# create 0/1 version of SMOKESICKBINARY where 1=yes makes you sick and 0=no
+#right now 1=yes and 2=no
 
 gats2$SMOKESICKBIN2=ifelse(gats2$SMOKESICKBINARY=="Yes",1,0)
 

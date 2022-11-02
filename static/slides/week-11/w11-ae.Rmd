@@ -1,7 +1,6 @@
 ---
-title: "Go to End for Aggregate Coding!"
+title: "Logistic Regression Practice"
 subtitle: "<br><br> Introduction to Global Health Data Science"
-author: "[Back to Website](https://sta-198-glhlth-298-fall-2022.github.io/website/)"
 date: "<br> Prof. Amy Herring"
 output:
   xaringan::moon_reader:
@@ -86,101 +85,19 @@ Let's explore factors related to a respondent's belief that smoking makes you si
 
 Then, conduct some initial exploratory analysis of how the belief smoking makes you sick varies across levels of gender and education. Fit a logistic regression model with gender and education as predictors. Write a paragraph or two describing your findings.
 
-```{r smokesick}
-gats2 <- gats %>%
-  filter(EDUCATION != "Don't Know") %>%
-  filter(EDUCATION != "Refused") %>%
-  filter(SMOKESICK != "Don't Know") %>%
-  filter(SMOKESICK != "Refused")
-
-table(gats2$SMOKESICK)
-
-```
-
 ---
 
-```{r}
-
-ggplot(gats2, aes(x = GENDER,
-                 fill =SMOKESICKBINARY)) +
-  geom_bar() + 
-  labs(x = 'Gender',
-       fill = 'Smoking Makes You Sick?') +
-   scale_fill_manual(values = c("#E48957", "#071381","#07813e"))
-
-```
-
----
-
-```{r}
-
-ggplot(gats2, aes(x = EDUCATION,
-                 fill =SMOKESICKBINARY)) +
-  geom_bar() + 
-  labs(x = 'Education',
-       fill = 'Smoking Makes You Sick?') +
-   scale_fill_manual(values = c("#E48957", "#071381","#07813e")) + 
-  theme(axis.text.x = element_text(angle = 45,hjust=1))
-
-```
-
----
-
-## Output (on the log OR scale)
-
-```{r}
-
-sick_m1 <- logistic_reg() %>%
-  set_engine("glm") %>%
-  fit(SMOKESICKBINARY ~ GENDER + EDUCATION, data=gats2, family="binomial")
-result<-tidy(sick_m1, conf.int=TRUE)
-```
-
----
-
-```{r}
-print(result[,1],n=9)
-```
-
-
----
-
-```{r}
-print(result,n=9)
-```
-
----
-## Try an interaction (exponentiating output here)
-
-```{r}
-sick_m2 <- logistic_reg() %>%
-  set_engine("glm") %>%
-  fit(SMOKESICKBINARY ~ GENDER + EDUCATION * GENDER*EDUCATION, data=gats2, family="binomial")
-result2<-tidy(sick_m2, conf.int=TRUE, exponentiate=TRUE)
-```
-
----
-
-```{r}
-print(result2[,1],n=16)
-```
-
-
----
-
-```{r}
-print(result2,n=16)
-```
-
-Whew, no important interaction terms apparent here.
----
-
-## Have aggregate data like counts and/or rates?
+### Have aggregate data like counts and/or rates?
 
 ```{r }
 
 # create 0/1 version of SMOKESICKBINARY where 1=yes makes you sick and 0=no
 #right now 1=yes and 2=no
+gats2 <- gats %>%
+  filter(EDUCATION != "Don't Know") %>%
+  filter(EDUCATION != "Refused") %>%
+  filter(SMOKESICK != "Don't Know") %>%
+  filter(SMOKESICK != "Refused")
 
 gats2$SMOKESICKBIN2=ifelse(gats2$SMOKESICKBINARY=="Yes",1,0)
 
@@ -203,10 +120,20 @@ gats2_agg$Sickno <- gats2_agg$TOTAL- gats2_agg$Sickyes
 
 ---
 
+```{r printdat}
+
+gats2_agg
+
+```
+
+---
+
 ##Now that we have aggregate data, how do we fit the model?
 
 ```{r}
-modelagg<-glm(cbind(Sickyes, Sickno) ~ GENDER+EDUCATION, data=gats2_agg, family = binomial)
+modelagg<-glm(cbind(Sickyes, Sickno) ~
+                GENDER+EDUCATION, data=gats2_agg,
+              family = binomial)
 ```
 
 ---

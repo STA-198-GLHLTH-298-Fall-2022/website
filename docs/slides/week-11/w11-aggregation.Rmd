@@ -1,5 +1,5 @@
 ---
-title: "Logistic Regression Practice"
+title: "Aggregate Data"
 subtitle: "<br><br> Introduction to Global Health Data Science"
 date: "<br> Prof. Amy Herring"
 output:
@@ -83,21 +83,53 @@ gats$DECADES=gats$AGE/10
 
 Let's explore factors related to a respondent's belief that smoking makes you sick.  First, filter to data to exclude anyone who did not respond to the education question or who reported they didn't know their education level.
 
-Then, conduct some initial exploratory analysis of how the belief smoking makes you sick varies across levels of gender and education. Fit a logistic regression model with gender and education as predictors. Write a paragraph or two describing your findings.
 
----
 
-### Have aggregate data like counts and/or rates?
-
-```{r }
-
-# create 0/1 version of SMOKESICKBINARY where 1=yes makes you sick and 0=no
-#right now 1=yes and 2=no
+```{r smokesick}
 gats2 <- gats %>%
   filter(EDUCATION != "Don't Know") %>%
   filter(EDUCATION != "Refused") %>%
   filter(SMOKESICK != "Don't Know") %>%
   filter(SMOKESICK != "Refused")
+
+table(gats2$SMOKESICK)
+
+```
+
+---
+
+## Model with one line per person data format
+
+```{r}
+
+sick_m1 <- logistic_reg() %>%
+  set_engine("glm") %>%
+  fit(SMOKESICKBINARY ~ GENDER + EDUCATION, data=gats2, family="binomial")
+result<-tidy(sick_m1, conf.int=TRUE)
+```
+
+---
+
+```{r}
+print(result[,1],n=9)
+```
+
+
+---
+
+```{r}
+print(result,n=9)
+```
+
+---
+
+
+## Have aggregate data like counts and/or rates?
+
+```{r }
+
+# create 0/1 version of SMOKESICKBINARY where 1=yes makes you sick and 0=no
+#right now 1=yes and 2=no
 
 gats2$SMOKESICKBIN2=ifelse(gats2$SMOKESICKBINARY=="Yes",1,0)
 
