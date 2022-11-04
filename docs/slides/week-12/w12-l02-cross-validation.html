@@ -3,7 +3,6 @@
   <head>
     <title>Cross-Validation</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Back to Website" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
@@ -18,9 +17,6 @@ class: center, middle, inverse, title-slide
 
 # Cross-Validation
 ## <br><br> Introduction to Global Health Data Science
-### <a
-href="https://sta-198-glhlth-298-fall-2022.github.io/website/">Back to
-Website</a>
 ### <br> Prof. Amy Herring
 
 ---
@@ -173,7 +169,6 @@ mercury_train_pred
 #&gt; 5 -0.0276   0.510
 #&gt; 6 -0.0288  NA    
 #&gt; # … with 838 more rows
-#&gt; # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -293,7 +288,6 @@ mercury_test_pred
 #&gt; 5 NA       NA    
 #&gt; 6 NA       NA    
 #&gt; # … with 276 more rows
-#&gt; # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -591,7 +585,7 @@ tidy(final_fit, conf.int=TRUE)
 ```
 #&gt; parsnip model object
 #&gt; 
-#&gt; Fit time:  0ms 
+#&gt; Fit time:  2ms 
 #&gt; 
 #&gt; Call:
 #&gt; stats::lm(formula = lhairHg ~ assets_sc + native_cat + age, data = data)

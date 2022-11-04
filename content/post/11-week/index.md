@@ -25,7 +25,7 @@ title: 'Week 11 - Categorical Data Modeling'
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-| Paradoxes and Fallacies   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)  | 
+| Paradoxes and Fallacies   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/l01-multiwaytables.html)  | 
 | Logistic Regression   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/w11-l02-logistic.html)  | 
 | Logistic Regression: Coding with Aggregate Data   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/w11-aggregation.html) | 
 

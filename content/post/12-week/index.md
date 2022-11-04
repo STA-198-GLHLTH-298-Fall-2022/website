@@ -13,7 +13,7 @@ lastmod: "2021-07-12T00:00:00Z"
 projects: []
 subtitle: 'Survival :white_check-mark:'
 summary: Survival analysis
-title: 'Week 12 - Survival Analysis'
+title: 'Week 12 - Survival Analysis and Model Validation'
 ---
 
 
@@ -26,8 +26,10 @@ title: 'Week 12 - Survival Analysis'
 
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
-| Split Sample Analysis   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | 
-| Survival Analysis   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)   | 
+| Survival Analysis   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)   |
+| Split Sample Analysis   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-12/w12-l02-prediction-overfitting.html) | 
+| Cross-Validation   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-12/w12-l03-cross-validation.html) | 
+ 
 
 ### Assignments and Labs
 
@@ -43,7 +45,7 @@ title: 'Week 12 - Survival Analysis'
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
-| :page_facing_up: |[Train-Test-Split Intro](https://towardsdatascience.com/train-test-split-and-cross-validation-in-python-80b61beca4b6)  | **Recommended** |
+| :page_facing_up: |[Evaluate Your Model with Resampling](https://www.tidymodels.org/start/resampling/)  | **Required** |
 | :page_facing_up: |[Review: Probability](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/w2-l01-prob.html#1)   | **Required** |
 | :page_facing_up: |[Review: Conditional Probability ](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/w2-l02-condprob.html#1)  |**Required** |
 | :movie_camera: | [5 Bears in the Bed](https://www.dailymotion.com/video/x6oqa4p)  | **Required (Seriously!)** |

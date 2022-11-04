@@ -99,6 +99,10 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Cross-Validation&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Practice Making Analysis Plans&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -169,7 +173,7 @@
     </item>
     
     <item>
-      <title>Week 12 - Survival Analysis</title>
+      <title>Week 12 - Survival Analysis and Model Validation</title>
       <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/12-week/</link>
       <pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/12-week/</guid>
@@ -188,12 +192,16 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Split Sample Analysis&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Survival Analysis&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Survival Analysis&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Split Sample Analysis&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-12/w12-l02-prediction-overfitting.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Cross-Validation&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-12/w12-l03-cross-validation.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -236,8 +244,8 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📄&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://towardsdatascience.com/train-test-split-and-cross-validation-in-python-80b61beca4b6&#34;&gt;Train-Test-Split Intro&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Recommended&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.tidymodels.org/start/resampling/&#34;&gt;Evaluate Your Model with Resampling&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;📄&lt;/td&gt;
@@ -280,7 +288,7 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Paradoxes and Fallacies&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/l01-multiwaytables.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Logistic Regression&lt;/td&gt;
