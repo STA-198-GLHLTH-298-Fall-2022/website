@@ -11,9 +11,9 @@ image:
   preview_only: true
 lastmod: "2021-07-12T00:00:00Z"
 projects: []
-subtitle: 'Logistic regression and survival :white_check-mark:'
-summary: Logistic regression and survival analysis
-title: 'Week 12 - Logistic Regression and Survival Analysis'
+subtitle: 'Survival :white_check-mark:'
+summary: Survival analysis
+title: 'Week 12 - Survival Analysis'
 ---
 
 
@@ -27,7 +27,6 @@ title: 'Week 12 - Logistic Regression and Survival Analysis'
 | <div style="width:250px;text-align:left">Title</div> | <div  style="width:80px;text-align:center">Slides</div> | 
 |:---:|:---------------------|
 | Split Sample Analysis   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | 
-| Cross-Validation   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | 
 | Survival Analysis   | [<span style="color: #4b5357;"><i class="fas fa-desktop fa-lg"></i></span>](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html)   | 
 
 ### Assignments and Labs
@@ -44,7 +43,6 @@ title: 'Week 12 - Logistic Regression and Survival Analysis'
 
 | <div style="width:50px"></div>  | <div style="width:420px"></div>  |  <div style="width:200px"></div> |
 |:---:|:---|:---:|
-| :page_facing_up: |[Model Validation - Don't Worry About Python Code Just Read Text!](https://www.kaggle.com/dansbecker/model-validation)  | **Required** |
 | :page_facing_up: |[Train-Test-Split Intro](https://towardsdatascience.com/train-test-split-and-cross-validation-in-python-80b61beca4b6)  | **Recommended** |
 | :page_facing_up: |[Review: Probability](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/w2-l01-prob.html#1)   | **Required** |
 | :page_facing_up: |[Review: Conditional Probability ](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/w2-l02-condprob.html#1)  |**Required** |
