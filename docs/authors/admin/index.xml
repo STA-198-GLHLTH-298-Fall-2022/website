@@ -5,7 +5,7 @@
     <link>https://sta-198-glhlth-298-fall-2022.github.io/website/authors/admin/</link>
       <atom:link href="https://sta-198-glhlth-298-fall-2022.github.io/website/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     <description>STA 198 / GLHLTH 298</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2022</copyright><lastBuildDate>Thu, 15 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2022</copyright><lastBuildDate>Fri, 16 Jul 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://sta-198-glhlth-298-fall-2022.github.io/website/img/icon-192.png</url>
       <title>STA 198 / GLHLTH 298</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Week 15 - Final Presentations and Wrapping it Up</title>
       <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/15-week/</link>
-      <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 16 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/15-week/</guid>
       <description>&lt;h3 id=&#34;tasks&#34;&gt;Tasks&lt;/h3&gt;
 &lt;ul&gt;
@@ -80,7 +80,7 @@
     </item>
     
     <item>
-      <title>Week 13 - Bringing it All Together</title>
+      <title>Week 13 - Cross-Validation</title>
       <link>https://sta-198-glhlth-298-fall-2022.github.io/website/post/13-week/</link>
       <pubDate>Wed, 14 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://sta-198-glhlth-298-fall-2022.github.io/website/post/13-week/</guid>
@@ -192,16 +192,16 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Project Tips&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-12/project-tips.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Survival Analysis&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-12/w12-l01-survival.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;Split Sample Analysis&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-12/w12-l02-prediction-overfitting.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Cross-Validation&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-12/w12-l03-cross-validation.html&#34;&gt;&lt;span style=&#34;color: #4b5357;&#34;&gt;&lt;i class=&#34;fas fa-desktop fa-lg&#34;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

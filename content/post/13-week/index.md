@@ -11,9 +11,9 @@ image:
   preview_only: true
 lastmod: "2021-07-14T00:00:00Z"
 projects: []
-subtitle: 'Real World Practice :turkey:'
+subtitle: 'Cross-Validaiton :turkey:'
 summary: Thanksgiving week
-title: 'Week 13 - Bringing it All Together'
+title: 'Week 13 - Cross-Validation'
 ---
 
 ### Tasks 
