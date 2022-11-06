@@ -36,7 +36,7 @@ library(tidymodels)
 library(openintro)
 library(patchwork)
 library(skimr)
-set.seed(1234)
+set.seed(1213)
 options(
   warnPartialMatchArgs = FALSE,
   warnPartialMatchAttr = FALSE, 
@@ -60,7 +60,12 @@ gats <- readr::read_csv("data/gats_rev.csv")
 gats <- gats %>%
   filter(CURRENTSMOKE == "1") %>%
   filter(TRYSTOP != "9") %>%
-  select(-CIGS_DAY,-CASEID,-CURRENTSMOKE,-AGESTART,-REGION6,-REGION3,-HEARDOFECIG,-ECIGUSE)
+  select(-CIGS_DAY,-CASEID,-CURRENTSMOKE,-AGESTART,-REGION6,-REGION3,-HEARDOFECIG,-ECIGUSE) %>%
+  filter(EDUCATION < 9) %>%
+  filter(OCCUPATION < 10) %>%
+  filter(HOMESMOKERULES < 5) %>%
+  filter(SMOKESICK < 3) %>%
+  filter(SMOKECANCER < 3)
 
 gats$RESIDENCE=factor(gats$RESIDENCE,levels=c(1,2),labels=c("Urban","Rural"))
 gats$PROVINCE=factor(gats$PROVINCE,levels=seq(1:31),labels=c("Beijing","Tianjin","Hebei","Shanxi","Neimenggu","Liaoning","Jilin","Heilongjiang","Shanghai","Jiangsu","Zhejiang","Anhui","Fujian","Jiangxi","Shangdong","Henan","Hubei","Hunan","Guangdong","Guangxi","Hainan","Chongqing","Sichuan","Guizhou","Yunnan","Xizang","Shaanxi","Gansu","Qinghai","Ningxia","Xinjiang"))
@@ -73,6 +78,7 @@ gats$TRYSTOP=as.factor(gats$TRYSTOP)
 gats$HOMESMOKERULES=factor(gats$HOMESMOKERULES,levels=c(1,2,3,4,7,9),labels=c("Allowed","Not Allowed but Exceptions","Never Allowed","No Rules","Don't Know","Refused"))
 gats$SMOKESICK=factor(gats$SMOKESICK,levels=c(1,2,7,9),labels=c("Yes","No","Don't Know","Refused"))
 gats$SMOKECANCER=factor(gats$SMOKECANCER,levels=c(1,2,7,9),labels=c("Yes","No","Don't Know","Refused"))
+gats$AGE2=gats$AGE*gats$AGE
 ```
 
 ---
@@ -102,7 +108,7 @@ bigmod <- logistic_reg() %>%
   set_engine("glm") %>%
   fit(TRYSTOP ~ GENDER+PROVINCE+RESIDENCE+EDUCATION+
         OCCUPATION+HOMESMOKERULES+
-        SMOKESICK+SMOKECANCER, data = gats, family = "binomial") %>%
+        SMOKESICK+SMOKECANCER+GENDER*EDUCATION + GENDER*OCCUPATION + AGE + AGE2 + AGE*GENDER + AGE2*GENDER, data = gats, family = "binomial") %>%
   tidy() 
 ```
  
@@ -128,8 +134,10 @@ print(bigmod[34:52,],n=19)
 ---
 
 ```{r res4}
-print(bigmod[53:64,],n=13)
+print(bigmod[53:72,],n=21)
 ```
+
+
 
 ---
 
@@ -214,9 +222,10 @@ class: middle
 
 ## Splitting data
 
-- **Training set:**
+- **Not-Testing set:**
   - Sandbox for model building 
-  - Spend most of your time using the training set to develop the model
+  - Spend most of your time using the not-testing set to develop the model
+  - Often split the not-testing set into training and validation components
   - Majority of the data (often 80%)
   
 - **Testing set:**
@@ -224,6 +233,14 @@ class: middle
   - Critical to look at it once, otherwise it becomes part of the modeling process
   - Remainder of the data (often 20%)
   
+---
+
+Consider the following schematic from the Tidymodels website.
+
+```{r, echo=FALSE, out.width="45%"}
+knitr::include_graphics("img/traintest.png")
+```
+
 ---
 
 ## Performing the split
@@ -237,8 +254,13 @@ set.seed(1213)
 gats_split <- initial_split(gats, prop = 0.80)
 
 # Create data frames for the two sets:
-train_data <- training(gats_split)
+nottest_data <- training(gats_split)
 test_data  <- testing(gats_split)
+
+# Split the non-testing data into training and validation components
+nottest_split <- initial_split(nottest_data,prop=0.80)
+nottest_train_data <- training(nottest_split)
+nottest_validation_data <- testing(nottest_split)
 ```
 
 ---
@@ -248,7 +270,7 @@ test_data  <- testing(gats_split)
 .small[
 .pull-left[
 ```{r}
-glimpse(train_data)
+glimpse(nottest_train_data)
 ```
 ]
 .pull-right[
@@ -267,7 +289,7 @@ trystop_m1 <- logistic_reg() %>%
   set_engine("glm") %>%
   fit(TRYSTOP ~ GENDER+PROVINCE+RESIDENCE+EDUCATION+
         OCCUPATION+HOMESMOKERULES+
-        SMOKESICK+SMOKECANCER, data = train_data, family = "binomial") 
+        SMOKESICK+SMOKECANCER+GENDER*EDUCATION + GENDER*OCCUPATION + AGE + AGE2 + AGE*GENDER + AGE2*GENDER , data = nottest_train_data, family = "binomial") 
 
 ```
 
@@ -279,20 +301,20 @@ trystop_m1
 
 ---
 
-## Predict outcome on the testing dataset
+## Predict outcome on the validation dataset
 
 ```{r}
-predict(trystop_m1, test_data)
+predict(trystop_m1, nottest_validation_data)
 ```
 
 
 ---
 
-## Predict probabilities on the testing dataset
+## Predict probabilities on the validation dataset
 
 ```{r}
-trystop_pred1 <- predict(trystop_m1, test_data, type = "prob") %>%
-  bind_cols(test_data %>% select(TRYSTOP))
+trystop_pred1 <- predict(trystop_m1, nottest_validation_data, type = "prob") %>%
+  bind_cols(nottest_validation_data %>% select(TRYSTOP))
 
 trystop_pred1
 ```
@@ -302,7 +324,7 @@ trystop_pred1
 ## A closer look at predictions
 
 .pull-left-wide[
-```{r highlight.output=c(6, 8)}
+```{r highlight.output=c(17, 18)}
 trystop_pred1 %>%
   arrange(desc(.pred_Yes)) %>%
   print(n = 15)
@@ -366,24 +388,25 @@ OK, this is not a lot better than randomly predicting based on the prevalence of
 
 ## Comparing Models
 
-Let's compare the fit of this large model to one that only contains province, home smoking rules, and beliefs about whether smoking makes you sick or causes cancer.
+Let's compare the fit of this large model to one that does not contain any of the interaction terms.
 
 ```{r smallermodel, message=FALSE, warning=FALSE}
 trystop_m2 <- logistic_reg() %>%
   set_engine("glm") %>%
-  fit(TRYSTOP ~ PROVINCE+HOMESMOKERULES+SMOKESICK+
-        SMOKECANCER, data = train_data, family = "binomial") 
+  fit(TRYSTOP ~ GENDER+PROVINCE+RESIDENCE+EDUCATION+
+        OCCUPATION+HOMESMOKERULES+
+        SMOKESICK+SMOKECANCER + AGE + AGE2, data = nottest_train_data, family = "binomial") 
 
 trystop_pred2 <- 
-  predict(trystop_m2, test_data, type = "prob") %>% 
-  bind_cols(test_data %>% select(TRYSTOP))
+  predict(trystop_m2, nottest_validation_data, type = "prob") %>% 
+  bind_cols(nottest_validation_data %>% select(TRYSTOP))
 
 ```
 
 ---
 
 .pull-left[
-"Big" model with gender, education, occupation, residence,  province, home rules, beliefs
+"Big" model with gender, education, occupation, residence,  province, home rules, beliefs, age, interactions
 ```{r ref.label="roc", echo=FALSE, out.width="100%"}
 ```
 
@@ -434,9 +457,9 @@ The model with only an intercept should yield an AUC of 0.5 (chance assignment).
 ```{r intonlymodel, message=FALSE, warning=FALSE}
 trystop_m3 <- logistic_reg() %>%
   set_engine("glm") %>%
-  fit(TRYSTOP ~ 1, data = train_data, family = "binomial") 
+  fit(TRYSTOP ~ 1, data = nottest_train_data, family = "binomial") 
 
-trystop_pred3 <- predict(trystop_m3, test_data, type = "prob") %>% bind_cols(test_data %>% select(TRYSTOP))
+trystop_pred3 <- predict(trystop_m3, nottest_validation_data, type = "prob") %>% bind_cols(nottest_validation_data %>% select(TRYSTOP))
 
 trystop_pred3 %>%
   roc_auc(
@@ -463,3 +486,48 @@ trystop_pred3 %>%
 ---
 
 At the end of the day, we are predicting who has tried to stop smoking better than by random chance, but this is not a highly accurate algorithm. It is possible that with additional variables, for example about motivation or other psychological factors, we could do a better job with our prediction.
+
+---
+
+## Checking Preferred Model
+
+To finish, we fit our preferred model on the test data to assess its fit in the completely untouched test sample.
+
+```{r finalcheck}
+trystop_mf <- logistic_reg() %>%
+  set_engine("glm") %>%
+  fit(TRYSTOP ~ PROVINCE+HOMESMOKERULES+SMOKESICK+
+        SMOKECANCER, data = nottest_data, family = "binomial") 
+
+trystop_predf <- 
+  predict(trystop_mf, test_data, type = "prob") %>% 
+  bind_cols(test_data %>% select(TRYSTOP))
+```
+
+---
+
+```{r finalroc}
+trystop_predf %>%
+  roc_curve(
+    truth = TRYSTOP,
+    .pred_Yes,
+    event_level = "second"
+  ) %>%
+  autoplot()
+
+```
+
+---
+
+```{r rocvalue}
+
+trystop_predf %>%
+  roc_auc(
+    truth = TRYSTOP,
+    .pred_Yes,
+    event_level = "second"
+  )
+
+```
+
+Our performance is similar in the completely untouched sample.  

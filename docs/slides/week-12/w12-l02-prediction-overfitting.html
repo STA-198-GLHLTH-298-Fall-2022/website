@@ -56,7 +56,12 @@ gats &lt;- readr::read_csv("data/gats_rev.csv")
 gats &lt;- gats %&gt;%
   filter(CURRENTSMOKE == "1") %&gt;%
   filter(TRYSTOP != "9") %&gt;%
-  select(-CIGS_DAY,-CASEID,-CURRENTSMOKE,-AGESTART,-REGION6,-REGION3,-HEARDOFECIG,-ECIGUSE)
+  select(-CIGS_DAY,-CASEID,-CURRENTSMOKE,-AGESTART,-REGION6,-REGION3,-HEARDOFECIG,-ECIGUSE) %&gt;%
+  filter(EDUCATION &lt; 9) %&gt;%
+  filter(OCCUPATION &lt; 10) %&gt;%
+  filter(HOMESMOKERULES &lt; 5) %&gt;%
+  filter(SMOKESICK &lt; 3) %&gt;%
+  filter(SMOKECANCER &lt; 3)
 
 gats$RESIDENCE=factor(gats$RESIDENCE,levels=c(1,2),labels=c("Urban","Rural"))
 gats$PROVINCE=factor(gats$PROVINCE,levels=seq(1:31),labels=c("Beijing","Tianjin","Hebei","Shanxi","Neimenggu","Liaoning","Jilin","Heilongjiang","Shanghai","Jiangsu","Zhejiang","Anhui","Fujian","Jiangxi","Shangdong","Henan","Hubei","Hunan","Guangdong","Guangxi","Hainan","Chongqing","Sichuan","Guizhou","Yunnan","Xizang","Shaanxi","Gansu","Qinghai","Ningxia","Xinjiang"))
@@ -69,6 +74,7 @@ gats$TRYSTOP=as.factor(gats$TRYSTOP)
 gats$HOMESMOKERULES=factor(gats$HOMESMOKERULES,levels=c(1,2,3,4,7,9),labels=c("Allowed","Not Allowed but Exceptions","Never Allowed","No Rules","Don't Know","Refused"))
 gats$SMOKESICK=factor(gats$SMOKESICK,levels=c(1,2,7,9),labels=c("Yes","No","Don't Know","Refused"))
 gats$SMOKECANCER=factor(gats$SMOKECANCER,levels=c(1,2,7,9),labels=c("Yes","No","Don't Know","Refused"))
+gats$AGE2=gats$AGE*gats$AGE
 ```
 
 ---
@@ -99,7 +105,7 @@ bigmod &lt;- logistic_reg() %&gt;%
   set_engine("glm") %&gt;%
   fit(TRYSTOP ~ GENDER+PROVINCE+RESIDENCE+EDUCATION+
         OCCUPATION+HOMESMOKERULES+
-        SMOKESICK+SMOKECANCER, data = gats, family = "binomial") %&gt;%
+        SMOKESICK+SMOKECANCER+GENDER*EDUCATION + GENDER*OCCUPATION + AGE + AGE2 + AGE*GENDER + AGE2*GENDER, data = gats, family = "binomial") %&gt;%
   tidy() 
 ```
  
@@ -111,27 +117,27 @@ print(bigmod,n=17)
 ```
 
 ```
-#&gt; # A tibble: 64 × 5
+#&gt; # A tibble: 72 × 5
 #&gt;    term                 estimate std.error statistic p.value
 #&gt;    &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-#&gt;  1 (Intercept)           -0.805      0.406    -1.98   0.0474
-#&gt;  2 GENDERFemale           0.249      0.158     1.57   0.115 
-#&gt;  3 PROVINCETianjin       -0.847      0.636    -1.33   0.183 
-#&gt;  4 PROVINCEHebei          0.387      0.398     0.972  0.331 
-#&gt;  5 PROVINCEShanxi         0.335      0.398     0.841  0.400 
-#&gt;  6 PROVINCENeimenggu      0.369      0.424     0.869  0.385 
-#&gt;  7 PROVINCELiaoning       0.474      0.424     1.12   0.264 
-#&gt;  8 PROVINCEJilin          0.494      0.408     1.21   0.226 
-#&gt;  9 PROVINCEHeilongjiang  -0.115      0.415    -0.277  0.782 
-#&gt; 10 PROVINCEShanghai      -0.248      0.423    -0.587  0.557 
-#&gt; 11 PROVINCEJiangsu        0.334      0.392     0.852  0.394 
-#&gt; 12 PROVINCEZhejiang       0.234      0.416     0.563  0.574 
-#&gt; 13 PROVINCEAnhui          1.03       0.402     2.57   0.0103
-#&gt; 14 PROVINCEFujian         0.725      0.404     1.79   0.0729
-#&gt; 15 PROVINCEJiangxi       -0.0774     0.445    -0.174  0.862 
-#&gt; 16 PROVINCEShangdong      0.399      0.397     1.01   0.314 
-#&gt; 17 PROVINCEHenan          0.810      0.398     2.04   0.0417
-#&gt; # … with 47 more rows
+#&gt;  1 (Intercept)           -1.55       0.696   -2.23    0.0258
+#&gt;  2 GENDERFemale          -8.10       4.30    -1.88    0.0595
+#&gt;  3 PROVINCETianjin       -1.08       0.775   -1.40    0.163 
+#&gt;  4 PROVINCEHebei          0.217      0.514    0.422   0.673 
+#&gt;  5 PROVINCEShanxi         0.230      0.514    0.447   0.655 
+#&gt;  6 PROVINCENeimenggu      0.127      0.547    0.232   0.817 
+#&gt;  7 PROVINCELiaoning       0.431      0.543    0.794   0.427 
+#&gt;  8 PROVINCEJilin          0.483      0.535    0.902   0.367 
+#&gt;  9 PROVINCEHeilongjiang  -0.250      0.543   -0.459   0.646 
+#&gt; 10 PROVINCEShanghai      -0.395      0.537   -0.737   0.461 
+#&gt; 11 PROVINCEJiangsu        0.422      0.509    0.829   0.407 
+#&gt; 12 PROVINCEZhejiang      -0.0430     0.542   -0.0793  0.937 
+#&gt; 13 PROVINCEAnhui          0.979      0.521    1.88    0.0603
+#&gt; 14 PROVINCEFujian         0.656      0.526    1.25    0.212 
+#&gt; 15 PROVINCEJiangxi       -0.611      0.572   -1.07    0.285 
+#&gt; 16 PROVINCEShangdong      0.310      0.513    0.604   0.546 
+#&gt; 17 PROVINCEHenan          0.568      0.512    1.11    0.267 
+#&gt; # … with 55 more rows
 ```
 
 ---
@@ -145,22 +151,22 @@ print(bigmod[18:33,],n=16)
 #&gt; # A tibble: 16 × 5
 #&gt;    term              estimate std.error statistic p.value
 #&gt;    &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-#&gt;  1 PROVINCEHubei       0.115     0.399     0.288  0.773  
-#&gt;  2 PROVINCEHunan       0.757     0.390     1.94   0.0526 
-#&gt;  3 PROVINCEGuangdong   0.188     0.390     0.482  0.629  
-#&gt;  4 PROVINCEGuangxi     0.816     0.407     2.00   0.0450 
-#&gt;  5 PROVINCEHainan      1.70      0.623     2.72   0.00650
-#&gt;  6 PROVINCEChongqing  -0.0311    0.415    -0.0751 0.940  
-#&gt;  7 PROVINCESichuan     0.223     0.388     0.575  0.566  
-#&gt;  8 PROVINCEGuizhou     0.714     0.401     1.78   0.0748 
-#&gt;  9 PROVINCEYunnan      0.692     0.421     1.64   0.100  
-#&gt; 10 PROVINCEXizang     -0.142     0.701    -0.202  0.840  
-#&gt; 11 PROVINCEShaanxi     0.646     0.403     1.60   0.109  
-#&gt; 12 PROVINCEGansu       0.785     0.432     1.82   0.0693 
-#&gt; 13 PROVINCEQinghai     1.16      0.498     2.34   0.0195 
-#&gt; 14 PROVINCENingxia     0.175     0.586     0.298  0.766  
-#&gt; 15 PROVINCEXinjiang    0.120     0.436     0.275  0.783  
-#&gt; 16 RESIDENCERural      0.137     0.0795    1.73   0.0840
+#&gt;  1 PROVINCEHubei       0.0149     0.514    0.0290  0.977 
+#&gt;  2 PROVINCEHunan       0.401      0.506    0.792   0.428 
+#&gt;  3 PROVINCEGuangdong   0.214      0.514    0.416   0.677 
+#&gt;  4 PROVINCEGuangxi     0.794      0.527    1.51    0.132 
+#&gt;  5 PROVINCEHainan      1.65       0.801    2.06    0.0394
+#&gt;  6 PROVINCEChongqing  -0.270      0.540   -0.501   0.617 
+#&gt;  7 PROVINCESichuan     0.222      0.503    0.441   0.659 
+#&gt;  8 PROVINCEGuizhou     0.659      0.521    1.26    0.206 
+#&gt;  9 PROVINCEYunnan      0.757      0.533    1.42    0.156 
+#&gt; 10 PROVINCEXizang     -0.780      0.851   -0.917   0.359 
+#&gt; 11 PROVINCEShaanxi     0.761      0.519    1.46    0.143 
+#&gt; 12 PROVINCEGansu       0.649      0.556    1.17    0.243 
+#&gt; 13 PROVINCEQinghai     1.23       0.681    1.80    0.0711
+#&gt; 14 PROVINCENingxia     0.472      0.708    0.667   0.505 
+#&gt; 15 PROVINCEXinjiang    0.153      0.549    0.278   0.781 
+#&gt; 16 RESIDENCERural      0.0908     0.102    0.888   0.375
 ```
 
 ---
@@ -172,28 +178,29 @@ print(bigmod[34:52,],n=19)
 
 ```
 #&gt; # A tibble: 19 × 5
-#&gt;    term                          estimate std.e…¹ stati…² p.value
+#&gt;    term                           estim…¹ std.e…² stati…³ p.value
 #&gt;    &lt;chr&gt;                            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-#&gt;  1 EDUCATIONLess than Primary S…   0.285  1.59e-1  1.79   0.0731 
-#&gt;  2 EDUCATIONPrimary School         0.247  1.56e-1  1.58   0.114  
-#&gt;  3 EDUCATIONLess than Secondary…   0.371  1.78e-1  2.08   0.0373 
-#&gt;  4 EDUCATIONSecondary School       0.206  1.51e-1  1.36   0.173  
-#&gt;  5 EDUCATIONHigh School            0.446  1.64e-1  2.72   0.00652
-#&gt;  6 EDUCATIONUniversity             0.337  1.85e-1  1.82   0.0689 
-#&gt;  7 EDUCATIONPostgraduate          -0.721  8.37e-1 -0.862  0.389  
-#&gt;  8 EDUCATIONDon't Know           -11.8    3.25e+2 -0.0364 0.971  
-#&gt;  9 EDUCATIONRefused              -10.9    3.25e+2 -0.0334 0.973  
-#&gt; 10 OCCUPATIONGovernment            0.252  2.00e-1  1.26   0.206  
-#&gt; 11 OCCUPATIONBusiness              0.0873 9.78e-2  0.893  0.372  
-#&gt; 12 OCCUPATIONTeacher               0.320  3.48e-1  0.920  0.358  
-#&gt; 13 OCCUPATIONHealthcare            0.370  3.51e-1  1.06   0.291  
-#&gt; 14 OCCUPATIONStudent              -1.07   6.37e-1 -1.68   0.0926 
-#&gt; 15 OCCUPATIONSoldier               0.255  1.02e+0  0.249  0.803  
-#&gt; 16 OCCUPATIONUnemployed            0.122  1.29e-1  0.950  0.342  
-#&gt; 17 OCCUPATIONRetired               0.292  1.26e-1  2.33   0.0199 
-#&gt; 18 OCCUPATIONOther                 0.0844 9.98e-2  0.845  0.398  
-#&gt; 19 OCCUPATIONDon't Know          -11.6    2.30e+2 -0.0504 0.960  
-#&gt; # … with abbreviated variable names ¹​std.error, ²​statistic
+#&gt;  1 EDUCATIONLess than Primary Sc…  0.324    0.248  1.31   1.91e-1
+#&gt;  2 EDUCATIONPrimary School         0.152    0.242  0.629  5.29e-1
+#&gt;  3 EDUCATIONLess than Secondary …  0.445    0.269  1.65   9.83e-2
+#&gt;  4 EDUCATIONSecondary School       0.211    0.240  0.882  3.78e-1
+#&gt;  5 EDUCATIONHigh School            0.480    0.253  1.90   5.75e-2
+#&gt;  6 EDUCATIONUniversity             0.210    0.275  0.763  4.46e-1
+#&gt;  7 EDUCATIONPostgraduate          -1.53     1.12  -1.37   1.71e-1
+#&gt;  8 OCCUPATIONGovernment            0.320    0.222  1.44   1.50e-1
+#&gt;  9 OCCUPATIONBusiness              0.179    0.122  1.47   1.43e-1
+#&gt; 10 OCCUPATIONTeacher               0.427    0.394  1.09   2.78e-1
+#&gt; 11 OCCUPATIONHealthcare            0.420    0.364  1.15   2.49e-1
+#&gt; 12 OCCUPATIONStudent              -0.978    0.720 -1.36   1.75e-1
+#&gt; 13 OCCUPATIONSoldier              14.9    620.     0.0240 9.81e-1
+#&gt; 14 OCCUPATIONUnemployed            0.205    0.168  1.22   2.21e-1
+#&gt; 15 OCCUPATIONRetired               0.250    0.162  1.54   1.23e-1
+#&gt; 16 HOMESMOKERULESNot Allowed but…  0.144    0.110  1.32   1.88e-1
+#&gt; 17 HOMESMOKERULESNever Allowed     0.466    0.118  3.96   7.37e-5
+#&gt; 18 HOMESMOKERULESNo Rules         -0.0119   0.111 -0.107  9.14e-1
+#&gt; 19 SMOKESICKNo                    -0.330    0.166 -1.99   4.67e-2
+#&gt; # … with abbreviated variable names ¹​estimate, ²​std.error,
+#&gt; #   ³​statistic
 ```
 
 
@@ -201,28 +208,37 @@ print(bigmod[34:52,],n=19)
 
 
 ```r
-print(bigmod[53:64,],n=13)
+print(bigmod[53:72,],n=21)
 ```
 
 ```
-#&gt; # A tibble: 12 × 5
-#&gt;    term                           estim…¹ std.e…² stati…³ p.value
-#&gt;    &lt;chr&gt;                            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-#&gt;  1 OCCUPATIONRefused              -1.10    1.13    -0.971 3.31e-1
-#&gt;  2 HOMESMOKERULESNot Allowed but…  0.129   0.0903   1.43  1.53e-1
-#&gt;  3 HOMESMOKERULESNever Allowed     0.425   0.0931   4.57  4.89e-6
-#&gt;  4 HOMESMOKERULESNo Rules         -0.103   0.0852  -1.21  2.28e-1
-#&gt;  5 HOMESMOKERULESDon't Know       -0.0354  0.340   -0.104 9.17e-1
-#&gt;  6 HOMESMOKERULESRefused           0.174   1.05     0.165 8.69e-1
-#&gt;  7 SMOKESICKNo                    -0.352   0.127   -2.78  5.46e-3
-#&gt;  8 SMOKESICKDon't Know            -0.245   0.104   -2.36  1.82e-2
-#&gt;  9 SMOKESICKRefused               -1.36    0.916   -1.48  1.39e-1
-#&gt; 10 SMOKECANCERNo                  -0.259   0.147   -1.76  7.84e-2
-#&gt; 11 SMOKECANCERDon't Know          -0.453   0.0909  -4.98  6.46e-7
-#&gt; 12 SMOKECANCERRefused              0.393   0.847    0.464 6.43e-1
-#&gt; # … with abbreviated variable names ¹​estimate, ²​std.error,
-#&gt; #   ³​statistic
+#&gt; # A tibble: 20 × 5
+#&gt;    term                        estimate std.er…¹ statis…² p.value
+#&gt;    &lt;chr&gt;                          &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1 SMOKECANCERNo               -3.59e-1  1.80e-1 -2.00     0.0454
+#&gt;  2 AGE                          3.02e-2  1.71e-2  1.77     0.0773
+#&gt;  3 AGE2                        -2.57e-4  1.67e-4 -1.54     0.124 
+#&gt;  4 GENDERFemale:EDUCATIONLess… -5.31e-1  6.88e-1 -0.771    0.441 
+#&gt;  5 GENDERFemale:EDUCATIONPrim…  6.10e-1  7.10e-1  0.859    0.390 
+#&gt;  6 GENDERFemale:EDUCATIONLess…  1.04e+0  1.01e+0  1.04     0.300 
+#&gt;  7 GENDERFemale:EDUCATIONSeco…  3.89e-1  8.14e-1  0.478    0.632 
+#&gt;  8 GENDERFemale:EDUCATIONHigh…  1.78e+0  1.26e+0  1.41     0.158 
+#&gt;  9 GENDERFemale:EDUCATIONUniv…  1.87e+1  3.22e+2  0.0580   0.954 
+#&gt; 10 GENDERFemale:EDUCATIONPost… NA       NA       NA       NA     
+#&gt; 11 GENDERFemale:OCCUPATIONGov… -1.83e+0  9.40e+2 -0.00194  0.998 
+#&gt; 12 GENDERFemale:OCCUPATIONBus… -4.31e-1  9.44e-1 -0.457    0.648 
+#&gt; 13 GENDERFemale:OCCUPATIONTea… -3.89e+0  9.40e+2 -0.00414  0.997 
+#&gt; 14 GENDERFemale:OCCUPATIONHea… -1.46e+0  9.40e+2 -0.00156  0.999 
+#&gt; 15 GENDERFemale:OCCUPATIONStu…  1.77e+0  9.40e+2  0.00188  0.999 
+#&gt; 16 GENDERFemale:OCCUPATIONSol… NA       NA       NA       NA     
+#&gt; 17 GENDERFemale:OCCUPATIONUne…  2.48e-1  5.93e-1  0.419    0.675 
+#&gt; 18 GENDERFemale:OCCUPATIONRet…  1.87e-1  6.33e-1  0.296    0.767 
+#&gt; 19 GENDERFemale:AGE             2.23e-1  1.37e-1  1.63     0.103 
+#&gt; 20 GENDERFemale:AGE2           -1.52e-3  1.10e-3 -1.38     0.169 
+#&gt; # … with abbreviated variable names ¹​std.error, ²​statistic
 ```
+
+
 
 ---
 
@@ -280,9 +296,10 @@ class: middle
 
 ## Splitting data
 
-- **Training set:**
+- **Not-Testing set:**
   - Sandbox for model building 
-  - Spend most of your time using the training set to develop the model
+  - Spend most of your time using the not-testing set to develop the model
+  - Often split the not-testing set into training and validation components
   - Majority of the data (often 80%)
   
 - **Testing set:**
@@ -290,6 +307,12 @@ class: middle
   - Critical to look at it once, otherwise it becomes part of the modeling process
   - Remainder of the data (often 20%)
   
+---
+
+Consider the following schematic from the Tidymodels website.
+
+&lt;img src="img/traintest.png" width="45%" style="display: block; margin: auto;" /&gt;
+
 ---
 
 ## Performing the split
@@ -304,8 +327,13 @@ set.seed(1213)
 gats_split &lt;- initial_split(gats, prop = 0.80)
 
 # Create data frames for the two sets:
-train_data &lt;- training(gats_split)
+nottest_data &lt;- training(gats_split)
 test_data  &lt;- testing(gats_split)
+
+# Split the non-testing data into training and validation components
+nottest_split &lt;- initial_split(nottest_data,prop=0.80)
+nottest_train_data &lt;- training(nottest_split)
+nottest_validation_data &lt;- testing(nottest_split)
 ```
 
 ---
@@ -316,22 +344,23 @@ test_data  &lt;- testing(gats_split)
 .pull-left[
 
 ```r
-glimpse(train_data)
+glimpse(nottest_train_data)
 ```
 
 ```
-#&gt; Rows: 3,751
-#&gt; Columns: 10
-#&gt; $ RESIDENCE      &lt;fct&gt; Urban, Urban, Urban, Urban, Rural, Rural…
-#&gt; $ PROVINCE       &lt;fct&gt; Shanghai, Heilongjiang, Shangdong, Shang…
-#&gt; $ AGE            &lt;dbl&gt; 28.07671, 75.91507, 70.53973, 30.91233, …
-#&gt; $ GENDER         &lt;fct&gt; Male, Female, Male, Male, Male, Male, Ma…
-#&gt; $ EDUCATION      &lt;fct&gt; University, Secondary School, None, High…
-#&gt; $ OCCUPATION     &lt;fct&gt; Other, Retired, Farming, Business, Farmi…
-#&gt; $ TRYSTOP        &lt;fct&gt; Yes, Yes, No, No, Yes, No, No, Yes, No, …
-#&gt; $ HOMESMOKERULES &lt;fct&gt; Allowed, Not Allowed but Exceptions, All…
-#&gt; $ SMOKESICK      &lt;fct&gt; Yes, Yes, Don't Know, Yes, Yes, Yes, Don…
-#&gt; $ SMOKECANCER    &lt;fct&gt; Yes, Don't Know, Don't Know, Yes, Yes, Y…
+#&gt; Rows: 1,870
+#&gt; Columns: 11
+#&gt; $ RESIDENCE      &lt;fct&gt; Rural, Urban, Rural, Rural, Rural, Rural…
+#&gt; $ PROVINCE       &lt;fct&gt; Qinghai, Zhejiang, Guizhou, Hebei, Jiang…
+#&gt; $ AGE            &lt;dbl&gt; 31.79178, 64.60000, 44.58904, 65.97808, …
+#&gt; $ GENDER         &lt;fct&gt; Male, Male, Male, Male, Male, Male, Male…
+#&gt; $ EDUCATION      &lt;fct&gt; University, Less than Primary School, Pr…
+#&gt; $ OCCUPATION     &lt;fct&gt; Business, Farming, Business, Business, R…
+#&gt; $ TRYSTOP        &lt;fct&gt; Yes, No, Yes, Yes, Yes, No, Yes, No, Yes…
+#&gt; $ HOMESMOKERULES &lt;fct&gt; No Rules, Allowed, Allowed, Not Allowed …
+#&gt; $ SMOKESICK      &lt;fct&gt; Yes, Yes, Yes, Yes, Yes, Yes, Yes, No, Y…
+#&gt; $ SMOKECANCER    &lt;fct&gt; Yes, No, Yes, Yes, Yes, Yes, Yes, No, Ye…
+#&gt; $ AGE2           &lt;dbl&gt; 1010.7173, 4173.1600, 1988.1826, 4353.10…
 ```
 ]
 .pull-right[
@@ -341,18 +370,19 @@ glimpse(test_data)
 ```
 
 ```
-#&gt; Rows: 938
-#&gt; Columns: 10
+#&gt; Rows: 585
+#&gt; Columns: 11
 #&gt; $ RESIDENCE      &lt;fct&gt; Urban, Urban, Urban, Urban, Urban, Urban…
-#&gt; $ PROVINCE       &lt;fct&gt; Beijing, Beijing, Beijing, Beijing, Beij…
-#&gt; $ AGE            &lt;dbl&gt; 60.60548, 55.14795, 64.94795, 66.03014, …
-#&gt; $ GENDER         &lt;fct&gt; Female, Male, Male, Male, Male, Male, Fe…
-#&gt; $ EDUCATION      &lt;fct&gt; Primary School, University, Secondary Sc…
-#&gt; $ OCCUPATION     &lt;fct&gt; Retired, Retired, Retired, Retired, Reti…
-#&gt; $ TRYSTOP        &lt;fct&gt; Yes, No, No, No, Yes, No, No, No, No, No…
+#&gt; $ PROVINCE       &lt;fct&gt; Beijing, Tianjin, Tianjin, Tianjin, Neim…
+#&gt; $ AGE            &lt;dbl&gt; 62.82192, 60.62740, 62.04110, 70.76438, …
+#&gt; $ GENDER         &lt;fct&gt; Male, Male, Male, Male, Male, Male, Male…
+#&gt; $ EDUCATION      &lt;fct&gt; University, High School, Secondary Schoo…
+#&gt; $ OCCUPATION     &lt;fct&gt; Retired, Retired, Retired, Retired, Busi…
+#&gt; $ TRYSTOP        &lt;fct&gt; No, No, No, Yes, No, No, Yes, No, No, No…
 #&gt; $ HOMESMOKERULES &lt;fct&gt; Allowed, Not Allowed but Exceptions, All…
-#&gt; $ SMOKESICK      &lt;fct&gt; Yes, Yes, Yes, Yes, Don't Know, Yes, Yes…
-#&gt; $ SMOKECANCER    &lt;fct&gt; Yes, Yes, Yes, Yes, Don't Know, Yes, Yes…
+#&gt; $ SMOKESICK      &lt;fct&gt; Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, …
+#&gt; $ SMOKECANCER    &lt;fct&gt; Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, …
+#&gt; $ AGE2           &lt;dbl&gt; 3946.5934, 3675.6813, 3849.0976, 5007.59…
 ```
 ]
 ]
@@ -367,7 +397,7 @@ trystop_m1 &lt;- logistic_reg() %&gt;%
   set_engine("glm") %&gt;%
   fit(TRYSTOP ~ GENDER+PROVINCE+RESIDENCE+EDUCATION+
         OCCUPATION+HOMESMOKERULES+
-        SMOKESICK+SMOKECANCER, data = train_data, family = "binomial") 
+        SMOKESICK+SMOKECANCER+GENDER*EDUCATION + GENDER*OCCUPATION + AGE + AGE2 + AGE*GENDER + AGE2*GENDER , data = nottest_train_data, family = "binomial") 
 ```
 
 .small[
@@ -379,130 +409,139 @@ trystop_m1
 ```
 #&gt; parsnip model object
 #&gt; 
-#&gt; Fit time:  167ms 
+#&gt; Fit time:  122ms 
 #&gt; 
 #&gt; Call:  stats::glm(formula = TRYSTOP ~ GENDER + PROVINCE + RESIDENCE + 
-#&gt;     EDUCATION + OCCUPATION + HOMESMOKERULES + SMOKESICK + SMOKECANCER, 
-#&gt;     family = stats::binomial, data = data)
+#&gt;     EDUCATION + OCCUPATION + HOMESMOKERULES + SMOKESICK + SMOKECANCER + 
+#&gt;     GENDER * EDUCATION + GENDER * OCCUPATION + AGE + AGE2 + AGE * 
+#&gt;     GENDER + AGE2 * GENDER, family = stats::binomial, data = data)
 #&gt; 
 #&gt; Coefficients:
-#&gt;                              (Intercept)                              GENDERFemale  
-#&gt;                               -6.708e-01                                 2.610e-01  
-#&gt;                          PROVINCETianjin                             PROVINCEHebei  
-#&gt;                               -5.248e-01                                 3.793e-01  
-#&gt;                           PROVINCEShanxi                         PROVINCENeimenggu  
-#&gt;                                3.616e-01                                 2.684e-01  
-#&gt;                         PROVINCELiaoning                             PROVINCEJilin  
-#&gt;                                3.961e-01                                 5.275e-01  
-#&gt;                     PROVINCEHeilongjiang                          PROVINCEShanghai  
-#&gt;                               -1.762e-01                                -5.718e-01  
-#&gt;                          PROVINCEJiangsu                          PROVINCEZhejiang  
-#&gt;                                1.769e-01                                 4.243e-01  
-#&gt;                            PROVINCEAnhui                            PROVINCEFujian  
-#&gt;                                1.264e+00                                 5.890e-01  
-#&gt;                          PROVINCEJiangxi                         PROVINCEShangdong  
-#&gt;                               -2.023e-01                                 2.893e-01  
-#&gt;                            PROVINCEHenan                             PROVINCEHubei  
-#&gt;                                6.924e-01                                 9.467e-02  
-#&gt;                            PROVINCEHunan                         PROVINCEGuangdong  
-#&gt;                                7.593e-01                                 1.913e-01  
-#&gt;                          PROVINCEGuangxi                            PROVINCEHainan  
-#&gt;                                8.570e-01                                 1.798e+00  
-#&gt;                        PROVINCEChongqing                           PROVINCESichuan  
-#&gt;                                4.410e-02                                 2.711e-01  
-#&gt;                          PROVINCEGuizhou                            PROVINCEYunnan  
-#&gt;                                5.734e-01                                 7.005e-01  
-#&gt;                           PROVINCEXizang                           PROVINCEShaanxi  
-#&gt;                               -2.320e-01                                 5.954e-01  
-#&gt;                            PROVINCEGansu                           PROVINCEQinghai  
-#&gt;                                7.537e-01                                 1.344e+00  
-#&gt;                          PROVINCENingxia                          PROVINCEXinjiang  
-#&gt;                                1.110e-02                                 4.020e-02  
-#&gt;                           RESIDENCERural         EDUCATIONLess than Primary School  
-#&gt;                                1.063e-01                                 3.090e-01  
-#&gt;                  EDUCATIONPrimary School       EDUCATIONLess than Secondary School  
-#&gt;                                7.829e-02                                 1.287e-01  
-#&gt;                EDUCATIONSecondary School                      EDUCATIONHigh School  
-#&gt;                                1.482e-01                                 3.880e-01  
-#&gt;                      EDUCATIONUniversity                     EDUCATIONPostgraduate  
-#&gt;                                3.018e-01                                -1.370e+00  
-#&gt;                      EDUCATIONDon't Know                          EDUCATIONRefused  
-#&gt;                               -1.172e+01                                -1.102e+01  
-#&gt;                     OCCUPATIONGovernment                        OCCUPATIONBusiness  
-#&gt;                                3.996e-01                                 7.594e-02  
-#&gt;                        OCCUPATIONTeacher                      OCCUPATIONHealthcare  
-#&gt;                                2.885e-01                                 2.437e-01  
-#&gt;                        OCCUPATIONStudent                         OCCUPATIONSoldier  
-#&gt;                               -1.934e+00                                -4.921e-01  
-#&gt;                     OCCUPATIONUnemployed                         OCCUPATIONRetired  
-#&gt;                                1.134e-01                                 2.939e-01  
-#&gt;                          OCCUPATIONOther                      OCCUPATIONDon't Know  
-#&gt;                               -7.435e-04                                -1.165e+01  
-#&gt;                        OCCUPATIONRefused  HOMESMOKERULESNot Allowed but Exceptions  
-#&gt;                               -1.063e+00                                 9.078e-02  
-#&gt;              HOMESMOKERULESNever Allowed                    HOMESMOKERULESNo Rules  
-#&gt;                                3.801e-01                                -1.388e-01  
-#&gt;                 HOMESMOKERULESDon't Know                     HOMESMOKERULESRefused  
-#&gt;                                3.701e-02                                -1.931e-01  
-#&gt;                              SMOKESICKNo                       SMOKESICKDon't Know  
-#&gt;                               -3.419e-01                                -1.801e-01  
-#&gt;                         SMOKESICKRefused                             SMOKECANCERNo  
-#&gt;                               -1.661e+00                                -2.183e-01  
-#&gt;                    SMOKECANCERDon't Know                        SMOKECANCERRefused  
-#&gt;                               -5.140e-01                                -9.663e-01  
+#&gt;                                      (Intercept)                                      GENDERFemale  
+#&gt;                                       -1.363e+00                                        -1.469e+01  
+#&gt;                                  PROVINCETianjin                                     PROVINCEHebei  
+#&gt;                                       -1.168e+00                                         1.100e-01  
+#&gt;                                   PROVINCEShanxi                                 PROVINCENeimenggu  
+#&gt;                                        1.726e-01                                         3.140e-01  
+#&gt;                                 PROVINCELiaoning                                     PROVINCEJilin  
+#&gt;                                        5.521e-01                                         4.319e-01  
+#&gt;                             PROVINCEHeilongjiang                                  PROVINCEShanghai  
+#&gt;                                       -5.421e-01                                        -2.867e-01  
+#&gt;                                  PROVINCEJiangsu                                  PROVINCEZhejiang  
+#&gt;                                        5.254e-01                                        -1.582e-01  
+#&gt;                                    PROVINCEAnhui                                    PROVINCEFujian  
+#&gt;                                        7.355e-01                                         3.609e-01  
+#&gt;                                  PROVINCEJiangxi                                 PROVINCEShangdong  
+#&gt;                                       -1.655e-01                                         2.447e-01  
+#&gt;                                    PROVINCEHenan                                     PROVINCEHubei  
+#&gt;                                        4.926e-01                                         3.008e-02  
+#&gt;                                    PROVINCEHunan                                 PROVINCEGuangdong  
+#&gt;                                        8.847e-02                                         1.438e-01  
+#&gt;                                  PROVINCEGuangxi                                    PROVINCEHainan  
+#&gt;                                        6.649e-01                                         1.266e+00  
+#&gt;                                PROVINCEChongqing                                   PROVINCESichuan  
+#&gt;                                       -2.884e-01                                         2.880e-01  
+#&gt;                                  PROVINCEGuizhou                                    PROVINCEYunnan  
+#&gt;                                        9.591e-01                                         2.250e-01  
+#&gt;                                   PROVINCEXizang                                   PROVINCEShaanxi  
+#&gt;                                       -9.007e-01                                         7.732e-01  
+#&gt;                                    PROVINCEGansu                                   PROVINCEQinghai  
+#&gt;                                        6.366e-01                                         1.506e+00  
+#&gt;                                  PROVINCENingxia                                  PROVINCEXinjiang  
+#&gt;                                        5.283e-01                                         3.398e-02  
+#&gt;                                   RESIDENCERural                 EDUCATIONLess than Primary School  
+#&gt;                                        9.761e-03                                         2.922e-01  
+#&gt;                          EDUCATIONPrimary School               EDUCATIONLess than Secondary School  
+#&gt;                                        3.022e-01                                         5.298e-01  
+#&gt;                        EDUCATIONSecondary School                              EDUCATIONHigh School  
+#&gt;                                        2.617e-01                                         4.585e-01  
+#&gt;                              EDUCATIONUniversity                             EDUCATIONPostgraduate  
+#&gt;                                        3.903e-01                                        -1.512e+01  
+#&gt;                             OCCUPATIONGovernment                                OCCUPATIONBusiness  
+#&gt;                                        1.048e-01                                         7.961e-02  
+#&gt;                                OCCUPATIONTeacher                              OCCUPATIONHealthcare  
+#&gt;                                       -6.793e-02                                         1.125e-01  
+#&gt;                                OCCUPATIONStudent                                 OCCUPATIONSoldier  
+#&gt;                                       -1.006e+00                                         1.635e+01  
+#&gt;                             OCCUPATIONUnemployed                                 OCCUPATIONRetired  
+#&gt;                                        1.509e-01                                        -4.512e-02  
+#&gt;         HOMESMOKERULESNot Allowed but Exceptions                       HOMESMOKERULESNever Allowed  
+#&gt;                                        1.636e-01                                         5.272e-01  
+#&gt;                           HOMESMOKERULESNo Rules                                       SMOKESICKNo  
+#&gt;                                        1.167e-01                                        -2.745e-01  
+#&gt;                                    SMOKECANCERNo                                               AGE  
+#&gt;                                       -3.952e-01                                         2.255e-02  
+#&gt;                                             AGE2    GENDERFemale:EDUCATIONLess than Primary School  
+#&gt;                                       -1.818e-04                                        -6.853e-02  
+#&gt;             GENDERFemale:EDUCATIONPrimary School  GENDERFemale:EDUCATIONLess than Secondary School  
+#&gt;                                        1.016e+00                                         1.830e+01  
+#&gt;           GENDERFemale:EDUCATIONSecondary School                 GENDERFemale:EDUCATIONHigh School  
+#&gt;                                        9.146e-01                                         3.118e+00  
+#&gt;                 GENDERFemale:EDUCATIONUniversity                GENDERFemale:EDUCATIONPostgraduate  
+#&gt;                                        5.493e+01                                                NA  
+#&gt;                GENDERFemale:OCCUPATIONGovernment                   GENDERFemale:OCCUPATIONBusiness  
+#&gt;                                               NA                                        -3.233e+01  
+#&gt;                   GENDERFemale:OCCUPATIONTeacher                 GENDERFemale:OCCUPATIONHealthcare  
+#&gt;                                               NA                                        -3.450e+01  
+#&gt;                   GENDERFemale:OCCUPATIONStudent                    GENDERFemale:OCCUPATIONSoldier  
+#&gt;                                       -3.024e+01                                                NA  
+#&gt;                GENDERFemale:OCCUPATIONUnemployed                    GENDERFemale:OCCUPATIONRetired  
+#&gt;                                       -1.593e+00                                        -1.526e+00  
+#&gt;                                 GENDERFemale:AGE                                 GENDERFemale:AGE2  
+#&gt;                                        4.072e-01                                        -2.667e-03  
 #&gt; 
-#&gt; Degrees of Freedom: 3750 Total (i.e. Null);  3687 Residual
-#&gt; Null Deviance:	    5197 
-#&gt; Residual Deviance: 4936 	AIC: 5064
+#&gt; Degrees of Freedom: 1869 Total (i.e. Null);  1802 Residual
+#&gt; Null Deviance:	    2592 
+#&gt; Residual Deviance: 2460 	AIC: 2596
 ```
 ]
 
 ---
 
-## Predict outcome on the testing dataset
+## Predict outcome on the validation dataset
 
 
 ```r
-predict(trystop_m1, test_data)
+predict(trystop_m1, nottest_validation_data)
 ```
 
 ```
-#&gt; # A tibble: 938 × 1
+#&gt; # A tibble: 468 × 1
 #&gt;   .pred_class
 #&gt;   &lt;fct&gt;      
 #&gt; 1 No         
 #&gt; 2 Yes        
 #&gt; 3 No         
-#&gt; 4 Yes        
+#&gt; 4 No         
 #&gt; 5 No         
-#&gt; 6 No         
-#&gt; # … with 932 more rows
+#&gt; 6 Yes        
+#&gt; # … with 462 more rows
 ```
 
 
 ---
 
-## Predict probabilities on the testing dataset
+## Predict probabilities on the validation dataset
 
 
 ```r
-trystop_pred1 &lt;- predict(trystop_m1, test_data, type = "prob") %&gt;%
-  bind_cols(test_data %&gt;% select(TRYSTOP))
+trystop_pred1 &lt;- predict(trystop_m1, nottest_validation_data, type = "prob") %&gt;%
+  bind_cols(nottest_validation_data %&gt;% select(TRYSTOP))
 
 trystop_pred1
 ```
 
 ```
-#&gt; # A tibble: 938 × 3
+#&gt; # A tibble: 468 × 3
 #&gt;   .pred_No .pred_Yes TRYSTOP
 #&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;  
-#&gt; 1    0.509     0.491 Yes    
-#&gt; 2    0.496     0.504 No     
-#&gt; 3    0.557     0.443 No     
-#&gt; 4    0.496     0.504 No     
-#&gt; 5    0.596     0.404 Yes    
-#&gt; 6    0.680     0.320 No     
-#&gt; # … with 932 more rows
+#&gt; 1    0.711     0.289 Yes    
+#&gt; 2    0.206     0.794 Yes    
+#&gt; 3    0.538     0.462 Yes    
+#&gt; 4    0.549     0.451 No     
+#&gt; 5    0.803     0.197 No     
+#&gt; 6    0.479     0.521 No     
+#&gt; # … with 462 more rows
 ```
 
 ---
@@ -518,25 +557,25 @@ trystop_pred1 %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 938 × 3
+#&gt; # A tibble: 468 × 3
 #&gt;    .pred_No .pred_Yes TRYSTOP
 #&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;  
-#&gt;  1    0.158     0.842 No     
-#&gt;  2    0.180     0.820 Yes    
-*#&gt;  3    0.193     0.807 No     
-#&gt;  4    0.196     0.804 No     
-*#&gt;  5    0.197     0.803 Yes    
-#&gt;  6    0.205     0.795 Yes    
-#&gt;  7    0.220     0.780 No     
-#&gt;  8    0.222     0.778 No     
-#&gt;  9    0.223     0.777 Yes    
-#&gt; 10    0.227     0.773 No     
-#&gt; 11    0.227     0.773 Yes    
-#&gt; 12    0.228     0.772 No     
-#&gt; 13    0.241     0.759 No     
-#&gt; 14    0.243     0.757 Yes    
-#&gt; 15    0.247     0.753 No     
-#&gt; # … with 923 more rows
+#&gt;  1 2.22e-16     1     Yes    
+#&gt;  2 1.03e- 7     1.00  Yes    
+#&gt;  3 1.30e- 1     0.870 No     
+#&gt;  4 1.32e- 1     0.868 Yes    
+#&gt;  5 1.35e- 1     0.865 Yes    
+#&gt;  6 1.74e- 1     0.826 Yes    
+#&gt;  7 2.03e- 1     0.797 No     
+#&gt;  8 2.06e- 1     0.794 Yes    
+#&gt;  9 2.46e- 1     0.754 Yes    
+#&gt; 10 2.55e- 1     0.745 Yes    
+#&gt; 11 2.57e- 1     0.743 Yes    
+#&gt; 12 2.70e- 1     0.730 Yes    
+#&gt; 13 2.73e- 1     0.727 Yes    
+*#&gt; 14 2.73e- 1     0.727 Yes    
+*#&gt; 15 2.74e- 1     0.726 No     
+#&gt; # … with 453 more rows
 ```
 ]
 
@@ -560,7 +599,7 @@ trystop_pred1 %&gt;%
 ```
 ]
 .pull-right[
-&lt;img src="w12-l02-prediction-overfitting_files/figure-html/unnamed-chunk-11-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w12-l02-prediction-overfitting_files/figure-html/unnamed-chunk-12-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 .footnote[
@@ -591,11 +630,11 @@ trystop_pred1 %&gt;%
 #&gt; # A tibble: 1 × 3
 #&gt;   .metric .estimator .estimate
 #&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-#&gt; 1 roc_auc binary         0.588
+#&gt; 1 roc_auc binary         0.610
 ```
 ]
 .pull-right[
-&lt;img src="w12-l02-prediction-overfitting_files/figure-html/unnamed-chunk-13-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w12-l02-prediction-overfitting_files/figure-html/unnamed-chunk-14-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 OK, this is not a lot better than randomly predicting based on the prevalence of having tried to stop smoking in the data (AUC=0.5).
@@ -604,46 +643,47 @@ OK, this is not a lot better than randomly predicting based on the prevalence of
 
 ## Comparing Models
 
-Let's compare the fit of this large model to one that only contains province, home smoking rules, and beliefs about whether smoking makes you sick or causes cancer.
+Let's compare the fit of this large model to one that does not contain any of the interaction terms.
 
 
 ```r
 trystop_m2 &lt;- logistic_reg() %&gt;%
   set_engine("glm") %&gt;%
-  fit(TRYSTOP ~ PROVINCE+HOMESMOKERULES+SMOKESICK+
-        SMOKECANCER, data = train_data, family = "binomial") 
+  fit(TRYSTOP ~ GENDER+PROVINCE+RESIDENCE+EDUCATION+
+        OCCUPATION+HOMESMOKERULES+
+        SMOKESICK+SMOKECANCER + AGE + AGE2, data = nottest_train_data, family = "binomial") 
 
 trystop_pred2 &lt;- 
-  predict(trystop_m2, test_data, type = "prob") %&gt;% 
-  bind_cols(test_data %&gt;% select(TRYSTOP))
+  predict(trystop_m2, nottest_validation_data, type = "prob") %&gt;% 
+  bind_cols(nottest_validation_data %&gt;% select(TRYSTOP))
 ```
 
 ---
 
 .pull-left[
-"Big" model with gender, education, occupation, residence,  province, home rules, beliefs
-&lt;img src="w12-l02-prediction-overfitting_files/figure-html/unnamed-chunk-14-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+"Big" model with gender, education, occupation, residence,  province, home rules, beliefs, age, interactions
+&lt;img src="w12-l02-prediction-overfitting_files/figure-html/unnamed-chunk-15-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 ```
 #&gt; # A tibble: 1 × 3
 #&gt;   .metric .estimator .estimate
 #&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-#&gt; 1 roc_auc binary         0.588
+#&gt; 1 roc_auc binary         0.610
 ```
 ]
 .pull-right[
 Model without gender, education, occupation, and residence
 
 
-&lt;img src="w12-l02-prediction-overfitting_files/figure-html/unnamed-chunk-16-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w12-l02-prediction-overfitting_files/figure-html/unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 ```
 #&gt; # A tibble: 1 × 3
 #&gt;   .metric .estimator .estimate
 #&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-#&gt; 1 roc_auc binary         0.599
+#&gt; 1 roc_auc binary         0.615
 ```
 ]
 
@@ -661,9 +701,9 @@ The model with only an intercept should yield an AUC of 0.5 (chance assignment).
 ```r
 trystop_m3 &lt;- logistic_reg() %&gt;%
   set_engine("glm") %&gt;%
-  fit(TRYSTOP ~ 1, data = train_data, family = "binomial") 
+  fit(TRYSTOP ~ 1, data = nottest_train_data, family = "binomial") 
 
-trystop_pred3 &lt;- predict(trystop_m3, test_data, type = "prob") %&gt;% bind_cols(test_data %&gt;% select(TRYSTOP))
+trystop_pred3 &lt;- predict(trystop_m3, nottest_validation_data, type = "prob") %&gt;% bind_cols(nottest_validation_data %&gt;% select(TRYSTOP))
 
 trystop_pred3 %&gt;%
   roc_auc(
@@ -691,11 +731,65 @@ trystop_pred3 %&gt;%
   autoplot()
 ```
 
-&lt;img src="w12-l02-prediction-overfitting_files/figure-html/unnamed-chunk-18-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="w12-l02-prediction-overfitting_files/figure-html/unnamed-chunk-19-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 At the end of the day, we are predicting who has tried to stop smoking better than by random chance, but this is not a highly accurate algorithm. It is possible that with additional variables, for example about motivation or other psychological factors, we could do a better job with our prediction.
+
+---
+
+## Checking Preferred Model
+
+To finish, we fit our preferred model on the test data to assess its fit in the completely untouched test sample.
+
+
+```r
+trystop_mf &lt;- logistic_reg() %&gt;%
+  set_engine("glm") %&gt;%
+  fit(TRYSTOP ~ PROVINCE+HOMESMOKERULES+SMOKESICK+
+        SMOKECANCER, data = nottest_data, family = "binomial") 
+
+trystop_predf &lt;- 
+  predict(trystop_mf, test_data, type = "prob") %&gt;% 
+  bind_cols(test_data %&gt;% select(TRYSTOP))
+```
+
+---
+
+
+```r
+trystop_predf %&gt;%
+  roc_curve(
+    truth = TRYSTOP,
+    .pred_Yes,
+    event_level = "second"
+  ) %&gt;%
+  autoplot()
+```
+
+&lt;img src="w12-l02-prediction-overfitting_files/figure-html/finalroc-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+```r
+trystop_predf %&gt;%
+  roc_auc(
+    truth = TRYSTOP,
+    .pred_Yes,
+    event_level = "second"
+  )
+```
+
+```
+#&gt; # A tibble: 1 × 3
+#&gt;   .metric .estimator .estimate
+#&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+#&gt; 1 roc_auc binary         0.595
+```
+
+Our performance is similar in the completely untouched sample.  
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

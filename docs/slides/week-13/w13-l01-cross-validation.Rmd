@@ -44,6 +44,17 @@ class: middle
 
 ---
 
+## Redo with the reading in mind -- go through entire setup
+
+---
+
+
+
+Our goal was to predict which hotel stays included children and/or babies. The random forest model clearly performed better than the penalized logistic regression model, and would be our best bet for predicting hotel stays with and without children. After selecting our best model and hyperparameter values, our last step is to fit the final model on all the rows of data not originally held out for testing (both the training and the validation sets combined), and then evaluate the model performance one last time with the held-out test set.
+
+---
+
+
 ## Mercury data
 
 ```{r mercurydata}
@@ -68,7 +79,7 @@ mercury1$an_int=mercury1$assets_sc*mercury1$native
 
 ---
 
-# Modeling
+# Modeling 
 
 ---
 
