@@ -1,0 +1,218 @@
+---
+title: 'Lab #09: Reproducible Research'
+subtitle: due Friday, November 11, 4:00 PM
+output:
+  tufte::tufte_html:    
+    css: "sta199-labs.css"
+    tufte_variant: envisioned
+    highlight: pygments
+    toc: no
+    toc_depth: 1
+  html_document:
+    toc: no
+    toc_depth: '1'
+    df_print: paged
+link-citations: yes
+editor_options:
+  chunk_output_type: console
+---
+
+## Goals
+
+- In this lab you already have the answers!  We will reproduce much of the analysis in Odoyo-June et al. (2018) using data they made available along with their publication.
+
+- Reproduce point and interval estimates of proportions as well as results of chi-squared tests from a published article
+
+- Use the `janitor` package for professionally formatted tables
+
+
+## Getting Started
+
+Log in to GitHub to determine your team number and members for Lab 9 (new groups!).
+
+- Find a one-hour block of time outside of class that you can use to work on the
+lab / project if needed. You may not need to use this, but it is good to have it
+in reserve. Tools like [Doodle](https://doodle.com/en/)
+and [When2Meet](https://www.when2meet.com/) are helpful.
+- Determine how your group will communicate (email, text, slack, discord, etc).
+
+## Packages
+
+```{r calltidy, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(janitor)
+library(kableExtra)
+library(infer)
+```
+
+In case you forgot...
+
+```{r eval=FALSE}
+library(usethis)
+use_git_config(user.name = "GitHub username", user.email="your email")
+```
+
+# Starting Example
+
+To illustrate use of some R packages that are helpful for reproducing the manuscript's results, we consider data on patients with chronic obstructive pulmonary disease (COPD) who were given access to an online program providing health-related information (nutrition, stress management, exercise, medication use) designed to prevent episodes of dyspnea (labored breathing). Researchers wanted to explore how frequency of usage of the online program (infrequent: $<$ once per week; occasional: 1-3 times/week, or frequent: 4+ times/week) was related to emergency room visits for dyspnea during an 18-month follow-up period (0, 1-3, or $>$3).
+
+```{r sampledata, echo=FALSE}
+tooluse <- as.factor(c(rep("Infrequent",167),rep("Occasional",77),rep("Frequent",131)))
+
+ERvisits <- as.factor(c(rep("0",12),rep("1-3",55),rep("3+",100),rep("0",21),rep("1-3",37),rep("3+",19),rep("0",105),rep("1-3",11),rep("3+",15)))
+
+copd<-data.frame(tooluse,ERvisits)
+
+```
+
+
+First, we can use the janitor package to make a very simple table using the COPD data.
+The `tabyl()` function makes a frequency table based on the columns provided 
+as arguments (in this case, it's a two-table between `tooluse` and `ERvisits`).
+
+```{r firsttable}
+copd %>%
+  tabyl(tooluse,ERvisits) 
+```
+
+Let's clean up the table a bit. `kable()` comes from the package `kableExtra` and 
+it formats the table nicely. The package has a lot of customization available - 
+`kable_classic()` is just one possible theme (the argument `full_width` prevents 
+the table from being stretched to the width of your html/pdf). 
+[Here](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) is some nice documentation on `kable()`, so feel free to spruce up the formatting 
+as you wish!
+
+```{r cleanertable}
+copd %>%
+  tabyl(tooluse,ERvisits) %>%
+  kable() %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+```
+
+Next, we'll take advantage of some `adorn_*` functions, which builds upon a `tabyl` and 
+provides added formatting. Let's first use `adorn_title()` to add a label to the columns. 
+
+```{r cleanertable2}
+copd %>%
+  tabyl(tooluse,ERvisits) %>%
+  adorn_title(placement="top") %>%
+  kable() %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+```
+
+Let's add column percentages to the table. `adorn_percentages()` will calculate 
+percentages either across `row` or `col`. `adorn_pct_formatting()` allows us to format
+percentage columns, and in this case we round to one decimal point. Finally, `adorn_ns()`
+adds the underlying counts in parantheses corresponding to each percentage. 
+
+```{r colpct}
+copd %>%
+  tabyl(tooluse,ERvisits) %>%
+  adorn_percentages('col') %>%
+  adorn_pct_formatting(digits = 1) %>%  
+  adorn_ns() %>%
+  adorn_title(placement = "top") %>%
+  kable() %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+```
+
+We can instead add row percentages.
+
+```{r rowpct}
+copd %>%
+  tabyl(tooluse,ERvisits) %>%
+  adorn_percentages('row') %>%
+  adorn_pct_formatting(digits = 1) %>%  
+  adorn_ns() %>%
+  adorn_title(placement = "top") %>%
+  kable() %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+```
+
+One way to change the ordering of the rows or columns is to relevel the data. Here, 
+we only want to make 'Occasional' first and 'Infrequent' second. Any levels that 
+we don't include in `fct_relevel()` (ie 'Frequent') will follow after the ones explicitly stated and 
+will remain in their original order. 
+
+```{r relevel}
+copd %>%
+  mutate(`Tool Use` = fct_relevel(tooluse,"Occasional","Infrequent")) %>%
+  tabyl(`Tool Use`,ERvisits) %>%
+  adorn_title(placement="top") %>%
+  kable() %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+```
+
+The `oddsratio()` function from the `epitools` package takes in a frequency table 
+and returns the calculated odds ratio. Note here that we need to use the `table()` 
+function instead of the `tabyl()` function used before as `oddsratio()` requires
+the base R function's output. 
+
+```{r epitoolslib}
+library(epitools) 
+
+copd_tab <- table(copd$tooluse,copd$ERvisits)
+
+oddsratio(copd_tab)
+
+#another way to get OR's
+copd_infreq_occ <- copd %>%
+  filter(tooluse != "Frequent") %>%
+  droplevels() #delete the (empty) frequent level
+
+chisq_test(copd_infreq_occ, tooluse ~ ERvisits)
+
+copd_io_tab<-table(copd_infreq_occ$tooluse,copd_infreq_occ$ERvisits)
+
+oddsratio(copd_io_tab)
+
+
+
+```
+
+Similar to before, we can use `fct_relevl()` to relevel the columns in order to change the referent group for the odds ratios.
+
+```{r flipref}
+copd_infreq_occ_relevel <- copd_infreq_occ %>%
+  mutate(tooluse = fct_relevel(tooluse,"Occasional")) 
+
+copd_io_tab_r=table(copd_infreq_occ_relevel$tooluse,copd_infreq_occ_relevel$ERvisits)
+
+oddsratio(copd_io_tab_r)
+
+```
+
+# Agreement on Male Circumcision Status in Nyanza region, Kenya: The TASCO Study
+
+In October 2008, a voluntary medical male circumcision (MC) program for HIV prevention was launched in Kenya as a result of three randomized studies showing a 60% reduction in the  risk of heterosexual HIV infection among circumcized men. TASCO study investigators were interested in the validity of self-report of MC status, which could be related to perceived social desirability as well as uncertainty around one's circumcision status due to biological factors or to some usage of the term to refer to other rituals/rites of passage in which the medical procedure might or might not be carried out.
+
+
+```{r readdata, message=FALSE}
+mc <- read_csv("pone.0192823.s001.csv")
+```
+
+
+
+1. Table 2 presents results of self-reported versus verified MC status among the 4,232 men who consented to genital examination to verify MC status. Reproduce the information in the bottom 4 rows and all columns of this table (that is, you don't need to include the row labeled "N") using code to calculate the required values.
+
+
+2. Table 1 explores factors related to consent to verification of MC status. Reproduce columns 1-3 of this table (not the p-value column) for the education variable.
+
+3. Table 2 also presents results of a chi-squared test of independence between education completed and consenting to MC verification.  Conduct this test and report both the chi-squared test statistics and the p-value you obtain. (You do not need a nicely formatted table for this output)
+
+
+4. Table 3, columns 1-4, provides step-down tests to explore which levels of education may differ in consent to genital examination to verify MC status.  Provide the code to calculate the OR and 95% CI for these comparisons and also to conduct the chi-squared tests presented. In addition, provide an OR, 95% CI, and p-value for the test comparing consent for genital examination between those with secondary and post-secondary education. Interpret all your results.  (NOTE: For extra credit, you can put these results in a table, but note this is not for the faint of heart!)
+
+
+## Grading
+Total: 50 pts
+
+- Exercise 1: 10 pts 
+- Exercise 2: 10 pts
+- Exercise 3: 10 pts
+- Exercise 4: 15 pts (+1 point for nice table)
+
+
+- Overall:  5 pts
+
+  - Overall includes the number of commits made by different team members (at least 1 by each team member), naming chunks, updating the names on the assignment to your team name clearly identifying all team members, following tidyverse style (see: https://style.tidyverse.org/), and in general producing a nicely formatted, neat report. In order to receive credit for this assignment, you must complete the team evaluation on Sakai.

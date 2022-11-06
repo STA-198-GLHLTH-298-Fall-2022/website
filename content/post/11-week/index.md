@@ -35,7 +35,7 @@ title: 'Week 11 - Categorical Data Modeling'
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
 | Quiz | [Quiz 9](https://sakai.duke.edu) | Sun., 11/6 |
-| Lab 9 | [Lab 9](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-02/coming-soon.html) | Fri., 11/11 |
+| Lab 9 | [Lab 9](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/lab-09-reproducibility.html) | Fri., 11/11 |
 | HW 3 | [Social Development Study](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/hw-03-community-neurodevelopment-2022-new.html) | Fri., 11/11 |
 | In-Class Activity | [Logistic Regression Practice](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-11/w11-ae-problem.html) | In Class |
 

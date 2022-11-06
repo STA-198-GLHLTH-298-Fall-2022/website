@@ -9,7 +9,7 @@ image:
   focal_point: ""
   placement: 2
   preview_only: true
-lastmod: "2021-07-14T00:00:00Z"
+lastmod: "2021-07-13T00:00:00Z"
 projects: []
 subtitle: 'Cross-Validaiton :turkey:'
 summary: Thanksgiving week
