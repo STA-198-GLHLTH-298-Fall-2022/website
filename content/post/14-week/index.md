@@ -11,7 +11,7 @@ image:
   preview_only: true
 lastmod: "2021-07-14T00:00:00Z"
 projects: []
-subtitle: 'Learn from your classmates! :technologist:'
+subtitle: 'Learn from classmates! :technologist:'
 summary: Global Health Data Science Festival!
 title: 'Week 14 - Project Presentations'
 ---

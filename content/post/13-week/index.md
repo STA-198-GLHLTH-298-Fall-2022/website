@@ -1,7 +1,7 @@
 ---
 authors:
 - admin
-date: "2021-07-14T00:00:00Z"
+date: "2021-07-13T00:00:00Z"
 draft: false
 featured: false
 image:
@@ -18,7 +18,7 @@ title: 'Week 13 - Cross-Validation'
 
 ### Tasks 
 
-This week we'll use lab time to practice bringing together all the skills we've learned by reading about real studies and setting up analysis plans. 
+This week we'll use lab to practice bringing together all the skills we've learned by reading about real studies and setting up analysis plans. 
 
 - Complete the [assignments](/post/13-week/#assignments-and-labs)
 
