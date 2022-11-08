@@ -44,13 +44,12 @@ class: middle
 
 ---
 
-## Redo with the reading in mind -- go through entire setup
+## Continuous Responses
 
----
+Last time we used a split-sample analysis to develop a model for predicting a binary outcome. Now we consider measures useful in validating a model for a continuous outcome. To do so, we'll reconsider the mercury data.
 
 
 
-Our goal was to predict which hotel stays included children and/or babies. The random forest model clearly performed better than the penalized logistic regression model, and would be our best bet for predicting hotel stays with and without children. After selecting our best model and hyperparameter values, our last step is to fit the final model on all the rows of data not originally held out for testing (both the training and the validation sets combined), and then evaluate the model performance one last time with the held-out test set.
 
 ---
 
@@ -74,6 +73,9 @@ mercury1 <-
   mercury %>%
   filter(withinid==1)
 mercury1$an_int=mercury1$assets_sc*mercury1$native
+mercury1$naturb_int=mercury1$native*mercury1$urban
+mercury1$natmine_int=mercury1$native*mercury1$form_min_sc
+mercury1$sexage_int=mercury1$sex*mercury1$age
 ```
 
 
@@ -83,7 +85,7 @@ mercury1$an_int=mercury1$assets_sc*mercury1$native
 
 ---
 
-## Train / test
+## Train / test strategy from last time
 
 - Create an initial split
 
@@ -161,8 +163,9 @@ Are models with high or low $R^2$ preferable?
 An alternative model performance statistic: **root mean square error**
 
 $$ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}} $$
+Root mean squared error tells us how well the model predicts the response in absolute terms (how close are predicted/fitted values to actual observations), while $R^2$ measures this in percentage terms.
 
---
+---
 
 ```{r rmse-train}
 rmse(mercury_train_pred, truth = lhairHg, estimate = .pred)
@@ -189,6 +192,7 @@ Is this RMSE considered low or high?
 mercury_train %>%
   summarise(min = min(lhairHg,na.rm=TRUE), max = max(lhairHg,na.rm=TRUE))
 ```
+Here we see the minimum and maximum log hair mercury levels. Root mean squared error is on the same scale as our outcome variable.
 
 ---
 class: middle
@@ -273,6 +277,10 @@ tibble(
 
 - Suppose you give a class a test, then give them the answers, then provide the same test. The student scores on the second test do not accurately reflect what they know about the subject; these scores would probably be higher than their results on the first test.
 
+--
+
+- What if your data are relatively small, and you are worried about sample splitting?
+
 .footnote[
 .small[
 Source: [tidymodels.org](https://www.tidymodels.org/start/resampling/)
@@ -284,6 +292,22 @@ Source: [tidymodels.org](https://www.tidymodels.org/start/resampling/)
 class: middle
 
 # Cross validation
+
+---
+
+## Cross validation
+
+Resampling methods like cross-validation can be used to maximize the amount of data used in training a model, while also evaluating its performance. Cross-validation creates a series of data sets like we created before in a single split sample analysis; as in that case, subset of the data are used for creating the model, and a different subset is used to measure performance. However, we do this repeatedly within the same training sample, rather than splitting the training sample into completely separate components for model selection/training and validation.  In both cases, we do retain a completely separate, held-out test data set to evaluate model performance one last time.
+
+---
+
+
+
+Consider this schematic (Kuhn & Johnson, 2019).
+
+```{r echo=FALSE, out.width="90%"}
+knitr::include_graphics("img/kuhnjohnson.png")
+```
 
 ---
 
@@ -383,38 +407,6 @@ collect_metrics(mercury_fit_rs, summarize = FALSE) %>%
 
 ---
 
-## How does RMSE compare to y?
-
-- Cross validation RMSE stats
-
-```{r echo=FALSE}
-collect_metrics(mercury_fit_rs, summarize = FALSE) %>%
-  filter(.metric == "rmse") %>%
-  summarise(
-    min = min(.estimate),
-    max = max(.estimate),
-    mean = mean(.estimate),
-    med = median(.estimate),
-    sd = sd(.estimate),
-    IQR = IQR(.estimate)
-  )
-```
-- Training data mercury stats
-
-```{r echo=FALSE}
-mercury_train %>%
-  summarise(
-    min = min(lhairHg,na.rm=TRUE),
-    max = max(lhairHg,na.rm=TRUE),
-    mean = mean(lhairHg,na.rm=TRUE),
-    med = median(lhairHg,na.rm=TRUE),
-    sd = sd(lhairHg,na.rm=TRUE),
-    IQR = IQR(lhairHg,na.rm=TRUE)
-  )
-```
-
----
-
 ## Compare to simpler model
 
 Let's check how accurate predictions from this model are: RMSE=1.01, $R^2=0.196$, compared to predictions from a simpler model with age, assets, and native community status.
@@ -437,6 +429,26 @@ collect_metrics(mercury_fit_rs_2)
 ```
 ---
 
+## Compare to more complex model
+
+Now let's compare to a model that allows the effects of being in an urban area and living close to a mining operation depend on whether a community is classified as native or non-native, and also that allows the age effect to vary by gender.
+
+```{r}
+
+mercury_rec_3 <- recipe(lhairHg ~ assets_sc + native_cat + form_min_sc + sex_cat + age + urban + an_int + naturb_int + natmine_int + sexage_int, data = mercury_train)
+
+mercury_wflow_3 <- workflow() %>%
+  add_model(mercury_mod) %>%
+  add_recipe(mercury_rec_3)
+
+mercury_fit_rs_3 <- mercury_wflow_3 %>%
+  fit_resamples(folds)
+
+collect_metrics(mercury_fit_rs_3)
+
+```
+---
+
 ## What's next?
 
 ```{r echo=FALSE, out.width="100%", fig.align="right"}
@@ -447,7 +459,40 @@ knitr::include_graphics("img/post-cv-testing.png")
 
 ## Picking a Model
 
-When choosing between these two models, we see essentially the same $R^2$ and RMSE, but one model is much simpler than the other. It makes sense to use the simpler model to facilitate interpretation. Let's practice interpreting results from the model, fit to the full data, now!
+When choosing between these three models, we see essentially the same $R^2$ and RMSE, but one model is much simpler than the other two. It makes sense to use the simpler model to facilitate interpretation. 
+
+Our goal was to predict mercury levels in hair. After selecting our best model, our next step is to fit the final model on all the rows of data not originally held out for testing (our full training sample, as opposed to the repeated sub-samples used in the cross-validation scheme) and then evaluate the model performance one last time with the held-out test set.
+
+---
+
+```{r checkfinal}
+
+mercury_fit_preferred <- linear_reg() %>%
+  set_engine("lm") %>%
+    fit(lhairHg ~ assets_sc + native_cat + age, data = mercury_train)
+
+
+mercury_test_pred <- predict(mercury_fit_preferred, mercury_test) %>%
+  bind_cols(mercury_test %>% select(lhairHg))
+
+rmse(mercury_test_pred, truth = lhairHg, estimate = .pred)
+
+```
+
+---
+
+```{r}
+
+rsq(mercury_test_pred, truth = lhairHg, estimate = .pred)
+
+
+```
+
+While RMSE didn't change much, we do see a lower $R^2$ in the final test data.
+
+---
+
+Let's practice interpreting results from the model, fit to the full data, now!
 
 ```{r finalmodel, out.width="120%", eval=FALSE}
 final_fit <- linear_reg() %>%
