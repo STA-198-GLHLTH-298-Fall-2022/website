@@ -154,7 +154,7 @@ gats2_agg$Sickno <- gats2_agg$TOTAL- gats2_agg$Sickyes
 
 ```{r printdat}
 
-gats2_agg
+print(gats2_agg,n=20)
 
 ```
 

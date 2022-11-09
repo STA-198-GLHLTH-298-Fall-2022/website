@@ -196,20 +196,30 @@ gats2_agg$Sickno &lt;- gats2_agg$TOTAL- gats2_agg$Sickyes
 
 
 ```r
-gats2_agg
+print(gats2_agg,n=20)
 ```
 
 ```
 #&gt; # A tibble: 16 × 6
-#&gt;   GENDER EDUCATION                  TOTAL Sickyes preval…¹ Sickno
-#&gt;   &lt;fct&gt;  &lt;fct&gt;                      &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
-#&gt; 1 Male   None                         308     267    0.867     41
-#&gt; 2 Male   Less than Primary School     880     775    0.881    105
-#&gt; 3 Male   Primary School              1168    1064    0.911    104
-#&gt; 4 Male   Less than Secondary School   522     478    0.916     44
-#&gt; 5 Male   Secondary School            2324    2162    0.930    162
-#&gt; 6 Male   High School                 1505    1429    0.950     76
-#&gt; # … with 10 more rows, and abbreviated variable name ¹​prevalence
+#&gt;    GENDER EDUCATION                  TOTAL Sickyes preva…¹ Sickno
+#&gt;    &lt;fct&gt;  &lt;fct&gt;                      &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+#&gt;  1 Male   None                         308     267   0.867     41
+#&gt;  2 Male   Less than Primary School     880     775   0.881    105
+#&gt;  3 Male   Primary School              1168    1064   0.911    104
+#&gt;  4 Male   Less than Secondary School   522     478   0.916     44
+#&gt;  5 Male   Secondary School            2324    2162   0.930    162
+#&gt;  6 Male   High School                 1505    1429   0.950     76
+#&gt;  7 Male   University                  1215    1148   0.945     67
+#&gt;  8 Male   Postgraduate                  56      53   0.946      3
+#&gt;  9 Female None                        1292    1204   0.932     88
+#&gt; 10 Female Less than Primary School    1012     957   0.946     55
+#&gt; 11 Female Primary School              1259    1209   0.960     50
+#&gt; 12 Female Less than Secondary School   451     433   0.960     18
+#&gt; 13 Female Secondary School            2135    2066   0.968     69
+#&gt; 14 Female High School                 1361    1328   0.976     33
+#&gt; 15 Female University                  1345    1310   0.974     35
+#&gt; 16 Female Postgraduate                  52      49   0.942      3
+#&gt; # … with abbreviated variable name ¹​prevalence
 ```
 
 ---
