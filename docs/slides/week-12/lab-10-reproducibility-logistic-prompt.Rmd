@@ -1,0 +1,60 @@
+---
+title: 'Lab #10: Reproducible Research'
+subtitle: due Friday, November 18, 4:00 PM
+output:
+  tufte::tufte_html:    
+    css: "sta199-labs.css"
+    tufte_variant: envisioned
+    highlight: pygments
+    toc: no
+    toc_depth: 1
+  html_document:
+    toc: no
+    toc_depth: '1'
+    df_print: paged
+link-citations: yes
+editor_options:
+  chunk_output_type: console
+---
+
+## Goals
+
+- In this lab you already have the answers!  We will reproduce much of the analysis in Odoyo-June et al. (2018) using data they made available along with their publication.
+
+- Reproduce point and interval estimates of unadjusted and adjusted odds ratios 
+
+- Interpret results of logistic regression
+
+
+# Agreement on Male Circumcision Status in Nyanza region, Kenya: The TASCO Study
+
+In October 2008, a voluntary medical male circumcision (MC) program for HIV prevention was launched in Kenya as a result of three randomized studies showing a 60% reduction in the  risk of heterosexual HIV infection among circumcized men. TASCO study investigators were interested in the validity of self-report of MC status, which could be related to perceived social desirability as well as uncertainty around one's circumcision status due to biological factors or to some usage of the term to refer to other rituals/rites of passage in which the medical procedure might or might not be carried out.
+
+
+```{r readdata, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidymodels)
+mc <- read_csv("pone.0192823.s001.csv")
+
+mc$consent = as.factor(mc$`Consent to physical Verification`)
+mc$Education=fct_relevel(mc$Education, "Primary & below")
+mc$`Marital Status` = fct_relevel(mc$`Marital Status`, "MARRIED")
+
+```
+
+1. By fitting separate unadjusted logistic regression models, obtain the estimates of the OR and 95% CI's from columns 2-3 of Table 3. Interpret the odds ratios for the employment status variable. If you have any (minor) differences in your output from that in Table 3, explain what they are.
+
+2. By fitting a single multiple logistic regression model, obtain the estimates of the OR and 95% CI's from columns 5-6 of Table 3, fitting the same model used by the authors. Interpret the odds ratios for the employment status variable. If you have any (minor) differences in your output from that in Table 3, explain what they are.
+
+
+## Grading
+Total: 50 pts
+
+- Exercise 1: 20 pts 
+- Exercise 2: 20 pts
+
+
+
+- Overall:  10 pts
+
+  - Overall includes the number of commits made by different team members (at least 1 by each team member), naming chunks, updating the names on the assignment to your team name clearly identifying all team members, following tidyverse style (see: https://style.tidyverse.org/), and in general producing a nicely formatted, neat report. In order to receive credit for this assignment, you must complete the team evaluation on Sakai.
