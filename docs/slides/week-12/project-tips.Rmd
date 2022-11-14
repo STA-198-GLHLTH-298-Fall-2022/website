@@ -20,7 +20,7 @@ options(
 
 # Finalizing your report!
 
-You're in the homestretch! Your report guidelines are posted at the [website](https://sta-198-glhlth-298-fall-2022.github.io/website/). Note projects are due at 11:59pm Tuesday, November 16, with presentations Wednesday or Friday of the same week (scroll to the bottom for your team's day and time).
+You're in the homestretch! Your report guidelines are posted at the [website](https://sta-198-glhlth-298-fall-2022.github.io/website/). Note projects are due at 4pm Friday, November 18, with presentations 11/28, 11/30, or 12/5 (check Announcements on the website).
 
 
 # Reviewing the draft
@@ -32,7 +32,7 @@ Carefully read the project draft, considering the questions below as you read it
 - Are the research question and goal of the report clearly stated? 
 - Does the introduction provide appropriate background context and motivation for a general reader?
 - Is the source of the data stated with an appropriate citation? 
-- Is it clear when and how the data was originally collected?
+- Is it clear when and how the data were originally collected?
 - Are the observations and relevant variables described?
 
 ## Exploratory data analysis 
@@ -61,19 +61,43 @@ The presentation is your time to show others your cool findings!  Be very carefu
 
 # Presentation Day and Time
 
-Presentation days times are randomly assigned; code and results are below!
+Note: you are expected to be present for *all* presentations unless you are ill. I plan to get ideas for exam questions from the project presentations, so don't miss them.
 
-One change:  team-no-name-yet is swapping places with yay-stats
+### Monday, November 28:
 
-```{r presentdaytime}
-teams=data.frame(c("project-the-exposure-experience","team-name-tbd","g-i-joe","TBD1","the-gr8est-team","yay-stats","Rush-207","team-no-name-yet","TBD2","TBD3","The-Statista-Girls","Team-E-T","Jackie-Fan-Club","GGPlot-Gods","Probability-Pandas","IDK-name-yet","save-the-best-for-last"))
-daytime=c("Wed. 10:15","Wed. 10:23","Wed. 10:31","Wed. 10:39","Wed. 10:47","Wed. 10:55","Wed. 11:03","Wed. 11:11","Wed. 11:19","Fri. 10:15","Fri. 10:23","Fri. 10:31","Fri. 10:39", "Fri. 10:47","Fri. 10:55","Fri. 11:03","Fri. 11:11")
+Hannah, Will, Vinith, and Raphael
 
-set.seed(234567)
-teamorder <- sample(nrow(teams))
-cbind(teams[teamorder,],daytime)
+Kayla, Grace, and Hailey
 
-```
+Abby, Anna C., and Laura
 
+Dom, Kate, Dylan, and Albert
 
+Kristen, Catherine, Montana, and Aditya
+
+ 
+
+### Wednesday, November 30:
+
+Carla, Juliet, Laura, and Noah
+
+Rachel, Chiara, Fanbin, and Ariana
+
+Laurel, Maya, Mare, and Gareth
+
+Maura, Sarah, Deven, and Charlie
+
+Zhenkun, Anna G., Michelle, and Erika
+
+ 
+
+### Monday, December 5:
+
+Akshay, Chichi, Claire, and Jasmine
+
+Caroline, Hillary, and Melat
+
+Alayna, Hanzhi, Karly, and Junpeng
+
+Breanna, Brianna, and Habiba
 
