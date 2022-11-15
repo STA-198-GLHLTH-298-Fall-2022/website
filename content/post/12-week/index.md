@@ -37,7 +37,7 @@ title: 'Week 12 - Survival Analysis and Model Validation'
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
 | Quiz | [Quiz 10](https://sakai.duke.edu) | Sunday, 11/13 |
-| Lab 10 | [Logistic Regression](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-12/lab-10-logistic-reproducibility-prompt.html)| Friday, 11/18 |
+| Lab 10 | [Logistic Regression](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-12/lab-10-reproducibility-logistic-prompt.html)| Friday, 11/18 |
 | Project | [Project Draft](/#project)| Friday, 11/18 |
 
 
