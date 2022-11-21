@@ -24,7 +24,7 @@ title: 'Week 14 - Project Presentations'
 
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
-| Homework 4 | [Chocolate Consumption](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-14/hw4-choc-prompt.html)  | Mon., 12/5 |
+| Homework 4 | [Chocolate Consumption](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-14/hw4-choc-prompt.html)  | Fri., 12/2 (no late penalty but hw not accepted after 4pm 12/5) |
 | Lab 11 | [More Chocolate Consumption (hey, doesn't dark chocolate have health benefits?!?)](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-14/lab-11-chocolate-prompt.html)  | Fri., 12/2 |
 | Project | Project Presentations  | 11/28, 11/30, and 12/5 |
 
