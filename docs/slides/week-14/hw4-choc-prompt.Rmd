@@ -1,0 +1,78 @@
+---
+title: 'HW #4: Time to Consumption of Chocolates on Hospital Wards'
+subtitle: due Monday, December 5, 4:00 PM
+output:
+  tufte::tufte_html:    
+    css: "sta199-labs.css"
+    tufte_variant: envisioned
+    highlight: pygments
+    toc: no
+    toc_depth: 1
+  html_document:
+    toc: no
+    toc_depth: '1'
+    df_print: paged
+link-citations: yes
+editor_options:
+  chunk_output_type: console
+---
+
+## Goals
+
+- Apply logistic regression to explore factors related to whether chocolates were eaten
+
+- Apply linear regression to explore factors related to time to consumption of chocolates that were eaten on hospital wards, and determine whether brand effects on time to consumption vary across roles of staff members consuming the chocolates
+
+
+
+
+# Survival Times of Chocolates on Hospital Wards
+
+Gajendragadkar et al (2013) designed and conducted a study to learn which brand of chocolates, Nestle Quality Street or Cadbury Roses, was more popular on hospital wards.  One box of each brand of chocolates was placed in a central location on each of four wards, and an observer noted the time each chocolate was eaten and the staff role of the person consuming each chocolate (administrative, doctor, healthcare assistant, nurse, occupational therapist, physiotherapist, or other). Due to work constraints, chocolate consumption monitoring ended at a different time on each ward.
+
+While Lab 11 explores survival analysis of these data, Homework 4 explores hypotheses that can be investigated using linear and logistic regression.
+
+```{r readdata, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidymodels)
+chocs <- read_csv("chocolates.csv")
+chocs <- chocs %>%
+  mutate(Ward = case_when(
+    Location == 1 ~ "Acute Medical",
+    Location == 2 ~ "General Medical",
+    Location == 3 ~ "General Surgical",
+    TRUE ~ "Hematology"
+  )) %>%
+  mutate(Ward = fct_relevel(Ward, "General Surgical")) %>%
+  mutate(Brand = case_when(
+    Chocolate == 0 ~ "Cadbury Roses",
+    TRUE ~ "Nestle Quality Street"
+  ))
+
+```
+
+1. First, we will explore factors related to consumption of the chocolates within 144 minutes (the minimum observation time of a box of chocolate in the data). Create a binary variable that takes value 1 if a chocolate was eaten at or before the time 144 minutes, and takes value 0 otherwise. The time to a chocolate's consumption is given by the variable `KMSurvivalTime`, and the variable `Eaten` takes value 1 if the chocolate was eaten and takes value 0 if the chocolate was left over.  What proportion of each type of chocolate was eaten in the 144 minute observation period?
+
+2. Use a logistic regression model to explore how the odds of a chocolate's consumption depends on the brand, controlling for ward and assuming the brand preference is the same across all wards.  Interpret an odds ratio estimate and 95% confidence interval as part of your answer. Which chocolates were more likely to be eaten during the 144 minute observation period?
+
+
+3. Now subset the data to include only chocolates eaten (at any time, not just in the 144 minute period). We plan to use linear regression to explore how the time to chocolate's consumption in the variable `KMSurvivalTime` depends on the brand and on the consumer's staff role (contained in the variable `WhoAte`). First, fit a model that contains brand, staff role, and their interaction. Examine the residuals from the model and comment on whether linear regression seems appropriate for these data.
+
+4. Suppose you decide that linear regression on time in minutes is not appropriate and want to try a log transformation. Because some chocolates were eaten immediately, and the log of 0 is not defined, we need to add one minute to each observation before we log its value. Examine the residuals when log(time+1) is the response and comment on whether this model appears to be better than the previous model. 
+
+
+5. Assume the residuals are fine, and use adjusted $R^2$ from this model, and another model of your choice, to address the question of whether the association between brand and time to consumption varies across staff job roles.
+
+
+
+6. Assume the main effects model is the most appropriate one for the data. Fit the model with administrative staff as the reference. (a) Controlling for who ate the chocolates, is there a difference between brands in the time to chocolate consumption? If so, describe it in detail. (b) Controlling for chocolate brand, are there differences between administrative and other types of staff in time to chocolate consumption?  If so, describe in detail.
+
+## Grading
+Total: 50 pts
+
+- Exercise 1: 5 pts 
+- Exercise 2: 10 pts
+- Exercise 3: 10 points
+- Exercise 4: 5 points
+- Exercise 5: 10 points
+- Exercise 6: 10 points

@@ -1,0 +1,71 @@
+---
+title: 'Lab #11: Survival (of chocolates) on hospital wards'
+subtitle: due Friday, December 2, 4:00 PM
+output:
+  tufte::tufte_html:    
+    css: "sta199-labs.css"
+    tufte_variant: envisioned
+    highlight: pygments
+    toc: no
+    toc_depth: 1
+  html_document:
+    toc: no
+    toc_depth: '1'
+    df_print: paged
+link-citations: yes
+editor_options:
+  chunk_output_type: console
+---
+
+## Goals
+
+- Create Kaplan-Meier plots to explore survival by group
+
+- Evaluate relationships between explanatory factors and survival using survival models
+
+- Interpret results obtained from fitting survival models
+
+
+# Survival Times of Chocolates on Hospital Wards
+
+Gajendragadkar et al (2013) designed and conducted a study to learn which brand of chocolates, Nestle Quality Street or Cadbury Roses, was more popular on hospital wards.  One box of each brand of chocolates was placed in a central location on each of four wards (Acute Medical, General Medical, General Surgical, or Hematology), and an observer noted the time each chocolate was eaten. Due to work constraints, chocolate consumption monitoring ended at a different time on each ward, and all chocolates not consumed by the end of the monitoring time period were censored at the end of the monitoring period.
+
+```{r readdata, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidymodels)
+#choc2 <- read_csv("chocolates.csv")
+choc <- read_csv("chocolate.csv")
+choc <- choc %>%
+  mutate(Ward = case_when(
+    Location == 1 ~ "Acute Medical",
+    Location == 2 ~ "General Medical",
+    Location == 3 ~ "General Surgical",
+    TRUE ~ "Hematology"
+  )) %>%
+  mutate(Ward = fct_relevel(Ward, "General Surgical")) %>%
+  mutate(Brand = case_when(
+    Chocolate == 0 ~ "Cadbury Roses",
+    TRUE ~ "Nestle Quality Street"
+  ))
+
+library(survival)
+library(survminer)
+library(gtsummary)
+```
+
+1. Construct a Kaplan-Meier plot of the survival times of chocolates by brand. Based only on the plot, which brand is more popular, and why?
+
+2. Now construct a Kaplan-Meier plot of survival times by ward. Based only on the plot, which ward had the fastest chocolate consumption?
+
+3. Fit the Cox model to the chocolate survival data with brand and ward as predictors.  After controlling for ward, is there a significant different in brand preference (i.e., survival time by brand)?  Support your answer with information from the statistical model.
+
+## Grading
+Total: 50 pts
+
+- Exercise 1: 15 pts 
+- Exercise 2: 15 pts
+- Exercise 3: 15 points
+
+- Overall:  5 pts
+
+  - Overall includes the number of commits made by different team members (at least 1 by each team member), naming chunks, updating the names on the assignment to your team name clearly identifying all team members, following tidyverse style (see: https://style.tidyverse.org/), and in general producing a nicely formatted, neat report. In order to receive credit for this assignment, you must complete the team evaluation on Sakai.
