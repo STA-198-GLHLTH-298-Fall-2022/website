@@ -57,7 +57,7 @@ library(gtsummary)
 
 2. Now construct a Kaplan-Meier plot of survival times by ward. Based only on the plot, which ward had the fastest chocolate consumption?
 
-3. Fit the Cox model to the chocolate survival data with brand and ward as predictors.  After controlling for ward, is there a significant different in brand preference (i.e., survival time by brand)?  Support your answer with information from the statistical model.
+3. Fit the Cox model to the chocolate survival data with brand and ward as predictors.  After controlling for ward, is there a significant difference in brand preference (i.e., survival time by brand)?  Support your answer with information from the statistical model.
 
 ## Grading
 Total: 50 pts
