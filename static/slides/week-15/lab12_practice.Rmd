@@ -1,0 +1,59 @@
+---
+title: 'Lab #12: Practice!'
+output:
+  tufte::tufte_html:    
+    css: "sta199-labs.css"
+    tufte_variant: envisioned
+    highlight: pygments
+    toc: no
+    toc_depth: 1
+  html_document:
+    toc: no
+    toc_depth: '1'
+    df_print: paged
+link-citations: yes
+editor_options:
+  chunk_output_type: console
+---
+
+# Practice: Logistic Regression
+
+Consider data from the Burn Unit at the University of New Mexico Trauma Center on survival of patients, reported by Christensen et al (2011). The outcome is a binary indicator of death, which takes value 1 for patients who died and value 0 for patients who survived. The predictor variables are injury severity score (ISS, which ranges from 0 with a patient with no injuries to 75 for a patient with severe injuries in 3 or more bodily areas), revised trauma score (RTS, an index of physiologic status derived from the Glasgow Coma Scale, which ranges from 0 for a patient with no vital signs to 7.84 for a patient with normal vital signs), age (in years), and type of injury (takes value 1 for penetrating injuries, such as gunshot or stab wounds, and 0 for other injuries).  They fit a logistic regression model to the data and obtained the following results (log OR's are presented in the table).
+
+| Variable | Estimate | SE | 95% CI |
+|:-------|-------:|-----:|:------:|
+| Intercept | -1.757 | 1.145 | (-3.988, 0.488) |
+| ISS | 0.065 | 0.021 | (0.024, 0.106) |
+| RTS | -0.601 | 0.145 | (-0.897, -0.326) |
+| Age | 0.047 | 0.014 | (0.021, 0.075) |
+| Type | 1.099 | 1.089 | (-1.023, 3.237) |
+| Age by Type Interaction | -0.017 | 0.028 | (-0.072, 0.037) |
+
+1. At the 0.05 level of significance, which of the explanatory variables influence the odds of death?
+
+2. As the RTS score increases, does the odds of death increase or decrease?
+
+3. Provide an interpretation for the coefficient of the injury severity score (ISS).
+
+4. Does age have a different relationship with death for those with penetrating versus other types of injuries? Provide support for your response from the data provided.
+
+# Practice: Linear Regression
+
+Rosner (2006) provides data on pulmonary function in adolescents. The response is forced expiratory volume (FEV), a measure of the volume of air in liters expelled in 1 second of a forceful breath. While lung function typically increases in adolescence, smoking may hamper lung development. The researchers fit a regression model with FEV as the outcome and several predictors including age (in years), height (in inches), sex (1=male and 0=not male), and smoking status (1=yes and 0=no), obtaining the following estimates.
+
+| Predictor | Estimate | SE | t-value | p-value |
+|:----------|-------:|-------:|-------:|-------:|
+| Intercept | -4.46 | 0.22 | -20.27 | <0.001 |
+| Age | 0.07 | 0.01 | 7.00 | <0.001|
+| Height | 0.10 | 0.005 | 20.00 | <0.001 |
+| Sex | 0.16 | 0.03 | 5.33 | <0.001 |
+| Smoke | -0.09 | 0.06 | -1.50 | 0.141 |
+
+1. Write the formula you would use to predict FEV for an adolescent if you are given their age, height, sex, and smoking status. What is the predicted FEV for a fifteen year old nonsmoking male who is 70 inches tall?
+
+2. At the 0.05 level of significance, which of the explanatory/predictor variables are related to FEV?
+
+3. Who is more likely to have higher FEV at the same age and smoking status, a male or female adolescent?
+
+4. There is some thought that the association between smoking and lung function may vary for different adolescent ages. How would you go about evaluating the hypothesis that the association between smoking and lung function does not depend on age, versus the alternative that this association does depend on age?
+

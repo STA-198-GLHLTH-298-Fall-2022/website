@@ -41,7 +41,8 @@ title: 'Week 15 - Final Presentations and Wrapping it Up'
 | <div style="width:120px;text-align:left">Assignment</div> | <div style="width:340px;text-align:left">Title</div> | <div style="width:200px;text-align:left">Due</div> |
 |:---|:---|:---|
 | Quiz | [Quiz 12](https://sakai.duke.edu) | Tues., 11/30 |
-| Project | [Project Reports - Info on Main Page](https://sta-198-glhlth-298-fall-2022.github.io/website/) | Tues., 11/16 |
+| Lab Review |[Review Problems](https://sta-198-glhlth-298-fall-2022.github.io/website/slides/week-15/lab12_practice.html)| Attend lab to work these and for solutions! |
+| Project | [Project Reports - Info on Main Page](https://sta-198-glhlth-298-fall-2022.github.io/website/) | Fri., 12/9 |
 
 
 
